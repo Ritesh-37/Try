@@ -1,22 +1,27 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
+
 <title>For My Tishuuu ❤️</title>
 
 <style>
+
 /* =========================================================
    RESET
 ========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -24,15 +29,19 @@ html,body{
 
 body{
     font-family:"Segoe UI",Arial,sans-serif;
-    background:#170309;
+    background:#110207;
     color:#f8ebe7;
     user-select:none;
+    -webkit-user-select:none;
     -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
 }
 
+
 /* =========================================================
-   APP / LUXURY BACKGROUND
+   APP
 ========================================================= */
+
 #app{
     position:fixed;
     inset:0;
@@ -40,11 +49,11 @@ body{
 
     background:
         radial-gradient(
-            circle at 50% 42%,
-            #751c3b 0%,
-            #58102a 28%,
-            #330717 60%,
-            #160107 100%
+            circle at 50% 43%,
+            #791d3e 0%,
+            #59112c 28%,
+            #350818 61%,
+            #130107 100%
         );
 
     transition:opacity 1s ease;
@@ -53,20 +62,23 @@ body{
 #app::before{
     content:"";
     position:absolute;
-    width:90vw;
-    height:90vw;
+    width:100vw;
+    height:100vw;
     max-width:1000px;
     max-height:1000px;
+
     left:50%;
     top:45%;
+
     transform:translate(-50%,-50%);
+
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(246,202,122,.13),
-            rgba(214,99,139,.055) 35%,
+            rgba(248,204,126,.15),
+            rgba(216,101,141,.055) 35%,
             transparent 72%
         );
 
@@ -78,6 +90,7 @@ body{
     content:"";
     position:absolute;
     inset:0;
+
     pointer-events:none;
 
     background:
@@ -89,33 +102,90 @@ body{
         );
 }
 
+
+/* =========================================================
+   AMBIENT LIGHT
+========================================================= */
+
+.ambient-light{
+    position:absolute;
+    width:70vw;
+    height:70vw;
+
+    left:50%;
+    top:47%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(244,187,107,.08),
+            transparent 68%
+        );
+
+    filter:blur(30px);
+
+    pointer-events:none;
+
+    transition:
+        background 1.5s ease,
+        transform 1.5s ease;
+}
+
+.ambient-light.warm{
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,171,71,.22),
+            rgba(229,95,122,.06) 45%,
+            transparent 70%
+        );
+}
+
+
 /* =========================================================
    PARTICLES
 ========================================================= */
+
 #particles{
     position:absolute;
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
+
+    z-index:2;
 }
 
 .particle{
     position:absolute;
+
     width:3px;
     height:3px;
+
     border-radius:50%;
-    background:#e7bd71;
+
+    background:#e8bd73;
 
     box-shadow:
         0 0 10px rgba(242,196,115,.9);
 
-    animation:floatParticle 6s linear forwards;
+    animation:
+        floatParticle
+        6s linear forwards;
 }
 
 @keyframes floatParticle{
+
     0%{
         opacity:0;
-        transform:translateY(30px) scale(.4);
+        transform:
+            translateY(30px)
+            scale(.4);
     }
 
     20%{
@@ -124,16 +194,21 @@ body{
 
     100%{
         opacity:0;
-        transform:translateY(-220px) scale(0);
+        transform:
+            translateY(-220px)
+            scale(0);
     }
 }
 
+
 /* =========================================================
-   INTRO POPUP
+   INTRO
 ========================================================= */
+
 .overlay{
     position:fixed;
     inset:0;
+
     z-index:100;
 
     display:flex;
@@ -142,13 +217,17 @@ body{
 
     padding:22px;
 
-    background:rgba(7,1,4,.46);
-    backdrop-filter:blur(17px);
+    background:
+        rgba(7,1,4,.48);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
     opacity:0;
     visibility:hidden;
 
-    transition:opacity .7s ease;
+    transition:
+        opacity .7s ease;
 }
 
 .overlay.active{
@@ -163,7 +242,10 @@ body{
 
     text-align:center;
 
-    border:1px solid rgba(235,190,111,.32);
+    border:
+        1px solid
+        rgba(235,190,111,.32);
+
     border-radius:30px;
 
     background:
@@ -177,7 +259,9 @@ body{
         0 35px 100px rgba(0,0,0,.62),
         inset 0 1px rgba(255,255,255,.06);
 
-    transform:translateY(28px) scale(.94);
+    transform:
+        translateY(28px)
+        scale(.94);
 
     transition:
         transform .7s
@@ -185,7 +269,9 @@ body{
 }
 
 .overlay.active .popup{
-    transform:translateY(0) scale(1);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .popup-icon{
@@ -194,26 +280,40 @@ body{
 }
 
 .popup h1{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(29px,7vw,46px);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(29px,7vw,46px);
+
     line-height:1.12;
+
     font-weight:400;
+
     color:#faece8;
 }
 
 .popup h1 span{
     display:block;
+
     margin-top:7px;
+
     color:#efc77c;
+
     font-style:italic;
 }
 
 .popup p{
     margin:19px auto 0;
+
     max-width:400px;
 
     color:#d9bbc3;
+
     font-size:13px;
+
     line-height:1.85;
 }
 
@@ -222,7 +322,10 @@ body{
 
     padding:14px 31px;
 
-    border:1px solid rgba(240,194,113,.5);
+    border:
+        1px solid
+        rgba(240,194,113,.5);
+
     border-radius:30px;
 
     background:
@@ -236,6 +339,7 @@ body{
 
     font-size:9px;
     font-weight:700;
+
     letter-spacing:2.5px;
 
     cursor:pointer;
@@ -244,15 +348,19 @@ body{
         0 15px 35px rgba(0,0,0,.3);
 
     transition:.3s ease;
+
+    touch-action:manipulation;
 }
 
-.popup-button:hover{
-    transform:translateY(-3px);
+.popup-button:active{
+    transform:scale(.96);
 }
+
 
 /* =========================================================
    EXPERIENCE
 ========================================================= */
+
 #giftExperience{
     position:absolute;
     inset:0;
@@ -260,7 +368,8 @@ body{
     opacity:0;
     visibility:hidden;
 
-    transition:opacity .9s ease;
+    transition:
+        opacity .9s ease;
 }
 
 #giftExperience.active{
@@ -268,17 +377,23 @@ body{
     visibility:visible;
 }
 
+
 /* =========================================================
    HEADER
 ========================================================= */
+
 .gift-header{
     position:absolute;
-    top:4.3%;
+
+    top:4.1%;
     left:50%;
+
     transform:translateX(-50%);
 
     width:92%;
+
     text-align:center;
+
     z-index:10;
 }
 
@@ -286,16 +401,25 @@ body{
     display:block;
 
     color:#d6a960;
+
     font-size:8px;
+
     letter-spacing:4px;
+
     opacity:.84;
 }
 
 .gift-header h1{
     margin-top:9px;
 
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(30px,7vw,48px);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(30px,7vw,48px);
+
     font-weight:400;
 
     color:#f9e8e4;
@@ -309,6 +433,7 @@ body{
 .decor-line{
     width:100px;
     height:1px;
+
     margin:14px auto 0;
 
     background:
@@ -320,93 +445,140 @@ body{
         );
 }
 
+
 /* =========================================================
    STAGE
 ========================================================= */
+
 .stage{
     position:absolute;
+
     inset:17% 4% 4%;
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
 
     text-align:center;
+
+    z-index:5;
 }
+
+
+/* =========================================================
+   GIFT INFO
+========================================================= */
 
 .gift-number{
     color:#d5a65d;
+
     font-size:8px;
+
     letter-spacing:4px;
-    margin-bottom:12px;
+
+    margin-bottom:11px;
 }
 
 .gift-kicker{
     font-family:Georgia,serif;
+
     color:#e09ab2;
+
     font-size:12px;
+
     font-style:italic;
-    letter-spacing:.2px;
+
     margin-bottom:8px;
 }
 
 .gift-title{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-size:clamp(28px,6vw,40px);
+    font-size:
+        clamp(28px,6vw,40px);
+
     font-weight:400;
 
     color:#f9e5e0;
+
     line-height:1.08;
-
-    text-align:center;
-
-    letter-spacing:.1px;
 }
 
 .gift-description{
     width:min(90%,520px);
+
     margin:12px auto 0;
 
     color:#dcbec6;
-    font-size:12px;
-    line-height:1.75;
 
-    text-align:center;
+    font-size:12px;
+
+    line-height:1.75;
 }
+
+
+/* =========================================================
+   GIFT TRANSITION
+========================================================= */
+
+.stage.transitioning .gift-content{
+    animation:
+        giftExit
+        .45s
+        ease forwards;
+}
+
+@keyframes giftExit{
+
+    to{
+        opacity:0;
+
+        transform:
+            translateY(-18px)
+            scale(.94);
+    }
+}
+
 
 /* =========================================================
    OBJECT AREA
 ========================================================= */
+
 .object-area{
     position:relative;
 
     width:min(92vw,540px);
     height:250px;
 
-    margin:6px auto 0;
+    margin:5px auto 0;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     text-align:center;
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
 }
 
-/* =========================================================
-   PREMIUM OBJECT PEDESTAL
-========================================================= */
 .object-area::before{
     content:"";
 
     position:absolute;
 
-    width:270px;
-    height:55px;
+    width:300px;
+    height:65px;
 
     left:50%;
-    bottom:20px;
+    bottom:17px;
 
     transform:translateX(-50%);
 
@@ -415,24 +587,89 @@ body{
     background:
         radial-gradient(
             ellipse,
-            rgba(0,0,0,.55),
+            rgba(0,0,0,.62),
             transparent 72%
         );
 
-    filter:blur(7px);
+    filter:blur(8px);
+
     pointer-events:none;
 }
+
+.object-area::after{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:150px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(229,185,111,.055),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+/* =========================================================
+   SPOTLIGHT
+========================================================= */
+
+.object-spotlight{
+    position:absolute;
+
+    width:230px;
+    height:210px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(245,211,157,.10),
+            transparent 68%
+        );
+
+    filter:blur(18px);
+
+    pointer-events:none;
+}
+
 
 /* =========================================================
    CANDLE
 ========================================================= */
+
 .candle{
     position:relative;
 
     width:74px;
     height:120px;
 
-    border-radius:9px 9px 14px 14px;
+    border-radius:
+        9px
+        9px
+        14px
+        14px;
 
     background:
         linear-gradient(
@@ -445,31 +682,40 @@ body{
     box-shadow:
         inset 9px 0 18px rgba(255,255,255,.05),
         0 25px 45px rgba(0,0,0,.4);
+
+    transition:
+        filter .8s ease;
 }
 
 .candle-top{
     position:absolute;
+
     top:-8px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:78px;
     height:15px;
 
     border-radius:50%;
+
     background:#e8cfb2;
 }
 
 .wick{
     position:absolute;
+
     top:-25px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:3px;
     height:18px;
 
     background:#20100f;
+
     border-radius:2px;
 }
 
@@ -484,9 +730,14 @@ body{
 
     transform:
         translateX(-50%)
-        rotate(45deg);
+        rotate(45deg)
+        scale(.05);
 
-    border-radius:70% 20% 70% 20%;
+    border-radius:
+        70%
+        20%
+        70%
+        20%;
 
     background:
         linear-gradient(
@@ -501,37 +752,56 @@ body{
         0 0 65px rgba(245,165,67,.8);
 
     opacity:0;
+
     visibility:hidden;
 }
 
+.candle.lit{
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(244,166,72,.52)
+        );
+}
+
 .candle.lit .flame{
-    opacity:1;
     visibility:visible;
 
     animation:
-        igniteFlame .8s ease forwards,
-        flameMove .13s infinite alternate .8s;
+        igniteFlame
+        .9s
+        cubic-bezier(.2,.8,.2,1)
+        forwards,
+
+        flameMove
+        .13s
+        infinite alternate
+        .9s;
 }
 
 @keyframes igniteFlame{
+
     0%{
         opacity:0;
+
         transform:
             translateX(-50%)
             rotate(45deg)
-            scale(.2);
+            scale(.05);
     }
 
-    60%{
+    45%{
         opacity:1;
+
         transform:
             translateX(-50%)
             rotate(45deg)
-            scale(1.2);
+            scale(1.25);
     }
 
     100%{
         opacity:1;
+
         transform:
             translateX(-50%)
             rotate(45deg)
@@ -540,6 +810,7 @@ body{
 }
 
 @keyframes flameMove{
+
     from{
         transform:
             translateX(-50%)
@@ -555,20 +826,81 @@ body{
     }
 }
 
-.candle.lit{
-    filter:drop-shadow(0 0 35px rgba(244,166,72,.42));
+
+/* =========================================================
+   CANDLE WARMTH
+========================================================= */
+
+.candle-warmth{
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,176,72,.24),
+            rgba(255,149,60,.06) 40%,
+            transparent 70%
+        );
+
+    filter:blur(14px);
+
+    opacity:0;
+
+    pointer-events:none;
 }
+
+.candle-warmth.active{
+    animation:
+        warmthPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes warmthPulse{
+
+    0%,
+    100%{
+        opacity:.45;
+        transform:
+            translate(-50%,-50%)
+            scale(.85);
+    }
+
+    50%{
+        opacity:.9;
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
+    }
+}
+
 
 /* =========================================================
    PERFUME
 ========================================================= */
+
 .perfume{
     position:relative;
 
     width:100px;
     height:125px;
 
-    border-radius:12px 12px 17px 17px;
+    border-radius:
+        12px
+        12px
+        17px
+        17px;
 
     background:
         linear-gradient(
@@ -578,17 +910,23 @@ body{
             #09080c
         );
 
-    border:1px solid rgba(240,207,150,.5);
+    border:
+        1px solid
+        rgba(240,207,150,.5);
 
     box-shadow:
         inset 12px 0 22px rgba(255,255,255,.05),
         0 25px 40px rgba(0,0,0,.35);
+
+    transition:
+        transform .5s ease;
 }
 
 .perfume::after{
     content:"CHANEL";
 
     position:absolute;
+
     left:0;
     right:0;
     top:51px;
@@ -596,6 +934,7 @@ body{
     color:#ead29c;
 
     font-size:11px;
+
     letter-spacing:3px;
 }
 
@@ -610,7 +949,11 @@ body{
 
     transform:translateX(-50%);
 
-    border-radius:5px 5px 2px 2px;
+    border-radius:
+        5px
+        5px
+        2px
+        2px;
 
     background:
         linear-gradient(
@@ -621,6 +964,34 @@ body{
         );
 
     transition:.5s ease;
+}
+
+.perfume.sprayed{
+    animation:
+        perfumeTilt
+        .7s
+        ease;
+}
+
+@keyframes perfumeTilt{
+
+    30%{
+        transform:
+            rotate(-4deg)
+            translateY(-4px);
+    }
+
+    65%{
+        transform:
+            rotate(3deg)
+            translateY(-2px);
+    }
+}
+
+.perfume.sprayed .perfume-cap{
+    transform:
+        translate(-50%,-22px)
+        rotate(-12deg);
 }
 
 .mist{
@@ -635,6 +1006,7 @@ body{
     transform:translateX(-50%);
 
     opacity:0;
+
     pointer-events:none;
 }
 
@@ -646,36 +1018,51 @@ body{
 
     border-radius:50%;
 
-    background:rgba(238,225,207,.12);
+    background:
+        rgba(238,225,207,.12);
+
     filter:blur(7px);
 }
 
-.mist span:nth-child(1){left:20px;}
-.mist span:nth-child(2){left:65px;top:-20px;}
-.mist span:nth-child(3){right:15px;top:10px;}
+.mist span:nth-child(1){
+    left:20px;
+}
 
-.perfume.sprayed .perfume-cap{
-    transform:
-        translate(-50%,-22px)
-        rotate(-12deg);
+.mist span:nth-child(2){
+    left:65px;
+    top:-20px;
+}
+
+.mist span:nth-child(3){
+    right:15px;
+    top:10px;
 }
 
 .perfume.sprayed .mist{
-    animation:perfumeMist 1.2s ease forwards;
+    animation:
+        perfumeMist
+        1.2s
+        ease
+        forwards;
 }
 
 @keyframes perfumeMist{
+
     0%{
         opacity:0;
+
         transform:
             translateX(-50%)
             scale(.3);
     }
 
-    35%{opacity:1;}
+    35%{
+        opacity:1;
+    }
 
     100%{
         opacity:0;
+
         transform:
             translateX(-50%)
             translateY(-60px)
@@ -683,15 +1070,20 @@ body{
     }
 }
 
+
 /* =========================================================
    MIRROR
 ========================================================= */
+
 .mirror{
     width:155px;
     height:105px;
 
     border-radius:50%;
-    border:8px solid #d3a35e;
+
+    border:
+        8px solid
+        #d3a35e;
 
     background:
         linear-gradient(
@@ -707,7 +1099,11 @@ body{
         inset 0 0 20px rgba(255,255,255,.65);
 
     position:relative;
+
     overflow:hidden;
+
+    transition:
+        transform .5s ease;
 }
 
 .mirror::after{
@@ -723,21 +1119,97 @@ body{
 
     transform:rotate(25deg);
 
-    background:rgba(255,255,255,.7);
+    background:
+        rgba(255,255,255,.7);
+
     filter:blur(7px);
 }
 
+.mirror.shine{
+    animation:
+        mirrorLift
+        .8s
+        ease;
+}
+
+@keyframes mirrorLift{
+
+    35%{
+        transform:
+            translateY(-9px)
+            scale(1.04);
+    }
+
+    70%{
+        transform:
+            translateY(-3px)
+            scale(1.01);
+    }
+}
+
 .mirror.shine::after{
-    animation:mirrorSweep 1.2s ease forwards;
+    animation:
+        mirrorSweep
+        1.2s
+        ease
+        forwards;
 }
 
 @keyframes mirrorSweep{
-    to{left:190px;}
+
+    to{
+        left:190px;
+    }
 }
+
+.mirror-message{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.8);
+
+    width:160px;
+
+    color:#4a3440;
+
+    font-family:Georgia,serif;
+
+    font-size:14px;
+
+    line-height:1.35;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.6s ease;
+}
+
+.mirror.shine .mirror-message{
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.mirror-message strong{
+    display:block;
+
+    color:#762244;
+
+    font-size:18px;
+}
+
 
 /* =========================================================
    SELF CARE
 ========================================================= */
+
 .selfcare{
     position:relative;
 
@@ -756,21 +1228,28 @@ body{
 
     box-shadow:
         0 25px 45px rgba(0,0,0,.35);
+
+    transition:
+        transform .6s ease;
 }
 
 .selfcare::before{
     content:"TISHUU";
 
     position:absolute;
+
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     color:#50270e;
 
     font-family:Georgia,serif;
+
     letter-spacing:4px;
+
     font-size:15px;
 }
 
@@ -778,38 +1257,59 @@ body{
     content:"";
 
     position:absolute;
+
     top:0;
     bottom:0;
+
     left:50%;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width:18px;
 
-    background:rgba(85,44,12,.22);
+    background:
+        rgba(85,44,12,.22);
 }
 
 .selfcare.glow{
-    animation:goldGlow 1.3s ease;
+    animation:
+        goldGlow
+        1.3s
+        ease;
 }
 
 @keyframes goldGlow{
+
+    25%{
+        transform:
+            translateY(-6px)
+            scale(1.02);
+    }
+
     50%{
         box-shadow:
-            0 0 90px rgba(246,202,111,.85);
+            0 0 90px
+            rgba(246,202,111,.85);
     }
 }
+
 
 /* =========================================================
    PLUSHIE
 ========================================================= */
+
 .plushie{
     position:relative;
 
     width:165px;
     height:165px;
 
-    border-radius:48% 48% 43% 43%;
+    border-radius:
+        48%
+        48%
+        43%
+        43%;
 
     background:
         radial-gradient(
@@ -822,6 +1322,9 @@ body{
     box-shadow:
         inset 12px 14px 25px rgba(255,255,255,.08),
         0 30px 50px rgba(0,0,0,.4);
+
+    transition:
+        transform .3s ease;
 }
 
 .ear{
@@ -831,13 +1334,19 @@ body{
     height:65px;
 
     border-radius:50%;
+
     background:#a72c55;
 
     top:-25px;
 }
 
-.ear.left{left:5px;}
-.ear.right{right:5px;}
+.ear.left{
+    left:5px;
+}
+
+.ear.right{
+    right:5px;
+}
 
 .eye{
     position:absolute;
@@ -846,13 +1355,19 @@ body{
     height:14px;
 
     border-radius:50%;
+
     background:#260611;
 
     top:62px;
 }
 
-.eye.left{left:52px;}
-.eye.right{right:52px;}
+.eye.left{
+    left:52px;
+}
+
+.eye.right{
+    right:52px;
+}
 
 .mouth{
     position:absolute;
@@ -863,9 +1378,13 @@ body{
     left:50%;
     top:82px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    border-bottom:2px solid #3f0e1c;
+    border-bottom:
+        2px solid
+        #3f0e1c;
+
     border-radius:50%;
 }
 
@@ -875,33 +1394,71 @@ body{
     bottom:29px;
     left:50%;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     color:#f2b8c9;
+
     font-size:27px;
 }
 
 .plushie.bounce{
-    animation:plushBounce .8s ease;
+    animation:
+        plushBounce
+        .8s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 @keyframes plushBounce{
-    35%{
+
+    20%{
         transform:
             translateY(-20px)
             rotate(-5deg);
     }
 
-    70%{
+    45%{
         transform:
-            translateY(-6px)
-            rotate(5deg);
+            translateY(0)
+            rotate(4deg);
+    }
+
+    65%{
+        transform:
+            translateY(-9px)
+            rotate(-3deg);
+    }
+
+    100%{
+        transform:
+            translateY(0)
+            rotate(0);
     }
 }
 
+.plushie.hug{
+    animation:
+        plushHug
+        .15s
+        infinite alternate;
+}
+
+@keyframes plushHug{
+
+    from{
+        transform:translateX(-2px);
+    }
+
+    to{
+        transform:translateX(2px);
+    }
+}
+
+
 /* =========================================================
-   PREMIUM SCRUNCHIES
+   SCRUNCHIES
 ========================================================= */
+
 .scrunchies{
     position:relative;
 
@@ -909,6 +1466,7 @@ body{
     height:205px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -921,7 +1479,6 @@ body{
         );
 }
 
-/* satin scrunchie base */
 .scrunchie{
     position:relative;
 
@@ -948,13 +1505,8 @@ body{
         inset 10px 10px 18px rgba(255,255,255,.08),
         inset -10px -12px 20px rgba(0,0,0,.65),
         0 22px 35px rgba(0,0,0,.5);
-
-    transition:
-        transform .8s cubic-bezier(.2,.8,.2,1),
-        filter .5s ease;
 }
 
-/* fabric folds */
 .scrunchie::before{
     content:"";
 
@@ -989,7 +1541,6 @@ body{
     opacity:.8;
 }
 
-/* inner elastic */
 .scrunchie::after{
     content:"";
 
@@ -1001,7 +1552,8 @@ body{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     border-radius:50%;
 
@@ -1012,14 +1564,15 @@ body{
             #050608 70%
         );
 
-    border:2px solid rgba(255,255,255,.08);
+    border:
+        2px solid
+        rgba(255,255,255,.08);
 
     box-shadow:
         inset 4px 4px 8px rgba(255,255,255,.06),
         inset -5px -5px 8px rgba(0,0,0,.7);
 }
 
-/* GOLD SCRUNCHIE */
 .scrunchie.gold{
     transform:
         rotate(11deg)
@@ -1036,12 +1589,6 @@ body{
             #8b561b 60% 69%,
             transparent 70%
         );
-
-    box-shadow:
-        inset 9px 9px 18px rgba(255,255,255,.22),
-        inset -12px -13px 20px rgba(67,37,8,.55),
-        0 22px 35px rgba(0,0,0,.5),
-        0 0 20px rgba(229,180,81,.08);
 }
 
 .scrunchie.gold::before{
@@ -1069,7 +1616,6 @@ body{
         );
 }
 
-/* Gold inner */
 .scrunchie.gold::after{
     background:
         radial-gradient(
@@ -1078,27 +1624,9 @@ body{
             #7c4b15 70%
         );
 
-    border:2px solid rgba(255,224,155,.35);
-}
-
-/* labels underneath */
-.scrunchie-label{
-    position:absolute;
-
-    bottom:0;
-
-    left:50%;
-    transform:translateX(-50%);
-
-    width:100%;
-
-    color:#cfae73;
-
-    font-size:7px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-
-    opacity:.8;
+    border:
+        2px solid
+        rgba(255,224,155,.35);
 }
 
 .scrunchies.active .scrunchie.black{
@@ -1116,11 +1644,13 @@ body{
 }
 
 @keyframes satinBlackReveal{
+
     0%{
         transform:
             translateX(30px)
             rotate(-25deg)
             scale(.75);
+
         opacity:.2;
     }
 
@@ -1136,16 +1666,19 @@ body{
             translateX(0)
             rotate(-10deg)
             scale(1);
+
         opacity:1;
     }
 }
 
 @keyframes goldScrunchieReveal{
+
     0%{
         transform:
             translateX(-30px)
             rotate(25deg)
             scale(.75);
+
         opacity:.2;
     }
 
@@ -1161,11 +1694,11 @@ body{
             translateX(0)
             rotate(11deg)
             scale(1);
+
         opacity:1;
     }
 }
 
-/* luxury shimmer */
 .scrunchies.shimmer::after{
     content:"";
 
@@ -1192,12 +1725,14 @@ body{
     animation:
         accessoryShimmer
         1.4s
-        ease forwards;
+        ease
+        forwards;
 
     pointer-events:none;
 }
 
 @keyframes accessoryShimmer{
+
     from{
         left:-25%;
         opacity:0;
@@ -1213,9 +1748,152 @@ body{
     }
 }
 
+
 /* =========================================================
-   PREMIUM PEARL BRACELET
+   CHOCOLATE
 ========================================================= */
+
+.chocolate{
+    position:relative;
+
+    width:190px;
+    height:150px;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #321006,
+            #68190b 50%,
+            #260b04
+        );
+
+    border:
+        2px solid
+        #b87a32;
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.5),
+        inset 8px 8px 15px rgba(255,255,255,.05);
+
+    transition:
+        transform .7s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.chocolate-title{
+    position:absolute;
+
+    top:18px;
+    left:0;
+    right:0;
+
+    color:#f4d38a;
+
+    font-family:Georgia,serif;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+}
+
+.chocolate-grid{
+    position:absolute;
+
+    left:50%;
+    bottom:17px;
+
+    transform:
+        translateX(-50%);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,24px);
+
+    gap:5px;
+}
+
+.choco{
+    width:24px;
+    height:24px;
+
+    border-radius:4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8b401b,
+            #4a1708
+        );
+
+    box-shadow:
+        inset 3px 3px 4px rgba(255,255,255,.08),
+        2px 3px 5px rgba(0,0,0,.4);
+
+    transition:.4s ease;
+}
+
+.chocolate.open{
+    animation:
+        chocolateSnap
+        .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes chocolateSnap{
+
+    20%{
+        transform:
+            rotate(-4deg)
+            translateY(-7px);
+    }
+
+    45%{
+        transform:
+            rotate(3deg)
+            translateY(-2px);
+    }
+
+    70%{
+        transform:
+            rotate(-1deg)
+            translateY(-4px);
+    }
+
+    100%{
+        transform:
+            rotate(0)
+            translateY(0);
+    }
+}
+
+.chocolate.open .choco:nth-child(1){
+    transform:translateY(-14px);
+}
+
+.chocolate.open .choco:nth-child(2){
+    transform:translateY(-8px);
+}
+
+.chocolate.open .choco:nth-child(3){
+    transform:translateY(-17px);
+}
+
+.chocolate.open .choco:nth-child(4){
+    transform:translateY(-7px);
+}
+
+.chocolate.open .choco:nth-child(5){
+    transform:translateY(-13px);
+}
+
+
+/* =========================================================
+   BRACELET
+========================================================= */
+
 .bracelet{
     position:relative;
 
@@ -1223,13 +1901,13 @@ body{
     height:220px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     perspective:1000px;
 }
 
-/* velvet presentation shadow */
 .bracelet::before{
     content:"";
 
@@ -1241,7 +1919,8 @@ body{
     left:50%;
     bottom:9px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     border-radius:50%;
 
@@ -1255,7 +1934,6 @@ body{
     filter:blur(8px);
 }
 
-/* bracelet strand */
 .pearl-strand{
     position:absolute;
 
@@ -1281,9 +1959,10 @@ body{
 
     box-shadow:
         0 12px 18px rgba(0,0,0,.5);
+
+    opacity:.7;
 }
 
-/* pearls */
 .pearl{
     position:absolute;
 
@@ -1302,7 +1981,9 @@ body{
             #8d8881 100%
         );
 
-    border:1px solid rgba(255,255,255,.7);
+    border:
+        1px solid
+        rgba(255,255,255,.7);
 
     box-shadow:
         inset 5px 5px 8px rgba(255,255,255,.8),
@@ -1310,9 +1991,12 @@ body{
         0 6px 10px rgba(0,0,0,.38);
 
     z-index:3;
+
+    opacity:0;
+
+    transform:scale(.4);
 }
 
-/* pearl highlights */
 .pearl::after{
     content:"";
 
@@ -1326,12 +2010,12 @@ body{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.85);
+    background:
+        rgba(255,255,255,.85);
 
     filter:blur(1px);
 }
 
-/* pearl positioning */
 .pearl.p1{left:5px;top:54px;}
 .pearl.p2{left:18px;top:22px;}
 .pearl.p3{left:51px;top:0;}
@@ -1345,7 +2029,6 @@ body{
 .pearl.p11{left:50px;top:108px;}
 .pearl.p12{left:19px;top:91px;}
 
-/* gold spacers */
 .gold-spacer{
     position:absolute;
 
@@ -1362,13 +2045,19 @@ body{
             #81501c 100%
         );
 
-    border:1px solid rgba(255,230,164,.65);
+    border:
+        1px solid
+        rgba(255,230,164,.65);
 
     box-shadow:
         inset 2px 2px 3px rgba(255,255,255,.55),
         0 3px 5px rgba(0,0,0,.4);
 
     z-index:4;
+
+    opacity:0;
+
+    transform:scale(.2);
 }
 
 .gold-spacer.s1{left:35px;top:31px;}
@@ -1381,7 +2070,6 @@ body{
 .gold-spacer.s8{left:68px;top:111px;}
 .gold-spacer.s9{left:31px;top:78px;}
 
-/* central gold charm */
 .pearl-charm{
     position:absolute;
 
@@ -1391,7 +2079,10 @@ body{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%)
+        scale(.2)
+        rotate(-90deg);
 
     border-radius:50%;
 
@@ -1404,7 +2095,9 @@ body{
             #6e4316 100%
         );
 
-    border:2px solid #f5d991;
+    border:
+        2px solid
+        #f5d991;
 
     box-shadow:
         inset 4px 4px 8px rgba(255,255,255,.45),
@@ -1413,6 +2106,8 @@ body{
         0 10px 15px rgba(0,0,0,.4);
 
     z-index:10;
+
+    opacity:0;
 }
 
 .pearl-charm::before{
@@ -1423,17 +2118,16 @@ body{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-52%);
+    transform:
+        translate(-50%,-52%);
 
     color:#fff1bf;
 
     font-family:Georgia,serif;
 
     font-size:24px;
-    font-style:italic;
 
-    text-shadow:
-        0 1px 2px rgba(73,37,7,.7);
+    font-style:italic;
 }
 
 .pearl-charm::after{
@@ -1449,46 +2143,57 @@ body{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.65);
+    background:
+        rgba(255,255,255,.65);
 
     filter:blur(1px);
 }
 
-/* bracelet entrance */
 .bracelet.reveal .pearl{
     animation:
         pearlAppear
         .75s
-        ease both;
+        ease
+        forwards;
 }
 
 .bracelet.reveal .gold-spacer{
     animation:
         spacerAppear
         .6s
-        ease both;
+        ease
+        forwards;
 }
 
 .bracelet.reveal .pearl-charm{
     animation:
         charmAppear
         1s
-        cubic-bezier(.2,.8,.2,1);
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
 }
 
 @keyframes pearlAppear{
+
     from{
         opacity:0;
-        transform:scale(.45) translateY(20px);
+
+        transform:
+            scale(.45)
+            translateY(20px);
     }
 
     to{
         opacity:1;
-        transform:scale(1);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
 
 @keyframes spacerAppear{
+
     from{
         opacity:0;
         transform:scale(.2);
@@ -1501,8 +2206,10 @@ body{
 }
 
 @keyframes charmAppear{
+
     0%{
         opacity:0;
+
         transform:
             translate(-50%,-50%)
             scale(.2)
@@ -1518,6 +2225,7 @@ body{
 
     100%{
         opacity:1;
+
         transform:
             translate(-50%,-50%)
             scale(1)
@@ -1525,7 +2233,6 @@ body{
     }
 }
 
-/* sequential shimmer */
 .bracelet.shimmer .pearl:nth-child(1),
 .bracelet.shimmer .pearl:nth-child(4),
 .bracelet.shimmer .pearl:nth-child(7),
@@ -1562,10 +2269,14 @@ body{
 }
 
 @keyframes pearlShine{
+
     50%{
         filter:
             brightness(1.35)
-            drop-shadow(0 0 10px rgba(255,245,210,.55));
+            drop-shadow(
+                0 0 10px
+                rgba(255,245,210,.55)
+            );
     }
 }
 
@@ -1578,6 +2289,7 @@ body{
 }
 
 @keyframes charmGlow{
+
     from{
         box-shadow:
             inset 4px 4px 8px rgba(255,255,255,.45),
@@ -1590,20 +2302,63 @@ body{
         box-shadow:
             inset 4px 4px 8px rgba(255,255,255,.55),
             inset -7px -7px 10px rgba(80,43,10,.4),
-            0 0 45px rgba(241,197,102,.8),
+            0 0 48px rgba(241,197,102,.85),
             0 10px 15px rgba(0,0,0,.4);
     }
 }
 
+
+/* =========================================================
+   BRACELET CLIMAX OVERLAY
+========================================================= */
+
+.climax-overlay{
+    position:fixed;
+    inset:0;
+
+    z-index:120;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(245,207,139,.10),
+            rgba(12,1,6,.88)
+        );
+
+    opacity:0;
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity 1s ease;
+}
+
+.climax-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
 /* =========================================================
    BUTTON
 ========================================================= */
+
+.interact-button,
+.next-button,
+.final-step{
+    touch-action:manipulation;
+}
+
 .interact-button{
     margin-top:4px;
 
     padding:13px 27px;
 
-    border:1px solid rgba(228,179,98,.48);
+    border:
+        1px solid
+        rgba(228,179,98,.48);
+
     border-radius:25px;
 
     background:
@@ -1625,12 +2380,8 @@ body{
     box-shadow:
         0 12px 30px rgba(0,0,0,.24);
 
-    transition:.35s ease;
-}
-
-.interact-button:hover{
-    transform:translateY(-2px);
-    background:rgba(130,25,60,.7);
+    transition:
+        .35s ease;
 }
 
 .interact-button:active{
@@ -1641,9 +2392,11 @@ body{
     display:none;
 }
 
+
 /* =========================================================
    REACTION
 ========================================================= */
+
 .reaction{
     width:min(94%,580px);
 
@@ -1674,6 +2427,7 @@ body{
     color:#f0cb80;
 
     font-size:19px;
+
     line-height:1.25;
 
     text-align:center;
@@ -1685,6 +2439,7 @@ body{
     color:#ead5d7;
 
     font-size:11px;
+
     line-height:1.7;
 
     text-align:center;
@@ -1695,7 +2450,10 @@ body{
 
     padding:11px 23px;
 
-    border:1px solid rgba(226,179,98,.45);
+    border:
+        1px solid
+        rgba(226,179,98,.45);
+
     border-radius:24px;
 
     background:
@@ -1708,6 +2466,7 @@ body{
     color:#fff;
 
     font-size:8px;
+
     letter-spacing:2px;
 
     cursor:pointer;
@@ -1716,22 +2475,70 @@ body{
 
     animation:
         revealNext
-        .8s ease .5s forwards;
+        .8s
+        ease
+        .5s
+        forwards;
 }
 
 @keyframes revealNext{
-    to{opacity:1;}
+
+    to{
+        opacity:1;
+    }
 }
+
+
+/* =========================================================
+   GOLD PARTICLES
+========================================================= */
+
+.gold-particle{
+    position:fixed;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#f0c778;
+
+    box-shadow:
+        0 0 12px #f0c778;
+
+    z-index:130;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   HEART PARTICLES
+========================================================= */
+
+.floating-heart{
+    position:fixed;
+
+    z-index:130;
+
+    pointer-events:none;
+
+    color:#e47e9e;
+}
+
 
 /* =========================================================
    FINAL SCREEN
 ========================================================= */
+
 .final-screen{
     position:fixed;
     inset:0;
+
     z-index:150;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1749,7 +2556,8 @@ body{
     opacity:0;
     visibility:hidden;
 
-    transition:1s ease;
+    transition:
+        opacity 1.1s ease;
 }
 
 .final-screen.active{
@@ -1759,12 +2567,28 @@ body{
 
 .final-content{
     width:min(92%,650px);
+
     text-align:center;
 }
 
 .final-heart{
     font-size:45px;
+
     margin-bottom:21px;
+
+    animation:
+        heartPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heartPulse{
+
+    50%{
+        transform:
+            scale(1.08);
+    }
 }
 
 .final-content h2{
@@ -1796,38 +2620,99 @@ body{
     color:#d9bac2;
 
     font-size:12px;
+
     line-height:1.9;
 }
 
 .final-step{
-    margin-top:23px;
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:12px 22px;
+
+    border:
+        1px solid
+        rgba(226,179,98,.45);
+
+    border-radius:24px;
 
     color:#e2b56b;
 
-    font-size:9px;
+    font-size:8px;
 
-    letter-spacing:2px;
+    letter-spacing:2.2px;
 
     cursor:pointer;
 
     animation:
         gentlePulse
-        2s infinite;
+        2s
+        infinite;
 }
 
 @keyframes gentlePulse{
-    50%{opacity:.45;}
+
+    50%{
+        opacity:.45;
+    }
 }
+
+
+/* =========================================================
+   GOLDEN REWARD TRANSITION
+========================================================= */
+
+.reward-light{
+    position:fixed;
+    inset:0;
+
+    z-index:190;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,231,172,1) 0%,
+            rgba(239,194,108,.7) 8%,
+            rgba(116,36,57,.5) 28%,
+            #120107 68%
+        );
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:scale(.15);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.7s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.reward-light.active{
+    opacity:1;
+
+    visibility:visible;
+
+    transform:scale(1);
+}
+
 
 /* =========================================================
    ALBUM
 ========================================================= */
+
 .album-screen{
     position:fixed;
     inset:0;
+
     z-index:200;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1844,7 +2729,8 @@ body{
     opacity:0;
     visibility:hidden;
 
-    transition:1s ease;
+    transition:
+        opacity 1.2s ease;
 }
 
 .album-screen.active{
@@ -1854,6 +2740,7 @@ body{
 
 .album-wrapper{
     width:100%;
+
     text-align:center;
 }
 
@@ -1871,12 +2758,13 @@ body{
 
     transform:
         translateY(70px)
-        scale(.85);
+        scale(.75)
+        rotateX(8deg);
 
     opacity:0;
 
     transition:
-        1.2s
+        1.4s
         cubic-bezier(.2,.8,.2,1);
 }
 
@@ -1885,13 +2773,18 @@ body{
 
     transform:
         translateY(0)
-        scale(1);
+        scale(1)
+        rotateX(0);
 }
 
 .album-pages{
     position:absolute;
 
-    inset:5px 8px 5px 10px;
+    inset:
+        5px
+        8px
+        5px
+        10px;
 
     border-radius:4px;
 
@@ -1924,7 +2817,9 @@ body{
             #4d0a22
         );
 
-    border:2px solid #c99755;
+    border:
+        2px solid
+        #c99755;
 
     box-shadow:
         18px 30px 55px rgba(0,0,0,.55),
@@ -1938,16 +2833,21 @@ body{
 }
 
 .album.open .album-cover{
-    transform:rotateY(-145deg);
+    transform:
+        rotateY(-145deg);
 }
 
 .album-cover::before{
     content:"";
 
     position:absolute;
+
     inset:18px;
 
-    border:1px solid rgba(232,188,111,.55);
+    border:
+        1px solid
+        rgba(232,188,111,.55);
+
     border-radius:5px;
 }
 
@@ -1957,11 +2857,13 @@ body{
     left:50%;
     top:40%;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width:90%;
 
     color:#f0d09a;
+
     text-align:center;
 }
 
@@ -1971,6 +2873,7 @@ body{
     font-family:Georgia,serif;
 
     font-size:42px;
+
     font-weight:400;
 
     letter-spacing:7px;
@@ -1982,6 +2885,7 @@ body{
     margin-top:12px;
 
     font-size:10px;
+
     letter-spacing:3px;
 }
 
@@ -1991,7 +2895,8 @@ body{
     left:50%;
     bottom:45px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     font-size:27px;
 
@@ -2011,16 +2916,22 @@ body{
 
     animation:
         hintPulse
-        2s infinite;
+        2s
+        infinite;
 }
 
 @keyframes hintPulse{
-    50%{opacity:.35;}
+
+    50%{
+        opacity:.35;
+    }
 }
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
+
 @media(max-width:600px){
 
     .gift-header{
@@ -2032,11 +2943,14 @@ body{
     }
 
     .stage{
-        inset:16.5% 4% 3%;
+        inset:
+            16.5%
+            4%
+            3%;
     }
 
     .gift-number{
-        margin-bottom:9px;
+        margin-bottom:8px;
     }
 
     .gift-kicker{
@@ -2050,12 +2964,15 @@ body{
 
     .gift-description{
         font-size:10.5px;
+
         line-height:1.65;
-        margin-top:10px;
+
+        margin-top:9px;
     }
 
     .object-area{
-        height:220px;
+        height:215px;
+
         margin-top:2px;
     }
 
@@ -2080,11 +2997,15 @@ body{
     }
 
     .scrunchies{
-        transform:scale(.72);
+        transform:scale(.70);
+    }
+
+    .chocolate{
+        transform:scale(.84);
     }
 
     .bracelet{
-        transform:scale(.72);
+        transform:scale(.70);
     }
 
     .reaction-title{
@@ -2102,9 +3023,11 @@ body{
     }
 }
 
+
 /* =========================================================
    SMALL HEIGHT DEVICES
 ========================================================= */
+
 @media(max-height:700px){
 
     .gift-header{
@@ -2112,15 +3035,18 @@ body{
     }
 
     .stage{
-        inset:14% 3% 2%;
+        inset:
+            14%
+            3%
+            2%;
     }
 
     .object-area{
-        height:190px;
+        height:185px;
     }
 
     .gift-description{
-        margin-top:7px;
+        margin-top:6px;
     }
 
     .interact-button{
@@ -2132,30 +3058,81 @@ body{
     }
 }
 
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .gift-title{
+        font-size:25px;
+    }
+
+    .gift-description{
+        width:94%;
+
+        font-size:9.5px;
+    }
+
+    .object-area{
+        height:175px;
+    }
+
+    .bracelet{
+        transform:scale(.59);
+    }
+
+    .scrunchies{
+        transform:scale(.59);
+    }
+
+    .plushie{
+        transform:scale(.68);
+    }
+
+    .reaction-title{
+        font-size:15px;
+    }
+
+    .reaction-text{
+        font-size:9px;
+    }
+}
+
+
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
+
 @media(prefers-reduced-motion:reduce){
 
     *,
     *::before,
     *::after{
         animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
         transition-duration:.01ms!important;
     }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div id="app">
 
+<div class="ambient-light" id="ambientLight"></div>
+
 <div id="particles"></div>
+
 
 <!-- =====================================================
      INTRO
 ===================================================== -->
+
 <div class="overlay active" id="intro">
 
     <div class="popup">
@@ -2174,7 +3151,10 @@ body{
             with things that make you smile.
         </p>
 
-        <button class="popup-button" id="introButton">
+        <button
+            class="popup-button"
+            id="introButton"
+        >
             TAP →
         </button>
 
@@ -2186,6 +3166,7 @@ body{
 <!-- =====================================================
      GIFT EXPERIENCE
 ===================================================== -->
+
 <section id="giftExperience">
 
 <header class="gift-header">
@@ -2206,35 +3187,73 @@ body{
 
 <main class="stage">
 
-    <div class="gift-number" id="giftNumber">
-        01 / 08
+    <div id="giftContent">
+
+        <div
+            class="gift-number"
+            id="giftNumber"
+        >
+            01 / 08
+        </div>
+
+        <div
+            class="gift-kicker"
+            id="giftKicker"
+        >
+            A little warmth...
+        </div>
+
+        <h2
+            class="gift-title"
+            id="giftTitle"
+        >
+            A Little Warmth
+        </h2>
+
+        <p
+            class="gift-description"
+            id="giftDescription"
+        >
+            For the girl who somehow makes
+            every place feel warmer.
+        </p>
+
     </div>
 
-    <div class="gift-kicker" id="giftKicker">
-        A little warmth...
-    </div>
 
-    <h2 class="gift-title" id="giftTitle">
-        A Little Warmth
-    </h2>
+    <div
+        class="object-area"
+        id="objectArea"
+    ></div>
 
-    <p class="gift-description" id="giftDescription">
-        For the girl who somehow makes every place feel warmer.
-    </p>
 
-    <div class="object-area" id="objectArea"></div>
-
-    <button class="interact-button" id="interactButton">
-        TAP TO LIGHT 🕯️
+    <button
+        class="interact-button"
+        id="interactButton"
+    >
+        TOUCH TO LIGHT 🕯️
     </button>
 
-    <div class="reaction" id="reaction">
 
-        <div class="reaction-title" id="reactionTitle"></div>
+    <div
+        class="reaction"
+        id="reaction"
+    >
 
-        <div class="reaction-text" id="reactionText"></div>
+        <div
+            class="reaction-title"
+            id="reactionTitle"
+        ></div>
 
-        <button class="next-button" id="nextButton">
+        <div
+            class="reaction-text"
+            id="reactionText"
+        ></div>
+
+        <button
+            class="next-button"
+            id="nextButton"
+        >
             NEXT LITTLE GIFT →
         </button>
 
@@ -2246,9 +3265,23 @@ body{
 
 
 <!-- =====================================================
-     FINAL MESSAGE
+     BRACELET CLIMAX DIMMER
 ===================================================== -->
-<section class="final-screen" id="finalScreen">
+
+<div
+    class="climax-overlay"
+    id="climaxOverlay"
+></div>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section
+    class="final-screen"
+    id="finalScreen"
+>
 
 <div class="final-content">
 
@@ -2257,18 +3290,19 @@ body{
     </div>
 
     <h2 id="finalTitle">
-        These gifts are nothing
-        <span>compared to mine.</span>
+        These little gifts...
+        <span>were never really the point.</span>
     </h2>
 
     <p id="finalText">
-        I've received something far more precious
-        than anything I could ever put inside a box.
-        <br><br>
-        I've received you.
+        They were just little ways of saying
+        how much you mean to me.
     </p>
 
-    <div class="final-step" id="finalStep">
+    <div
+        class="final-step"
+        id="finalStep"
+    >
         TAP...
     </div>
 
@@ -2278,13 +3312,30 @@ body{
 
 
 <!-- =====================================================
+     GOLDEN REWARD
+===================================================== -->
+
+<div
+    class="reward-light"
+    id="rewardLight"
+></div>
+
+
+<!-- =====================================================
      ALBUM
 ===================================================== -->
-<section class="album-screen" id="albumScreen">
+
+<section
+    class="album-screen"
+    id="albumScreen"
+>
 
 <div class="album-wrapper">
 
-    <div class="album" id="album">
+    <div
+        class="album"
+        id="album"
+    >
 
         <div class="album-pages"></div>
 
@@ -2322,50 +3373,80 @@ body{
 
 
 <script>
+
 /* =========================================================
    AUDIO ENGINE
 ========================================================= */
 
 let audioContext = null;
+
 let masterGain = null;
 let musicGain = null;
 let effectGain = null;
+
 let musicStarted = false;
+let musicTimer = null;
+
+let audioUnavailable = false;
+
 
 function initAudio(){
 
-    if(audioContext) return;
+    if(audioContext || audioUnavailable){
+        return;
+    }
 
     const AudioClass =
         window.AudioContext ||
         window.webkitAudioContext;
 
-    if(!AudioClass) return;
+    if(!AudioClass){
 
-    audioContext = new AudioClass();
+        audioUnavailable = true;
 
-    masterGain =
-        audioContext.createGain();
+        return;
+    }
 
-    musicGain =
-        audioContext.createGain();
+    try{
 
-    effectGain =
-        audioContext.createGain();
+        audioContext =
+            new AudioClass();
 
-    masterGain.gain.value = .92;
+        masterGain =
+            audioContext.createGain();
 
-    musicGain.gain.value = .42;
+        musicGain =
+            audioContext.createGain();
 
-    effectGain.gain.value = .48;
+        effectGain =
+            audioContext.createGain();
 
-    musicGain.connect(masterGain);
+        masterGain.gain.value =
+            .92;
 
-    effectGain.connect(masterGain);
+        musicGain.gain.value =
+            .38;
 
-    masterGain.connect(
-        audioContext.destination
-    );
+        effectGain.gain.value =
+            .48;
+
+        musicGain.connect(
+            masterGain
+        );
+
+        effectGain.connect(
+            masterGain
+        );
+
+        masterGain.connect(
+            audioContext.destination
+        );
+
+    }catch(error){
+
+        audioUnavailable = true;
+
+    }
 }
 
 
@@ -2373,13 +3454,24 @@ async function unlockAudio(){
 
     initAudio();
 
-    if(!audioContext) return;
+    if(!audioContext){
+        return;
+    }
 
-    if(
-        audioContext.state ===
-        "suspended"
-    ){
-        await audioContext.resume();
+    try{
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            await audioContext.resume();
+
+        }
+
+    }catch(error){
+
+        /* Graceful fallback */
     }
 }
 
@@ -2397,49 +3489,61 @@ function playTone(
     delay=0
 ){
 
-    if(!audioContext) return;
+    if(!audioContext){
+        return;
+    }
 
-    const now =
-        audioContext.currentTime +
-        delay;
+    try{
 
-    const oscillator =
-        audioContext.createOscillator();
+        const now =
+            audioContext.currentTime +
+            delay;
 
-    const gain =
-        audioContext.createGain();
+        const oscillator =
+            audioContext.createOscillator();
 
-    oscillator.type = type;
+        const gain =
+            audioContext.createGain();
 
-    oscillator.frequency.setValueAtTime(
-        frequency,
-        now
-    );
+        oscillator.type =
+            type;
 
-    gain.gain.setValueAtTime(
-        .0001,
-        now
-    );
+        oscillator.frequency.setValueAtTime(
+            frequency,
+            now
+        );
 
-    gain.gain.exponentialRampToValueAtTime(
-        volume,
-        now + .06
-    );
+        gain.gain.setValueAtTime(
+            .0001,
+            now
+        );
 
-    gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        now + duration
-    );
+        gain.gain.exponentialRampToValueAtTime(
+            volume,
+            now + .05
+        );
 
-    oscillator.connect(gain);
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            now + duration
+        );
 
-    gain.connect(destination);
+        oscillator.connect(gain);
 
-    oscillator.start(now);
+        gain.connect(destination);
 
-    oscillator.stop(
-        now + duration + .05
-    );
+        oscillator.start(now);
+
+        oscillator.stop(
+            now +
+            duration +
+            .05
+        );
+
+    }catch(error){
+
+        /* Audio is optional */
+    }
 }
 
 
@@ -2452,7 +3556,9 @@ function startMusic(){
     if(
         musicStarted ||
         !audioContext
-    ) return;
+    ){
+        return;
+    }
 
     musicStarted = true;
 
@@ -2470,13 +3576,19 @@ function startMusic(){
 
     let index = 0;
 
+
     function playChord(){
+
+        if(!audioContext){
+            return;
+        }
 
         const chord =
             chords[
                 index %
                 chords.length
             ];
+
 
         chord.forEach(
             (note,i)=>{
@@ -2493,6 +3605,7 @@ function startMusic(){
             }
         );
 
+
         playTone(
             chord[3]*2,
             .7,
@@ -2501,6 +3614,7 @@ function startMusic(){
             musicGain,
             .25
         );
+
 
         playTone(
             chord[2]*2,
@@ -2511,6 +3625,7 @@ function startMusic(){
             .95
         );
 
+
         playTone(
             chord[0]/2,
             1.7,
@@ -2519,15 +3634,36 @@ function startMusic(){
             musicGain
         );
 
+
         index++;
+
     }
+
 
     playChord();
 
-    setInterval(
-        playChord,
-        1760
-    );
+
+    musicTimer =
+        setInterval(
+            playChord,
+            1760
+        );
+}
+
+
+function stopMusic(){
+
+    if(musicTimer){
+
+        clearInterval(
+            musicTimer
+        );
+
+        musicTimer = null;
+
+    }
+
+    musicStarted = false;
 }
 
 
@@ -2633,6 +3769,35 @@ function perfumeSound(){
 }
 
 
+function mirrorSound(){
+
+    playTone(
+        523.25,
+        .16,
+        "sine",
+        .025
+    );
+
+    playTone(
+        783.99,
+        .3,
+        "sine",
+        .03,
+        effectGain,
+        .10
+    );
+
+    playTone(
+        1046.5,
+        .5,
+        "sine",
+        .022,
+        effectGain,
+        .25
+    );
+}
+
+
 function plushSound(){
 
     playTone(
@@ -2700,6 +3865,28 @@ function accessorySound(){
 }
 
 
+function chocolateSound(){
+
+    playTone(
+        170,
+        .08,
+        "square",
+        .025
+    );
+
+    playTone(
+        250,
+        .12,
+        "triangle",
+        .03,
+        effectGain,
+        .08
+    );
+
+    sparkle();
+}
+
+
 function braceletSound(){
 
     playTone(
@@ -2747,40 +3934,40 @@ function braceletSound(){
 }
 
 
-function finalSound(){
+function emotionalChord(){
 
     playTone(
         261.63,
-        .7,
+        .8,
         "sine",
         .035
     );
 
     playTone(
         329.63,
-        .8,
+        .9,
         "sine",
         .03,
         effectGain,
-        .15
+        .14
     );
 
     playTone(
         392,
-        .9,
+        1,
         "sine",
         .026,
         effectGain,
-        .3
+        .28
     );
 
     playTone(
         523.25,
-        1.1,
+        1.3,
         "sine",
         .025,
         effectGain,
-        .45
+        .44
     );
 }
 
@@ -2794,6 +3981,7 @@ const particles =
         "particles"
     );
 
+
 function createParticle(){
 
     const p =
@@ -2805,11 +3993,13 @@ function createParticle(){
         "particle";
 
     p.style.left =
-        Math.random()*100 + "%";
+        Math.random()*100 +
+        "%";
 
     p.style.bottom =
         (-5 +
-        Math.random()*10) + "%";
+        Math.random()*10) +
+        "%";
 
     p.style.animationDuration =
         4 +
@@ -2819,15 +4009,182 @@ function createParticle(){
     particles.appendChild(p);
 
     setTimeout(
-        ()=>p.remove(),
+        ()=>{
+            p.remove();
+        },
         8500
     );
 }
+
 
 setInterval(
     createParticle,
     500
 );
+
+
+/* =========================================================
+   GOLD PARTICLES
+========================================================= */
+
+function createGoldParticles(
+    count=20
+){
+
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+
+        const p =
+            document.createElement(
+                "div"
+            );
+
+        p.className =
+            "gold-particle";
+
+        p.style.left =
+            35 +
+            Math.random()*30 +
+            "%";
+
+        p.style.top =
+            40 +
+            Math.random()*25 +
+            "%";
+
+        document.body.appendChild(p);
+
+        p.animate(
+
+            [
+
+                {
+                    transform:
+                        "translateY(0) scale(.3)",
+                    opacity:0
+                },
+
+                {
+                    transform:
+                        `translate(
+                            ${-40+Math.random()*80}px,
+                            -70px
+                        ) scale(1)`,
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            ${-80+Math.random()*160}px,
+                            -160px
+                        ) scale(0)`,
+                    opacity:0
+                }
+
+            ],
+
+            {
+                duration:
+                    1200 +
+                    Math.random()*700,
+
+                easing:"ease-out"
+            }
+
+        ).onfinish =
+            ()=>{
+                p.remove();
+            };
+    }
+}
+
+
+/* =========================================================
+   HEART PARTICLES
+========================================================= */
+
+function createHearts(
+    count=16
+){
+
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+        heart.className =
+            "floating-heart";
+
+        heart.textContent =
+            "♥";
+
+        heart.style.left =
+            38 +
+            Math.random()*24 +
+            "%";
+
+        heart.style.top =
+            43 +
+            Math.random()*20 +
+            "%";
+
+        heart.style.fontSize =
+            12 +
+            Math.random()*16 +
+            "px";
+
+        document.body.appendChild(
+            heart
+        );
+
+        heart.animate(
+
+            [
+
+                {
+                    transform:
+                        "translateY(0) scale(.5)",
+                    opacity:0
+                },
+
+                {
+                    transform:
+                        "translateY(-80px) scale(1)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        "translateY(-170px) scale(.4)",
+                    opacity:0
+                }
+
+            ],
+
+            {
+                duration:
+                    1400 +
+                    Math.random()*700,
+
+                easing:"ease-out"
+            }
+
+        ).onfinish =
+            ()=>{
+                heart.remove();
+            };
+    }
+}
 
 
 /* =========================================================
@@ -2877,22 +4234,34 @@ const introSteps = [
 
 ];
 
+
 let introIndex = 0;
 
+
 const intro =
-    document.getElementById("intro");
+    document.getElementById(
+        "intro"
+    );
 
 const introIcon =
-    document.getElementById("introIcon");
+    document.getElementById(
+        "introIcon"
+    );
 
 const introTitle =
-    document.getElementById("introTitle");
+    document.getElementById(
+        "introTitle"
+    );
 
 const introText =
-    document.getElementById("introText");
+    document.getElementById(
+        "introText"
+    );
 
 const introButton =
-    document.getElementById("introButton");
+    document.getElementById(
+        "introButton"
+    );
 
 
 introButton.addEventListener(
@@ -2906,6 +4275,7 @@ introButton.addEventListener(
         tapSound();
 
         introIndex++;
+
 
         if(
             introIndex <
@@ -2942,6 +4312,7 @@ introButton.addEventListener(
                 700
             );
         }
+
     }
 );
 
@@ -2953,6 +4324,7 @@ introButton.addEventListener(
 const gifts = [
 
 {
+
     number:"01 / 08",
 
     kicker:
@@ -2971,13 +4343,15 @@ const gifts = [
         "candle",
 
     reactionTitle:
-        "For my beautiful Tishuuu ❤️",
+        "LIT FOR MY TISHUUU ❤️",
 
     reactionText:
         "I hope this little flame reminds you of the warmth you bring into my life."
+
 },
 
 {
+
     number:"02 / 08",
 
     kicker:
@@ -3000,9 +4374,11 @@ const gifts = [
 
     reactionText:
         "You already have your own charm. This is just a little luxury to match it."
+
 },
 
 {
+
     number:"03 / 08",
 
     kicker:
@@ -3012,22 +4388,24 @@ const gifts = [
         "A Mirror For Tisha",
 
     description:
-        "A personalized little reminder that no filter is required.",
+        "Come a little closer... there's something I want you to see.",
 
     button:
-        "TOUCH TO SHINE 🪞",
+        "LOOK CLOSER 🪞",
 
     type:
         "mirror",
 
     reactionTitle:
-        "No filter. No editing. ❤️",
+        "Tishuuu ❤️",
 
     reactionText:
-        "Somehow you still manage to look beautiful even when you're not trying."
+        "No filter. No editing. Just my beautiful girl."
+
 },
 
 {
+
     number:"04 / 08",
 
     kicker:
@@ -3050,9 +4428,11 @@ const gifts = [
 
     reactionText:
         "Although honestly... you deserve an entire spa, not just one little box."
+
 },
 
 {
+
     number:"05 / 08",
 
     kicker:
@@ -3071,13 +4451,15 @@ const gifts = [
         "plushie",
 
     reactionTitle:
-        "Okay... one emergency hug. 🥹",
+        "EMERGENCY HUG ACTIVATED 🧸",
 
     reactionText:
-        "Whenever you miss me, give this one a hug. But don't you dare love it more than me. 😤❤️"
+        "Whenever you miss me, hug this. But if you start talking to it more than me, we're going to have a problem. 😂❤️"
+
 },
 
 {
+
     number:"06 / 08",
 
     kicker:
@@ -3100,9 +4482,11 @@ const gifts = [
 
     reactionText:
         "A little classy, a little dramatic... basically, something that belongs with my Tishuuu."
+
 },
 
 {
+
     number:"07 / 08",
 
     kicker:
@@ -3115,7 +4499,7 @@ const gifts = [
         "Because every birthday girl needs a chocolate emergency supply.",
 
     button:
-        "TOUCH FOR CHOCOLATE 🍫",
+        "OPEN THE CHOCOLATE 🍫",
 
     type:
         "chocolate",
@@ -3125,13 +4509,15 @@ const gifts = [
 
     reactionText:
         "For every 'Riteshhh, I want something sweet' emergency."
+
 },
 
 {
+
     number:"08 / 08",
 
     kicker:
-        "The final little treasure...",
+        "THE FINAL LITTLE TREASURE",
 
     title:
         "Pearls For My Tishuuu",
@@ -3146,10 +4532,13 @@ const gifts = [
         "bracelet",
 
     reactionTitle:
-        "Something beautiful for someone precious. 🤍",
+        "For my Tishuuu. 🤍",
 
     reactionText:
-        "A little white pearl and gold bracelet... because if something stays close to you, I want it to be beautiful enough to remind you of me."
+        "A little white pearl and gold bracelet... because if something stays close to you, I want it to be beautiful enough to remind you of me.",
+
+    finalGift:true
+
 }
 
 ];
@@ -3166,6 +4555,11 @@ let interacted = false;
 const experience =
     document.getElementById(
         "giftExperience"
+    );
+
+const stage =
+    document.querySelector(
+        ".stage"
     );
 
 const giftNumber =
@@ -3218,6 +4612,16 @@ const nextButton =
         "nextButton"
     );
 
+const ambientLight =
+    document.getElementById(
+        "ambientLight"
+    );
+
+const climaxOverlay =
+    document.getElementById(
+        "climaxOverlay"
+    );
+
 
 /* =========================================================
    BEGIN
@@ -3239,12 +4643,15 @@ function beginExperience(){
 
 function loadGift(index){
 
-    currentGift = index;
+    currentGift =
+        index;
 
-    interacted = false;
+    interacted =
+        false;
 
     const gift =
         gifts[index];
+
 
     giftNumber.textContent =
         gift.number;
@@ -3265,6 +4672,7 @@ function loadGift(index){
         "done"
     );
 
+
     reaction.classList.remove(
         "show"
     );
@@ -3278,34 +4686,58 @@ function loadGift(index){
     objectArea.innerHTML =
         "";
 
+
+    if(
+        gift.finalGift
+    ){
+
+        climaxOverlay.classList.add(
+            "active"
+        );
+
+        setTimeout(
+            ()=>{
+                climaxOverlay.classList.remove(
+                    "active"
+                );
+            },
+            900
+        );
+
+    }
+
+
     createGiftObject(
         gift.type
     );
 
-    objectArea.animate(
-        [
-            {
-                opacity:0,
-                transform:
-                    "translateY(28px) scale(.88)"
-            },
-            {
-                opacity:1,
-                transform:
-                    "translateY(0) scale(1)"
-            }
-        ],
-        {
-            duration:850,
-            easing:
-                "cubic-bezier(.2,.8,.2,1)"
+
+    objectArea.style.opacity =
+        "0";
+
+    objectArea.style.transform =
+        "translateY(25px) scale(.88)";
+
+
+    requestAnimationFrame(
+        ()=>{
+
+            objectArea.style.transition =
+                "opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)";
+
+            objectArea.style.opacity =
+                "1";
+
+            objectArea.style.transform =
+                "translateY(0) scale(1)";
+
         }
     );
 }
 
 
 /* =========================================================
-   CREATE OBJECT
+   CREATE GIFT OBJECT
 ========================================================= */
 
 function createGiftObject(type){
@@ -3313,6 +4745,13 @@ function createGiftObject(type){
     if(type === "candle"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
+
+            <div
+                class="candle-warmth"
+                id="candleWarmth"
+            ></div>
 
             <div
                 class="candle"
@@ -3334,6 +4773,8 @@ function createGiftObject(type){
     else if(type === "perfume"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
 
             <div
                 class="perfume"
@@ -3360,10 +4801,24 @@ function createGiftObject(type){
 
         objectArea.innerHTML = `
 
+            <div class="object-spotlight"></div>
+
             <div
                 class="mirror"
                 id="mirrorObject"
-            ></div>
+            >
+
+                <div class="mirror-message">
+
+                    LOOK CLOSER...
+
+                    <strong>
+                        Tishuuu ❤️
+                    </strong>
+
+                </div>
+
+            </div>
 
         `;
     }
@@ -3372,6 +4827,8 @@ function createGiftObject(type){
     else if(type === "selfcare"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
 
             <div
                 class="selfcare"
@@ -3385,6 +4842,8 @@ function createGiftObject(type){
     else if(type === "plushie"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
 
             <div
                 class="plushie"
@@ -3413,6 +4872,8 @@ function createGiftObject(type){
 
         objectArea.innerHTML = `
 
+            <div class="object-spotlight"></div>
+
             <div
                 class="scrunchies"
                 id="scrunchieObject"
@@ -3421,10 +4882,6 @@ function createGiftObject(type){
                 <div class="scrunchie black"></div>
 
                 <div class="scrunchie gold"></div>
-
-                <div class="scrunchie-label">
-                    SATIN • GOLD
-                </div>
 
             </div>
 
@@ -3435,6 +4892,8 @@ function createGiftObject(type){
     else if(type === "chocolate"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
 
             <div
                 class="chocolate"
@@ -3464,6 +4923,8 @@ function createGiftObject(type){
     else if(type === "bracelet"){
 
         objectArea.innerHTML = `
+
+            <div class="object-spotlight"></div>
 
             <div
                 class="bracelet reveal"
@@ -3510,20 +4971,28 @@ function createGiftObject(type){
 
 interactButton.addEventListener(
     "click",
-    ()=>{
+    async()=>{
 
-        if(interacted) return;
+        if(interacted){
+            return;
+        }
 
-        interacted = true;
+        interacted =
+            true;
+
+        await unlockAudio();
 
         tapSound();
+
 
         performInteraction(
             gifts[currentGift].type
         );
 
+
         const gift =
             gifts[currentGift];
+
 
         reactionTitle.textContent =
             gift.reactionTitle;
@@ -3531,29 +5000,35 @@ interactButton.addEventListener(
         reactionText.textContent =
             gift.reactionText;
 
+
         interactButton.classList.add(
             "done"
         );
 
+
         setTimeout(
             ()=>{
+
                 reaction.classList.add(
                     "show"
                 );
+
             },
-            currentGift === 7
-                ? 1300
+            gift.type === "bracelet"
+                ? 1500
                 : 850
         );
+
     }
 );
 
 
 /* =========================================================
-   INTERACTION ANIMATIONS
+   PERFORM INTERACTION
 ========================================================= */
 
 function performInteraction(type){
+
 
     if(type === "candle"){
 
@@ -3562,13 +5037,31 @@ function performInteraction(type){
                 "candleObject"
             );
 
+        const warmth =
+            document.getElementById(
+                "candleWarmth"
+            );
+
+
         candle.classList.add(
             "lit"
         );
 
+        warmth.classList.add(
+            "active"
+        );
+
+        ambientLight.classList.add(
+            "warm"
+        );
+
+
         candleSound();
 
-        createGoldParticles();
+        createGoldParticles(
+            28
+        );
+
     }
 
 
@@ -3584,6 +5077,11 @@ function performInteraction(type){
         );
 
         perfumeSound();
+
+        createGoldParticles(
+            10
+        );
+
     }
 
 
@@ -3598,7 +5096,14 @@ function performInteraction(type){
             "shine"
         );
 
+        mirrorSound();
+
         sparkle();
+
+        createGoldParticles(
+            14
+        );
+
     }
 
 
@@ -3615,7 +5120,10 @@ function performInteraction(type){
 
         sparkle();
 
-        createGoldParticles();
+        createGoldParticles(
+            22
+        );
+
     }
 
 
@@ -3632,7 +5140,28 @@ function performInteraction(type){
 
         plushSound();
 
-        createHearts();
+        createHearts(
+            20
+        );
+
+        setTimeout(
+            ()=>{
+                plush.classList.add(
+                    "hug"
+                );
+            },
+            800
+        );
+
+        setTimeout(
+            ()=>{
+                plush.classList.remove(
+                    "hug"
+                );
+            },
+            1700
+        );
+
     }
 
 
@@ -3655,7 +5184,10 @@ function performInteraction(type){
 
         sparkle();
 
-        createGoldParticles();
+        createGoldParticles(
+            24
+        );
+
     }
 
 
@@ -3670,35 +5202,82 @@ function performInteraction(type){
             "open"
         );
 
-        sparkle();
+        chocolateSound();
+
+        setTimeout(
+            ()=>{
+                createGoldParticles(
+                    16
+                );
+            },
+            250
+        );
+
     }
 
 
     else if(type === "bracelet"){
 
-        const bracelet =
-            document.getElementById(
-                "braceletObject"
-            );
-
-        bracelet.classList.add(
-            "shimmer"
+        climaxOverlay.classList.add(
+            "active"
         );
 
-        braceletSound();
-
-        createGoldParticles();
 
         setTimeout(
-            createGoldParticles,
-            450
+            ()=>{
+
+                const bracelet =
+                    document.getElementById(
+                        "braceletObject"
+                    );
+
+                bracelet.classList.add(
+                    "shimmer"
+                );
+
+
+                braceletSound();
+
+                createGoldParticles(
+                    35
+                );
+
+
+                setTimeout(
+                    ()=>{
+                        createGoldParticles(
+                            25
+                        );
+                    },
+                    450
+                );
+
+
+                setTimeout(
+                    ()=>{
+                        createGoldParticles(
+                            25
+                        );
+                    },
+                    900
+                );
+
+
+                setTimeout(
+                    ()=>{
+                        climaxOverlay.classList.remove(
+                            "active"
+                        );
+                    },
+                    1300
+                );
+
+            },
+            300
         );
 
-        setTimeout(
-            createGoldParticles,
-            900
-        );
     }
+
 }
 
 
@@ -3710,9 +5289,12 @@ nextButton.addEventListener(
     "click",
     ()=>{
 
-        if(!interacted) return;
+        if(!interacted){
+            return;
+        }
 
         tapSound();
+
 
         if(
             currentGift ===
@@ -3725,221 +5307,50 @@ nextButton.addEventListener(
 
             setTimeout(
                 showFinal,
-                1000
+                900
             );
 
             return;
         }
 
-        objectArea.animate(
-            [
-                {
-                    opacity:1,
-                    transform:
-                        "scale(1)"
-                },
-                {
-                    opacity:0,
-                    transform:
-                        "scale(.86) translateY(-15px)"
-                }
-            ],
-            {
-                duration:430,
-                easing:"ease-in"
-            }
+
+        stage.classList.add(
+            "transitioning"
         );
+
+        objectArea.style.opacity =
+            "0";
+
+        objectArea.style.transform =
+            "translateY(-18px) scale(.90)";
+
 
         reaction.classList.remove(
             "show"
         );
 
+
         setTimeout(
             ()=>{
+
+                stage.classList.remove(
+                    "transitioning"
+                );
+
                 loadGift(
                     currentGift + 1
                 );
+
             },
-            500
+            520
         );
+
     }
 );
 
 
 /* =========================================================
-   HEART PARTICLES
-========================================================= */
-
-function createHearts(){
-
-    for(
-        let i=0;
-        i<16;
-        i++
-    ){
-
-        const heart =
-            document.createElement(
-                "div"
-            );
-
-        heart.textContent =
-            "♥";
-
-        heart.style.position =
-            "fixed";
-
-        heart.style.left =
-            38 +
-            Math.random()*24 +
-            "%";
-
-        heart.style.top =
-            43 +
-            Math.random()*20 +
-            "%";
-
-        heart.style.zIndex =
-            "90";
-
-        heart.style.pointerEvents =
-            "none";
-
-        heart.style.color =
-            "#e47e9e";
-
-        heart.style.fontSize =
-            12 +
-            Math.random()*16 +
-            "px";
-
-        document.body.appendChild(
-            heart
-        );
-
-        heart.animate(
-
-            [
-                {
-                    transform:
-                        "translateY(0) scale(.5)",
-                    opacity:0
-                },
-                {
-                    transform:
-                        "translateY(-80px) scale(1)",
-                    opacity:1
-                },
-                {
-                    transform:
-                        "translateY(-170px) scale(.4)",
-                    opacity:0
-                }
-            ],
-
-            {
-                duration:
-                    1400 +
-                    Math.random()*700,
-
-                easing:"ease-out"
-            }
-
-        ).onfinish =
-            ()=>heart.remove();
-    }
-}
-
-
-/* =========================================================
-   GOLD PARTICLES
-========================================================= */
-
-function createGoldParticles(){
-
-    for(
-        let i=0;
-        i<20;
-        i++
-    ){
-
-        const p =
-            document.createElement(
-                "div"
-            );
-
-        p.style.position =
-            "fixed";
-
-        p.style.left =
-            35 +
-            Math.random()*30 +
-            "%";
-
-        p.style.top =
-            40 +
-            Math.random()*25 +
-            "%";
-
-        p.style.width =
-            "4px";
-
-        p.style.height =
-            "4px";
-
-        p.style.borderRadius =
-            "50%";
-
-        p.style.background =
-            "#f0c778";
-
-        p.style.boxShadow =
-            "0 0 12px #f0c778";
-
-        p.style.zIndex =
-            "90";
-
-        p.style.pointerEvents =
-            "none";
-
-        document.body.appendChild(
-            p
-        );
-
-        p.animate(
-
-            [
-                {
-                    transform:
-                        "translateY(0) scale(.3)",
-                    opacity:0
-                },
-                {
-                    transform:
-                        "translateY(-70px) scale(1)",
-                    opacity:1
-                },
-                {
-                    transform:
-                        "translateY(-150px) scale(0)",
-                    opacity:0
-                }
-            ],
-
-            {
-                duration:
-                    1200 +
-                    Math.random()*700
-            }
-
-        ).onfinish =
-            ()=>p.remove();
-    }
-}
-
-
-/* =========================================================
-   FINAL
+   FINAL SCREEN
 ========================================================= */
 
 const finalScreen =
@@ -3962,31 +5373,36 @@ const finalStep =
         "finalStep"
     );
 
-let finalTap = 0;
+
+let finalTap =
+    0;
 
 
 function showFinal(){
 
-    finalTap = 0;
+    finalTap =
+        0;
 
-    finalSound();
+    emotionalChord();
 
     finalScreen.classList.add(
         "active"
     );
 
+
     finalTitle.innerHTML =
-        `These gifts are nothing
-        <span>compared to mine.</span>`;
+        `These little gifts...
+        <span>were never really the point.</span>`;
+
 
     finalText.innerHTML =
-        `I've received something far more precious
-        than anything I could ever put inside a box.
-        <br><br>
-        I've received you.`;
+        `They were just little ways of saying
+        how much you mean to me.`;
+
 
     finalStep.textContent =
         "TAP...";
+
 }
 
 
@@ -4002,32 +5418,43 @@ finalStep.addEventListener(
 
         finalTap++;
 
+
         if(finalTap === 1){
 
             finalTitle.innerHTML =
                 `Because the best gift
                 <span>I've ever received...</span>`;
 
+
             finalText.innerHTML =
                 `wasn't something I could buy.`;
 
+
             finalStep.textContent =
                 "TAP...";
+
         }
 
 
         else if(finalTap === 2){
 
+            emotionalChord();
+
+
             finalTitle.innerHTML =
                 `It was
                 <span>you. ❤️</span>`;
 
+
             finalText.innerHTML =
-                `And now I want to show you
-                something that belongs only to us.`;
+                `And since you found all eight...
+                <br><br>
+                I think you've earned one last surprise.`;
+
 
             finalStep.textContent =
-                "COME ❤️";
+                "OPEN OUR LITTLE UNIVERSE →";
+
         }
 
 
@@ -4037,25 +5464,69 @@ finalStep.addEventListener(
                 "active"
             );
 
+
             setTimeout(
                 ()=>{
-
-                    document
-                        .getElementById(
-                            "albumScreen"
-                        )
-                        .classList.add(
-                            "active"
-                        );
-
-                    sparkle();
-
+                    revealAlbum();
                 },
                 900
             );
+
         }
+
     }
 );
+
+
+/* =========================================================
+   ALBUM REVEAL
+========================================================= */
+
+const rewardLight =
+    document.getElementById(
+        "rewardLight"
+    );
+
+const albumScreen =
+    document.getElementById(
+        "albumScreen"
+    );
+
+
+function revealAlbum(){
+
+    rewardLight.classList.add(
+        "active"
+    );
+
+
+    sparkle();
+
+
+    setTimeout(
+        ()=>{
+
+            albumScreen.classList.add(
+                "active"
+            );
+
+        },
+        900
+    );
+
+
+    setTimeout(
+        ()=>{
+
+            rewardLight.classList.remove(
+                "active"
+            );
+
+        },
+        1700
+    );
+
+}
 
 
 /* =========================================================
@@ -4067,51 +5538,84 @@ const album =
         "album"
     );
 
+
+let albumOpening =
+    false;
+
+
 album.addEventListener(
     "click",
     ()=>{
 
         if(
+            albumOpening ||
             album.classList.contains(
                 "open"
             )
-        ) return;
+        ){
+            return;
+        }
+
+
+        albumOpening =
+            true;
+
 
         tapSound();
+
 
         album.classList.add(
             "open"
         );
 
+
         setTimeout(
             ()=>{
+
                 window.location.href =
                     "photo.html";
+
             },
-            1900
+            1400
         );
+
     }
 );
 
 
 /* =========================================================
-   FIRST TOUCH AUDIO UNLOCK
+   FIRST TOUCH AUDIO
 ========================================================= */
+
+let firstTouchHandled =
+    false;
+
 
 document.addEventListener(
     "pointerdown",
     async()=>{
+
+        if(firstTouchHandled){
+            return;
+        }
+
+        firstTouchHandled =
+            true;
+
         await unlockAudio();
+
         startMusic();
+
     },
     {
-        once:true
+        once:true,
+        passive:true
     }
 );
 
 
 /* =========================================================
-   PREVENT DOUBLE-TAP ZOOM
+   PREVENT DOUBLE TAP ZOOM
 ========================================================= */
 
 document.addEventListener(
@@ -4120,8 +5624,34 @@ document.addEventListener(
         event.preventDefault();
     }
 );
+
+
+/* =========================================================
+   PREVENT GESTURE ZOOM
+========================================================= */
+
+document.addEventListener(
+    "gesturestart",
+    event=>{
+        event.preventDefault();
+    }
+);
+
+document.addEventListener(
+    "gesturechange",
+    event=>{
+        event.preventDefault();
+    }
+);
+
+document.addEventListener(
+    "gestureend",
+    event=>{
+        event.preventDefault();
+    }
+);
+
 </script>
 
 </body>
 </html>
-```
