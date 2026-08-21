@@ -1,685 +1,1222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For My Tishuuu ❤️</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
 }
 
 body{
-    font-family:"Segoe UI",Arial,sans-serif;
-    background:#260611;
-    color:#f8e8e5;
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#210611;
+
+    color:#f8ebe7;
+
     user-select:none;
+
     -webkit-tap-highlight-color:transparent;
 }
+
+
+/* =========================================================
+   MAIN BACKGROUND
+========================================================= */
 
 #app{
     position:fixed;
     inset:0;
+
     overflow:hidden;
+
     background:
         radial-gradient(
-            circle at 50% 45%,
+            circle at 50% 43%,
             #68152f 0%,
-            #4a0b22 35%,
-            #2b0614 70%,
+            #4d0c23 34%,
+            #2b0615 68%,
             #140107 100%
         );
+
     transition:opacity 1s ease;
 }
 
+
+/* soft center glow */
+
 #app::before{
     content:"";
+
     position:absolute;
-    width:75vw;
-    height:75vw;
+
+    width:80vw;
+    height:80vw;
+
     max-width:900px;
     max-height:900px;
+
     left:50%;
     top:45%;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(236,180,100,.13),
-        rgba(200,83,118,.06) 35%,
-        transparent 70%
-    );
-    filter:blur(35px);
-    pointer-events:none;
-}
 
-#app::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        transparent 20%,
-        rgba(255,255,255,.025) 48%,
-        transparent 65%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(239,190,116,.12),
+            rgba(211,91,129,.055) 36%,
+            transparent 72%
+        );
+
+    filter:blur(40px);
+
     pointer-events:none;
 }
 
 
-/* PARTICLES */
+/* =========================================================
+   PARTICLES
+========================================================= */
 
 #particles{
     position:absolute;
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
 }
 
 .particle{
     position:absolute;
+
     width:3px;
     height:3px;
+
     border-radius:50%;
-    background:#e7bd79;
-    box-shadow:0 0 9px rgba(245,203,128,.9);
-    animation:rise 5s linear forwards;
+
+    background:#e5b969;
+
+    box-shadow:
+        0 0 10px
+        rgba(242,196,115,.9);
+
+    animation:
+        floatParticle
+        6s linear forwards;
 }
 
-@keyframes rise{
+@keyframes floatParticle{
+
     0%{
-        transform:translateY(30px) scale(.4);
         opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.4);
     }
-    20%{opacity:.9;}
+
+    20%{
+        opacity:.8;
+    }
+
     100%{
-        transform:translateY(-200px) scale(0);
         opacity:0;
+
+        transform:
+            translateY(-220px)
+            scale(0);
     }
 }
 
 
-/* POPUPS */
+/* =========================================================
+   POPUP
+========================================================= */
 
 .overlay{
     position:fixed;
+
     inset:0;
+
     z-index:100;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    padding:24px;
 
-    background:rgba(12,1,6,.38);
-    backdrop-filter:blur(14px);
+    padding:22px;
+
+    background:
+        rgba(9,1,5,.42);
+
+    backdrop-filter:
+        blur(15px);
 
     opacity:0;
+
     visibility:hidden;
-    transition:opacity .7s ease;
+
+    transition:
+        opacity .7s ease;
 }
 
 .overlay.active{
     opacity:1;
+
     visibility:visible;
 }
 
 .popup{
     width:min(92%,520px);
-    padding:42px 28px;
+
+    padding:
+        42px
+        28px
+        38px;
+
     text-align:center;
 
-    border:1px solid rgba(229,182,106,.28);
+    border:
+        1px solid
+        rgba(231,183,105,.3);
+
     border-radius:30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(104,21,47,.96),
-            rgba(43,6,20,.97)
+            rgba(105,19,48,.97),
+            rgba(39,5,18,.98)
         );
 
     box-shadow:
-        0 35px 100px rgba(0,0,0,.55),
-        inset 0 1px rgba(255,255,255,.06);
+        0 35px 100px
+        rgba(0,0,0,.58),
 
-    transform:translateY(25px) scale(.94);
-    transition:transform .7s cubic-bezier(.2,.8,.2,1);
+        inset
+        0 1px
+        rgba(255,255,255,.06);
+
+    transform:
+        translateY(28px)
+        scale(.94);
+
+    transition:
+        transform .7s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 .overlay.active .popup{
-    transform:translateY(0) scale(1);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .popup-icon{
-    font-size:42px;
-    margin-bottom:18px;
+    font-size:40px;
+
+    margin-bottom:19px;
 }
 
 .popup h1{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:clamp(29px,7vw,48px);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(28px,7vw,46px);
+
+    line-height:1.12;
+
     font-weight:400;
-    line-height:1.08;
-    color:#f8e8e5;
+
+    color:#faece8;
 }
 
 .popup h1 span{
     display:block;
-    margin-top:5px;
-    color:#f0c77c;
+
+    margin-top:6px;
+
+    color:#efc77c;
+
     font-style:italic;
 }
 
 .popup p{
-    margin-top:17px;
-    color:#dcbec6;
+    margin:
+        18px auto 0;
+
+    max-width:400px;
+
+    color:#d9bbc3;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
-.popup-button,
-.final-button{
-    margin-top:27px;
-    padding:14px 29px;
-    border:1px solid rgba(238,193,112,.5);
+.popup-button{
+    margin-top:28px;
+
+    padding:
+        14px
+        30px;
+
+    border:
+        1px solid
+        rgba(240,194,113,.5);
+
     border-radius:30px;
-    background:linear-gradient(
-        135deg,
-        #a52a54,
-        #68132f
-    );
-    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a92d57,
+            #68132f
+        );
+
+    color:#fff;
+
     font-size:10px;
+
     font-weight:700;
+
     letter-spacing:2px;
+
     cursor:pointer;
-    box-shadow:0 14px 30px rgba(0,0,0,.3);
-    transition:.25s ease;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.3);
+
+    transition:.3s ease;
 }
 
-.popup-button:hover,
-.final-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 18px 38px rgba(224,174,93,.18);
+.popup-button:hover{
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(235,181,98,.2);
 }
 
 
-/* MAIN GIFT EXPERIENCE */
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
 #giftExperience{
     position:absolute;
+
     inset:0;
+
     opacity:0;
+
     visibility:hidden;
-    transition:opacity 1s ease;
+
+    transition:
+        opacity .9s ease;
 }
 
 #giftExperience.active{
     opacity:1;
+
     visibility:visible;
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .gift-header{
     position:absolute;
-    top:5%;
+
+    top:4.5%;
+
     left:50%;
-    transform:translateX(-50%);
-    width:90%;
+
+    transform:
+        translateX(-50%);
+
+    width:92%;
+
     text-align:center;
+
     z-index:10;
 }
 
 .gift-header small{
     display:block;
-    color:#d9aa62;
+
+    color:#d6a960;
+
     font-size:8px;
+
     letter-spacing:4px;
-    opacity:.8;
+
+    opacity:.82;
 }
 
 .gift-header h1{
-    margin-top:8px;
-    font-family:Georgia,serif;
-    font-size:clamp(30px,7vw,50px);
+    margin-top:9px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(29px,7vw,48px);
+
     font-weight:400;
-    color:#f8e8e5;
+
+    color:#f9e8e4;
+
+    letter-spacing:.2px;
 }
 
 .gift-header h1 span{
-    color:#efc475;
+    color:#edc274;
+
     font-style:italic;
 }
 
 .decor-line{
     width:90px;
+
     height:1px;
-    margin:13px auto 0;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #dcae67,
-        transparent
-    );
+
+    margin:
+        13px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #dcae67,
+            transparent
+        );
 }
 
 
-/* GIFT STAGE */
+/* =========================================================
+   STAGE
+========================================================= */
 
 .stage{
     position:absolute;
-    inset:19% 5% 8%;
+
+    inset:
+        18%
+        4%
+        5%;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
 }
 
+
+/* =========================================================
+   GIFT TEXT
+========================================================= */
+
 .gift-number{
-    color:#d9a95f;
+    color:#d5a65d;
+
     font-size:8px;
+
     letter-spacing:4px;
+
     margin-bottom:13px;
 }
 
 .gift-kicker{
-    font-family:Georgia,serif;
-    color:#d87997;
+    font-family:
+        Georgia,
+        serif;
+
+    color:#d985a0;
+
     font-size:12px;
+
     font-style:italic;
-    margin-bottom:8px;
+
+    margin-bottom:7px;
 }
 
 .gift-title{
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(25px,5.8vw,39px);
+
     font-weight:400;
-    color:#f7dfd9;
-    font-size:clamp(24px,5vw,37px);
+
+    color:#f9e5e0;
+
+    line-height:1.1;
+
+    text-align:center;
 }
 
 .gift-description{
-    width:min(92%,530px);
-    margin-top:10px;
-    color:#d8b6bf;
+    width:min(90%,520px);
+
+    margin:
+        11px auto 0;
+
+    color:#d9b8c1;
+
     font-size:11px;
-    line-height:1.7;
+
+    line-height:1.75;
+
+    text-align:center;
 }
 
 
-/* OBJECT */
+/* =========================================================
+   OBJECT AREA
+========================================================= */
 
 .object-area{
     position:relative;
+
     width:min(90vw,500px);
-    height:280px;
-    margin:8px auto 3px;
+
+    height:245px;
+
+    margin:
+        5px auto
+        0;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    text-align:center;
 }
 
 
-/* CANDLE */
+/* =========================================================
+   CANDLE
+========================================================= */
 
 .candle{
     position:relative;
-    width:76px;
-    height:125px;
-    border-radius:9px 9px 15px 15px;
-    background:linear-gradient(
-        90deg,
-        #5c102c,
-        #b73d65,
-        #64112f
-    );
+
+    width:74px;
+    height:120px;
+
+    border-radius:
+        9px
+        9px
+        14px
+        14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #541029,
+            #9d2a50,
+            #62122f
+        );
+
     box-shadow:
-        inset 10px 0 18px rgba(255,255,255,.06),
-        0 25px 40px rgba(0,0,0,.35);
+        inset
+        9px 0
+        18px
+        rgba(255,255,255,.05),
+
+        0 25px 45px
+        rgba(0,0,0,.4);
 }
+
+
+/* wax top */
 
 .candle-top{
     position:absolute;
-    top:-9px;
+
+    top:-8px;
+
     left:50%;
-    transform:translateX(-50%);
-    width:80px;
+
+    transform:
+        translateX(-50%);
+
+    width:78px;
     height:15px;
+
     border-radius:50%;
-    background:#efd5b5;
+
+    background:#e8cfb2;
 }
+
+
+/* wick */
 
 .wick{
     position:absolute;
+
     top:-25px;
+
     left:50%;
+
+    transform:
+        translateX(-50%);
+
     width:3px;
     height:18px;
-    transform:translateX(-50%);
-    background:#21100f;
+
+    background:#20100f;
+
+    border-radius:2px;
 }
+
+
+/* IMPORTANT:
+   candle begins with NO flame */
 
 .flame{
     position:absolute;
+
     top:-63px;
+
     left:50%;
-    width:25px;
+
+    width:24px;
     height:38px;
-    transform:translateX(-50%) rotate(45deg);
-    border-radius:70% 20% 70% 20%;
-    background:linear-gradient(
-        135deg,
-        #fff6b0,
-        #f4a33b,
-        #d93932
-    );
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    border-radius:
+        70%
+        20%
+        70%
+        20%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4aa,
+            #f3a13c,
+            #d83a31
+        );
+
     box-shadow:
-        0 0 20px #f5a744,
-        0 0 60px rgba(245,165,67,.75);
-    animation:flame .13s infinite alternate;
+        0 0 20px
+        #f3a541,
+
+        0 0 65px
+        rgba(245,165,67,.8);
+
+    animation:
+        flameMove
+        .13s
+        infinite
+        alternate;
+
+    opacity:0;
+
+    visibility:hidden;
 }
 
-@keyframes flame{
+.candle.lit .flame{
+    opacity:1;
+
+    visibility:visible;
+
+    animation:
+        igniteFlame
+        .8s
+        ease forwards,
+        flameMove
+        .13s
+        infinite
+        alternate
+        .8s;
+}
+
+@keyframes igniteFlame{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateX(-50%)
+            rotate(45deg)
+            scale(.2);
+    }
+
+    60%{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            rotate(45deg)
+            scale(1.2);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translateX(-50%)
+            rotate(45deg)
+            scale(1);
+    }
+}
+
+@keyframes flameMove{
+
     from{
-        transform:translateX(-50%) rotate(40deg) scale(.94);
+        transform:
+            translateX(-50%)
+            rotate(40deg)
+            scale(.94);
     }
+
     to{
-        transform:translateX(-50%) rotate(50deg) scale(1.06);
+        transform:
+            translateX(-50%)
+            rotate(50deg)
+            scale(1.06);
     }
 }
 
+.candle.lit{
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(244,166,72,.42)
+        );
+}
 
-/* PERFUME */
+
+/* =========================================================
+   PERFUME
+========================================================= */
 
 .perfume{
     position:relative;
+
     width:100px;
     height:125px;
-    border-radius:12px 12px 17px 17px;
-    background:linear-gradient(
-        135deg,
-        #0b090d,
-        #3d303b,
-        #09080c
-    );
-    border:1px solid rgba(240,207,150,.5);
+
+    border-radius:
+        12px
+        12px
+        17px
+        17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #09080c,
+            #3d303b,
+            #09080c
+        );
+
+    border:
+        1px solid
+        rgba(240,207,150,.5);
+
     box-shadow:
-        inset 12px 0 22px rgba(255,255,255,.05),
-        0 25px 40px rgba(0,0,0,.35);
+        inset
+        12px 0
+        22px
+        rgba(255,255,255,.05),
+
+        0 25px 40px
+        rgba(0,0,0,.35);
 }
 
 .perfume::after{
     content:"CHANEL";
+
     position:absolute;
+
     left:0;
     right:0;
+
     top:51px;
+
     color:#ead29c;
+
     font-size:11px;
+
     letter-spacing:3px;
 }
 
 .perfume-cap{
     position:absolute;
+
     width:47px;
     height:31px;
+
     left:50%;
     top:-30px;
-    transform:translateX(-50%);
-    border-radius:5px 5px 2px 2px;
-    background:linear-gradient(
-        90deg,
-        #a77437,
-        #f2d38c,
-        #9a682d
-    );
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        5px
+        5px
+        2px
+        2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a77437,
+            #f2d38c,
+            #9a682d
+        );
+
     transition:.5s ease;
 }
 
 .mist{
     position:absolute;
+
     width:190px;
     height:120px;
+
     left:50%;
     top:-30px;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     opacity:0;
+
     pointer-events:none;
 }
 
 .mist span{
     position:absolute;
+
     width:55px;
     height:55px;
+
     border-radius:50%;
-    background:rgba(238,225,207,.12);
+
+    background:
+        rgba(238,225,207,.12);
+
     filter:blur(7px);
 }
 
-.mist span:nth-child(1){left:20px;}
-.mist span:nth-child(2){left:65px;top:-20px;}
-.mist span:nth-child(3){right:15px;top:10px;}
+.mist span:nth-child(1){
+    left:20px;
+}
+
+.mist span:nth-child(2){
+    left:65px;
+    top:-20px;
+}
+
+.mist span:nth-child(3){
+    right:15px;
+    top:10px;
+}
 
 .perfume.sprayed .perfume-cap{
-    transform:translate(-50%,-22px) rotate(-12deg);
+    transform:
+        translate(-50%,-22px)
+        rotate(-12deg);
 }
 
 .perfume.sprayed .mist{
-    animation:spray 1s ease forwards;
+    animation:
+        perfumeMist
+        1.2s
+        ease forwards;
 }
 
-@keyframes spray{
+@keyframes perfumeMist{
+
     0%{
         opacity:0;
-        transform:translateX(-50%) scale(.3);
+
+        transform:
+            translateX(-50%)
+            scale(.3);
     }
-    35%{opacity:1;}
+
+    35%{
+        opacity:1;
+    }
+
     100%{
         opacity:0;
-        transform:translateX(-50%) translateY(-55px) scale(1.5);
+
+        transform:
+            translateX(-50%)
+            translateY(-60px)
+            scale(1.5);
     }
 }
 
 
-/* MIRROR */
+/* =========================================================
+   MIRROR
+========================================================= */
 
 .mirror{
     width:155px;
     height:105px;
+
     border-radius:50%;
-    border:8px solid #d3a35e;
-    background:linear-gradient(
-        135deg,
-        #fff,
-        #bccdd2 30%,
-        #7c929b 52%,
-        #fff 70%
-    );
+
+    border:
+        8px solid
+        #d3a35e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #c3d2d7 30%,
+            #7d939b 52%,
+            #ffffff 70%
+        );
+
     box-shadow:
-        0 25px 45px rgba(0,0,0,.35),
-        inset 0 0 20px rgba(255,255,255,.6);
+        0 25px 45px
+        rgba(0,0,0,.35),
+
+        inset
+        0 0 20px
+        rgba(255,255,255,.65);
+
     position:relative;
+
     overflow:hidden;
 }
 
 .mirror::after{
     content:"";
+
     position:absolute;
+
     width:45px;
     height:170px;
+
     top:-30px;
     left:-60px;
-    transform:rotate(25deg);
-    background:rgba(255,255,255,.7);
+
+    transform:
+        rotate(25deg);
+
+    background:
+        rgba(255,255,255,.7);
+
     filter:blur(7px);
 }
 
 .mirror.shine::after{
-    animation:mirrorSweep 1.1s ease forwards;
+    animation:
+        mirrorSweep
+        1.2s
+        ease forwards;
 }
 
 @keyframes mirrorSweep{
+
     to{
         left:190px;
     }
 }
 
 
-/* SELF CARE */
+/* =========================================================
+   SELF CARE
+========================================================= */
 
 .selfcare{
     position:relative;
+
     width:190px;
     height:120px;
+
     border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        #a96e27,
-        #f2d17f,
-        #b4772b
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #a96e27,
+            #f2d17f,
+            #b4772b
+        );
+
     box-shadow:
-        0 25px 45px rgba(0,0,0,.35);
+        0 25px 45px
+        rgba(0,0,0,.35);
 }
 
 .selfcare::before{
     content:"TISHUU";
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     color:#50270e;
+
     font-family:Georgia,serif;
+
     letter-spacing:4px;
+
     font-size:15px;
 }
 
 .selfcare::after{
     content:"";
+
     position:absolute;
+
     top:0;
     bottom:0;
+
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     width:18px;
-    background:rgba(85,44,12,.22);
+
+    background:
+        rgba(85,44,12,.22);
 }
 
 .selfcare.glow{
-    animation:goldGlow 1.2s ease;
+    animation:
+        goldGlow
+        1.3s
+        ease;
 }
 
 @keyframes goldGlow{
+
     50%{
         box-shadow:
-            0 0 80px rgba(246,202,111,.85);
+            0 0 90px
+            rgba(246,202,111,.85);
     }
 }
 
 
-/* PLUSHIE */
+/* =========================================================
+   PLUSHIE
+========================================================= */
 
 .plushie{
     position:relative;
+
     width:165px;
     height:165px;
-    border-radius:48% 48% 43% 43%;
-    background:radial-gradient(
-        circle at 35% 25%,
-        #e993aa,
-        #a52b53 55%,
-        #571029
-    );
+
+    border-radius:
+        48%
+        48%
+        43%
+        43%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #e993aa,
+            #a52b53 55%,
+            #571029
+        );
+
     box-shadow:
-        inset 12px 14px 25px rgba(255,255,255,.08),
-        0 30px 50px rgba(0,0,0,.4);
+        inset
+        12px 14px
+        25px
+        rgba(255,255,255,.08),
+
+        0 30px 50px
+        rgba(0,0,0,.4);
 }
 
 .ear{
     position:absolute;
+
     width:65px;
     height:65px;
+
     border-radius:50%;
+
     background:#a72c55;
+
     top:-25px;
 }
 
-.ear.left{left:5px;}
-.ear.right{right:5px;}
+.ear.left{
+    left:5px;
+}
+
+.ear.right{
+    right:5px;
+}
 
 .eye{
     position:absolute;
+
     width:11px;
     height:14px;
+
     border-radius:50%;
+
     background:#260611;
+
     top:62px;
 }
 
-.eye.left{left:52px;}
-.eye.right{right:52px;}
+.eye.left{
+    left:52px;
+}
+
+.eye.right{
+    right:52px;
+}
 
 .mouth{
     position:absolute;
+
     width:28px;
     height:13px;
+
     left:50%;
     top:82px;
-    transform:translateX(-50%);
-    border-bottom:2px solid #3f0e1c;
+
+    transform:
+        translateX(-50%);
+
+    border-bottom:
+        2px solid
+        #3f0e1c;
+
     border-radius:50%;
 }
 
 .heart{
     position:absolute;
+
     bottom:29px;
+
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     color:#f2b8c9;
+
     font-size:27px;
 }
 
 .plushie.bounce{
-    animation:plushBounce .8s ease;
+    animation:
+        plushBounce
+        .8s
+        ease;
 }
 
 @keyframes plushBounce{
+
     35%{
-        transform:translateY(-20px) rotate(-5deg);
+        transform:
+            translateY(-20px)
+            rotate(-5deg);
     }
+
     70%{
-        transform:translateY(-6px) rotate(5deg);
+        transform:
+            translateY(-6px)
+            rotate(5deg);
     }
 }
 
 
-/* SCRUNCHIES */
+/* =========================================================
+   SCRUNCHIES
+========================================================= */
 
 .scrunchies{
     position:relative;
+
     width:230px;
     height:160px;
 }
 
 .scrunchie{
     position:absolute;
+
     width:66px;
     height:66px;
+
     border-radius:50%;
+
     border:15px dotted;
-    box-shadow:0 8px 15px rgba(0,0,0,.3);
+
+    box-shadow:
+        0 8px 15px
+        rgba(0,0,0,.3);
+
     transition:.3s ease;
 }
 
@@ -714,10 +1251,14 @@ body{
 }
 
 .scrunchies.active .scrunchie{
-    animation:scrunchiePop .7s ease;
+    animation:
+        scrunchiePop
+        .7s
+        ease;
 }
 
 @keyframes scrunchiePop{
+
     50%{
         transform:
             translateY(-18px)
@@ -727,86 +1268,139 @@ body{
 }
 
 
-/* CHOCOLATE */
+/* =========================================================
+   CHOCOLATE
+========================================================= */
 
 .chocolate{
     position:relative;
+
     width:190px;
     height:125px;
+
     border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        #421021,
-        #791937,
-        #3e0d1e
-    );
-    border:2px solid #d2a55e;
-    box-shadow:0 25px 45px rgba(0,0,0,.4);
+
+    background:
+        linear-gradient(
+            135deg,
+            #421021,
+            #791937,
+            #3e0d1e
+        );
+
+    border:
+        2px solid
+        #d2a55e;
+
+    box-shadow:
+        0 25px 45px
+        rgba(0,0,0,.4);
 }
 
 .chocolate-title{
     position:absolute;
+
     top:35px;
+
     width:100%;
+
     text-align:center;
+
     color:#e9c67d;
-    font-family:Georgia,serif;
+
+    font-family:
+        Georgia,
+        serif;
+
     font-size:18px;
 }
 
 .chocolate-grid{
     position:absolute;
+
     bottom:13px;
+
     left:20px;
+
     display:flex;
+
     gap:8px;
 }
 
 .choco{
     width:25px;
     height:25px;
+
     background:#68112f;
-    border:1px solid #ad5270;
+
+    border:
+        1px solid
+        #ad5270;
 }
 
 .chocolate.open{
-    animation:chocolatePop .7s ease;
+    animation:
+        chocolatePop
+        .7s
+        ease;
 }
 
 @keyframes chocolatePop{
+
     50%{
-        transform:translateY(-10px) rotate(-3deg);
+        transform:
+            translateY(-10px)
+            rotate(-3deg);
     }
 }
 
 
-/* BRACELET */
+/* =========================================================
+   BRACELET
+========================================================= */
 
 .bracelet{
     position:relative;
+
     width:230px;
     height:190px;
 }
 
 .ring{
     position:absolute;
+
     width:175px;
     height:140px;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
-    border:3px solid rgba(223,183,104,.6);
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        3px solid
+        rgba(223,183,104,.6);
+
     border-radius:50%;
 }
 
 .bead{
     position:absolute;
+
     width:29px;
     height:29px;
+
     border-radius:50%;
+
     box-shadow:
-        inset 5px 5px 7px rgba(255,255,255,.35),
-        0 5px 10px rgba(0,0,0,.3);
+        inset
+        5px 5px
+        7px
+        rgba(255,255,255,.35),
+
+        0 5px 10px
+        rgba(0,0,0,.3);
 }
 
 .bead:nth-child(2){
@@ -858,34 +1452,59 @@ body{
 }
 
 .bracelet.active{
-    animation:braceletSpin 1s ease;
+    animation:
+        braceletSpin
+        1s
+        ease;
 }
 
 @keyframes braceletSpin{
+
     50%{
-        transform:rotate(9deg) scale(1.08);
+        transform:
+            rotate(9deg)
+            scale(1.08);
     }
 }
 
 
-/* INTERACTION BUTTON */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .interact-button{
-    margin-top:15px;
-    padding:12px 24px;
-    border:1px solid rgba(228,179,98,.45);
+    margin-top:5px;
+
+    padding:
+        12px
+        25px;
+
+    border:
+        1px solid
+        rgba(228,179,98,.45);
+
     border-radius:25px;
-    background:rgba(99,16,45,.5);
+
+    background:
+        rgba(99,16,45,.52);
+
     color:#efc77c;
+
     font-size:9px;
+
     letter-spacing:2px;
+
     cursor:pointer;
-    transition:.25s ease;
+
+    transition:.3s ease;
 }
 
 .interact-button:hover{
-    transform:translateY(-2px);
-    background:rgba(130,25,60,.65);
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(130,25,60,.7);
 }
 
 .interact-button.done{
@@ -893,133 +1512,245 @@ body{
 }
 
 
-/* REACTION */
+/* =========================================================
+   REACTION
+========================================================= */
 
 .reaction{
     width:min(94%,580px);
-    min-height:74px;
-    margin-top:15px;
+
+    min-height:78px;
+
+    margin-top:10px;
+
     opacity:0;
-    transform:translateY(15px);
+
+    transform:
+        translateY(15px);
+
     pointer-events:none;
-    transition:.7s ease;
+
+    transition:
+        .8s ease;
 }
 
 .reaction.show{
     opacity:1;
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
+
+    pointer-events:auto;
 }
 
 .reaction-title{
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        serif;
+
     color:#efc778;
+
     font-size:18px;
+
+    line-height:1.25;
+
+    text-align:center;
 }
 
 .reaction-text{
-    margin-top:6px;
+    margin-top:7px;
+
     color:#ead5d7;
+
     font-size:10px;
-    line-height:1.6;
+
+    line-height:1.65;
+
+    text-align:center;
 }
 
 .next-button{
-    margin-top:14px;
-    padding:11px 22px;
-    border:1px solid rgba(226,179,98,.45);
+    margin-top:13px;
+
+    padding:
+        11px
+        22px;
+
+    border:
+        1px solid
+        rgba(226,179,98,.45);
+
     border-radius:24px;
-    background:linear-gradient(
-        135deg,
-        #9c2850,
-        #62122d
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #9c2850,
+            #62122d
+        );
+
     color:#fff;
+
     font-size:8px;
+
     letter-spacing:2px;
+
     cursor:pointer;
+
+    opacity:0;
+
+    animation:
+        revealNext
+        .8s
+        ease
+        .7s
+        forwards;
+}
+
+@keyframes revealNext{
+
+    to{
+        opacity:1;
+    }
 }
 
 
-/* EMOTIONAL END */
+/* =========================================================
+   FINAL SCREEN
+========================================================= */
 
 .final-screen{
     position:fixed;
+
     inset:0;
+
     z-index:150;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     padding:25px;
 
     background:
         radial-gradient(
             circle,
-            rgba(106,19,48,.97),
-            rgba(20,2,9,.99)
+            rgba(105,18,47,.98),
+            rgba(20,2,9,.995)
         );
 
     opacity:0;
+
     visibility:hidden;
+
     transition:1s ease;
 }
 
 .final-screen.active{
     opacity:1;
+
     visibility:visible;
 }
 
 .final-content{
     width:min(92%,650px);
+
+    text-align:center;
 }
 
-.final-content .heart{
-    position:static;
-    font-size:44px;
-    transform:none;
-    margin-bottom:20px;
+.final-heart{
+    font-size:45px;
+
+    margin-bottom:21px;
 }
 
 .final-content h2{
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-weight:400;
-    font-size:clamp(29px,7vw,52px);
+
+    font-size:
+        clamp(29px,7vw,52px);
+
     line-height:1.1;
+
     color:#f8e8e5;
+
+    text-align:center;
 }
 
 .final-content h2 span{
     display:block;
+
     color:#efc477;
+
     font-style:italic;
-    margin-top:5px;
+
+    margin-top:7px;
 }
 
 .final-content p{
     margin-top:20px;
+
     color:#d9bac2;
+
     font-size:12px;
+
     line-height:1.9;
+
+    text-align:center;
 }
 
 .final-step{
-    margin-top:22px;
+    margin-top:23px;
+
     color:#e2b56b;
+
     font-size:9px;
+
     letter-spacing:2px;
+
     cursor:pointer;
+
+    text-align:center;
+
+    animation:
+        gentlePulse
+        2s
+        infinite;
+}
+
+@keyframes gentlePulse{
+
+    50%{
+        opacity:.45;
+    }
 }
 
 
-/* ALBUM */
+/* =========================================================
+   ALBUM
+========================================================= */
 
 .album-screen{
     position:fixed;
+
     inset:0;
+
     z-index:200;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
 
     background:
@@ -1031,25 +1762,35 @@ body{
         );
 
     opacity:0;
+
     visibility:hidden;
+
     transition:1s ease;
 }
 
 .album-screen.active{
     opacity:1;
+
     visibility:visible;
 }
 
 .album-wrapper{
     width:100%;
+
+    text-align:center;
 }
 
 .album{
     position:relative;
+
     width:min(70vw,360px);
+
     height:min(88vw,470px);
+
     margin:auto;
+
     perspective:1200px;
+
     cursor:pointer;
 
     transform:
@@ -1057,19 +1798,31 @@ body{
         scale(.85);
 
     opacity:0;
+
     transition:
-        1.2s cubic-bezier(.2,.8,.2,1);
+        1.2s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 .album-screen.active .album{
     opacity:1;
-    transform:translateY(0) scale(1);
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .album-pages{
     position:absolute;
-    inset:5px 8px 5px 10px;
+
+    inset:
+        5px
+        8px
+        5px
+        10px;
+
     border-radius:4px;
+
     background:
         linear-gradient(
             135deg,
@@ -1080,9 +1833,16 @@ body{
 
 .album-cover{
     position:absolute;
+
     inset:0;
+
     z-index:2;
-    border-radius:7px 15px 15px 7px;
+
+    border-radius:
+        7px
+        15px
+        15px
+        7px;
 
     background:
         linear-gradient(
@@ -1092,76 +1852,128 @@ body{
             #4d0a22
         );
 
-    border:2px solid #c99755;
+    border:
+        2px solid
+        #c99755;
 
     box-shadow:
-        18px 30px 55px rgba(0,0,0,.55),
-        inset 10px 0 25px rgba(255,255,255,.05);
+        18px 30px 55px
+        rgba(0,0,0,.55),
 
-    transform-origin:left center;
-    transition:1.3s cubic-bezier(.2,.8,.2,1);
+        inset
+        10px 0
+        25px
+        rgba(255,255,255,.05);
+
+    transform-origin:
+        left center;
+
+    transition:
+        1.3s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 .album.open .album-cover{
-    transform:rotateY(-145deg);
+    transform:
+        rotateY(-145deg);
 }
 
 .album-cover::before{
     content:"";
+
     position:absolute;
+
     inset:18px;
-    border:1px solid rgba(232,188,111,.55);
+
+    border:
+        1px solid
+        rgba(232,188,111,.55);
+
     border-radius:5px;
 }
 
 .album-title{
     position:absolute;
+
     left:50%;
     top:40%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     width:90%;
+
     color:#f0d09a;
+
+    text-align:center;
 }
 
 .album-title strong{
     display:block;
-    font-family:Georgia,serif;
+
+    font-family:
+        Georgia,
+        serif;
+
     font-size:42px;
+
     font-weight:400;
+
     letter-spacing:7px;
 }
 
 .album-title span{
     display:block;
+
     margin-top:12px;
+
     font-size:10px;
+
     letter-spacing:3px;
 }
 
 .album-heart{
     position:absolute;
+
     left:50%;
     bottom:45px;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     font-size:27px;
+
     color:#dfb56b;
 }
 
 .album-hint{
     margin-top:25px;
+
     color:#dcb06a;
+
     font-size:9px;
+
     letter-spacing:3px;
+
     text-transform:uppercase;
-    animation:hint 2s infinite;
+
+    animation:
+        hintPulse
+        2s
+        infinite;
 }
 
-@keyframes hint{
-    50%{opacity:.35;}
+@keyframes hintPulse{
+
+    50%{
+        opacity:.35;
+    }
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:600px){
 
@@ -1174,24 +1986,24 @@ body{
     }
 
     .stage{
-        inset:17% 4% 5%;
+        inset:
+            17%
+            4%
+            4%;
     }
 
     .object-area{
-        height:245px;
-        margin-top:5px;
+        height:225px;
     }
 
     .gift-description{
         font-size:10px;
-    }
 
-    .reaction{
-        min-height:70px;
+        line-height:1.65;
     }
 
     .candle{
-        transform:scale(.8);
+        transform:scale(.82);
     }
 
     .perfume{
@@ -1219,13 +2031,15 @@ body{
     }
 
     .bracelet{
-        transform:scale(.8);
+        transform:scale(.78);
     }
 
 }
 
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1233,10 +2047,11 @@ body{
     *::before,
     *::after{
         animation-duration:.01ms!important;
+
         transition-duration:.01ms!important;
     }
-
 }
+
 </style>
 </head>
 
@@ -1245,248 +2060,315 @@ body{
 
 <div id="app">
 
-<div id="particles"></div>
+    <div id="particles"></div>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+    <!-- =====================================================
+         INTRO POPUPS
+    ====================================================== -->
 
-<div class="overlay active" id="intro">
+    <div
+        class="overlay active"
+        id="intro"
+    >
 
-    <div class="popup">
-
-        <div class="popup-icon" id="introIcon">
-            🥹❤️
-        </div>
-
-        <h1 id="introTitle">
-            My girl deserves
-            <span>a LOT more...</span>
-        </h1>
-
-        <p id="introText">
-            If I could, I'd fill the whole world
-            with things that make you smile.
-        </p>
-
-        <button class="popup-button" id="introButton">
-            TAP →
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     GIFT EXPERIENCE
-===================================================== -->
-
-<section id="giftExperience">
-
-    <header class="gift-header">
-
-        <small>
-            ✦ SOMETHING SPECIAL ✦
-        </small>
-
-        <h1>
-            For my
-            <span>Tishuuu ❤️</span>
-        </h1>
-
-        <div class="decor-line"></div>
-
-    </header>
-
-
-    <main class="stage">
-
-        <div class="gift-number" id="giftNumber">
-            01 / 08
-        </div>
-
-        <div class="gift-kicker" id="giftKicker">
-            A little warmth...
-        </div>
-
-        <h2 class="gift-title" id="giftTitle">
-            A Little Warmth
-        </h2>
-
-        <p class="gift-description" id="giftDescription">
-            For the girl who somehow makes
-            every place feel warmer.
-        </p>
-
-
-        <div class="object-area" id="objectArea">
-        </div>
-
-
-        <button
-            class="interact-button"
-            id="interactButton"
-        >
-            TAP TO LIGHT 🕯️
-        </button>
-
-
-        <div class="reaction" id="reaction">
+        <div class="popup">
 
             <div
-                class="reaction-title"
-                id="reactionTitle"
-            ></div>
+                class="popup-icon"
+                id="introIcon"
+            >
+                🥹❤️
+            </div>
 
-            <div
-                class="reaction-text"
-                id="reactionText"
-            ></div>
+            <h1 id="introTitle">
+                My girl deserves
+                <span>a LOT more...</span>
+            </h1>
+
+            <p id="introText">
+                If I could, I'd fill the whole world
+                with things that make you smile.
+            </p>
 
             <button
-                class="next-button"
-                id="nextButton"
+                class="popup-button"
+                id="introButton"
             >
-                NEXT LITTLE GIFT →
+                TAP →
             </button>
 
         </div>
 
-    </main>
-
-</section>
-
-
-<!-- =====================================================
-     FINAL MESSAGE
-===================================================== -->
-
-<section class="final-screen" id="finalScreen">
-
-    <div class="final-content">
-
-        <div class="heart">
-            🥹❤️
-        </div>
-
-        <h2 id="finalTitle">
-            These gifts are nothing
-            <span>compared to mine.</span>
-        </h2>
-
-        <p id="finalText">
-            I've received something far more precious
-            than anything I could ever put inside a box.
-            <br><br>
-            I've received you.
-        </p>
-
-        <div class="final-step" id="finalStep">
-            TAP...
-        </div>
-
     </div>
 
-</section>
+
+    <!-- =====================================================
+         GIFTS
+    ====================================================== -->
+
+    <section
+        id="giftExperience"
+    >
+
+        <header
+            class="gift-header"
+        >
+
+            <small>
+                ✦ SOMETHING SPECIAL ✦
+            </small>
+
+            <h1>
+                For my
+                <span>Tishuuu ❤️</span>
+            </h1>
+
+            <div
+                class="decor-line"
+            ></div>
+
+        </header>
 
 
-<!-- =====================================================
-     ALBUM
-===================================================== -->
+        <main class="stage">
 
-<section class="album-screen" id="albumScreen">
+            <div
+                class="gift-number"
+                id="giftNumber"
+            >
+                01 / 08
+            </div>
 
-    <div class="album-wrapper">
+            <div
+                class="gift-kicker"
+                id="giftKicker"
+            >
+                A little warmth...
+            </div>
 
-        <div class="album" id="album">
+            <h2
+                class="gift-title"
+                id="giftTitle"
+            >
+                A Little Warmth
+            </h2>
 
-            <div class="album-pages"></div>
+            <p
+                class="gift-description"
+                id="giftDescription"
+            >
+                For the girl who makes
+                every place feel warmer.
+            </p>
 
-            <div class="album-cover">
 
-                <div class="album-title">
+            <div
+                class="object-area"
+                id="objectArea"
+            ></div>
 
-                    <strong>
-                        T + R
-                    </strong>
 
-                    <span>
-                        OUR LITTLE UNIVERSE
-                    </span>
+            <button
+                class="interact-button"
+                id="interactButton"
+            >
+                TAP TO LIGHT 🕯️
+            </button>
 
-                </div>
 
-                <div class="album-heart">
-                    ♡
-                </div>
+            <div
+                class="reaction"
+                id="reaction"
+            >
 
+                <div
+                    class="reaction-title"
+                    id="reactionTitle"
+                ></div>
+
+                <div
+                    class="reaction-text"
+                    id="reactionText"
+                ></div>
+
+                <button
+                    class="next-button"
+                    id="nextButton"
+                >
+                    NEXT LITTLE GIFT →
+                </button>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL MESSAGE
+    ====================================================== -->
+
+    <section
+        class="final-screen"
+        id="finalScreen"
+    >
+
+        <div class="final-content">
+
+            <div class="final-heart">
+                🥹❤️
+            </div>
+
+            <h2 id="finalTitle">
+                These gifts are nothing
+                <span>compared to mine.</span>
+            </h2>
+
+            <p id="finalText">
+                I've received something far more precious
+                than anything I could ever put inside a box.
+                <br><br>
+                I've received you.
+            </p>
+
+            <div
+                class="final-step"
+                id="finalStep"
+            >
+                TAP...
             </div>
 
         </div>
 
-        <div class="album-hint">
-            TAP TO OPEN OUR STORY
+    </section>
+
+
+    <!-- =====================================================
+         PHOTO ALBUM
+    ====================================================== -->
+
+    <section
+        class="album-screen"
+        id="albumScreen"
+    >
+
+        <div class="album-wrapper">
+
+            <div
+                class="album"
+                id="album"
+            >
+
+                <div
+                    class="album-pages"
+                ></div>
+
+                <div
+                    class="album-cover"
+                >
+
+                    <div
+                        class="album-title"
+                    >
+
+                        <strong>
+                            T + R
+                        </strong>
+
+                        <span>
+                            OUR LITTLE UNIVERSE
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="album-heart"
+                    >
+                        ♡
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="album-hint">
+                TAP TO OPEN OUR STORY
+            </div>
+
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   AUDIO ENGINE
-===================================================== */
+/* =========================================================
+   AUDIO
+========================================================= */
 
-let audioContext=null;
-let masterGain=null;
-let musicGain=null;
-let effectGain=null;
-let musicStarted=false;
+let audioContext = null;
+
+let masterGain = null;
+
+let musicGain = null;
+
+let effectGain = null;
+
+let musicStarted = false;
 
 
 function initAudio(){
 
-    if(audioContext) return;
+    if(audioContext)
+        return;
 
-    const AudioClass=
+    const AudioClass =
         window.AudioContext ||
         window.webkitAudioContext;
 
-    if(!AudioClass) return;
+    if(!AudioClass)
+        return;
 
-    audioContext=
+    audioContext =
         new AudioClass();
 
-    masterGain=
+
+    masterGain =
         audioContext.createGain();
 
-    musicGain=
+    musicGain =
         audioContext.createGain();
 
-    effectGain=
+    effectGain =
         audioContext.createGain();
 
 
     /*
-        LOUDER MUSIC
+        Overall volume.
     */
 
-    masterGain.gain.value=.9;
+    masterGain.gain.value = 0.92;
 
-    musicGain.gain.value=.32;
+    /*
+        SOFT BUT AUDIBLE.
+    */
 
-    effectGain.gain.value=.48;
+    musicGain.gain.value = 0.42;
+
+    effectGain.gain.value = 0.48;
 
 
-    musicGain.connect(masterGain);
+    musicGain.connect(
+        masterGain
+    );
 
-    effectGain.connect(masterGain);
+    effectGain.connect(
+        masterGain
+    );
 
     masterGain.connect(
         audioContext.destination
@@ -1498,17 +2380,22 @@ async function unlockAudio(){
 
     initAudio();
 
-    if(!audioContext) return;
+    if(!audioContext)
+        return;
 
-    if(audioContext.state==="suspended"){
+    if(
+        audioContext.state ===
+        "suspended"
+    ){
+
         await audioContext.resume();
     }
 }
 
 
-/* =====================================================
-   SYNTH SOUND
-===================================================== */
+/* =========================================================
+   TONE
+========================================================= */
 
 function playTone(
     frequency,
@@ -1519,22 +2406,27 @@ function playTone(
     delay=0
 ){
 
-    if(!audioContext) return;
+    if(!audioContext)
+        return;
 
-    const now=
-        audioContext.currentTime+
+
+    const now =
+        audioContext.currentTime +
         delay;
 
-    const osc=
+
+    const oscillator =
         audioContext.createOscillator();
 
-    const gain=
+    const gain =
         audioContext.createGain();
 
 
-    osc.type=type;
+    oscillator.type =
+        type;
 
-    osc.frequency.setValueAtTime(
+
+    oscillator.frequency.setValueAtTime(
         frequency,
         now
     );
@@ -1545,79 +2437,102 @@ function playTone(
         now
     );
 
+
     gain.gain.exponentialRampToValueAtTime(
         volume,
-        now+.025
+        now + .06
     );
+
 
     gain.gain.exponentialRampToValueAtTime(
         .0001,
-        now+duration
+        now + duration
     );
 
 
-    osc.connect(gain);
+    oscillator.connect(
+        gain
+    );
 
-    gain.connect(destination);
+    gain.connect(
+        destination
+    );
 
-    osc.start(now);
 
-    osc.stop(
-        now+duration+.05
+    oscillator.start(now);
+
+    oscillator.stop(
+        now + duration + .05
     );
 }
 
 
-/* =====================================================
-   FASTER ROMANTIC BGM
-===================================================== */
+/* =========================================================
+   SLOW ROMANTIC BGM
+========================================================= */
 
 function startMusic(){
 
-    if(musicStarted || !audioContext)
+    if(
+        musicStarted ||
+        !audioContext
+    )
         return;
 
-    musicStarted=true;
+
+    musicStarted = true;
 
 
     /*
-       Approximately 96 BPM.
+        Slow romantic progression.
 
-       Romantic chord progression:
-       C → Am → F → G
+        Approximately 68 BPM.
 
-       Soft piano-like tones + upper
-       chimes + gentle bass.
+        Cmaj7
+        Am7
+        Fmaj7
+        Gsus4
     */
 
-    const progression=[
-        [261.63,329.63,392.00],
-        [220.00,261.63,329.63],
-        [174.61,220.00,261.63],
-        [196.00,246.94,293.66]
+    const chords = [
+
+        [261.63,329.63,392.00,493.88],
+
+        [220.00,261.63,329.63,392.00],
+
+        [174.61,220.00,261.63,329.63],
+
+        [196.00,246.94,293.66,392.00]
+
     ];
 
-    let chord=0;
+
+    let index = 0;
 
 
     function playChord(){
 
-        const notes=
-            progression[
-                chord%progression.length
+        const chord =
+            chords[
+                index %
+                chords.length
             ];
 
 
-        notes.forEach(
-            (note,index)=>{
+        /*
+            Soft chord.
+        */
+
+        chord.forEach(
+            (note,i)=>{
 
                 playTone(
                     note,
-                    .65,
+                    1.8,
                     "sine",
-                    .045,
+                    .026,
                     musicGain,
-                    index*.035
+                    i*.06
                 );
 
             }
@@ -1625,75 +2540,80 @@ function startMusic(){
 
 
         /*
-            Faster gentle melody
+            Gentle upper melody.
         */
 
-        const melody=
-            notes[2]*2;
-
         playTone(
-            melody,
-            .32,
+            chord[3] * 2,
+            .7,
             "triangle",
-            .025,
+            .015,
             musicGain,
-            .1
+            .25
         );
 
+
         playTone(
-            melody*1.122,
-            .28,
+            chord[2] * 2,
+            .8,
             "triangle",
-            .018,
+            .012,
             musicGain,
-            .43
+            .95
         );
 
 
         /*
-            Soft bass pulse
+            Very soft bass.
         */
 
         playTone(
-            notes[0]/2,
-            .75,
-            "triangle",
+            chord[0]/2,
+            1.7,
+            "sine",
             .018,
             musicGain
         );
 
 
-        chord++;
+        index++;
+
     }
 
 
     playChord();
 
+
+    /*
+        About 68 BPM.
+    */
+
     setInterval(
         playChord,
-        625
+        1760
     );
+
 }
 
 
-/* =====================================================
-   EFFECTS
-===================================================== */
+/* =========================================================
+   SOUND EFFECTS
+========================================================= */
 
 function tapSound(){
 
     playTone(
-        720,
-        .06,
+        700,
+        .07,
         "sine",
-        .05
+        .045
     );
 
     playTone(
-        1020,
-        .09,
+        1000,
+        .10,
         "sine",
-        .025,
+        .022,
         effectGain,
         .05
     );
@@ -1704,96 +2624,100 @@ function sparkle(){
 
     playTone(
         880,
-        .12,
+        .13,
         "sine",
-        .045
+        .04
     );
 
     playTone(
         1174.66,
         .18,
         "sine",
-        .035,
+        .03,
         effectGain,
-        .08
+        .09
     );
 
     playTone(
         1567.98,
-        .28,
+        .3,
         "sine",
-        .025,
-        effectGain,
-        .16
-    );
-}
-
-
-function candleFX(){
-
-    playTone(
-        190,
-        .16,
-        "sine",
-        .03
-    );
-
-    playTone(
-        392,
-        .4,
-        "sine",
-        .045,
-        effectGain,
-        .08
-    );
-
-    playTone(
-        587.33,
-        .55,
-        "sine",
-        .035,
+        .022,
         effectGain,
         .18
     );
 }
 
 
-function perfumeFX(){
+function candleSound(){
+
+    /*
+        Little ignition.
+    */
 
     playTone(
-        180,
-        .4,
-        "sawtooth",
-        .015
+        150,
+        .18,
+        "triangle",
+        .025
     );
 
     playTone(
-        1300,
-        .1,
+        392,
+        .45,
         "sine",
         .035,
         effectGain,
-        .08
+        .12
+    );
+
+    playTone(
+        587.33,
+        .7,
+        "sine",
+        .03,
+        effectGain,
+        .2
     );
 }
 
 
-function plushFX(){
+function perfumeSound(){
+
+    playTone(
+        160,
+        .35,
+        "sawtooth",
+        .012
+    );
+
+    playTone(
+        1250,
+        .12,
+        "sine",
+        .035,
+        effectGain,
+        .1
+    );
+}
+
+
+function plushSound(){
 
     playTone(
         330,
         .12,
         "triangle",
-        .05
+        .045
     );
 
     playTone(
         440,
         .15,
         "triangle",
-        .04,
+        .035,
         effectGain,
-        .09
+        .08
     );
 
     playTone(
@@ -1807,141 +2731,178 @@ function plushFX(){
 }
 
 
-function finalFX(){
+function finalSound(){
 
     playTone(
         261.63,
-        .55,
+        .7,
         "sine",
-        .04
+        .035
     );
 
     playTone(
         329.63,
-        .65,
+        .8,
         "sine",
-        .035,
+        .03,
         effectGain,
         .15
     );
 
     playTone(
         392,
-        .75,
+        .9,
         "sine",
-        .03,
+        .026,
         effectGain,
-        .30
+        .3
     );
 
     playTone(
         523.25,
-        .95,
+        1.1,
         "sine",
-        .03,
+        .025,
         effectGain,
         .45
     );
 }
 
 
-/* =====================================================
+/* =========================================================
    PARTICLES
-===================================================== */
+========================================================= */
 
-const particles=
+const particles =
     document.getElementById(
         "particles"
     );
 
 
-function makeParticle(){
+function createParticle(){
 
-    const p=
-        document.createElement("div");
+    const p =
+        document.createElement(
+            "div"
+        );
 
-    p.className="particle";
 
-    p.style.left=
-        Math.random()*100+"%";
+    p.className =
+        "particle";
 
-    p.style.bottom=
-        (-5+
-        Math.random()*10)+"%";
 
-    p.style.animationDuration=
-        (4+
-        Math.random()*4)+"s";
+    p.style.left =
+        Math.random()*100 +
+        "%";
 
-    particles.appendChild(p);
+
+    p.style.bottom =
+        (-5 +
+        Math.random()*10) +
+        "%";
+
+
+    p.style.animationDuration =
+        4 +
+        Math.random()*4 +
+        "s";
+
+
+    particles.appendChild(
+        p
+    );
 
 
     setTimeout(
-        ()=>p.remove(),
+        ()=>{
+            p.remove();
+        },
         8500
     );
 }
 
 
 setInterval(
-    makeParticle,
-    400
+    createParticle,
+    500
 );
 
 
-/* =====================================================
+/* =========================================================
    INTRO
-===================================================== */
+========================================================= */
 
-const introSteps=[
+const introSteps = [
 
     {
         icon:"🥹❤️",
+
         title:
             "My girl deserves <span>a LOT more...</span>",
+
         text:
             "If I could, I'd fill the whole world with things that make you smile.",
-        button:"TAP →"
+
+        button:
+            "TAP →"
     },
 
     {
         icon:"✨",
+
         title:
             "But for this birthday...",
+
         text:
             "I've brought you a few special things...",
-        button:"TAP →"
+
+        button:
+            "TAP →"
     },
 
     {
         icon:"🎁❤️",
+
         title:
             "Wanna see themmm?",
+
         text:
             "Come on... I made these little surprises just for you.",
-        button:"YES ❤️"
+
+        button:
+            "YES ❤️"
     }
 
 ];
 
 
-let introIndex=0;
+let introIndex = 0;
 
 
-const intro=
-    document.getElementById("intro");
+const intro =
+    document.getElementById(
+        "intro"
+    );
 
-const introIcon=
-    document.getElementById("introIcon");
+const introIcon =
+    document.getElementById(
+        "introIcon"
+    );
 
-const introTitle=
-    document.getElementById("introTitle");
+const introTitle =
+    document.getElementById(
+        "introTitle"
+    );
 
-const introText=
-    document.getElementById("introText");
+const introText =
+    document.getElementById(
+        "introText"
+    );
 
-const introButton=
-    document.getElementById("introButton");
+const introButton =
+    document.getElementById(
+        "introButton"
+    );
 
 
 introButton.addEventListener(
@@ -1959,36 +2920,40 @@ introButton.addEventListener(
 
 
         if(
-            introIndex<
+            introIndex <
             introSteps.length
         ){
 
-            const step=
+            const step =
                 introSteps[
                     introIndex
                 ];
 
-            introIcon.innerHTML=
+
+            introIcon.innerHTML =
                 step.icon;
 
-            introTitle.innerHTML=
+            introTitle.innerHTML =
                 step.title;
 
-            introText.textContent=
+            introText.textContent =
                 step.text;
 
-            introButton.textContent=
+            introButton.textContent =
                 step.button;
 
-        }else{
+        }
+
+        else{
 
             intro.classList.remove(
                 "active"
             );
 
+
             setTimeout(
                 beginExperience,
-                650
+                700
             );
 
         }
@@ -1997,120 +2962,215 @@ introButton.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    GIFT DATA
-===================================================== */
+========================================================= */
 
-const gifts=[
+const gifts = [
 
     {
         number:"01 / 08",
-        kicker:"A little warmth...",
-        title:"A Little Warmth",
+
+        kicker:
+            "A little warmth...",
+
+        title:
+            "A Little Warmth",
+
         description:
             "For the girl who somehow makes every place feel warmer.",
-        button:"TAP TO LIGHT 🕯️",
-        type:"candle",
+
+        button:
+            "TAP TO LIGHT 🕯️",
+
+        type:
+            "candle",
+
         reactionTitle:
             "For my beautiful Tishuuu ❤️",
+
         reactionText:
             "I hope this little flame reminds you of the warmth you bring into my life."
     },
 
+
     {
         number:"02 / 08",
-        kicker:"Something elegant...",
-        title:"A Little Luxury",
+
+        kicker:
+            "Something elegant...",
+
+        title:
+            "A Little Luxury",
+
         description:
             "A fragrance for someone who already carries herself beautifully.",
-        button:"TAP TO SPRAY ✨",
-        type:"perfume",
+
+        button:
+            "TAP TO SPRAY ✨",
+
+        type:
+            "perfume",
+
         reactionTitle:
             "Elegance looks good on you.",
+
         reactionText:
             "You already have your own charm. This is just a little luxury to match it."
     },
 
+
     {
         number:"03 / 08",
-        kicker:"For my pretty girl...",
-        title:"A Mirror For Tisha",
+
+        kicker:
+            "For my pretty girl...",
+
+        title:
+            "A Mirror For Tisha",
+
         description:
             "A personalized little reminder that no filter is required.",
-        button:"TAP TO SHINE 🪞",
-        type:"mirror",
+
+        button:
+            "TAP TO SHINE 🪞",
+
+        type:
+            "mirror",
+
         reactionTitle:
             "No filter. No editing. ❤️",
+
         reactionText:
             "Somehow you still manage to look beautiful even when you're not trying."
     },
 
+
     {
         number:"04 / 08",
-        kicker:"Time to be pampered...",
-        title:"Luxury Self-Care",
+
+        kicker:
+            "Time to be pampered...",
+
+        title:
+            "Luxury Self-Care",
+
         description:
             "Because my girl deserves to slow down, relax and be spoiled.",
-        button:"TAP TO GLOW ✨",
-        type:"selfcare",
+
+        button:
+            "TAP TO GLOW ✨",
+
+        type:
+            "selfcare",
+
         reactionTitle:
             "Pampering my pretty girl.",
+
         reactionText:
             "Although honestly... you deserve an entire spa, not just one little box."
     },
 
+
     {
         number:"05 / 08",
-        kicker:"Your emergency hug...",
-        title:"A Big Plushie",
+
+        kicker:
+            "Your emergency hug...",
+
+        title:
+            "A Big Plushie",
+
         description:
             "For those moments when I'm not physically there to annoy you.",
-        button:"TAP FOR A HUG 🧸",
-        type:"plushie",
+
+        button:
+            "TAP FOR A HUG 🧸",
+
+        type:
+            "plushie",
+
         reactionTitle:
             "Okay... one emergency hug. 🥹",
+
         reactionText:
             "Whenever you miss me, give this one a hug. But don't you dare love it more than me. 😤❤️"
     },
 
+
     {
         number:"06 / 08",
-        kicker:"A little colour...",
-        title:"Colourful Scrunchies",
+
+        kicker:
+            "A little colour...",
+
+        title:
+            "Colourful Scrunchies",
+
         description:
             "A few bright little things for my colourful girl.",
-        button:"TAP TO PLAY 🌈",
-        type:"scrunchies",
+
+        button:
+            "TAP TO PLAY 🌈",
+
+        type:
+            "scrunchies",
+
         reactionTitle:
             "A little colour for my colourful girl.",
+
         reactionText:
             "You somehow make even the simplest things look cute."
     },
 
+
     {
         number:"07 / 08",
-        kicker:"Obviously...",
-        title:"Chocolate ❤️",
+
+        kicker:
+            "Obviously...",
+
+        title:
+            "Chocolate ❤️",
+
         description:
             "Because every birthday girl needs a chocolate emergency supply.",
-        button:"TAP FOR CHOCOLATE 🍫",
-        type:"chocolate",
+
+        button:
+            "TAP FOR CHOCOLATE 🍫",
+
+        type:
+            "chocolate",
+
         reactionTitle:
             "Obviously... chocolate. 😂",
+
         reactionText:
             "For every 'Riteshhh, I want something sweet' emergency."
     },
 
+
     {
         number:"08 / 08",
-        kicker:"Something to stay close...",
-        title:"A Colourful Bracelet",
+
+        kicker:
+            "Something to stay close...",
+
+        title:
+            "A Colourful Bracelet",
+
         description:
             "Something small that can stay close to you.",
-        button:"TAP TO SHIMMER 💎",
-        type:"bracelet",
+
+        button:
+            "TAP TO SHIMMER 💎",
+
+        type:
+            "bracelet",
+
         reactionTitle:
             "Something small to stay close to you. ❤️",
+
         reactionText:
             "Even when I'm not physically beside you, a little part of me is always with you."
     }
@@ -2118,73 +3178,74 @@ const gifts=[
 ];
 
 
-let currentGift=0;
-let interacted=false;
+let currentGift = 0;
+
+let interacted = false;
 
 
-/* =====================================================
-   DOM
-===================================================== */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-const experience=
+const experience =
     document.getElementById(
         "giftExperience"
     );
 
-const giftNumber=
+const giftNumber =
     document.getElementById(
         "giftNumber"
     );
 
-const giftKicker=
+const giftKicker =
     document.getElementById(
         "giftKicker"
     );
 
-const giftTitle=
+const giftTitle =
     document.getElementById(
         "giftTitle"
     );
 
-const giftDescription=
+const giftDescription =
     document.getElementById(
         "giftDescription"
     );
 
-const objectArea=
+const objectArea =
     document.getElementById(
         "objectArea"
     );
 
-const interactButton=
+const interactButton =
     document.getElementById(
         "interactButton"
     );
 
-const reaction=
+const reaction =
     document.getElementById(
         "reaction"
     );
 
-const reactionTitle=
+const reactionTitle =
     document.getElementById(
         "reactionTitle"
     );
 
-const reactionText=
+const reactionText =
     document.getElementById(
         "reactionText"
     );
 
-const nextButton=
+const nextButton =
     document.getElementById(
         "nextButton"
     );
 
 
-/* =====================================================
-   BEGIN
-===================================================== */
+/* =========================================================
+   BEGIN EXPERIENCE
+========================================================= */
 
 function beginExperience(){
 
@@ -2193,58 +3254,62 @@ function beginExperience(){
     );
 
     loadGift(0);
-
 }
 
 
-/* =====================================================
-   LOAD ONLY ONE GIFT
-===================================================== */
+/* =========================================================
+   LOAD GIFT
+========================================================= */
 
 function loadGift(index){
 
-    currentGift=index;
+    currentGift = index;
 
-    interacted=false;
+    interacted = false;
 
-    const gift=
+
+    const gift =
         gifts[index];
 
 
-    giftNumber.textContent=
+    giftNumber.textContent =
         gift.number;
 
-    giftKicker.textContent=
+    giftKicker.textContent =
         gift.kicker;
 
-    giftTitle.textContent=
+    giftTitle.textContent =
         gift.title;
 
-    giftDescription.textContent=
+    giftDescription.textContent =
         gift.description;
 
-    interactButton.textContent=
+    interactButton.textContent =
         gift.button;
 
     interactButton.classList.remove(
         "done"
     );
 
+
     reaction.classList.remove(
         "show"
     );
 
-    reactionTitle.textContent="";
-    reactionText.textContent="";
+
+    reactionTitle.textContent =
+        "";
+
+    reactionText.textContent =
+        "";
 
 
     /*
-        Rebuild the object area.
-        This guarantees that only one
-        gift exists in the DOM.
+        Remove previous gift.
     */
 
-    objectArea.innerHTML="";
+    objectArea.innerHTML =
+        "";
 
 
     createGiftObject(
@@ -2253,42 +3318,51 @@ function loadGift(index){
 
 
     /*
-        Animate the new gift in.
+        Elegant entrance.
     */
 
     objectArea.animate(
         [
             {
                 opacity:0,
+
                 transform:
-                    "translateY(30px) scale(.85)"
+                    "translateY(25px) scale(.88)"
             },
+
             {
                 opacity:1,
+
                 transform:
                     "translateY(0) scale(1)"
             }
         ],
+
         {
-            duration:850,
-            easing:"cubic-bezier(.2,.8,.2,1)"
+            duration:800,
+
+            easing:
+                "cubic-bezier(.2,.8,.2,1)"
         }
     );
 
 }
 
 
-/* =====================================================
-   CREATE OBJECT
-===================================================== */
+/* =========================================================
+   CREATE GIFT OBJECT
+========================================================= */
 
 function createGiftObject(type){
 
-    if(type==="candle"){
+    if(type === "candle"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="candle" id="candleObject">
+            <div
+                class="candle"
+                id="candleObject"
+            >
 
                 <div class="candle-top"></div>
 
@@ -2303,13 +3377,18 @@ function createGiftObject(type){
     }
 
 
-    if(type==="perfume"){
+    else if(type === "perfume"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="perfume" id="perfumeObject">
+            <div
+                class="perfume"
+                id="perfumeObject"
+            >
 
-                <div class="perfume-cap"></div>
+                <div
+                    class="perfume-cap"
+                ></div>
 
                 <div class="mist">
 
@@ -2326,43 +3405,68 @@ function createGiftObject(type){
     }
 
 
-    if(type==="mirror"){
+    else if(type === "mirror"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="mirror" id="mirrorObject"></div>
-
-        `;
-
-    }
-
-
-    if(type==="selfcare"){
-
-        objectArea.innerHTML=`
-
-            <div class="selfcare" id="selfcareObject"></div>
+            <div
+                class="mirror"
+                id="mirrorObject"
+            ></div>
 
         `;
 
     }
 
 
-    if(type==="plushie"){
+    else if(type === "selfcare"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="plushie" id="plushieObject">
+            <div
+                class="selfcare"
+                id="selfcareObject"
+            ></div>
 
-                <div class="ear left"></div>
-                <div class="ear right"></div>
+        `;
 
-                <div class="eye left"></div>
-                <div class="eye right"></div>
+    }
 
-                <div class="mouth"></div>
 
-                <div class="heart">♥</div>
+    else if(type === "plushie"){
+
+        objectArea.innerHTML = `
+
+            <div
+                class="plushie"
+                id="plushieObject"
+            >
+
+                <div
+                    class="ear left"
+                ></div>
+
+                <div
+                    class="ear right"
+                ></div>
+
+                <div
+                    class="eye left"
+                ></div>
+
+                <div
+                    class="eye right"
+                ></div>
+
+                <div
+                    class="mouth"
+                ></div>
+
+                <div
+                    class="heart"
+                >
+                    ♥
+                </div>
 
             </div>
 
@@ -2371,11 +3475,14 @@ function createGiftObject(type){
     }
 
 
-    if(type==="scrunchies"){
+    else if(type === "scrunchies"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="scrunchies" id="scrunchieObject">
+            <div
+                class="scrunchies"
+                id="scrunchieObject"
+            >
 
                 <div class="scrunchie"></div>
                 <div class="scrunchie"></div>
@@ -2390,17 +3497,22 @@ function createGiftObject(type){
     }
 
 
-    if(type==="chocolate"){
+    else if(type === "chocolate"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="chocolate" id="chocolateObject">
+            <div
+                class="chocolate"
+                id="chocolateObject"
+            >
 
                 <div class="chocolate-title">
                     DAIRY MILK
                 </div>
 
-                <div class="chocolate-grid">
+                <div
+                    class="chocolate-grid"
+                >
 
                     <div class="choco"></div>
                     <div class="choco"></div>
@@ -2417,11 +3529,14 @@ function createGiftObject(type){
     }
 
 
-    if(type==="bracelet"){
+    else if(type === "bracelet"){
 
-        objectArea.innerHTML=`
+        objectArea.innerHTML = `
 
-            <div class="bracelet" id="braceletObject">
+            <div
+                class="bracelet"
+                id="braceletObject"
+            >
 
                 <div class="ring"></div>
 
@@ -2443,9 +3558,9 @@ function createGiftObject(type){
 }
 
 
-/* =====================================================
-   INTERACT
-===================================================== */
+/* =========================================================
+   INTERACTION
+========================================================= */
 
 interactButton.addEventListener(
     "click",
@@ -2454,23 +3569,26 @@ interactButton.addEventListener(
         if(interacted)
             return;
 
-        interacted=true;
+
+        interacted = true;
+
 
         tapSound();
+
 
         performInteraction(
             gifts[currentGift].type
         );
 
 
-        const gift=
+        const gift =
             gifts[currentGift];
 
 
-        reactionTitle.textContent=
+        reactionTitle.textContent =
             gift.reactionTitle;
 
-        reactionText.textContent=
+        reactionText.textContent =
             gift.reactionText;
 
 
@@ -2479,152 +3597,179 @@ interactButton.addEventListener(
         );
 
 
+        /*
+            Let the animation breathe
+            before showing compliment.
+        */
+
         setTimeout(
             ()=>{
                 reaction.classList.add(
                     "show"
                 );
             },
-            550
+            650
         );
 
     }
 );
 
 
-/* =====================================================
-   GIFT ANIMATIONS
-===================================================== */
+/* =========================================================
+   INTERACTION ANIMATIONS
+========================================================= */
 
 function performInteraction(type){
 
-    if(type==="candle"){
+    if(type === "candle"){
 
-        const candle=
+        const candle =
             document.getElementById(
                 "candleObject"
             );
 
-        candleFX();
 
         /*
-            Extra warm glow
+            Flame ONLY appears now.
         */
 
-        candle.style.filter=
-            "drop-shadow(0 0 40px rgba(245,165,67,.7))";
+        candle.classList.add(
+            "lit"
+        );
+
+
+        candleSound();
+
+
+        createGoldParticles();
 
     }
 
 
-    if(type==="perfume"){
+    else if(type === "perfume"){
 
-        const perfume=
+        const perfume =
             document.getElementById(
                 "perfumeObject"
             );
+
 
         perfume.classList.add(
             "sprayed"
         );
 
-        perfumeFX();
+
+        perfumeSound();
 
     }
 
 
-    if(type==="mirror"){
+    else if(type === "mirror"){
 
-        const mirror=
+        const mirror =
             document.getElementById(
                 "mirrorObject"
             );
+
 
         mirror.classList.add(
             "shine"
         );
 
+
         sparkle();
 
     }
 
 
-    if(type==="selfcare"){
+    else if(type === "selfcare"){
 
-        const box=
+        const box =
             document.getElementById(
                 "selfcareObject"
             );
+
 
         box.classList.add(
             "glow"
         );
 
+
         sparkle();
+
+        createGoldParticles();
 
     }
 
 
-    if(type==="plushie"){
+    else if(type === "plushie"){
 
-        const plush=
+        const plush =
             document.getElementById(
                 "plushieObject"
             );
+
 
         plush.classList.add(
             "bounce"
         );
 
-        plushFX();
+
+        plushSound();
 
         createHearts();
 
     }
 
 
-    if(type==="scrunchies"){
+    else if(type === "scrunchies"){
 
-        const scrunchies=
+        const scrunchies =
             document.getElementById(
                 "scrunchieObject"
             );
+
 
         scrunchies.classList.add(
             "active"
         );
 
+
         sparkle();
 
     }
 
 
-    if(type==="chocolate"){
+    else if(type === "chocolate"){
 
-        const chocolate=
+        const chocolate =
             document.getElementById(
                 "chocolateObject"
             );
+
 
         chocolate.classList.add(
             "open"
         );
 
+
         sparkle();
 
     }
 
 
-    if(type==="bracelet"){
+    else if(type === "bracelet"){
 
-        const bracelet=
+        const bracelet =
             document.getElementById(
                 "braceletObject"
             );
 
+
         bracelet.classList.add(
             "active"
         );
+
 
         sparkle();
 
@@ -2635,58 +3780,29 @@ function performInteraction(type){
 }
 
 
-/* =====================================================
-   NEXT
-===================================================== */
+/* =========================================================
+   NEXT GIFT
+========================================================= */
 
 nextButton.addEventListener(
     "click",
     ()=>{
 
+        if(!interacted)
+            return;
+
+
         tapSound();
 
+
+        /*
+            Last gift
+        */
+
         if(
-            currentGift<
-            gifts.length-1
+            currentGift ===
+            gifts.length - 1
         ){
-
-            /*
-                Small cinematic fade
-            */
-
-            objectArea.animate(
-                [
-                    {
-                        opacity:1,
-                        transform:"scale(1)"
-                    },
-                    {
-                        opacity:0,
-                        transform:"scale(.9)"
-                    }
-                ],
-                {
-                    duration:350,
-                    easing:"ease-in"
-                }
-            );
-
-
-            reaction.classList.remove(
-                "show"
-            );
-
-
-            setTimeout(
-                ()=>{
-                    loadGift(
-                        currentGift+1
-                    );
-                },
-                400
-            );
-
-        }else{
 
             experience.classList.remove(
                 "active"
@@ -2698,15 +3814,67 @@ nextButton.addEventListener(
                 900
             );
 
+
+            return;
         }
+
+
+        /*
+            Fade current gift.
+        */
+
+        objectArea.animate(
+            [
+                {
+                    opacity:1,
+
+                    transform:
+                        "scale(1)"
+                },
+
+                {
+                    opacity:0,
+
+                    transform:
+                        "scale(.88)"
+                }
+            ],
+
+            {
+                duration:350,
+
+                easing:"ease-in"
+            }
+        );
+
+
+        reaction.classList.remove(
+            "show"
+        );
+
+
+        /*
+            GUARANTEED transition.
+        */
+
+        setTimeout(
+            ()=>{
+
+                loadGift(
+                    currentGift + 1
+                );
+
+            },
+            400
+        );
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    HEART PARTICLES
-===================================================== */
+========================================================= */
 
 function createHearts(){
 
@@ -2716,35 +3884,47 @@ function createHearts(){
         i++
     ){
 
-        const heart=
+        const heart =
             document.createElement(
                 "div"
             );
 
-        heart.textContent="♥";
 
-        heart.style.position="fixed";
+        heart.textContent =
+            "♥";
 
-        heart.style.left=
-            38+
-            Math.random()*24+
+
+        heart.style.position =
+            "fixed";
+
+
+        heart.style.left =
+            38 +
+            Math.random()*24 +
             "%";
 
-        heart.style.top=
-            45+
-            Math.random()*20+
+
+        heart.style.top =
+            43 +
+            Math.random()*20 +
             "%";
 
-        heart.style.zIndex="90";
 
-        heart.style.pointerEvents="none";
+        heart.style.zIndex =
+            "90";
 
-        heart.style.color=
+
+        heart.style.pointerEvents =
+            "none";
+
+
+        heart.style.color =
             "#e47e9e";
 
-        heart.style.fontSize=
-            12+
-            Math.random()*16+
+
+        heart.style.fontSize =
+            12 +
+            Math.random()*16 +
             "px";
 
 
@@ -2754,30 +3934,40 @@ function createHearts(){
 
 
         heart.animate(
+
             [
                 {
                     transform:
                         "translateY(0) scale(.5)",
+
                     opacity:0
                 },
+
                 {
                     transform:
                         "translateY(-80px) scale(1)",
+
                     opacity:1
                 },
+
                 {
                     transform:
                         "translateY(-170px) scale(.4)",
+
                     opacity:0
                 }
             ],
+
             {
                 duration:
-                    1400+
+                    1400 +
                     Math.random()*700,
-                easing:"ease-out"
+
+                easing:
+                    "ease-out"
             }
-        ).onfinish=
+
+        ).onfinish =
             ()=>{
                 heart.remove();
             };
@@ -2787,47 +3977,66 @@ function createHearts(){
 }
 
 
-/* =====================================================
+/* =========================================================
    GOLD PARTICLES
-===================================================== */
+========================================================= */
 
 function createGoldParticles(){
 
     for(
         let i=0;
-        i<22;
+        i<20;
         i++
     ){
 
-        const p=
+        const p =
             document.createElement(
                 "div"
             );
 
-        p.style.position="fixed";
 
-        p.style.left=
-            35+
-            Math.random()*30+
+        p.style.position =
+            "fixed";
+
+
+        p.style.left =
+            35 +
+            Math.random()*30 +
             "%";
 
-        p.style.top=
-            40+
-            Math.random()*25+
+
+        p.style.top =
+            40 +
+            Math.random()*25 +
             "%";
 
-        p.style.width="4px";
-        p.style.height="4px";
-        p.style.borderRadius="50%";
 
-        p.style.background="#f0c778";
+        p.style.width =
+            "4px";
 
-        p.style.boxShadow=
+
+        p.style.height =
+            "4px";
+
+
+        p.style.borderRadius =
+            "50%";
+
+
+        p.style.background =
+            "#f0c778";
+
+
+        p.style.boxShadow =
             "0 0 12px #f0c778";
 
-        p.style.zIndex="90";
 
-        p.style.pointerEvents="none";
+        p.style.zIndex =
+            "90";
+
+
+        p.style.pointerEvents =
+            "none";
 
 
         document.body.appendChild(
@@ -2836,28 +4045,37 @@ function createGoldParticles(){
 
 
         p.animate(
+
             [
                 {
-                    transform:"translateY(0) scale(.3)",
+                    transform:
+                        "translateY(0) scale(.3)",
+
                     opacity:0
                 },
+
                 {
                     transform:
                         "translateY(-70px) scale(1)",
+
                     opacity:1
                 },
+
                 {
                     transform:
                         "translateY(-150px) scale(0)",
+
                     opacity:0
                 }
             ],
+
             {
                 duration:
-                    1200+
+                    1200 +
                     Math.random()*700
             }
-        ).onfinish=
+
+        ).onfinish =
             ()=>{
                 p.remove();
             };
@@ -2867,59 +4085,68 @@ function createGoldParticles(){
 }
 
 
-/* =====================================================
-   FINAL MESSAGE
-===================================================== */
+/* =========================================================
+   FINAL
+========================================================= */
 
-const finalScreen=
+const finalScreen =
     document.getElementById(
         "finalScreen"
     );
 
-const finalTitle=
+const finalTitle =
     document.getElementById(
         "finalTitle"
     );
 
-const finalText=
+const finalText =
     document.getElementById(
         "finalText"
     );
 
-const finalStep=
+const finalStep =
     document.getElementById(
         "finalStep"
     );
 
 
-let finalTap=0;
+let finalTap = 0;
 
 
 function showFinal(){
 
-    finalFX();
+    finalTap = 0;
+
+
+    finalSound();
+
 
     finalScreen.classList.add(
         "active"
     );
 
-    finalTap=0;
 
-    finalTitle.innerHTML=
+    finalTitle.innerHTML =
         `These gifts are nothing
         <span>compared to mine.</span>`;
 
-    finalText.innerHTML=
+
+    finalText.innerHTML =
         `I've received something far more precious
         than anything I could ever put inside a box.
         <br><br>
         I've received you.`;
 
-    finalStep.textContent=
+
+    finalStep.textContent =
         "TAP...";
 
 }
 
+
+/* =========================================================
+   FINAL TAPS
+========================================================= */
 
 finalStep.addEventListener(
     "click",
@@ -2927,35 +4154,40 @@ finalStep.addEventListener(
 
         tapSound();
 
+
         finalTap++;
 
 
-        if(finalTap===1){
+        if(finalTap === 1){
 
-            finalTitle.innerHTML=
+            finalTitle.innerHTML =
                 `Because the best gift
                 <span>I've ever received...</span>`;
 
-            finalText.innerHTML=
+
+            finalText.innerHTML =
                 `wasn't something I could buy.`;
 
-            finalStep.textContent=
+
+            finalStep.textContent =
                 "TAP...";
 
         }
 
 
-        else if(finalTap===2){
+        else if(finalTap === 2){
 
-            finalTitle.innerHTML=
+            finalTitle.innerHTML =
                 `It was
                 <span>you. ❤️</span>`;
 
-            finalText.innerHTML=
+
+            finalText.innerHTML =
                 `And now I want to show you
                 something that belongs only to us.`;
 
-            finalStep.textContent=
+
+            finalStep.textContent =
                 "COME ❤️";
 
         }
@@ -2967,8 +4199,10 @@ finalStep.addEventListener(
                 "active"
             );
 
+
             setTimeout(
                 ()=>{
+
                     document
                         .getElementById(
                             "albumScreen"
@@ -2976,6 +4210,7 @@ finalStep.addEventListener(
                         .classList.add(
                             "active"
                         );
+
 
                     sparkle();
 
@@ -2989,11 +4224,11 @@ finalStep.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    ALBUM
-===================================================== */
+========================================================= */
 
-const album=
+const album =
     document.getElementById(
         "album"
     );
@@ -3007,22 +4242,29 @@ album.addEventListener(
             album.classList.contains(
                 "open"
             )
-        ){
+        )
             return;
-        }
 
 
         tapSound();
+
 
         album.classList.add(
             "open"
         );
 
 
+        /*
+            Give the page-turn animation
+            enough time to finish.
+        */
+
         setTimeout(
             ()=>{
-                window.location.href=
+
+                window.location.href =
                     "photo.html";
+
             },
             1900
         );
@@ -3031,15 +4273,17 @@ album.addEventListener(
 );
 
 
-/* =====================================================
-   FIRST USER INTERACTION
-===================================================== */
+/* =========================================================
+   FIRST TOUCH = AUDIO UNLOCK
+========================================================= */
 
 document.addEventListener(
     "pointerdown",
     async ()=>{
         await unlockAudio();
+
         startMusic();
+
     },
     {
         once:true
@@ -3047,14 +4291,14 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    PREVENT DOUBLE TAP ZOOM
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     "dblclick",
-    e=>{
-        e.preventDefault();
+    event=>{
+        event.preventDefault();
     }
 );
 
