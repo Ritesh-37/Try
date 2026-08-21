@@ -10,17 +10,26 @@
 <style>
 
 /* =========================================================
-   CHAMPAGNE LUXURY PALETTE
+   SOFT WHITISH RED / PINK LUXURY PALETTE
 ========================================================= */
 
 :root {
-    --black: #0F080A;
-    --wine: #2A1118;
-    --deep-wine: #4A1829;
-    --champagne: #C9A96E;
-    --gold-light: #E7C98A;
-    --blush: #E9A0B5;
-    --cream: #FFF5E6;
+    --soft-white: #FFF8FA;
+    --white: #FFFDFE;
+
+    --blush-light: #FFE8EF;
+    --blush: #F8C8D8;
+    --pink: #E9A0B5;
+
+    --rose: #D95C7A;
+    --deep-rose: #9E294C;
+
+    --wine: #6D1F3B;
+
+    --text: #4A1728;
+    --soft-text: #8D5367;
+
+    --gold: #C9A96E;
 }
 
 
@@ -42,20 +51,46 @@ body {
 }
 
 body {
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    background: var(--black);
-    color: var(--cream);
+    color: var(--text);
 
     cursor: pointer;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,.95),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(248,200,216,.55),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(233,160,181,.35),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #FFF8FA,
+            #FFE8EF 45%,
+            #FFFDFE
+        );
 }
 
 
 /* =========================================================
-   WAKE SCREEN
+   MAIN WAKE SCREEN
 ========================================================= */
 
 #wakeScreen {
@@ -76,28 +111,22 @@ body {
     background:
 
         radial-gradient(
-            circle at 50% 50%,
-            rgba(74, 24, 41, .45),
-            transparent 42%
-        ),
-
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(201, 169, 110, .08),
-            transparent 30%
+            circle at center,
+            rgba(255,255,255,.8),
+            transparent 45%
         ),
 
         linear-gradient(
-            145deg,
-            #0F080A,
-            #241018,
-            #0F080A
+            135deg,
+            #FFF8FA,
+            #FFE8EF,
+            #FFFDFE
         );
 }
 
 
 /* =========================================================
-   CINEMATIC VIGNETTE
+   SOFT PINK VIGNETTE
 ========================================================= */
 
 #wakeScreen::after {
@@ -117,24 +146,24 @@ body {
         radial-gradient(
             ellipse at center,
             transparent 30%,
-            rgba(0,0,0,.78) 100%
+            rgba(157,42,76,.14) 100%
         );
 }
 
 
 /* =========================================================
-   AMBIENT CHAMPAGNE LIGHT
+   AMBIENT PINK LIGHT
 ========================================================= */
 
 .ambient-light {
 
     position: absolute;
 
-    width: 70vw;
-    height: 70vw;
+    width: 75vw;
+    height: 75vw;
 
-    max-width: 800px;
-    max-height: 800px;
+    max-width: 850px;
+    max-height: 850px;
 
     border-radius: 50%;
 
@@ -142,11 +171,12 @@ body {
 
         radial-gradient(
             circle,
-            rgba(201,169,110,.15),
-            transparent 68%
+            rgba(255,255,255,.9),
+            rgba(248,200,216,.35),
+            transparent 70%
         );
 
-    filter: blur(50px);
+    filter: blur(35px);
 
     animation:
         ambientBreath
@@ -162,19 +192,123 @@ body {
 @keyframes ambientBreath {
 
     from {
-        transform: scale(.8);
-        opacity: .45;
+        transform: scale(.82);
+        opacity: .55;
     }
 
     to {
-        transform: scale(1.15);
-        opacity: .9;
+        transform: scale(1.12);
+        opacity: 1;
     }
 }
 
 
 /* =========================================================
-   DIZZY CIRCULAR MOTION
+   CUTE FLOATING LIGHT PARTICLES
+========================================================= */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    box-shadow:
+        0 0 12px
+        rgba(217,92,122,.35);
+
+    opacity: 0;
+
+    animation:
+        floatUp
+        linear
+        infinite;
+}
+
+
+.particle:nth-child(1) {
+    left: 10%;
+    bottom: -5%;
+    animation-duration: 10s;
+}
+
+.particle:nth-child(2) {
+    left: 25%;
+    bottom: -5%;
+    animation-duration: 13s;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(3) {
+    left: 44%;
+    bottom: -5%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(4) {
+    left: 67%;
+    bottom: -5%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+    left: 86%;
+    bottom: -5%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+
+@keyframes floatUp {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(.4);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .55;
+    }
+
+    70% {
+        opacity: .3;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            translateX(35px)
+            scale(1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CIRCULAR DIZZY MOTION
 ========================================================= */
 
 .dizzy-ring {
@@ -193,11 +327,10 @@ body {
     border-radius: 50%;
 
     border:
-
         1px solid
-        rgba(201,169,110,.13);
+        rgba(217,92,122,.18);
 
-    opacity: .75;
+    opacity: .8;
 
     pointer-events: none;
 
@@ -220,9 +353,8 @@ body {
     border-radius: 50%;
 
     border:
-
         1px solid
-        rgba(233,160,181,.10);
+        rgba(233,160,181,.25);
 
     animation:
         dizzySpinReverse
@@ -243,9 +375,8 @@ body {
     border-radius: 50%;
 
     border:
-
         1px dashed
-        rgba(201,169,110,.10);
+        rgba(217,92,122,.15);
 
     animation:
         dizzySpin
@@ -284,110 +415,7 @@ body {
 
 
 /* =========================================================
-   FLOATING CHAMPAGNE PARTICLES
-========================================================= */
-
-.particles {
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 3;
-}
-
-
-.particle {
-
-    position: absolute;
-
-    width: 3px;
-    height: 3px;
-
-    border-radius: 50%;
-
-    background: var(--champagne);
-
-    box-shadow:
-        0 0 10px rgba(201,169,110,.8);
-
-    opacity: 0;
-
-    animation:
-        floatUp
-        linear
-        infinite;
-}
-
-
-.particle:nth-child(1) {
-    left: 12%;
-    bottom: -5%;
-    animation-duration: 9s;
-}
-
-.particle:nth-child(2) {
-    left: 27%;
-    bottom: -5%;
-    animation-duration: 12s;
-    animation-delay: 2s;
-}
-
-.particle:nth-child(3) {
-    left: 45%;
-    bottom: -5%;
-    animation-duration: 8s;
-    animation-delay: 1s;
-}
-
-.particle:nth-child(4) {
-    left: 63%;
-    bottom: -5%;
-    animation-duration: 11s;
-    animation-delay: 4s;
-}
-
-.particle:nth-child(5) {
-    left: 81%;
-    bottom: -5%;
-    animation-duration: 10s;
-    animation-delay: 2s;
-}
-
-
-@keyframes floatUp {
-
-    0% {
-        transform:
-            translateY(0)
-            scale(.4);
-
-        opacity: 0;
-    }
-
-    20% {
-        opacity: .45;
-    }
-
-    70% {
-        opacity: .25;
-    }
-
-    100% {
-        transform:
-            translateY(-110vh)
-            translateX(35px)
-            scale(1);
-
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   ROOM / VISIBILITY VEIL
+   BLURRED ROOM / VISIBILITY LAYER
 ========================================================= */
 
 .blur-layer {
@@ -401,21 +429,25 @@ body {
     background:
 
         radial-gradient(
-            circle at 50% 50%,
-            rgba(42,17,24,.75),
-            rgba(15,8,10,.99)
+            circle at center,
+            rgba(255,248,250,.78),
+            rgba(255,232,239,.96)
         );
 
-    backdrop-filter: blur(28px);
+    backdrop-filter:
+        blur(28px);
 
-    -webkit-backdrop-filter: blur(28px);
+    -webkit-backdrop-filter:
+        blur(28px);
 
     opacity: 1;
 
     transition:
 
         opacity 1.8s ease,
+
         backdrop-filter 1.5s ease,
+
         -webkit-backdrop-filter 1.5s ease;
 
     pointer-events: none;
@@ -432,7 +464,8 @@ body {
 
     z-index: 15;
 
-    width: min(90%, 650px);
+    width:
+        min(90%, 650px);
 
     padding: 30px;
 
@@ -443,12 +476,13 @@ body {
 
 
 /* =========================================================
-   SMALL GOLD LABEL
+   SMALL ROMANTIC LABEL
 ========================================================= */
 
 .eyebrow {
 
-    color: var(--champagne);
+    color:
+        var(--rose);
 
     font-size: 10px;
 
@@ -463,12 +497,12 @@ body {
 
 
 /* =========================================================
-   MAIN DIALOGUE
+   DIALOGUE
 ========================================================= */
 
 .dialogue {
 
-    min-height: 100px;
+    min-height: 110px;
 
     display: flex;
 
@@ -480,7 +514,8 @@ body {
 
 .dialogue h1 {
 
-    color: var(--cream);
+    color:
+        var(--text);
 
     font-size:
         clamp(
@@ -493,20 +528,17 @@ body {
 
     line-height: 1.15;
 
-    letter-spacing: .3px;
+    letter-spacing: .2px;
 
     text-shadow:
-
-        0 0 20px
-        rgba(201,169,110,.15),
-
-        0 0 40px
-        rgba(233,160,181,.08);
+        0 3px 18px
+        rgba(217,92,122,.13);
 
     animation:
         textAppear
         1.2s
-        ease forwards;
+        ease
+        forwards;
 }
 
 
@@ -520,7 +552,8 @@ body {
             translateY(15px)
             scale(.97);
 
-        filter: blur(8px);
+        filter:
+            blur(8px);
     }
 
     to {
@@ -531,7 +564,8 @@ body {
             translateY(0)
             scale(1);
 
-        filter: blur(0);
+        filter:
+            blur(0);
     }
 }
 
@@ -545,12 +579,7 @@ body {
     margin-top: 35px;
 
     color:
-        rgba(
-            233,
-            160,
-            181,
-            .7
-        );
+        var(--soft-text);
 
     font-size: 11px;
 
@@ -590,10 +619,12 @@ body {
     inset: 0;
 
     background:
+
         radial-gradient(
             circle at center,
-            rgba(255,245,230,.12),
-            transparent 55%
+            rgba(255,255,255,.7),
+            rgba(255,200,215,.12),
+            transparent 60%
         );
 
     opacity: 0;
@@ -630,7 +661,7 @@ body {
 
 
 /* =========================================================
-   TRANSITION SWIRL
+   TRANSITION RING
 ========================================================= */
 
 .transition-ring {
@@ -647,7 +678,7 @@ body {
 
     border:
         1px solid
-        var(--champagne);
+        var(--rose);
 
     transform:
         translate(-50%, -50%)
@@ -701,7 +732,7 @@ body {
    MOBILE
 ========================================================= */
 
-@media(max-width: 500px) {
+@media(max-width:500px) {
 
     .wake-content {
         padding: 20px;
@@ -712,6 +743,7 @@ body {
     }
 
     .dizzy-ring {
+
         width: 95vmin;
         height: 95vmin;
     }
@@ -731,7 +763,7 @@ body {
 <section id="wakeScreen">
 
 
-    <!-- Ambient champagne light -->
+    <!-- Soft pink ambient glow -->
 
     <div class="ambient-light"></div>
 
@@ -754,12 +786,12 @@ body {
     </div>
 
 
-    <!-- Dark / blurred room -->
+    <!-- Blurred / faded room -->
 
     <div
         class="blur-layer"
-        id="blurLayer"
-    ></div>
+        id="blurLayer">
+    </div>
 
 
     <!-- Dialogue -->
@@ -770,6 +802,7 @@ body {
             Somewhere between midnight & forever
         </div>
 
+
         <div class="dialogue">
 
             <h1 id="dialogueText">
@@ -778,33 +811,38 @@ body {
 
         </div>
 
+
         <div
             class="tap-hint"
-            id="tapHint"
-        >
+            id="tapHint">
+
             Tap anywhere to wake up
+
         </div>
 
     </div>
-
 
 </section>
 
 
 <!-- =========================================================
-     EFFECT LAYERS
+     TAP FLASH
 ========================================================= -->
 
 <div
     class="tap-flash"
-    id="tapFlash"
-></div>
+    id="tapFlash">
+</div>
 
+
+<!-- =========================================================
+     TRANSITION RING
+========================================================= -->
 
 <div
     class="transition-ring"
-    id="transitionRing"
-></div>
+    id="transitionRing">
+</div>
 
 
 <script>
@@ -832,7 +870,6 @@ const transitionRing =
     document.getElementById("transitionRing");
 
 
-
 /* =========================================================
    WAKE STATES
 ========================================================= */
@@ -841,10 +878,21 @@ let tapCount = 0;
 
 
 /*
-    0 = initial
-    1 = Riteshhh
-    2 = Babyyyy
-    3 = completely awake
+    TAP 0
+    ↓
+    Oh God! I'm still dizzy...
+
+    TAP 1
+    ↓
+    Riteshhhhhhh!!! Babe!!!!
+
+    TAP 2
+    ↓
+    Babyyyy!!! Where are you?
+
+    TAP 3
+    ↓
+    Where are you hiding, Ritesh...?
 */
 
 const dialogueStates = [
@@ -858,7 +906,6 @@ const dialogueStates = [
     "Where are you hiding, Ritesh...? ❤️"
 
 ];
-
 
 
 /* =========================================================
@@ -896,9 +943,8 @@ function getAudioContext() {
 }
 
 
-
 /* =========================================================
-   SOFT TAP SOUND
+   SOFT CLICK
 ========================================================= */
 
 function clickSound() {
@@ -918,6 +964,7 @@ function clickSound() {
 
     oscillator.type =
         "sine";
+
 
     oscillator.frequency.setValueAtTime(
         460,
@@ -962,7 +1009,6 @@ function clickSound() {
         ctx.currentTime + .25
     );
 }
-
 
 
 /* =========================================================
@@ -1033,9 +1079,8 @@ function dizzyWhoosh() {
 }
 
 
-
 /* =========================================================
-   TEXT TRANSITION SOUND
+   ROMANTIC TRANSITION SOUND
 ========================================================= */
 
 function transitionSound() {
@@ -1065,6 +1110,7 @@ function transitionSound() {
 
             oscillator.type =
                 "sine";
+
 
             oscillator.frequency.value =
                 frequency;
@@ -1111,9 +1157,8 @@ function transitionSound() {
 }
 
 
-
 /* =========================================================
-   TAP FLASH
+   SCREEN FLASH
 ========================================================= */
 
 function flashScreen() {
@@ -1130,14 +1175,14 @@ function flashScreen() {
 }
 
 
-
 /* =========================================================
    CHANGE DIALOGUE
 ========================================================= */
 
 function changeDialogue(text) {
 
-    dialogueText.style.opacity = "0";
+    dialogueText.style.opacity =
+        "0";
 
     dialogueText.style.transform =
         "translateY(12px) scale(.98)";
@@ -1159,15 +1204,16 @@ function changeDialogue(text) {
         dialogueText.style.opacity =
             "1";
 
+
         dialogueText.style.transform =
             "translateY(0) scale(1)";
+
 
         dialogueText.style.filter =
             "blur(0)";
 
     }, 250);
 }
-
 
 
 /* =========================================================
@@ -1185,9 +1231,9 @@ wakeScreen.addEventListener(
         flashScreen();
 
 
-        /* =========================================
+        /* =================================================
            FIRST TAP
-        ========================================= */
+        ================================================= */
 
         if (tapCount === 1) {
 
@@ -1198,10 +1244,6 @@ wakeScreen.addEventListener(
             );
 
 
-            /*
-                First layer becomes clearer.
-            */
-
             blurLayer.style.opacity =
                 ".68";
 
@@ -1211,9 +1253,9 @@ wakeScreen.addEventListener(
         }
 
 
-        /* =========================================
+        /* =================================================
            SECOND TAP
-        ========================================= */
+        ================================================= */
 
         else if (tapCount === 2) {
 
@@ -1233,9 +1275,9 @@ wakeScreen.addEventListener(
         }
 
 
-        /* =========================================
+        /* =================================================
            THIRD TAP
-        ========================================= */
+        ================================================= */
 
         else if (tapCount === 3) {
 
@@ -1255,18 +1297,17 @@ wakeScreen.addEventListener(
 
 
             /*
-                Slow the dizziness down
-                once she's fully awake.
+                Dizziness gradually slows
             */
 
-            document.querySelector(
-                ".dizzy-ring"
-            ).style.animationDuration =
+            document
+                .querySelector(".dizzy-ring")
+                .style.animationDuration =
                 "22s";
 
 
             /*
-                Small cinematic transition.
+                Cinematic transition
             */
 
             setTimeout(() => {
