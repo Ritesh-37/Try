@@ -26,8 +26,14 @@ body{
 
 body{
     overflow:hidden;
-    font-family:"DM Sans","Segoe UI",Arial,sans-serif;
+    font-family:
+        "DM Sans",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
     color:#7d1834;
+
     background:
         radial-gradient(
             circle at 50% 20%,
@@ -40,13 +46,15 @@ body{
 
 
 /* =========================================================
-   PAGE 3 BACKGROUND — SAME VISUAL LANGUAGE
+   PAGE 3 STYLE BACKGROUND
 ========================================================= */
 
 .background{
     position:fixed;
     inset:0;
+
     overflow:hidden;
+
     z-index:0;
 
     background:
@@ -57,6 +65,10 @@ body{
             #ffe3e8 70%,
             #ffd0d9 100%
         );
+
+    transform-origin:center;
+    transition:
+        transform .35s ease;
 }
 
 .background-glow{
@@ -68,11 +80,14 @@ body{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
-    background:rgba(255,90,130,.16);
+    background:
+        rgba(255,90,130,.16);
 
-    filter:blur(110px);
+    filter:
+        blur(110px);
 
     border-radius:50%;
 
@@ -100,6 +115,7 @@ body{
 }
 
 .background::after{
+
     content:"";
 
     position:absolute;
@@ -124,10 +140,12 @@ body{
 .floating-hearts{
     position:absolute;
     inset:0;
+
     pointer-events:none;
 }
 
 .floating-hearts span{
+
     position:absolute;
 
     font-size:20px;
@@ -191,10 +209,11 @@ body{
 
 
 /* =========================================================
-   CINEMATIC DIZZY LAYER
+   DIZZY SPIN
 ========================================================= */
 
 .dizzy-layer{
+
     position:absolute;
     inset:0;
 
@@ -203,16 +222,15 @@ body{
     opacity:.75;
 
     transition:
-        opacity 2.5s ease,
-        transform 3s ease;
+        opacity 1.5s ease;
 }
 
 .dizzy-layer.calm{
     opacity:0;
-    transform:scale(1.12);
 }
 
 .dizzy-ring{
+
     position:absolute;
 
     left:50%;
@@ -235,9 +253,11 @@ body{
 }
 
 .dizzy-ring::before{
+
     content:"";
 
     position:absolute;
+
     inset:8%;
 
     border:
@@ -248,9 +268,11 @@ body{
 }
 
 .dizzy-ring::after{
+
     content:"";
 
     position:absolute;
+
     inset:20%;
 
     border:
@@ -261,6 +283,7 @@ body{
 }
 
 @keyframes dizzySpin{
+
     to{
         transform:
             translate(-50%,-50%)
@@ -270,11 +293,87 @@ body{
 
 
 /* =========================================================
-   WAKE-UP VISUAL BLUR
+   DIZZY TAP EFFECT
+========================================================= */
+
+body.dizzy-tap-1 .background{
+
+    transform:
+        scale(1.04)
+        rotate(1deg);
+}
+
+body.dizzy-tap-2 .background{
+
+    transform:
+        scale(1.09)
+        rotate(-2deg);
+}
+
+body.dizzy-tap-3 .background{
+
+    transform:
+        scale(1.15)
+        rotate(3deg);
+}
+
+body.dizzy-tap-1 .dizzy-ring{
+
+    animation-duration:5s;
+}
+
+body.dizzy-tap-2 .dizzy-ring{
+
+    animation-duration:3s;
+}
+
+body.dizzy-tap-3 .dizzy-ring{
+
+    animation-duration:1.7s;
+}
+
+body.dizzy-tap-3{
+
+    animation:
+        screenDizzy .6s ease-in-out;
+}
+
+@keyframes screenDizzy{
+
+    0%{
+        transform:rotate(0);
+    }
+
+    20%{
+        transform:rotate(-1deg);
+    }
+
+    40%{
+        transform:rotate(1.5deg);
+    }
+
+    60%{
+        transform:rotate(-1deg);
+    }
+
+    80%{
+        transform:rotate(.6deg);
+    }
+
+    100%{
+        transform:rotate(0);
+    }
+}
+
+
+/* =========================================================
+   WAKE BLUR
 ========================================================= */
 
 .wake-blur{
+
     position:absolute;
+
     inset:-40px;
 
     background:
@@ -300,14 +399,16 @@ body{
 
 
 /* =========================================================
-   DIALOGUE
+   DIALOGUES
 ========================================================= */
 
 .dialogue-layer{
+
     position:absolute;
     inset:0;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -319,6 +420,7 @@ body{
 }
 
 .dialogue{
+
     position:absolute;
 
     width:min(90%,700px);
@@ -340,6 +442,7 @@ body{
 }
 
 .dialogue.show{
+
     opacity:1;
 
     filter:blur(0);
@@ -350,6 +453,7 @@ body{
 }
 
 .dialogue.hide{
+
     opacity:0;
 
     filter:blur(7px);
@@ -381,6 +485,7 @@ body{
 }
 
 .dialogue .emoji{
+
     display:inline-block;
 
     margin-left:5px;
@@ -411,16 +516,19 @@ body{
 ========================================================= */
 
 .phone-stage{
+
     position:absolute;
     inset:0;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
     z-index:100;
 
     opacity:0;
+
     visibility:hidden;
 
     transition:
@@ -429,7 +537,9 @@ body{
 }
 
 .phone-stage.visible{
+
     opacity:1;
+
     visibility:visible;
 }
 
@@ -439,6 +549,7 @@ body{
 ========================================================= */
 
 .iphone{
+
     position:relative;
 
     width:min(330px,82vw);
@@ -477,6 +588,7 @@ body{
 }
 
 .phone-stage.visible .iphone{
+
     transform:
         translateY(0)
         scale(1);
@@ -576,10 +688,6 @@ body{
     background:#050505;
 
     z-index:30;
-
-    box-shadow:
-        inset 0 0 0 1px
-        rgba(255,255,255,.04);
 }
 
 
@@ -738,6 +846,7 @@ body{
     height:34px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
@@ -847,7 +956,7 @@ body{
 
 
 /* =========================================================
-   CHAT SCREEN
+   CHAT
 ========================================================= */
 
 .chat-screen{
@@ -877,11 +986,6 @@ body{
     transform:
         translateX(0);
 }
-
-
-/* =========================================================
-   CHAT BACKGROUND
-========================================================= */
 
 .chat-background{
 
@@ -948,9 +1052,7 @@ body{
 .chat-back{
 
     font-size:25px;
-
     line-height:1;
-
     opacity:.9;
 }
 
@@ -1024,29 +1126,16 @@ body{
 
 
 /* =========================================================
-   MESSAGE
+   MESSAGE BASE
 ========================================================= */
 
 .message{
 
-    align-self:flex-start;
-
-    max-width:84%;
+    max-width:78%;
 
     padding:
-        11px
-        14px;
-
-    border-radius:
-        18px
-        18px
-        18px
-        5px;
-
-    background:
-        #f3eef1;
-
-    color:#2c1b22;
+        10px
+        13px;
 
     font:
         400 12px/1.45
@@ -1062,9 +1151,56 @@ body{
         forwards;
 }
 
+
+/* =========================================================
+   RITESH — LEFT
+========================================================= */
+
+.message.ritesh{
+
+    align-self:flex-start;
+
+    border-radius:
+        18px
+        18px
+        18px
+        5px;
+
+    background:
+        #f3eef1;
+
+    color:#2c1b22;
+}
+
+
+/* =========================================================
+   TISHA — RIGHT
+========================================================= */
+
+.message.tisha{
+
+    align-self:flex-end;
+
+    border-radius:
+        18px
+        18px
+        5px
+        18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d94f70,
+            #9b2447
+        );
+
+    color:white;
+}
+
 @keyframes messageAppear{
 
     from{
+
         opacity:0;
 
         transform:
@@ -1073,6 +1209,7 @@ body{
     }
 
     to{
+
         opacity:1;
 
         transform:
@@ -1083,7 +1220,7 @@ body{
 
 
 /* =========================================================
-   TYPING INDICATOR
+   TYPING
 ========================================================= */
 
 .typing{
@@ -1231,11 +1368,11 @@ body{
 
     font-size:17px;
 
+    cursor:pointer;
+
     box-shadow:
         0 7px 18px
         rgba(217,79,112,.25);
-
-    cursor:pointer;
 
     transition:.2s;
 }
@@ -1244,13 +1381,9 @@ body{
     transform:scale(.88);
 }
 
-.send-button:disabled{
-    opacity:.45;
-}
-
 
 /* =========================================================
-   CHAT TAP HINT
+   CHAT HINT
 ========================================================= */
 
 .chat-hint{
@@ -1284,7 +1417,7 @@ body{
 
 
 /* =========================================================
-   QUIZ HANDOFF
+   MEMORY TEST SCREEN
 ========================================================= */
 
 .quiz-transition{
@@ -1336,6 +1469,28 @@ body{
     width:min(90%,650px);
 
     padding:30px;
+
+    animation:
+        quizReveal 1s ease forwards;
+}
+
+@keyframes quizReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
 }
 
 .quiz-eyebrow{
@@ -1400,8 +1555,8 @@ body{
     display:inline-block;
 
     padding:
-        12px
-        20px;
+        13px
+        22px;
 
     border:
         1px solid
@@ -1411,6 +1566,9 @@ body{
 
     color:#7d1834;
 
+    background:
+        rgba(255,255,255,.3);
+
     font:
         700 10px
         Arial,sans-serif;
@@ -1418,6 +1576,19 @@ body{
     letter-spacing:2px;
 
     text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.quiz-ready:hover{
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255,255,255,.55);
 }
 
 
@@ -1428,21 +1599,26 @@ body{
 @media(max-width:420px){
 
     .iphone{
+
         width:min(320px,84vw);
+
         height:min(670px,86vh);
     }
 
     .dialogue h1{
+
         font-size:
             clamp(31px,8vw,48px);
     }
 
     .notification{
+
         left:13px;
         right:13px;
     }
 
     .message{
+
         font-size:11.5px;
     }
 }
@@ -1455,7 +1631,7 @@ body{
 
 
 <!-- =======================================================
-     BACKGROUND
+     PAGE 3 STYLE BACKGROUND
 ======================================================= -->
 
 <div class="background">
@@ -1463,19 +1639,31 @@ body{
     <div class="background-glow"></div>
 
     <div class="floating-hearts">
+
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
         <span>♡</span>
+
     </div>
 
-    <div class="dizzy-layer" id="dizzyLayer">
+
+    <div
+        class="dizzy-layer"
+        id="dizzyLayer"
+    >
+
         <div class="dizzy-ring"></div>
+
     </div>
 
-    <div class="wake-blur" id="wakeBlur"></div>
+
+    <div
+        class="wake-blur"
+        id="wakeBlur"
+    ></div>
 
 </div>
 
@@ -1486,7 +1674,11 @@ body{
 
 <div class="dialogue-layer">
 
-    <div class="dialogue" id="dialogue1">
+
+    <div
+        class="dialogue"
+        id="dialogue1"
+    >
 
         <h1>
             Oh God.... I'm still dizzy...
@@ -1496,7 +1688,10 @@ body{
     </div>
 
 
-    <div class="dialogue" id="dialogue2">
+    <div
+        class="dialogue"
+        id="dialogue2"
+    >
 
         <h1>
             Riteshhh... Babeeeee!!
@@ -1506,7 +1701,10 @@ body{
     </div>
 
 
-    <div class="dialogue" id="dialogue3">
+    <div
+        class="dialogue"
+        id="dialogue3"
+    >
 
         <h1>
             Babe.... Where are you?
@@ -1522,27 +1720,27 @@ body{
      IPHONE
 ======================================================= -->
 
-<div class="phone-stage" id="phoneStage">
+<div
+    class="phone-stage"
+    id="phoneStage"
+>
 
-    <div class="iphone" id="iphone">
+    <div
+        class="iphone"
+        id="iphone"
+    >
 
         <div class="phone-screen">
 
 
-            <!-- =================================================
-                 DYNAMIC ISLAND
-            ================================================== -->
-
             <div class="dynamic-island"></div>
 
 
-            <!-- =================================================
-                 STATUS BAR
-            ================================================== -->
-
             <div class="status-bar">
 
-                <span>12:37</span>
+                <span>
+                    12:37
+                </span>
 
                 <span>
                     ▮▮▮ ◉
@@ -1551,11 +1749,12 @@ body{
             </div>
 
 
-            <!-- =================================================
-                 LOCK SCREEN
-            ================================================== -->
+            <!-- LOCK SCREEN -->
 
-            <div class="lock-screen" id="lockScreen">
+            <div
+                class="lock-screen"
+                id="lockScreen"
+            >
 
                 <div class="lock-time">
                     12:37
@@ -1568,11 +1767,12 @@ body{
             </div>
 
 
-            <!-- =================================================
-                 NOTIFICATION
-            ================================================== -->
+            <!-- NOTIFICATION -->
 
-            <div class="notification" id="notification">
+            <div
+                class="notification"
+                id="notification"
+            >
 
                 <div class="notification-header">
 
@@ -1607,11 +1807,12 @@ body{
             </div>
 
 
-            <!-- =================================================
-                 CHAT
-            ================================================== -->
+            <!-- CHAT -->
 
-            <div class="chat-screen" id="chatScreen">
+            <div
+                class="chat-screen"
+                id="chatScreen"
+            >
 
                 <div class="chat-background"></div>
 
@@ -1641,7 +1842,10 @@ body{
                 </div>
 
 
-                <div class="chat-body" id="chatBody">
+                <div
+                    class="chat-body"
+                    id="chatBody"
+                >
 
                     <div
                         class="typing"
@@ -1696,7 +1900,7 @@ body{
 
 
 <!-- =======================================================
-     QUIZ HANDOFF
+     MEMORY TEST HANDOFF
 ======================================================= -->
 
 <div
@@ -1722,8 +1926,12 @@ body{
             memory really is...
         </p>
 
-        <div class="quiz-ready">
-            Memory test →
+
+        <div
+            class="quiz-ready"
+            id="quizReady"
+        >
+            Memory Test →
         </div>
 
     </div>
@@ -1734,14 +1942,7 @@ body{
 <script>
 
 /* =========================================================
-   PAGE 4 AUDIO ENGINE
-
-   STYLE:
-   Page 1 inspired:
-   - soft piano
-   - cute chimes
-   - warm romantic atmosphere
-   - subtle UI sounds
+   AUDIO ENGINE
 ========================================================= */
 
 let audioContext = null;
@@ -1756,7 +1957,7 @@ let audioUnlocked = false;
 
 
 /* =========================================================
-   INITIALIZE AUDIO
+   AUDIO INITIALIZATION
 ========================================================= */
 
 function initAudio(){
@@ -1787,18 +1988,22 @@ function initAudio(){
 
 
     masterGain.gain.value =
-        0.72;
+        .72;
 
     musicGain.gain.value =
-        0.18;
+        .18;
 
     effectGain.gain.value =
-        0.45;
+        .45;
 
 
-    musicGain.connect(masterGain);
+    musicGain.connect(
+        masterGain
+    );
 
-    effectGain.connect(masterGain);
+    effectGain.connect(
+        masterGain
+    );
 
     masterGain.connect(
         audioContext.destination
@@ -1809,7 +2014,7 @@ function initAudio(){
 
 
 /* =========================================================
-   UNLOCK AUDIO
+   UNLOCK
 ========================================================= */
 
 async function unlockAudio(){
@@ -1843,7 +2048,7 @@ async function unlockAudio(){
 
 
 /* =========================================================
-   OSCILLATOR
+   TONE
 ========================================================= */
 
 function playTone(
@@ -1885,7 +2090,10 @@ function playTone(
     );
 
     gain.gain.exponentialRampToValueAtTime(
-        Math.max(volume,.0001),
+        Math.max(
+            volume,
+            .0001
+        ),
         now + .025
     );
 
@@ -1907,12 +2115,11 @@ function playTone(
         duration +
         .04
     );
-
 }
 
 
 /* =========================================================
-   SOFT PAGE 1 STYLE CLICK
+   CLICK
 ========================================================= */
 
 function uiClick(){
@@ -1936,7 +2143,6 @@ function uiClick(){
         effectGain,
         .018
     );
-
 }
 
 
@@ -1974,12 +2180,11 @@ function messageReceived(){
         effectGain,
         .14
     );
-
 }
 
 
 /* =========================================================
-   PHONE NOTIFICATION
+   NOTIFICATION
 ========================================================= */
 
 function notificationSound(){
@@ -2003,12 +2208,11 @@ function notificationSound(){
         effectGain,
         .10
     );
-
 }
 
 
 /* =========================================================
-   PHONE VIBRATION SOUND
+   PHONE VIBRATION
 ========================================================= */
 
 function phoneVibration(){
@@ -2023,12 +2227,11 @@ function phoneVibration(){
         "sine",
         .055
     );
-
 }
 
 
 /* =========================================================
-   TYPING SOUND
+   TYPING
 ========================================================= */
 
 function typingTick(){
@@ -2043,12 +2246,11 @@ function typingTick(){
         "sine",
         .012
     );
-
 }
 
 
 /* =========================================================
-   SOFT WHOOSH
+   TRANSITION SOUND
 ========================================================= */
 
 function transitionSound(){
@@ -2081,12 +2283,39 @@ function transitionSound(){
         effectGain,
         .20
     );
-
 }
 
 
 /* =========================================================
-   PAGE 1 INSPIRED ROMANTIC BGM
+   DIZZY SOUND
+========================================================= */
+
+function dizzySound(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        240,
+        .25,
+        "sine",
+        .025
+    );
+
+    playTone(
+        320,
+        .30,
+        "sine",
+        .018,
+        effectGain,
+        .08
+    );
+}
+
+
+/* =========================================================
+   PAGE 1 STYLE BGM
 ========================================================= */
 
 function startRomanticBGM(){
@@ -2098,17 +2327,6 @@ function startRomanticBGM(){
         return;
     }
 
-
-    /*
-       Gentle repeating progression.
-
-       C major
-       A minor
-       F major
-       G major
-
-       Very soft and dreamy.
-    */
 
     const progression = [
 
@@ -2162,16 +2380,15 @@ function startRomanticBGM(){
         );
 
 
-        /*
-           Small magical bell.
-        */
-
         const melody = [
+
             659.25,
             783.99,
             880.00,
             783.99
+
         ];
+
 
         playTone(
             melody[
@@ -2195,33 +2412,11 @@ function startRomanticBGM(){
             playChord,
             2800
         );
-
 }
 
 
 /* =========================================================
-   STOP BGM
-========================================================= */
-
-function stopRomanticBGM(){
-
-    if(musicInterval){
-
-        clearInterval(
-            musicInterval
-        );
-
-        musicInterval = null;
-
-    }
-
-}
-
-
-/* =========================================================
-   FIRST USER INTERACTION
-
-   Browser audio unlock.
+   AUDIO UNLOCK ON FIRST TAP
 ========================================================= */
 
 window.addEventListener(
@@ -2305,11 +2500,6 @@ const typing =
         "typing"
     );
 
-const sendButton =
-    document.getElementById(
-        "sendButton"
-    );
-
 const chatHint =
     document.getElementById(
         "chatHint"
@@ -2320,33 +2510,119 @@ const quizTransition =
         "quizTransition"
     );
 
+const quizReady =
+    document.getElementById(
+        "quizReady"
+    );
+
 
 /* =========================================================
-   WAKE-UP SEQUENCE
+   DIZZY TAP SYSTEM
 ========================================================= */
 
-/*
-   The blur slowly clears.
-*/
+let dizzyTaps = 0;
+
+let wakeSequenceFinished = false;
+
+
+document.addEventListener(
+    "click",
+    async function(event){
+
+        if(
+            phoneStage.classList.contains(
+                "visible"
+            )
+        ){
+            return;
+        }
+
+
+        /*
+           First three taps only.
+        */
+
+        if(
+            dizzyTaps >= 3
+        ){
+            return;
+        }
+
+
+        /*
+           Don't count taps on
+           dialogue itself as normal
+           page interactions after
+           the phone arrives.
+        */
+
+        dizzyTaps++;
+
+
+        await unlockAudio();
+
+        startRomanticBGM();
+
+        dizzySound();
+
+
+        document.body.classList.remove(
+            "dizzy-tap-1",
+            "dizzy-tap-2",
+            "dizzy-tap-3"
+        );
+
+
+        void document.body.offsetWidth;
+
+
+        document.body.classList.add(
+            `dizzy-tap-${dizzyTaps}`
+        );
+
+
+        /*
+           The first three taps
+           strengthen the spinning.
+        */
+
+        if(
+            dizzyTaps === 3
+        ){
+
+            setTimeout(
+                ()=>{
+                    dizzyLayer.classList.add(
+                        "calm"
+                    );
+                },
+                650
+            );
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   WAKE-UP VISUAL
+========================================================= */
 
 setTimeout(
     ()=>{
         wakeBlur.classList.add(
             "clear"
         );
-
-        dizzyLayer.classList.add(
-            "calm"
-        );
-
     },
     900
 );
 
 
-/*
-   Dialogue 1
-*/
+/* =========================================================
+   DIALOGUE 1
+========================================================= */
 
 setTimeout(
     ()=>{
@@ -2357,10 +2633,6 @@ setTimeout(
     1900
 );
 
-
-/*
-   Dialogue 1 out
-*/
 
 setTimeout(
     ()=>{
@@ -2376,9 +2648,9 @@ setTimeout(
 );
 
 
-/*
-   Dialogue 2
-*/
+/* =========================================================
+   DIALOGUE 2
+========================================================= */
 
 setTimeout(
     ()=>{
@@ -2389,10 +2661,6 @@ setTimeout(
     5000
 );
 
-
-/*
-   Dialogue 2 out
-*/
 
 setTimeout(
     ()=>{
@@ -2408,9 +2676,9 @@ setTimeout(
 );
 
 
-/*
-   Dialogue 3
-*/
+/* =========================================================
+   DIALOGUE 3
+========================================================= */
 
 setTimeout(
     ()=>{
@@ -2421,10 +2689,6 @@ setTimeout(
     7550
 );
 
-
-/*
-   Dialogue 3 out
-*/
 
 setTimeout(
     ()=>{
@@ -2441,7 +2705,7 @@ setTimeout(
 
 
 /* =========================================================
-   PHONE ARRIVAL
+   PHONE ARRIVES
 ========================================================= */
 
 setTimeout(
@@ -2449,6 +2713,7 @@ setTimeout(
         phoneStage.classList.add(
             "visible"
         );
+
 
         setTimeout(
             ()=>{
@@ -2481,7 +2746,7 @@ setTimeout(
 
 
 /* =========================================================
-   NOTIFICATION CLICK
+   NOTIFICATION TAP
 ========================================================= */
 
 notification.addEventListener(
@@ -2489,6 +2754,7 @@ notification.addEventListener(
     async function(event){
 
         event.stopPropagation();
+
 
         await unlockAudio();
 
@@ -2501,9 +2767,16 @@ notification.addEventListener(
             "show"
         );
 
+
         lockScreen.classList.add(
             "opened"
         );
+
+
+        document.querySelector(
+            ".notification-hint"
+        ).style.display =
+            "none";
 
 
         setTimeout(
@@ -2515,8 +2788,6 @@ notification.addEventListener(
                 chatHint.textContent =
                     "Tap to read";
 
-                messageReceived();
-
             },
             450
         );
@@ -2526,22 +2797,59 @@ notification.addEventListener(
 
 
 /* =========================================================
-   CHAT MESSAGES
+   CHAT DATA
+
+   type:
+   R = Ritesh
+   T = Tisha
 ========================================================= */
 
 const messages = [
 
-    "Riteshhhhhhhh....",
+    {
+        type:"R",
+        text:"Hi babe ❤️"
+    },
 
-    "Babyyyyyyyy ❤️",
+    {
+        type:"T",
+        text:"Babe where are you? 🥺"
+    },
 
-    "Finally you're awake... 😏",
+    {
+        type:"R",
+        text:"Don't worry I'm close 😌"
+    },
 
-    "I was waiting for you. ❤️",
+    {
+        type:"T",
+        text:"Come to me 🥺❤️"
+    },
 
-    "Since I remember everything about us...",
+    {
+        type:"R",
+        text:"Ahn Ahn... not so easily... 😏"
+    },
 
-    "Let's see if you remember everything too... 😏"
+    {
+        type:"T",
+        text:"Why?????? 🥺"
+    },
+
+    {
+        type:"R",
+        text:"I want to know something... ❤️"
+    },
+
+    {
+        type:"T",
+        text:"What?????? 👀"
+    },
+
+    {
+        type:"R",
+        text:"How much do you remember us? 🥰"
+    }
 
 ];
 
@@ -2563,24 +2871,70 @@ function showNextMessage(){
         return;
     }
 
-    if(messageIndex >= messages.length){
+
+    if(
+        messageIndex >=
+        messages.length
+    ){
         return;
     }
 
 
     messageBusy = true;
 
-    sendButton.disabled = true;
-
-    chatHint.style.opacity = "0";
+    chatHint.style.opacity =
+        "0";
 
 
     uiClick();
 
 
     /*
-       Typing starts.
+       Typing indicator should
+       match the person who is
+       about to speak.
     */
+
+    const current =
+        messages[
+            messageIndex
+        ];
+
+
+    typing.classList.remove(
+        "typing-tisha"
+    );
+
+    typing.classList.remove(
+        "typing-ritesh"
+    );
+
+
+    /*
+       Ritesh typing = left.
+       Tisha typing = right.
+    */
+
+    if(
+        current.type === "T"
+    ){
+
+        typing.style.alignSelf =
+            "flex-end";
+
+        typing.style.borderRadius =
+            "18px 18px 5px 18px";
+
+    }else{
+
+        typing.style.alignSelf =
+            "flex-start";
+
+        typing.style.borderRadius =
+            "18px 18px 18px 5px";
+
+    }
+
 
     typing.classList.add(
         "show"
@@ -2588,7 +2942,7 @@ function showNextMessage(){
 
 
     /*
-       Tiny typing sounds.
+       Typing sound.
     */
 
     typingTick();
@@ -2605,7 +2959,7 @@ function showNextMessage(){
 
 
     /*
-       Message appears.
+       Message arrives.
     */
 
     setTimeout(
@@ -2621,13 +2975,18 @@ function showNextMessage(){
                     "div"
                 );
 
+
             message.className =
-                "message";
+                "message " +
+                (
+                    current.type === "R"
+                    ? "ritesh"
+                    : "tisha"
+                );
+
 
             message.textContent =
-                messages[
-                    messageIndex
-                ];
+                current.text;
 
 
             chatBody.insertBefore(
@@ -2643,7 +3002,7 @@ function showNextMessage(){
 
 
             /*
-               More messages remain.
+               More messages.
             */
 
             if(
@@ -2651,9 +3010,7 @@ function showNextMessage(){
                 messages.length
             ){
 
-                messageBusy = false;
-
-                sendButton.disabled =
+                messageBusy =
                     false;
 
                 chatHint.style.opacity =
@@ -2665,37 +3022,22 @@ function showNextMessage(){
             }
 
             /*
-               LAST MESSAGE
+               FINAL MESSAGE
             */
 
             else{
 
+                messageBusy =
+                    false;
+
                 chatHint.textContent =
-                    "";
+                    "Tap to continue";
 
-                messageBusy = false;
+                chatHint.style.opacity =
+                    ".7";
 
-                sendButton.disabled =
+                quizReady =
                     true;
-
-                /*
-                   Last click becomes
-                   the quiz handoff.
-                */
-
-                setTimeout(
-                    ()=>{
-                        chatHint.textContent =
-                            "Tap to continue";
-
-                        chatHint.style.opacity =
-                            "0.65";
-
-                        quizReady = true;
-
-                    },
-                    1200
-                );
 
             }
 
@@ -2707,24 +3049,30 @@ function showNextMessage(){
 
 
 /* =========================================================
-   CHAT CLICK
+   CHAT TAP
 ========================================================= */
 
 chatScreen.addEventListener(
     "click",
     function(event){
 
+        /*
+           Don't let tapping
+           the send button trigger
+           the chat listener twice.
+        */
+
         if(
-            event.target ===
-            sendButton
+            event.target.closest(
+                "#sendButton"
+            )
         ){
             return;
         }
 
 
         /*
-           If all messages have appeared,
-           the next click starts quiz.
+           LAST CLICK
         */
 
         if(
@@ -2739,10 +3087,14 @@ chatScreen.addEventListener(
         }
 
 
+        /*
+           NEXT MESSAGE
+        */
+
         if(
+            !messageBusy &&
             messageIndex <
-            messages.length &&
-            !messageBusy
+            messages.length
         ){
 
             showNextMessage();
@@ -2791,7 +3143,7 @@ sendButton.addEventListener(
 
 
 /* =========================================================
-   QUIZ TRANSITION
+   QUIZ HANDOFF
 ========================================================= */
 
 function goToQuiz(){
@@ -2801,18 +3153,20 @@ function goToQuiz(){
     }
 
 
-    quizReady = false;
+    quizReady =
+        false;
 
 
     transitionSound();
 
 
     /*
-       Chat gently fades.
+       Show a very short
+       transition first.
     */
 
     chatScreen.style.transition =
-        "opacity .8s ease, transform .8s ease";
+        "opacity .65s ease, transform .65s ease";
 
     chatScreen.style.opacity =
         "0";
@@ -2821,12 +3175,8 @@ function goToQuiz(){
         "scale(.97)";
 
 
-    /*
-       Phone follows.
-    */
-
     iphone.style.transition =
-        "opacity .8s ease, transform .8s ease";
+        "opacity .75s ease, transform .75s ease";
 
     iphone.style.opacity =
         "0";
@@ -2835,26 +3185,47 @@ function goToQuiz(){
         "scale(.94)";
 
 
+    /*
+       Memory Test interstitial.
+    */
+
     setTimeout(
         ()=>{
             quizTransition.classList.add(
                 "active"
             );
         },
-        650
+        550
     );
 
 }
 
 
 /* =========================================================
-   PREVENT DOUBLE CLICKS
+   MEMORY TEST BUTTON → quiz.html
+========================================================= */
+
+quizReady.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "quiz.html";
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT DOUBLE CLICK
 ========================================================= */
 
 document.addEventListener(
     "dblclick",
     function(event){
+
         event.preventDefault();
+
     }
 );
 
