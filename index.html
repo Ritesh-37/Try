@@ -10,25 +10,24 @@
 <style>
 
 /* =========================================================
-   PAGE 4 — WAKE UP + IPHONE + CHAT
-   LUXURY WHITISH PINK / RED / BURGUNDY
+   PAGE 4
+   WAKE UP → IPHONE → CINEMATIC CHAT → QUIZ
 ========================================================= */
 
 :root {
-    --white: #fffafd;
-    --soft-white: #fff5f8;
-
-    --blush: #ffdce7;
-    --pink: #f3a6ba;
-
+    --deepest-red: #260611;
+    --deep-red: #3b0718;
+    --wine: #570b24;
+    --rich-red: #790f31;
+    --romantic-red: #a72249;
     --rose: #d94f70;
-    --red: #b83255;
 
-    --wine: #6d1f3b;
-    --deep-wine: #3b1021;
+    --soft-pink: #f3a6ba;
+    --cream: #fff3f6;
+    --white: #fffafd;
 
-    --text: #421323;
-    --soft-text: #8f5267;
+    --text: #3c0d1d;
+    --muted: #a66a7c;
 
     --gold: #c9a96e;
 }
@@ -57,47 +56,17 @@ body {
         "Times New Roman",
         serif;
 
-    color: var(--text);
-
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(255,255,255,.95),
-            transparent 32%
-        ),
+        #260611;
 
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(217,79,112,.38),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 88% 20%,
-            rgba(184,50,85,.28),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(109,31,59,.18),
-            transparent 45%
-        ),
-
-        linear-gradient(
-            135deg,
-            #fff8fa 0%,
-            #ffe5ed 38%,
-            #f8c2d1 65%,
-            #fff7fa 100%
-        );
+    color: var(--cream);
 
     cursor: pointer;
 }
 
 
 /* =========================================================
-   MAIN SCREEN
+   WAKE SCREEN
 ========================================================= */
 
 #wakeScreen {
@@ -115,14 +84,44 @@ body {
 
     text-align: center;
 
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(167,34,73,.42),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(121,15,49,.75),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(167,34,73,.38),
+            transparent 34%
+        ),
+
+        linear-gradient(
+            135deg,
+            #260611 0%,
+            #570b24 42%,
+            #3b0718 72%,
+            #19040b 100%
+        );
+
     transition:
         opacity 1.5s ease,
         transform 1.5s ease;
+
+    z-index: 10;
 }
 
 
 /* =========================================================
-   RED / PINK CINEMATIC VIGNETTE
+   CINEMATIC RED VIGNETTE
 ========================================================= */
 
 #wakeScreen::before {
@@ -133,18 +132,18 @@ body {
 
     inset: 0;
 
-    pointer-events: none;
-
     background:
 
         radial-gradient(
             ellipse at center,
-            transparent 25%,
-            rgba(109,31,59,.08) 60%,
-            rgba(109,31,59,.25) 100%
+            transparent 20%,
+            rgba(30,2,10,.35) 75%,
+            rgba(15,1,5,.75) 100%
         );
 
-    z-index: 30;
+    pointer-events: none;
+
+    z-index: 20;
 }
 
 
@@ -154,38 +153,37 @@ body {
 
     position: absolute;
 
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
+    inset: 0;
 
     background:
         radial-gradient(
-            circle at 20% 30%,
-            rgba(217,79,112,.14),
-            transparent 30%
+            circle at 30% 30%,
+            rgba(217,79,112,.12),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 80% 70%,
-            rgba(109,31,59,.12),
+            circle at 75% 70%,
+            rgba(121,15,49,.25),
             transparent 35%
         );
 
     animation:
-        redBreath
+        redBreathing
         7s
         ease-in-out
         infinite alternate;
+
+    pointer-events: none;
 
     z-index: 2;
 }
 
 
-@keyframes redBreath {
+@keyframes redBreathing {
 
     from {
-        opacity: .5;
+        opacity: .55;
         transform: scale(.95);
     }
 
@@ -197,18 +195,18 @@ body {
 
 
 /* =========================================================
-   AMBIENT LIGHT
+   AMBIENT GLOW
 ========================================================= */
 
 .ambient-light {
 
     position: absolute;
 
-    width: 75vw;
-    height: 75vw;
+    width: 80vw;
+    height: 80vw;
 
-    max-width: 850px;
-    max-height: 850px;
+    max-width: 900px;
+    max-height: 900px;
 
     border-radius: 50%;
 
@@ -216,13 +214,12 @@ body {
 
         radial-gradient(
             circle,
-            rgba(255,255,255,.95),
-            rgba(255,218,228,.55),
-            rgba(217,79,112,.12),
-            transparent 72%
+            rgba(217,79,112,.25),
+            rgba(121,15,49,.18),
+            transparent 70%
         );
 
-    filter: blur(35px);
+    filter: blur(45px);
 
     animation:
         ambientBreath
@@ -239,12 +236,12 @@ body {
 @keyframes ambientBreath {
 
     from {
-        transform: scale(.82);
+        transform: scale(.8);
         opacity: .55;
     }
 
     to {
-        transform: scale(1.12);
+        transform: scale(1.15);
         opacity: 1;
     }
 }
@@ -271,19 +268,19 @@ body {
 
     border:
         1px solid
-        rgba(184,50,85,.22);
-
-    opacity: .8;
-
-    pointer-events: none;
+        rgba(217,79,112,.28);
 
     animation:
-        dizzySpin
+        spin
         10s
         linear
         infinite;
 
+    opacity: .7;
+
     z-index: 3;
+
+    pointer-events: none;
 }
 
 
@@ -299,10 +296,10 @@ body {
 
     border:
         1px solid
-        rgba(217,79,112,.25);
+        rgba(167,34,73,.38);
 
     animation:
-        dizzyReverse
+        reverseSpin
         7s
         linear
         infinite;
@@ -321,17 +318,17 @@ body {
 
     border:
         1px dashed
-        rgba(109,31,59,.16);
+        rgba(243,166,186,.18);
 
     animation:
-        dizzySpin
+        spin
         5s
         linear
         infinite;
 }
 
 
-@keyframes dizzySpin {
+@keyframes spin {
 
     from {
         transform: rotate(0deg);
@@ -343,7 +340,7 @@ body {
 }
 
 
-@keyframes dizzyReverse {
+@keyframes reverseSpin {
 
     from {
         transform: rotate(360deg);
@@ -380,11 +377,12 @@ body {
 
     border-radius: 50%;
 
-    background: var(--rose);
+    background:
+        var(--rose);
 
     box-shadow:
-        0 0 12px
-        rgba(217,79,112,.5);
+        0 0 15px
+        rgba(217,79,112,.7);
 
     opacity: 0;
 
@@ -396,34 +394,34 @@ body {
 
 
 .particle:nth-child(1) {
-    left: 10%;
+    left: 8%;
     bottom: -5%;
     animation-duration: 11s;
 }
 
 .particle:nth-child(2) {
-    left: 27%;
+    left: 25%;
     bottom: -5%;
     animation-duration: 13s;
     animation-delay: 2s;
 }
 
 .particle:nth-child(3) {
-    left: 45%;
+    left: 47%;
     bottom: -5%;
     animation-duration: 9s;
     animation-delay: 1s;
 }
 
 .particle:nth-child(4) {
-    left: 67%;
+    left: 70%;
     bottom: -5%;
     animation-duration: 12s;
     animation-delay: 3s;
 }
 
 .particle:nth-child(5) {
-    left: 87%;
+    left: 90%;
     bottom: -5%;
     animation-duration: 10s;
     animation-delay: 1s;
@@ -441,7 +439,7 @@ body {
     }
 
     20% {
-        opacity: .5;
+        opacity: .6;
     }
 
     70% {
@@ -460,7 +458,7 @@ body {
 
 
 /* =========================================================
-   BLUR / WAKE LAYER
+   BLUR LAYER
 ========================================================= */
 
 .blur-layer {
@@ -469,14 +467,12 @@ body {
 
     inset: -20px;
 
-    z-index: 10;
-
     background:
 
         radial-gradient(
             circle at center,
-            rgba(255,248,250,.82),
-            rgba(255,226,235,.96)
+            rgba(80,8,30,.55),
+            rgba(38,6,17,.94)
         );
 
     backdrop-filter:
@@ -488,8 +484,10 @@ body {
     opacity: 1;
 
     transition:
-        opacity 2.2s ease,
+        opacity 2.3s ease,
         backdrop-filter 2s ease;
+
+    z-index: 10;
 
     pointer-events: none;
 }
@@ -503,22 +501,19 @@ body {
 
     position: relative;
 
-    z-index: 15;
+    z-index: 25;
 
     width:
         min(90%, 700px);
 
     padding: 30px;
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
 }
 
 
 .eyebrow {
 
-    color: var(--rose);
+    color:
+        var(--soft-pink);
 
     font-size: 10px;
 
@@ -546,7 +541,8 @@ body {
 
 .dialogue h1 {
 
-    color: var(--text);
+    color:
+        var(--cream);
 
     font-size:
         clamp(
@@ -560,22 +556,18 @@ body {
     line-height: 1.18;
 
     text-shadow:
-        0 5px 25px
-        rgba(109,31,59,.13);
+        0 5px 30px
+        rgba(0,0,0,.35);
 
     opacity: 0;
+
+    filter: blur(8px);
 
     transform:
         translateY(20px)
         scale(.97);
-
-    filter: blur(8px);
 }
 
-
-/* =========================================================
-   SLOW APPEAR
-========================================================= */
 
 .dialogue h1.show {
 
@@ -590,32 +582,24 @@ body {
 @keyframes slowAppear {
 
     0% {
-
         opacity: 0;
-
+        filter: blur(10px);
         transform:
             translateY(20px)
             scale(.97);
-
-        filter: blur(10px);
     }
 
     55% {
-
         opacity: .7;
-
         filter: blur(3px);
     }
 
     100% {
-
         opacity: 1;
-
+        filter: blur(0);
         transform:
             translateY(0)
             scale(1);
-
-        filter: blur(0);
     }
 }
 
@@ -628,7 +612,8 @@ body {
 
     margin-top: 32px;
 
-    color: var(--soft-text);
+    color:
+        #e9a7b9;
 
     font-size: 10px;
 
@@ -636,7 +621,7 @@ body {
 
     text-transform: uppercase;
 
-    opacity: .5;
+    opacity: .45;
 
     animation:
         hintPulse
@@ -669,10 +654,11 @@ body {
     inset: 0;
 
     background:
+
         radial-gradient(
             circle at center,
-            rgba(255,255,255,.8),
-            rgba(255,195,211,.18),
+            rgba(255,255,255,.65),
+            rgba(217,79,112,.16),
             transparent 65%
         );
 
@@ -680,7 +666,7 @@ body {
 
     pointer-events: none;
 
-    z-index: 100;
+    z-index: 1000;
 }
 
 
@@ -710,7 +696,7 @@ body {
 
 
 /* =========================================================
-   IPHONE NOTIFICATION SCREEN
+   NOTIFICATION SCREEN
 ========================================================= */
 
 #notificationScreen {
@@ -728,29 +714,22 @@ body {
     background:
 
         radial-gradient(
-            circle at 50% 25%,
-            rgba(255,255,255,.95),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(217,79,112,.25),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(109,31,59,.22),
+            circle at 50% 30%,
+            rgba(167,34,73,.55),
             transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(87,11,36,.8),
+            transparent 40%
         ),
 
         linear-gradient(
             135deg,
-            #fff7fa,
-            #ffdce7,
-            #f3b0c2,
-            #fff8fa
+            #260611,
+            #570b24 45%,
+            #3b0718
         );
 
     opacity: 0;
@@ -760,8 +739,8 @@ body {
     transform: scale(1.05);
 
     transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
+        opacity 1.2s ease,
+        transform 1.2s ease;
 
     z-index: 200;
 }
@@ -778,34 +757,39 @@ body {
 
 
 /* =========================================================
-   PHONE NOTIFICATION
+   LONGER IPHONE
 ========================================================= */
 
 .notification-phone {
 
-    width: min(360px, 82vw);
+    width:
+        min(330px, 82vw);
 
-    padding: 12px;
+    aspect-ratio:
+        9 / 19.5;
 
-    border-radius: 46px;
+    padding: 10px;
+
+    border-radius: 42px;
 
     background:
         linear-gradient(
             145deg,
-            #242424,
-            #080808
+            #303030,
+            #080808 55%,
+            #1d1d1d
         );
 
     box-shadow:
 
-        0 35px 80px
-        rgba(65,18,35,.35),
+        0 45px 100px
+        rgba(0,0,0,.55),
 
-        0 10px 30px
-        rgba(109,31,59,.2);
+        0 15px 40px
+        rgba(217,79,112,.2);
 
     transform:
-        translateY(30px)
+        translateY(35px)
         scale(.92);
 
     opacity: 0;
@@ -818,7 +802,8 @@ body {
 }
 
 
-#notificationScreen.active .notification-phone {
+#notificationScreen.active
+.notification-phone {
 
     opacity: 1;
 
@@ -832,27 +817,26 @@ body {
 
     position: relative;
 
-    height: 620px;
-
-    max-height: 75vh;
-
-    border-radius: 36px;
+    width: 100%;
+    height: 100%;
 
     overflow: hidden;
+
+    border-radius: 34px;
 
     background:
 
         radial-gradient(
-            circle at 50% 20%,
-            rgba(255,255,255,.22),
-            transparent 25%
+            circle at 50% 25%,
+            rgba(167,34,73,.5),
+            transparent 30%
         ),
 
         linear-gradient(
             145deg,
-            #5b1730,
-            #240b17 55%,
-            #12070c
+            #5d0c28,
+            #210610 70%,
+            #100308
         );
 
     color: white;
@@ -867,34 +851,35 @@ body {
 
     position: absolute;
 
-    top: 12px;
+    top: 11px;
 
     left: 50%;
 
     transform:
         translateX(-50%);
 
-    width: 95px;
+    width: 92px;
 
-    height: 28px;
+    height: 27px;
 
     border-radius: 30px;
 
-    background: #050505;
+    background:
+        #030303;
 
-    z-index: 5;
+    z-index: 10;
 }
 
 
 /* =========================================================
-   PHONE TIME
+   TIME
 ========================================================= */
 
 .phone-time {
 
     position: absolute;
 
-    top: 54px;
+    top: 53px;
 
     left: 50%;
 
@@ -903,9 +888,9 @@ body {
 
     font-size: 14px;
 
-    opacity: .75;
-
     letter-spacing: 1px;
+
+    opacity: .78;
 }
 
 
@@ -917,17 +902,17 @@ body {
 
     position: absolute;
 
-    left: 15px;
-    right: 15px;
+    left: 13px;
+    right: 13px;
 
-    top: 115px;
+    top: 112px;
 
-    padding: 18px 20px;
+    padding: 18px;
 
-    border-radius: 25px;
+    border-radius: 24px;
 
     background:
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.13);
 
     border:
         1px solid
@@ -941,7 +926,7 @@ body {
 
     box-shadow:
         0 20px 50px
-        rgba(0,0,0,.22);
+        rgba(0,0,0,.3);
 
     text-align: left;
 
@@ -956,11 +941,13 @@ body {
 @keyframes notificationFloat {
 
     0%,100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-4px);
+        transform:
+            translateY(-4px);
     }
 }
 
@@ -973,11 +960,11 @@ body {
 
     align-items: center;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
     font-size: 11px;
 
-    opacity: .72;
+    opacity: .7;
 }
 
 
@@ -992,8 +979,6 @@ body {
     font-size: 13px;
 
     font-weight: bold;
-
-    color: white;
 }
 
 
@@ -1012,13 +997,13 @@ body {
     background:
         linear-gradient(
             135deg,
-            #e75d7c,
-            #8f2445
+            #d94f70,
+            #6d0e2c
         );
 
     box-shadow:
         0 5px 15px
-        rgba(217,79,112,.4);
+        rgba(217,79,112,.45);
 }
 
 
@@ -1030,17 +1015,15 @@ body {
         "Segoe UI",
         sans-serif;
 
-    font-size: 17px;
+    font-size: 18px;
 
     font-weight: 500;
-
-    line-height: 1.3;
 }
 
 
 .notification-sub {
 
-    margin-top: 7px;
+    margin-top: 6px;
 
     font-family:
         -apple-system,
@@ -1050,7 +1033,7 @@ body {
 
     font-size: 12px;
 
-    opacity: .65;
+    opacity: .55;
 }
 
 
@@ -1065,18 +1048,58 @@ body {
 
     text-align: center;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
 
     text-transform: uppercase;
 
-    opacity: .55;
+    opacity: .5;
 
     animation:
         hintPulse
         2s
+        ease-in-out
         infinite;
+}
+
+
+/* =========================================================
+   PHONE ZOOM
+========================================================= */
+
+#notificationScreen.zoom {
+
+    background:
+        #050105;
+
+    transition:
+        background 1s ease;
+}
+
+
+#notificationScreen.zoom
+.notification-phone {
+
+    animation:
+        phoneZoom
+        1.35s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+@keyframes phoneZoom {
+
+    0% {
+        transform:
+            scale(1);
+    }
+
+    100% {
+        transform:
+            scale(4.5);
+    }
 }
 
 
@@ -1093,17 +1116,18 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
+    overflow: hidden;
+
     background:
-        #050505;
+        #260611;
 
     opacity: 0;
 
     visibility: hidden;
 
-    z-index: 400;
+    z-index: 500;
 
     transition:
         opacity 1s ease;
@@ -1119,73 +1143,111 @@ body {
 
 
 /* =========================================================
-   CHAT PHONE
+   CINEMATIC CHAT BACKGROUND
+========================================================= */
+
+.chat-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(167,34,73,.42),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(87,11,36,.7),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #260611,
+            #570b24,
+            #3b0718
+        );
+}
+
+
+/* =========================================================
+   CHAT PHONE FRAME
 ========================================================= */
 
 .chat-phone {
 
-    width: min(430px, 100vw);
-
-    height: min(850px, 100vh);
-
-    background:
-        #f7f4f5;
-
     position: relative;
+
+    width:
+        min(420px, 100vw);
+
+    height:
+        min(850px, 100vh);
 
     overflow: hidden;
 
+    background:
+        linear-gradient(
+            160deg,
+            #fff8fa,
+            #f8e9ed
+        );
+
     box-shadow:
-        0 0 100px
-        rgba(217,79,112,.18);
+        0 30px 100px
+        rgba(0,0,0,.5);
+
+    border-radius:
+        clamp(0px, 20px, 28px);
 
     font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
+    transform:
+        scale(.96);
+
+    animation:
+        chatReveal
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+@keyframes chatReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1);
+    }
 }
 
 
 /* =========================================================
-   CHAT STATUS BAR
+   CHAT TOP
 ========================================================= */
 
-.status-bar {
+.chat-top {
 
-    height: 48px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    justify-content: space-between;
+    height: 95px;
 
     padding:
-        0 22px 8px;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    background:
-        #faf7f8;
-}
-
-
-.status-time {
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   CHAT HEADER
-========================================================= */
-
-.chat-header {
-
-    height: 68px;
+        35px 20px 10px;
 
     display: flex;
 
@@ -1193,32 +1255,23 @@ body {
 
     gap: 12px;
 
-    padding: 0 18px;
-
     background:
-        rgba(250,247,248,.95);
+        rgba(255,250,252,.94);
 
     border-bottom:
         1px solid
-        rgba(80,20,35,.08);
+        rgba(87,11,36,.1);
+
+    position: relative;
+
+    z-index: 10;
 }
 
 
-.back {
+.chat-avatar {
 
-    font-size: 26px;
-
-    color: #d94f70;
-
-    transform:
-        translateY(-1px);
-}
-
-
-.avatar {
-
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
     border-radius: 50%;
 
@@ -1230,8 +1283,8 @@ body {
     background:
         linear-gradient(
             135deg,
-            #e75d7c,
-            #7c1d3d
+            #d94f70,
+            #720e2d
         );
 
     color: white;
@@ -1240,81 +1293,81 @@ body {
         Georgia,
         serif;
 
-    font-size: 17px;
-
     box-shadow:
-        0 4px 12px
-        rgba(217,79,112,.25);
+        0 5px 18px
+        rgba(217,79,112,.28);
 }
 
 
-.chat-person {
+.chat-name {
 
-    display: flex;
+    color:
+        #360c1b;
 
-    flex-direction: column;
-}
-
-
-.chat-person strong {
+    font-weight: 600;
 
     font-size: 15px;
-
-    color: #241018;
 }
 
 
-.chat-person span {
+.chat-status {
 
-    font-size: 11px;
+    color:
+        #a46777;
 
-    color: #9c7a85;
+    font-size: 10px;
+
+    margin-top: 2px;
 }
 
 
 /* =========================================================
-   CHAT AREA
+   CHAT MESSAGES AREA
 ========================================================= */
 
-.messages {
+.chat-messages {
 
     position: absolute;
 
-    top: 116px;
+    top: 95px;
 
-    bottom: 70px;
+    bottom: 65px;
 
     left: 0;
     right: 0;
 
     padding:
-        25px 14px;
+        22px 15px;
 
     overflow-y: auto;
+
+    scroll-behavior: smooth;
 
     background:
 
         radial-gradient(
-            circle at 20% 20%,
-            rgba(255,225,234,.65),
+            circle at 15% 15%,
+            rgba(255,220,230,.8),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 90% 70%,
-            rgba(217,79,112,.09),
+            circle at 90% 75%,
+            rgba(167,34,73,.08),
             transparent 35%
         ),
 
-        #faf7f8;
+        #fff8fa;
 }
 
 
 /* =========================================================
-   CHAT BUBBLES
+   MESSAGE ROW
 ========================================================= */
 
-.message {
+.message-row {
+
+    width: 100%;
 
     display: flex;
 
@@ -1324,29 +1377,27 @@ body {
 
     transform:
         translateY(12px)
-        scale(.98);
+        scale(.96);
 
     animation:
         messageAppear
-        .75s
-        ease
+        .65s
+        cubic-bezier(.2,.8,.2,1)
         forwards;
 }
 
 
-.message.ritesh {
-
+.message-row.ritesh {
     justify-content: flex-start;
 }
 
 
-.message.tisha {
-
+.message-row.tisha {
     justify-content: flex-end;
 }
 
 
-.bubble {
+.message-bubble {
 
     max-width: 78%;
 
@@ -1357,37 +1408,47 @@ body {
 
     font-size: 15px;
 
-    line-height: 1.35;
+    line-height: 1.38;
 
     box-shadow:
-        0 2px 8px
-        rgba(50,10,20,.07);
+        0 3px 12px
+        rgba(60,13,29,.08);
 }
 
 
-.ritesh .bubble {
+.message-row.ritesh
+.message-bubble {
 
     background:
         white;
 
-    color: #35151f;
+    color:
+        #3d1422;
 
-    border-bottom-left-radius: 6px;
+    border-bottom-left-radius:
+        6px;
 }
 
 
-.tisha .bubble {
+.message-row.tisha
+.message-bubble {
 
     background:
         linear-gradient(
             135deg,
-            #e95e7e,
-            #ca4263
+            #c9345c,
+            #9e2045
         );
 
-    color: white;
+    color:
+        white;
 
-    border-bottom-right-radius: 6px;
+    border-bottom-right-radius:
+        6px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(158,32,69,.22);
 }
 
 
@@ -1405,19 +1466,134 @@ body {
 
 
 /* =========================================================
-   CHAT FOOTER
+   TYPING INDICATOR
 ========================================================= */
 
-.chat-footer {
+.typing-row {
+
+    display: flex;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    justify-content:
+        flex-start;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    animation:
+        typingAppear
+        .4s
+        ease
+        forwards;
+}
+
+
+.typing-row.tisha {
+
+    justify-content:
+        flex-end;
+}
+
+
+.typing-bubble {
+
+    padding:
+        10px 14px;
+
+    border-radius: 19px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 3px 12px
+        rgba(60,13,29,.08);
+
+    color:
+        #9d6474;
+
+    font-size: 12px;
+
+    font-style: italic;
+}
+
+
+.typing-row.tisha
+.typing-bubble {
+
+    background:
+        #f1bdca;
+
+    color:
+        #72243c;
+}
+
+
+.typing-dots span {
+
+    display: inline-block;
+
+    animation:
+        typingDots
+        1.2s
+        infinite;
+}
+
+
+.typing-dots span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: .4s;
+}
+
+
+@keyframes typingAppear {
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes typingDots {
+
+    0%,60%,100% {
+        opacity: .3;
+        transform:
+            translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform:
+            translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   CHAT BOTTOM
+========================================================= */
+
+.chat-bottom {
 
     position: absolute;
-
-    bottom: 0;
 
     left: 0;
     right: 0;
 
-    height: 70px;
+    bottom: 0;
+
+    height: 65px;
 
     display: flex;
 
@@ -1426,74 +1602,82 @@ body {
     justify-content: center;
 
     background:
-        rgba(250,247,248,.96);
+        rgba(255,250,252,.95);
 
     border-top:
         1px solid
-        rgba(80,20,35,.08);
+        rgba(87,11,36,.08);
+
+    z-index: 10;
 }
 
 
-.continue-text {
+.continue-button {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    padding:
+        10px 20px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(167,34,73,.25);
+
+    background:
+        rgba(167,34,73,.08);
+
+    color:
+        #8f2345;
 
     font-size: 10px;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     text-transform: uppercase;
 
-    color: #a06475;
+    transition:
+        opacity .8s ease,
+        transform .3s ease;
+}
+
+
+.continue-button.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
 
     animation:
-        hintPulse
+        continuePulse
         2s
         ease-in-out
         infinite;
 }
 
 
-/* =========================================================
-   ZOOM INTO PHONE
-========================================================= */
+@keyframes continuePulse {
 
-#notificationScreen.zoom {
-
-    background: #050505;
-
-}
-
-
-#notificationScreen.zoom .notification-phone {
-
-    animation:
-        phoneZoom
-        1.3s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
-}
-
-
-@keyframes phoneZoom {
-
-    0% {
-
+    0%,100% {
         transform:
             scale(1);
     }
 
-    100% {
-
+    50% {
         transform:
-            scale(3.8);
+            scale(1.04);
     }
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
-@media (max-width: 500px) {
+@media(max-width:500px) {
 
     .dizzy-ring {
 
@@ -1506,15 +1690,12 @@ body {
         width: 82vw;
     }
 
-    .phone-screen {
-
-        height: 72vh;
-    }
-
     .chat-phone {
 
         width: 100vw;
         height: 100vh;
+
+        border-radius: 0;
     }
 }
 
@@ -1536,12 +1717,15 @@ body {
     <div class="dizzy-ring"></div>
 
     <div class="particles">
+
         <span class="particle"></span>
         <span class="particle"></span>
         <span class="particle"></span>
         <span class="particle"></span>
         <span class="particle"></span>
+
     </div>
+
 
     <div
         class="blur-layer"
@@ -1552,16 +1736,22 @@ body {
     <div class="wake-content">
 
         <div class="eyebrow">
+
             Somewhere between midnight & forever
+
         </div>
+
 
         <div class="dialogue">
 
             <h1 id="dialogueText">
+
                 Oh God... I'm still dizzy... 😵‍💫
+
             </h1>
 
         </div>
+
 
         <div
             class="tap-hint"
@@ -1590,7 +1780,8 @@ body {
      IPHONE NOTIFICATION
 ========================================================= -->
 
-<section id="notificationScreen">
+<section
+    id="notificationScreen">
 
     <div
         class="notification-phone"
@@ -1600,8 +1791,11 @@ body {
 
             <div class="dynamic-island"></div>
 
+
             <div class="phone-time">
+
                 12:37
+
             </div>
 
 
@@ -1612,7 +1806,9 @@ body {
                     <div class="notification-name">
 
                         <div class="notification-icon">
+
                             R
+
                         </div>
 
                         Ritesh ❤️
@@ -1620,7 +1816,9 @@ body {
                     </div>
 
                     <span>
+
                         now
+
                     </span>
 
                 </div>
@@ -1628,7 +1826,7 @@ body {
 
                 <div class="notification-message">
 
-                    Hi Babe!
+                    Hi Babe! ❤️
 
                 </div>
 
@@ -1656,50 +1854,42 @@ body {
 
 
 <!-- =========================================================
-     CHAT SCREEN
+     CINEMATIC CHAT
 ========================================================= -->
 
-<section id="chatScreen">
+<section
+    id="chatScreen">
+
+    <div class="chat-background"></div>
+
 
     <div class="chat-phone">
 
 
-        <!-- STATUS BAR -->
-
-        <div class="status-bar">
-
-            <span class="status-time">
-                12:37
-            </span>
-
-            <span>
-                ●●● ᯤ 🔋
-            </span>
-
-        </div>
-
-
         <!-- HEADER -->
 
-        <div class="chat-header">
+        <div class="chat-top">
 
-            <div class="back">
-                ‹
-            </div>
+            <div class="chat-avatar">
 
-            <div class="avatar">
                 R
+
             </div>
 
-            <div class="chat-person">
 
-                <strong>
+            <div>
+
+                <div class="chat-name">
+
                     Ritesh ❤️
-                </strong>
 
-                <span>
-                    Messages
-                </span>
+                </div>
+
+                <div class="chat-status">
+
+                    active now
+
+                </div>
 
             </div>
 
@@ -1709,137 +1899,22 @@ body {
         <!-- MESSAGES -->
 
         <div
-            class="messages"
-            id="messages">
-
-
-            <div
-                class="message ritesh"
-                style="animation-delay:.3s">
-
-                <div class="bubble">
-
-                    Hi Babe! Looks like you're awake
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message tisha"
-                style="animation-delay:1.1s">
-
-                <div class="bubble">
-
-                    Babyy where are you?
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message ritesh"
-                style="animation-delay:1.9s">
-
-                <div class="bubble">
-
-                    Don't worry, I'm close
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message tisha"
-                style="animation-delay:2.7s">
-
-                <div class="bubble">
-
-                    Baby come to me na
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message ritesh"
-                style="animation-delay:3.5s">
-
-                <div class="bubble">
-
-                    Ahn ahn... first I need to see something.
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message tisha"
-                style="animation-delay:4.3s">
-
-                <div class="bubble">
-
-                    What?
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message ritesh"
-                style="animation-delay:5.1s">
-
-                <div class="bubble">
-
-                    Do you remember our moments?
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message tisha"
-                style="animation-delay:5.9s">
-
-                <div class="bubble">
-
-                    Haan Babuuuu... I remember....
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="message ritesh"
-                style="animation-delay:6.7s">
-
-                <div class="bubble">
-
-                    Let's see thennn... ❤️
-
-                </div>
-
-            </div>
-
-
+            class="chat-messages"
+            id="chatMessages">
         </div>
 
 
-        <!-- FOOTER -->
+        <!-- BOTTOM -->
 
-        <div class="chat-footer">
+        <div class="chat-bottom">
 
-            <div class="continue-text">
-                Tap anywhere to continue ❤️
-            </div>
+            <button
+                class="continue-button"
+                id="continueButton">
+
+                Continue ❤️
+
+            </button>
 
         </div>
 
@@ -1855,28 +1930,49 @@ body {
 ========================================================= */
 
 const wakeScreen =
-    document.getElementById("wakeScreen");
+    document.getElementById(
+        "wakeScreen"
+    );
 
 const blurLayer =
-    document.getElementById("blurLayer");
+    document.getElementById(
+        "blurLayer"
+    );
 
 const dialogueText =
-    document.getElementById("dialogueText");
+    document.getElementById(
+        "dialogueText"
+    );
 
 const tapHint =
-    document.getElementById("tapHint");
+    document.getElementById(
+        "tapHint"
+    );
 
 const tapFlash =
-    document.getElementById("tapFlash");
+    document.getElementById(
+        "tapFlash"
+    );
 
 const notificationScreen =
-    document.getElementById("notificationScreen");
-
-const notificationPhone =
-    document.getElementById("notificationPhone");
+    document.getElementById(
+        "notificationScreen"
+    );
 
 const chatScreen =
-    document.getElementById("chatScreen");
+    document.getElementById(
+        "chatScreen"
+    );
+
+const chatMessages =
+    document.getElementById(
+        "chatMessages"
+    );
+
+const continueButton =
+    document.getElementById(
+        "continueButton"
+    );
 
 
 /* =========================================================
@@ -1906,6 +2002,7 @@ function getAudio() {
     ) {
 
         audioContext.resume();
+
     }
 
     return audioContext;
@@ -1913,14 +2010,16 @@ function getAudio() {
 
 
 /* =========================================================
-   SOFT TAP SOUND
+   TAP SOUND
 ========================================================= */
 
 function tapSound() {
 
-    const ctx = getAudio();
+    const ctx =
+        getAudio();
 
     if (!ctx) return;
+
 
     const osc =
         ctx.createOscillator();
@@ -1928,35 +2027,47 @@ function tapSound() {
     const gain =
         ctx.createGain();
 
-    osc.type = "sine";
+
+    osc.type =
+        "sine";
+
 
     osc.frequency.setValueAtTime(
         480,
         ctx.currentTime
     );
 
+
     osc.frequency.exponentialRampToValueAtTime(
         680,
         ctx.currentTime + .08
     );
+
 
     gain.gain.setValueAtTime(
         .0001,
         ctx.currentTime
     );
 
+
     gain.gain.exponentialRampToValueAtTime(
         .05,
         ctx.currentTime + .02
     );
+
 
     gain.gain.exponentialRampToValueAtTime(
         .0001,
         ctx.currentTime + .25
     );
 
+
     osc.connect(gain);
-    gain.connect(ctx.destination);
+
+    gain.connect(
+        ctx.destination
+    );
+
 
     osc.start();
 
@@ -1967,20 +2078,23 @@ function tapSound() {
 
 
 /* =========================================================
-   PHONE NOTIFICATION SOUND
+   NOTIFICATION SOUND
 ========================================================= */
 
 function notificationSound() {
 
-    const ctx = getAudio();
+    const ctx =
+        getAudio();
 
     if (!ctx) return;
+
 
     const notes = [
         659,
         784,
         988
     ];
+
 
     notes.forEach(
         (frequency, index) => {
@@ -1995,25 +2109,31 @@ function notificationSound() {
                 ctx.currentTime +
                 index * .13;
 
-            osc.type = "sine";
+
+            osc.type =
+                "sine";
 
             osc.frequency.value =
                 frequency;
+
 
             gain.gain.setValueAtTime(
                 .0001,
                 start
             );
 
+
             gain.gain.exponentialRampToValueAtTime(
                 .08,
                 start + .03
             );
 
+
             gain.gain.exponentialRampToValueAtTime(
                 .0001,
                 start + .45
             );
+
 
             osc.connect(gain);
 
@@ -2021,25 +2141,29 @@ function notificationSound() {
                 ctx.destination
             );
 
+
             osc.start(start);
 
             osc.stop(
                 start + .45
             );
+
         }
     );
 }
 
 
 /* =========================================================
-   SOFT WHOOSH
+   WHOOSH
 ========================================================= */
 
 function whoosh() {
 
-    const ctx = getAudio();
+    const ctx =
+        getAudio();
 
     if (!ctx) return;
+
 
     const osc =
         ctx.createOscillator();
@@ -2047,38 +2171,47 @@ function whoosh() {
     const gain =
         ctx.createGain();
 
-    osc.type = "sine";
+
+    osc.type =
+        "sine";
+
 
     osc.frequency.setValueAtTime(
         150,
         ctx.currentTime
     );
 
+
     osc.frequency.exponentialRampToValueAtTime(
-        65,
+        55,
         ctx.currentTime + .8
     );
+
 
     gain.gain.setValueAtTime(
         .0001,
         ctx.currentTime
     );
 
+
     gain.gain.exponentialRampToValueAtTime(
         .08,
         ctx.currentTime + .12
     );
+
 
     gain.gain.exponentialRampToValueAtTime(
         .0001,
         ctx.currentTime + .8
     );
 
+
     osc.connect(gain);
 
     gain.connect(
         ctx.destination
     );
+
 
     osc.start();
 
@@ -2148,7 +2281,20 @@ function showDialogue(text) {
 
 
 /* =========================================================
-   WAKE-UP TAP FLOW
+   INITIAL DIALOGUE
+========================================================= */
+
+setTimeout(() => {
+
+    dialogueText.classList.add(
+        "show"
+    );
+
+}, 500);
+
+
+/* =========================================================
+   WAKE SCREEN
 ========================================================= */
 
 wakeScreen.addEventListener(
@@ -2162,10 +2308,6 @@ wakeScreen.addEventListener(
         flash();
 
 
-        /* -----------------------------------------------
-           TAP 1
-        ----------------------------------------------- */
-
         if (tapCount === 1) {
 
             whoosh();
@@ -2175,16 +2317,13 @@ wakeScreen.addEventListener(
             );
 
             blurLayer.style.opacity =
-                ".63";
+                ".62";
 
             tapHint.textContent =
                 "Tap again...";
+
         }
 
-
-        /* -----------------------------------------------
-           TAP 2
-        ----------------------------------------------- */
 
         else if (tapCount === 2) {
 
@@ -2193,16 +2332,13 @@ wakeScreen.addEventListener(
             );
 
             blurLayer.style.opacity =
-                ".28";
+                ".25";
 
             tapHint.textContent =
                 "Almost awake...";
+
         }
 
-
-        /* -----------------------------------------------
-           TAP 3
-        ----------------------------------------------- */
 
         else if (tapCount === 3) {
 
@@ -2218,16 +2354,14 @@ wakeScreen.addEventListener(
             tapHint.textContent =
                 "You're awake... ❤️";
 
+
             document
-                .querySelector(".dizzy-ring")
+                .querySelector(
+                    ".dizzy-ring"
+                )
                 .style.animationDuration =
                 "22s";
 
-
-            /*
-                After she wakes up,
-                give the scene some breathing room.
-            */
 
             setTimeout(() => {
 
@@ -2237,12 +2371,8 @@ wakeScreen.addEventListener(
                 wakeScreen.style.transform =
                     "scale(1.04)";
 
-            }, 2500);
+            }, 2400);
 
-
-            /*
-                iPhone appears
-            */
 
             setTimeout(() => {
 
@@ -2264,7 +2394,7 @@ wakeScreen.addEventListener(
 
 
 /* =========================================================
-   IPHONE NOTIFICATION CLICK
+   NOTIFICATION → CHAT
 ========================================================= */
 
 notificationScreen.addEventListener(
@@ -2273,27 +2403,20 @@ notificationScreen.addEventListener(
 
         tapSound();
 
+        whoosh();
+
         notificationScreen.classList.add(
             "zoom"
         );
 
-
-        /*
-            Zoom deeply into the
-            notification / phone.
-        */
 
         setTimeout(() => {
 
             notificationScreen.style.opacity =
                 "0";
 
-        }, 900);
+        }, 850);
 
-
-        /*
-            Reveal chat interface
-        */
 
         setTimeout(() => {
 
@@ -2304,29 +2427,307 @@ notificationScreen.addEventListener(
                 "active"
             );
 
-        }, 1400);
+            startConversation();
+
+        }, 1350);
 
     }
 );
 
 
 /* =========================================================
-   CHAT → QUIZ.HTML
+   CONVERSATION DATA
 ========================================================= */
 
-chatScreen.addEventListener(
-    "click",
-    () => {
+const conversation = [
 
-        tapSound();
+    {
+        sender: "ritesh",
+        name: "Ritesh",
+        text: "Hi Babe! ❤️"
+    },
+
+    {
+        sender: "tisha",
+        name: "Tisha",
+        text: "Babyy where are you? 🥺❤️"
+    },
+
+    {
+        sender: "ritesh",
+        name: "Ritesh",
+        text: "Don't worry, I'm close 😌❤️"
+    },
+
+    {
+        sender: "tisha",
+        name: "Tisha",
+        text: "Baby come to me naaa 🥺👉👈"
+    },
+
+    {
+        sender: "ritesh",
+        name: "Ritesh",
+        text: "Ahn ahn... first I need to see something 👀"
+    },
+
+    {
+        sender: "tisha",
+        name: "Tisha",
+        text: "What? 👀"
+    },
+
+    {
+        sender: "ritesh",
+        name: "Ritesh",
+        text: "Do you remember our moments? ❤️"
+    },
+
+    {
+        sender: "tisha",
+        name: "Tisha",
+        text: "Haan Babuuuu... I remember 🥺❤️"
+    },
+
+    {
+        sender: "ritesh",
+        name: "Ritesh",
+        text: "Let's see thennn... 😏❤️"
+    }
+
+];
+
+
+/* =========================================================
+   TYPING INDICATOR
+========================================================= */
+
+function showTyping(sender) {
+
+    return new Promise(
+        resolve => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "typing-row " +
+                sender;
+
+
+            const bubble =
+                document.createElement(
+                    "div"
+                );
+
+            bubble.className =
+                "typing-bubble";
+
+
+            bubble.innerHTML = `
+
+                <span>
+                    ${sender === "ritesh"
+                        ? "Ritesh"
+                        : "Tisha"}
+                    is typing
+                </span>
+
+                <span class="typing-dots">
+
+                    <span>.</span>
+                    <span>.</span>
+                    <span>.</span>
+
+                </span>
+
+            `;
+
+
+            row.appendChild(
+                bubble
+            );
+
+
+            chatMessages.appendChild(
+                row
+            );
+
+
+            scrollChat();
+
+
+            /*
+                Exactly 2 seconds
+                of typing indicator.
+            */
+
+            setTimeout(
+                () => {
+
+                    row.remove();
+
+                    resolve();
+
+                },
+                2000
+            );
+
+        }
+    );
+}
+
+
+/* =========================================================
+   SHOW MESSAGE
+========================================================= */
+
+function showMessage(
+    sender,
+    text
+) {
+
+    return new Promise(
+        resolve => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "message-row " +
+                sender;
+
+
+            const bubble =
+                document.createElement(
+                    "div"
+                );
+
+            bubble.className =
+                "message-bubble";
+
+
+            bubble.textContent =
+                text;
+
+
+            row.appendChild(
+                bubble
+            );
+
+
+            chatMessages.appendChild(
+                row
+            );
+
+
+            scrollChat();
+
+
+            setTimeout(
+                resolve,
+                650
+            );
+
+        }
+    );
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+function scrollChat() {
+
+    setTimeout(() => {
+
+        chatMessages.scrollTo({
+
+            top:
+                chatMessages.scrollHeight,
+
+            behavior:
+                "smooth"
+
+        });
+
+    }, 80);
+}
+
+
+/* =========================================================
+   START CONVERSATION
+========================================================= */
+
+async function startConversation() {
+
+    for (
+        let i = 0;
+        i < conversation.length;
+        i++
+    ) {
+
+        const message =
+            conversation[i];
+
+
+        await showTyping(
+            message.sender
+        );
+
+
+        await showMessage(
+            message.sender,
+            message.text
+        );
+
 
         /*
-            Small cinematic fade
-            before leaving Page 4.
+            Tiny breathing pause
+            between messages.
         */
 
-        chatScreen.style.transition =
-            "opacity 1s ease";
+        await new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    450
+                )
+        );
+
+    }
+
+
+    /*
+        Conversation finished.
+    */
+
+    setTimeout(() => {
+
+        continueButton.classList.add(
+            "visible"
+        );
+
+    }, 700);
+}
+
+
+/* =========================================================
+   CONTINUE → QUIZ.HTML
+========================================================= */
+
+continueButton.addEventListener(
+    "click",
+    event => {
+
+        event.stopPropagation();
+
+        tapSound();
 
         chatScreen.style.opacity =
             "0";
@@ -2337,23 +2738,46 @@ chatScreen.addEventListener(
             window.location.href =
                 "quiz.html";
 
-        }, 1000);
+        }, 900);
 
     }
 );
 
 
 /* =========================================================
-   INITIAL DIALOGUE
+   OPTIONAL: CLICK ANYWHERE AFTER
+   FINAL MESSAGE
 ========================================================= */
 
-setTimeout(() => {
+chatScreen.addEventListener(
+    "click",
+    event => {
 
-    dialogueText.classList.add(
-        "show"
-    );
+        if (
+            continueButton.classList.contains(
+                "visible"
+            ) &&
+            event.target !==
+            continueButton
+        ) {
 
-}, 500);
+            tapSound();
+
+            chatScreen.style.opacity =
+                "0";
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "quiz.html";
+
+            }, 900);
+
+        }
+
+    }
+);
 
 </script>
 
