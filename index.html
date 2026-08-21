@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 
 /* =========================================================
    PAGE 4
-   WAKE UP → IPHONE → CINEMATIC CHAT → QUIZ
+   WAKE UP → IPHONE → CINEMATIC CHAT
 ========================================================= */
 
 :root {
@@ -56,8 +57,7 @@ body {
         "Times New Roman",
         serif;
 
-    background:
-        #260611;
+    background: #260611;
 
     color: var(--cream);
 
@@ -72,7 +72,6 @@ body {
 #wakeScreen {
 
     position: fixed;
-
     inset: 0;
 
     display: flex;
@@ -120,16 +119,11 @@ body {
 }
 
 
-/* =========================================================
-   CINEMATIC RED VIGNETTE
-========================================================= */
-
 #wakeScreen::before {
 
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
@@ -152,10 +146,10 @@ body {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
+
         radial-gradient(
             circle at 30% 30%,
             rgba(217,79,112,.12),
@@ -359,11 +353,9 @@ body {
 .particles {
 
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
-
     z-index: 5;
 }
 
@@ -377,8 +369,7 @@ body {
 
     border-radius: 50%;
 
-    background:
-        var(--rose);
+    background: var(--rose);
 
     box-shadow:
         0 0 15px
@@ -534,7 +525,6 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 }
 
@@ -702,13 +692,11 @@ body {
 #notificationScreen {
 
     position: fixed;
-
     inset: 0;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background:
@@ -757,10 +745,12 @@ body {
 
 
 /* =========================================================
-   LONGER IPHONE
+   IPHONE FRAME
+   SAME FRAME USED FOR NOTIFICATION + CHAT
 ========================================================= */
 
-.notification-phone {
+.notification-phone,
+.chat-phone {
 
     width:
         min(330px, 82vw);
@@ -775,18 +765,99 @@ body {
     background:
         linear-gradient(
             145deg,
-            #303030,
-            #080808 55%,
-            #1d1d1d
+            #3a3a3a 0%,
+            #171717 28%,
+            #050505 55%,
+            #242424 82%,
+            #080808 100%
         );
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
 
     box-shadow:
 
         0 45px 100px
-        rgba(0,0,0,.55),
+        rgba(0,0,0,.65),
 
         0 15px 40px
-        rgba(217,79,112,.2);
+        rgba(217,79,112,.2),
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.06);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   SIDE BUTTON DETAILS
+========================================================= */
+
+.notification-phone::before,
+.chat-phone::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -3px;
+
+    top: 105px;
+
+    width: 3px;
+
+    height: 70px;
+
+    border-radius: 3px 0 0 3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #444,
+            #111,
+            #444
+        );
+
+    box-shadow:
+        0 90px 0 #222,
+        0 112px 0 #222;
+}
+
+
+.notification-phone::after,
+.chat-phone::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -3px;
+
+    top: 135px;
+
+    width: 3px;
+
+    height: 95px;
+
+    border-radius: 0 3px 3px 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #444,
+            #111,
+            #444
+        );
+}
+
+
+/* =========================================================
+   NOTIFICATION PHONE ANIMATION
+========================================================= */
+
+.notification-phone {
 
     transform:
         translateY(35px)
@@ -812,6 +883,10 @@ body {
         scale(1);
 }
 
+
+/* =========================================================
+   PHONE SCREEN
+========================================================= */
 
 .phone-screen {
 
@@ -859,7 +934,6 @@ body {
         translateX(-50%);
 
     width: 92px;
-
     height: 27px;
 
     border-radius: 30px;
@@ -957,7 +1031,6 @@ body {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     margin-bottom: 11px;
@@ -1166,57 +1239,98 @@ body {
             transparent 40%
         ),
 
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(217,79,112,.14),
+            transparent 30%
+        ),
+
         linear-gradient(
             135deg,
             #260611,
             #570b24,
             #3b0718
         );
+
+    animation:
+        cinematicBackground
+        12s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes cinematicBackground {
+
+    from {
+        transform: scale(1);
+        filter: saturate(.9);
+    }
+
+    to {
+        transform: scale(1.08);
+        filter: saturate(1.15);
+    }
 }
 
 
 /* =========================================================
-   CHAT PHONE FRAME
+   CHAT PHONE
+   NOW IDENTICAL TO THE IPHONE FRAME
 ========================================================= */
 
 .chat-phone {
 
-    position: relative;
-
-    width:
-        min(420px, 100vw);
+    z-index: 5;
 
     height:
-        min(850px, 100vh);
+        min(850px, 94vh);
 
-    overflow: hidden;
+    width:
+        min(420px, 94vw);
+
+    /*
+       This is the important part:
+       dark iPhone body + 10px border + rounded screen
+    */
+
+    padding: 10px;
+
+    border-radius: 42px;
 
     background:
         linear-gradient(
-            160deg,
-            #fff8fa,
-            #f8e9ed
+            145deg,
+            #3a3a3a 0%,
+            #171717 28%,
+            #050505 55%,
+            #242424 82%,
+            #080808 100%
         );
 
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
     box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.5);
 
-    border-radius:
-        clamp(0px, 20px, 28px);
+        0 45px 110px
+        rgba(0,0,0,.7),
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+        0 15px 45px
+        rgba(217,79,112,.22),
+
+        inset 0 0 0 1px
+        rgba(255,255,255,.06);
 
     transform:
-        scale(.96);
+        scale(.94);
+
+    opacity: 0;
 
     animation:
         chatReveal
-        1s
+        1.15s
         cubic-bezier(.2,.8,.2,1)
         forwards;
 }
@@ -1227,14 +1341,26 @@ body {
     from {
         opacity: 0;
         transform:
-            scale(.9);
+            scale(.88)
+            translateY(25px);
     }
 
     to {
         opacity: 1;
         transform:
-            scale(1);
+            scale(1)
+            translateY(0);
     }
+}
+
+
+/* =========================================================
+   CHAT INNER SCREEN
+========================================================= */
+
+.chat-phone::after {
+
+    z-index: 20;
 }
 
 
@@ -1244,10 +1370,10 @@ body {
 
 .chat-top {
 
-    height: 95px;
+    height: 72px;
 
     padding:
-        35px 20px 10px;
+        28px 18px 8px;
 
     display: flex;
 
@@ -1256,7 +1382,7 @@ body {
     gap: 12px;
 
     background:
-        rgba(255,250,252,.94);
+        rgba(255,250,252,.96);
 
     border-bottom:
         1px solid
@@ -1270,8 +1396,8 @@ body {
 
 .chat-avatar {
 
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 
     border-radius: 50%;
 
@@ -1322,22 +1448,22 @@ body {
 
 
 /* =========================================================
-   CHAT MESSAGES AREA
+   CHAT MESSAGES
 ========================================================= */
 
 .chat-messages {
 
     position: absolute;
 
-    top: 95px;
+    top: 72px;
 
-    bottom: 65px;
+    bottom: 58px;
 
-    left: 0;
-    right: 0;
+    left: 10px;
+    right: 10px;
 
     padding:
-        22px 15px;
+        18px 12px;
 
     overflow-y: auto;
 
@@ -1358,6 +1484,16 @@ body {
         ),
 
         #fff8fa;
+}
+
+
+.chat-messages::-webkit-scrollbar {
+    width: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(167,34,73,.25);
+    border-radius: 10px;
 }
 
 
@@ -1588,25 +1724,27 @@ body {
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    left: 10px;
+    right: 10px;
 
-    bottom: 0;
+    bottom: 10px;
 
-    height: 65px;
+    height: 58px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background:
-        rgba(255,250,252,.95);
+        rgba(255,250,252,.96);
 
     border-top:
         1px solid
         rgba(87,11,36,.08);
+
+    border-radius:
+        0 0 32px 32px;
 
     z-index: 10;
 }
@@ -1692,10 +1830,25 @@ body {
 
     .chat-phone {
 
-        width: 100vw;
-        height: 100vh;
+        width: 92vw;
 
-        border-radius: 0;
+        height: 94vh;
+
+        border-radius: 38px;
+
+        padding: 9px;
+    }
+
+    .chat-messages {
+
+        left: 9px;
+        right: 9px;
+    }
+
+    .chat-bottom {
+
+        left: 9px;
+        right: 9px;
     }
 }
 
@@ -1791,11 +1944,8 @@ body {
 
             <div class="dynamic-island"></div>
 
-
             <div class="phone-time">
-
                 12:37
-
             </div>
 
 
@@ -1806,9 +1956,7 @@ body {
                     <div class="notification-name">
 
                         <div class="notification-icon">
-
                             R
-
                         </div>
 
                         Ritesh ❤️
@@ -1816,34 +1964,26 @@ body {
                     </div>
 
                     <span>
-
                         now
-
                     </span>
 
                 </div>
 
 
                 <div class="notification-message">
-
                     Hi Babe! ❤️
-
                 </div>
 
 
                 <div class="notification-sub">
-
                     Messages
-
                 </div>
 
             </div>
 
 
             <div class="notification-hint">
-
                 Tap the message
-
             </div>
 
         </div>
@@ -1857,8 +1997,7 @@ body {
      CINEMATIC CHAT
 ========================================================= -->
 
-<section
-    id="chatScreen">
+<section id="chatScreen">
 
     <div class="chat-background"></div>
 
@@ -1866,55 +2005,62 @@ body {
     <div class="chat-phone">
 
 
-        <!-- HEADER -->
+        <div class="phone-screen"
+             style="
+                background:
+                linear-gradient(
+                    145deg,
+                    #fff8fa,
+                    #f8e9ed
+                );
+                color:#3c0d1d;
+             ">
 
-        <div class="chat-top">
+            <!-- CHAT HEADER -->
 
-            <div class="chat-avatar">
+            <div class="chat-top">
 
-                R
+                <div class="chat-avatar">
+                    R
+                </div>
+
+
+                <div>
+
+                    <div class="chat-name">
+                        Ritesh ❤️
+                    </div>
+
+                    <div class="chat-status">
+                        active now
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div>
+            <!-- CHAT MESSAGES -->
 
-                <div class="chat-name">
-
-                    Ritesh ❤️
-
-                </div>
-
-                <div class="chat-status">
-
-                    active now
-
-                </div>
-
+            <div
+                class="chat-messages"
+                id="chatMessages">
             </div>
 
-        </div>
 
+            <!-- CHAT BOTTOM -->
 
-        <!-- MESSAGES -->
+            <div class="chat-bottom">
 
-        <div
-            class="chat-messages"
-            id="chatMessages">
-        </div>
+                <button
+                    class="continue-button"
+                    id="continueButton">
 
+                    Continue ❤️
 
-        <!-- BOTTOM -->
+                </button>
 
-        <div class="chat-bottom">
-
-            <button
-                class="continue-button"
-                id="continueButton">
-
-                Continue ❤️
-
-            </button>
+            </div>
 
         </div>
 
@@ -1959,6 +2105,11 @@ const notificationScreen =
         "notificationScreen"
     );
 
+const notificationPhone =
+    document.getElementById(
+        "notificationPhone"
+    );
+
 const chatScreen =
     document.getElementById(
         "chatScreen"
@@ -1976,11 +2127,25 @@ const continueButton =
 
 
 /* =========================================================
-   AUDIO
+   AUDIO ENGINE
 ========================================================= */
 
 let audioContext = null;
 
+let masterGain = null;
+
+let musicGain = null;
+
+let musicStarted = false;
+
+let musicTimer = null;
+
+let musicStep = 0;
+
+
+/* =========================================================
+   GET AUDIO CONTEXT
+========================================================= */
 
 function getAudio() {
 
@@ -1994,6 +2159,26 @@ function getAudio() {
 
         audioContext =
             new AudioContext();
+
+        masterGain =
+            audioContext.createGain();
+
+        musicGain =
+            audioContext.createGain();
+
+        masterGain.gain.value =
+            0.85;
+
+        musicGain.gain.value =
+            0.0001;
+
+        musicGain.connect(
+            masterGain
+        );
+
+        masterGain.connect(
+            audioContext.destination
+        );
     }
 
     if (
@@ -2010,10 +2195,16 @@ function getAudio() {
 
 
 /* =========================================================
-   TAP SOUND
+   GENERIC TONE
 ========================================================= */
 
-function tapSound() {
+function playTone(
+    frequency,
+    duration,
+    volume,
+    type = "sine",
+    destination = null
+) {
 
     const ctx =
         getAudio();
@@ -2029,51 +2220,73 @@ function tapSound() {
 
 
     osc.type =
-        "sine";
-
+        type;
 
     osc.frequency.setValueAtTime(
-        480,
+        frequency,
         ctx.currentTime
-    );
-
-
-    osc.frequency.exponentialRampToValueAtTime(
-        680,
-        ctx.currentTime + .08
     );
 
 
     gain.gain.setValueAtTime(
-        .0001,
+        0.0001,
         ctx.currentTime
     );
 
 
     gain.gain.exponentialRampToValueAtTime(
-        .05,
-        ctx.currentTime + .02
+        volume,
+        ctx.currentTime + 0.03
     );
 
 
     gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        ctx.currentTime + .25
+        0.0001,
+        ctx.currentTime + duration
     );
 
 
     osc.connect(gain);
 
     gain.connect(
-        ctx.destination
+        destination ||
+        masterGain
     );
 
 
     osc.start();
 
     osc.stop(
-        ctx.currentTime + .25
+        ctx.currentTime +
+        duration +
+        .05
     );
+}
+
+
+/* =========================================================
+   TAP SOUND
+========================================================= */
+
+function tapSound() {
+
+    playTone(
+        480,
+        .25,
+        .05,
+        "sine"
+    );
+
+    setTimeout(() => {
+
+        playTone(
+            680,
+            .22,
+            .035,
+            "sine"
+        );
+
+    }, 55);
 }
 
 
@@ -2082,12 +2295,6 @@ function tapSound() {
 ========================================================= */
 
 function notificationSound() {
-
-    const ctx =
-        getAudio();
-
-    if (!ctx) return;
-
 
     const notes = [
         659,
@@ -2099,54 +2306,16 @@ function notificationSound() {
     notes.forEach(
         (frequency, index) => {
 
-            const osc =
-                ctx.createOscillator();
+            setTimeout(() => {
 
-            const gain =
-                ctx.createGain();
+                playTone(
+                    frequency,
+                    .45,
+                    .08,
+                    "sine"
+                );
 
-            const start =
-                ctx.currentTime +
-                index * .13;
-
-
-            osc.type =
-                "sine";
-
-            osc.frequency.value =
-                frequency;
-
-
-            gain.gain.setValueAtTime(
-                .0001,
-                start
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                .08,
-                start + .03
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                .0001,
-                start + .45
-            );
-
-
-            osc.connect(gain);
-
-            gain.connect(
-                ctx.destination
-            );
-
-
-            osc.start(start);
-
-            osc.stop(
-                start + .45
-            );
+            }, index * 130);
 
         }
     );
@@ -2209,7 +2378,7 @@ function whoosh() {
     osc.connect(gain);
 
     gain.connect(
-        ctx.destination
+        masterGain
     );
 
 
@@ -2218,6 +2387,255 @@ function whoosh() {
     osc.stop(
         ctx.currentTime + .8
     );
+}
+
+
+/* =========================================================
+   ROMANTIC CINEMATIC BGM
+=========================================================
+
+   Soft piano-like ambient music.
+
+   No external MP3.
+   Works through Web Audio API.
+
+========================================================= */
+
+const musicChords = [
+
+    [261.63, 329.63, 392.00],
+
+    [220.00, 261.63, 329.63],
+
+    [174.61, 220.00, 261.63],
+
+    [196.00, 246.94, 293.66]
+
+];
+
+
+const melody = [
+
+    523.25,
+    493.88,
+    440.00,
+    392.00,
+
+    440.00,
+    493.88,
+    523.25,
+    659.25,
+
+    587.33,
+    523.25,
+    493.88,
+    440.00,
+
+    392.00,
+    440.00,
+    493.88,
+    523.25
+
+];
+
+
+/* =========================================================
+   PLAY MUSIC CHORD
+========================================================= */
+
+function playMusicChord() {
+
+    const ctx =
+        getAudio();
+
+    if (!ctx) return;
+
+
+    const chord =
+        musicChords[
+            musicStep %
+            musicChords.length
+        ];
+
+
+    chord.forEach(
+        (frequency, index) => {
+
+            const osc =
+                ctx.createOscillator();
+
+            const gain =
+                ctx.createGain();
+
+
+            osc.type =
+                "sine";
+
+
+            osc.frequency.value =
+                frequency;
+
+
+            const start =
+                ctx.currentTime;
+
+
+            gain.gain.setValueAtTime(
+                0.0001,
+                start
+            );
+
+
+            gain.gain.exponentialRampToValueAtTime(
+                0.018,
+                start + .7
+            );
+
+
+            gain.gain.exponentialRampToValueAtTime(
+                0.0001,
+                start + 3.8
+            );
+
+
+            osc.connect(gain);
+
+            gain.connect(
+                musicGain
+            );
+
+
+            osc.start(start);
+
+            osc.stop(
+                start + 4
+            );
+
+        }
+    );
+
+
+    /* Soft high piano note */
+
+    const melodyNote =
+        melody[
+            musicStep %
+            melody.length
+        ];
+
+
+    setTimeout(() => {
+
+        playTone(
+            melodyNote,
+            2.2,
+            .018,
+            "triangle",
+            musicGain
+        );
+
+    }, 550);
+
+
+    musicStep++;
+
+
+    musicTimer =
+        setTimeout(
+            playMusicChord,
+            3600
+        );
+}
+
+
+/* =========================================================
+   START ROMANTIC BGM
+========================================================= */
+
+function startRomanticBGM() {
+
+    const ctx =
+        getAudio();
+
+    if (!ctx) return;
+
+    if (musicStarted) return;
+
+    musicStarted = true;
+
+
+    /*
+       Very gentle volume.
+       The music should feel like
+       something happening behind
+       the conversation.
+    */
+
+    musicGain.gain.cancelScheduledValues(
+        ctx.currentTime
+    );
+
+
+    musicGain.gain.setValueAtTime(
+        0.0001,
+        ctx.currentTime
+    );
+
+
+    musicGain.gain.exponentialRampToValueAtTime(
+        0.16,
+        ctx.currentTime + 4
+    );
+
+
+    musicStep = 0;
+
+    playMusicChord();
+}
+
+
+/* =========================================================
+   FADE OUT MUSIC
+========================================================= */
+
+function stopRomanticBGM() {
+
+    const ctx =
+        getAudio();
+
+    if (!ctx || !musicGain) return;
+
+
+    clearTimeout(
+        musicTimer
+    );
+
+
+    musicGain.gain.cancelScheduledValues(
+        ctx.currentTime
+    );
+
+
+    musicGain.gain.setValueAtTime(
+        Math.max(
+            musicGain.gain.value,
+            .0001
+        ),
+        ctx.currentTime
+    );
+
+
+    musicGain.gain.exponentialRampToValueAtTime(
+        .0001,
+        ctx.currentTime + 1.4
+    );
+
+
+    setTimeout(() => {
+
+        musicStarted = false;
+
+    }, 1500);
 }
 
 
@@ -2405,6 +2823,7 @@ notificationScreen.addEventListener(
 
         whoosh();
 
+
         notificationScreen.classList.add(
             "zoom"
         );
@@ -2427,6 +2846,15 @@ notificationScreen.addEventListener(
                 "active"
             );
 
+
+            /*
+               Start the romantic music
+               exactly when the chat appears.
+            */
+
+            startRomanticBGM();
+
+
             startConversation();
 
         }, 1350);
@@ -2436,62 +2864,53 @@ notificationScreen.addEventListener(
 
 
 /* =========================================================
-   CONVERSATION DATA
+   CONVERSATION
 ========================================================= */
 
 const conversation = [
 
     {
         sender: "ritesh",
-        name: "Ritesh",
         text: "Hi Babe! ❤️"
     },
 
     {
         sender: "tisha",
-        name: "Tisha",
         text: "Babyy where are you? 🥺❤️"
     },
 
     {
         sender: "ritesh",
-        name: "Ritesh",
         text: "Don't worry, I'm close 😌❤️"
     },
 
     {
         sender: "tisha",
-        name: "Tisha",
         text: "Baby come to me naaa 🥺👉👈"
     },
 
     {
         sender: "ritesh",
-        name: "Ritesh",
         text: "Ahn ahn... first I need to see something 👀"
     },
 
     {
         sender: "tisha",
-        name: "Tisha",
         text: "What? 👀"
     },
 
     {
         sender: "ritesh",
-        name: "Ritesh",
         text: "Do you remember our moments? ❤️"
     },
 
     {
         sender: "tisha",
-        name: "Tisha",
         text: "Haan Babuuuu... I remember 🥺❤️"
     },
 
     {
         sender: "ritesh",
-        name: "Ritesh",
         text: "Let's see thennn... 😏❤️"
     }
 
@@ -2499,7 +2918,7 @@ const conversation = [
 
 
 /* =========================================================
-   TYPING INDICATOR
+   SHOW TYPING
 ========================================================= */
 
 function showTyping(sender) {
@@ -2560,8 +2979,7 @@ function showTyping(sender) {
 
 
             /*
-                Exactly 2 seconds
-                of typing indicator.
+               EXACTLY 2 SECONDS
             */
 
             setTimeout(
@@ -2639,7 +3057,7 @@ function showMessage(
 
 
 /* =========================================================
-   SCROLL
+   SCROLL CHAT
 ========================================================= */
 
 function scrollChat() {
@@ -2687,11 +3105,6 @@ async function startConversation() {
         );
 
 
-        /*
-            Tiny breathing pause
-            between messages.
-        */
-
         await new Promise(
             resolve =>
                 setTimeout(
@@ -2702,10 +3115,6 @@ async function startConversation() {
 
     }
 
-
-    /*
-        Conversation finished.
-    */
 
     setTimeout(() => {
 
@@ -2718,7 +3127,30 @@ async function startConversation() {
 
 
 /* =========================================================
-   CONTINUE → QUIZ.HTML
+   GO TO QUIZ
+========================================================= */
+
+function goToQuiz() {
+
+    stopRomanticBGM();
+
+    tapSound();
+
+    chatScreen.style.opacity =
+        "0";
+
+
+    setTimeout(() => {
+
+        window.location.href =
+            "quiz.html";
+
+    }, 900);
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
 ========================================================= */
 
 continueButton.addEventListener(
@@ -2727,26 +3159,14 @@ continueButton.addEventListener(
 
         event.stopPropagation();
 
-        tapSound();
-
-        chatScreen.style.opacity =
-            "0";
-
-
-        setTimeout(() => {
-
-            window.location.href =
-                "quiz.html";
-
-        }, 900);
+        goToQuiz();
 
     }
 );
 
 
 /* =========================================================
-   OPTIONAL: CLICK ANYWHERE AFTER
-   FINAL MESSAGE
+   OPTIONAL TAP AFTER FINAL MESSAGE
 ========================================================= */
 
 chatScreen.addEventListener(
@@ -2761,21 +3181,38 @@ chatScreen.addEventListener(
             continueButton
         ) {
 
-            tapSound();
-
-            chatScreen.style.opacity =
-                "0";
-
-
-            setTimeout(() => {
-
-                window.location.href =
-                    "quiz.html";
-
-            }, 900);
+            goToQuiz();
 
         }
 
+    }
+);
+
+
+/* =========================================================
+   FIRST USER INTERACTION
+   UNLOCK AUDIO
+========================================================= */
+
+document.addEventListener(
+    "click",
+    () => {
+
+        const ctx =
+            getAudio();
+
+        if (
+            ctx &&
+            ctx.state === "suspended"
+        ) {
+
+            ctx.resume();
+
+        }
+
+    },
+    {
+        once: true
     }
 );
 
@@ -2783,3 +3220,4 @@ chatScreen.addEventListener(
 
 </body>
 </html>
+```
