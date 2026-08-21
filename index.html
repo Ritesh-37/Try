@@ -3,10 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0, user-scalable=no">
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
-<title>For My Tishuuu ❤️</title>
+<title>Eight Little Treasures ❤️</title>
+
+<!-- =========================================================
+     FONTS
+     Clean, modern, elegant — no cursive typography
+========================================================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
 
 <style>
 
@@ -23,83 +35,52 @@
 html,
 body{
     width:100%;
-    height:100%;
-    overflow:hidden;
+    min-height:100%;
 }
 
 body{
-    font-family:"Segoe UI",Arial,sans-serif;
-    background:#110207;
-    color:#f8ebe7;
-    user-select:none;
-    -webkit-user-select:none;
+    overflow:hidden;
+    background:#180008;
+    color:#fff;
+    font-family:"DM Sans", sans-serif;
     -webkit-tap-highlight-color:transparent;
     touch-action:manipulation;
 }
 
 
 /* =========================================================
-   APP
+   MAIN EXPERIENCE
 ========================================================= */
 
-#app{
-    position:fixed;
-    inset:0;
+#experience{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    min-height:620px;
     overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 50% 43%,
-            #791d3e 0%,
-            #59112c 28%,
-            #350818 61%,
-            #130107 100%
-        );
-
-    transition:opacity 1s ease;
-}
-
-#app::before{
-    content:"";
-    position:absolute;
-    width:100vw;
-    height:100vw;
-    max-width:1000px;
-    max-height:1000px;
-
-    left:50%;
-    top:45%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
+            circle at 50% 35%,
+            rgba(137,31,61,.62),
+            transparent 40%
+        ),
         radial-gradient(
-            circle,
-            rgba(248,204,126,.15),
-            rgba(216,101,141,.055) 35%,
-            transparent 72%
-        );
-
-    filter:blur(45px);
-    pointer-events:none;
-}
-
-#app::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
-
-    background:
+            circle at 50% 75%,
+            rgba(97,15,41,.40),
+            transparent 48%
+        ),
         linear-gradient(
-            120deg,
-            transparent 20%,
-            rgba(255,255,255,.018) 50%,
-            transparent 80%
+            135deg,
+            #180008 0%,
+            #310913 42%,
+            #4a0c20 65%,
+            #170006 100%
         );
+
+    transition:
+        opacity .55s ease,
+        transform .55s ease;
 }
 
 
@@ -107,2408 +88,116 @@ body{
    AMBIENT LIGHT
 ========================================================= */
 
-.ambient-light{
+.ambient{
     position:absolute;
-    width:70vw;
-    height:70vw;
-
-    left:50%;
-    top:47%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(244,187,107,.08),
-            transparent 68%
-        );
-
-    filter:blur(30px);
-
     pointer-events:none;
-
-    transition:
-        background 1.5s ease,
-        transform 1.5s ease;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.35;
 }
 
-.ambient-light.warm{
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,171,71,.22),
-            rgba(229,95,122,.06) 45%,
-            transparent 70%
-        );
+.ambient.one{
+    width:420px;
+    height:420px;
+    background:#9b2948;
+    top:8%;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.ambient.two{
+    width:300px;
+    height:300px;
+    background:#b33a42;
+    bottom:-100px;
+    left:-50px;
+}
+
+.ambient.three{
+    width:260px;
+    height:260px;
+    background:#6c1536;
+    bottom:-80px;
+    right:-30px;
 }
 
 
 /* =========================================================
-   PARTICLES
+   GOLD LIGHT RAYS
 ========================================================= */
 
-#particles{
+.light-ray{
+    position:absolute;
+    width:450px;
+    height:700px;
+    top:-350px;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,214,125,.22),
+        rgba(255,214,125,0)
+    );
+
+    filter:blur(25px);
+    opacity:.22;
+    pointer-events:none;
+    transform:rotate(18deg);
+}
+
+.light-ray.left{
+    left:10%;
+}
+
+.light-ray.right{
+    right:5%;
+    transform:rotate(-18deg);
+}
+
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
+
+.particles{
     position:absolute;
     inset:0;
-
     overflow:hidden;
-
     pointer-events:none;
-
-    z-index:2;
 }
 
 .particle{
     position:absolute;
-
     width:3px;
     height:3px;
-
     border-radius:50%;
-
-    background:#e8bd73;
-
+    background:#f7c86a;
     box-shadow:
-        0 0 10px rgba(242,196,115,.9);
+        0 0 8px #f7c86a,
+        0 0 15px rgba(247,200,106,.5);
 
-    animation:
-        floatParticle
-        6s linear forwards;
+    opacity:0;
+    animation:floatParticle linear infinite;
 }
 
 @keyframes floatParticle{
 
     0%{
+        transform:translateY(30px) scale(.4);
         opacity:0;
-        transform:
-            translateY(30px)
-            scale(.4);
     }
 
-    20%{
+    15%{
         opacity:.8;
     }
 
-    100%{
-        opacity:0;
-        transform:
-            translateY(-220px)
-            scale(0);
-    }
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.overlay{
-    position:fixed;
-    inset:0;
-
-    z-index:100;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:22px;
-
-    background:
-        rgba(7,1,4,.48);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:
-        opacity .7s ease;
-}
-
-.overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.popup{
-    width:min(92%,520px);
-
-    padding:45px 29px 38px;
-
-    text-align:center;
-
-    border:
-        1px solid
-        rgba(235,190,111,.32);
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(111,22,52,.98),
-            rgba(38,5,18,.99)
-        );
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.62),
-        inset 0 1px rgba(255,255,255,.06);
-
-    transform:
-        translateY(28px)
-        scale(.94);
-
-    transition:
-        transform .7s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.overlay.active .popup{
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.popup-icon{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.popup h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(29px,7vw,46px);
-
-    line-height:1.12;
-
-    font-weight:400;
-
-    color:#faece8;
-}
-
-.popup h1 span{
-    display:block;
-
-    margin-top:7px;
-
-    color:#efc77c;
-
-    font-style:italic;
-}
-
-.popup p{
-    margin:19px auto 0;
-
-    max-width:400px;
-
-    color:#d9bbc3;
-
-    font-size:13px;
-
-    line-height:1.85;
-}
-
-.popup-button{
-    margin-top:29px;
-
-    padding:14px 31px;
-
-    border:
-        1px solid
-        rgba(240,194,113,.5);
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ad315b,
-            #68132f
-        );
-
-    color:#fff;
-
-    font-size:9px;
-    font-weight:700;
-
-    letter-spacing:2.5px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.3);
-
-    transition:.3s ease;
-
-    touch-action:manipulation;
-}
-
-.popup-button:active{
-    transform:scale(.96);
-}
-
-
-/* =========================================================
-   EXPERIENCE
-========================================================= */
-
-#giftExperience{
-    position:absolute;
-    inset:0;
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:
-        opacity .9s ease;
-}
-
-#giftExperience.active{
-    opacity:1;
-    visibility:visible;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.gift-header{
-    position:absolute;
-
-    top:4.1%;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:92%;
-
-    text-align:center;
-
-    z-index:10;
-}
-
-.gift-header small{
-    display:block;
-
-    color:#d6a960;
-
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    opacity:.84;
-}
-
-.gift-header h1{
-    margin-top:9px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(30px,7vw,48px);
-
-    font-weight:400;
-
-    color:#f9e8e4;
-}
-
-.gift-header h1 span{
-    color:#edc274;
-    font-style:italic;
-}
-
-.decor-line{
-    width:100px;
-    height:1px;
-
-    margin:14px auto 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #dcae67,
-            transparent
-        );
-}
-
-
-/* =========================================================
-   STAGE
-========================================================= */
-
-.stage{
-    position:absolute;
-
-    inset:17% 4% 4%;
-
-    display:flex;
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    z-index:5;
-}
-
-
-/* =========================================================
-   GIFT INFO
-========================================================= */
-
-.gift-number{
-    color:#d5a65d;
-
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    margin-bottom:11px;
-}
-
-.gift-kicker{
-    font-family:Georgia,serif;
-
-    color:#e09ab2;
-
-    font-size:12px;
-
-    font-style:italic;
-
-    margin-bottom:8px;
-}
-
-.gift-title{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(28px,6vw,40px);
-
-    font-weight:400;
-
-    color:#f9e5e0;
-
-    line-height:1.08;
-}
-
-.gift-description{
-    width:min(90%,520px);
-
-    margin:12px auto 0;
-
-    color:#dcbec6;
-
-    font-size:12px;
-
-    line-height:1.75;
-}
-
-
-/* =========================================================
-   GIFT TRANSITION
-========================================================= */
-
-.stage.transitioning .gift-content{
-    animation:
-        giftExit
-        .45s
-        ease forwards;
-}
-
-@keyframes giftExit{
-
-    to{
-        opacity:0;
-
-        transform:
-            translateY(-18px)
-            scale(.94);
-    }
-}
-
-
-/* =========================================================
-   OBJECT AREA
-========================================================= */
-
-.object-area{
-    position:relative;
-
-    width:min(92vw,540px);
-    height:250px;
-
-    margin:5px auto 0;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    transition:
-        opacity .45s ease,
-        transform .45s ease;
-}
-
-.object-area::before{
-    content:"";
-
-    position:absolute;
-
-    width:300px;
-    height:65px;
-
-    left:50%;
-    bottom:17px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(0,0,0,.62),
-            transparent 72%
-        );
-
-    filter:blur(8px);
-
-    pointer-events:none;
-}
-
-.object-area::after{
-    content:"";
-
-    position:absolute;
-
-    width:250px;
-    height:150px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(229,185,111,.055),
-            transparent 70%
-        );
-
-    pointer-events:none;
-
-    transition:
-        opacity 1s ease;
-}
-
-
-/* =========================================================
-   SPOTLIGHT
-========================================================= */
-
-.object-spotlight{
-    position:absolute;
-
-    width:230px;
-    height:210px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(245,211,157,.10),
-            transparent 68%
-        );
-
-    filter:blur(18px);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   CANDLE
-========================================================= */
-
-.candle{
-    position:relative;
-
-    width:74px;
-    height:120px;
-
-    border-radius:
-        9px
-        9px
-        14px
-        14px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #4d0c25,
-            #a52c53 48%,
-            #5e102d
-        );
-
-    box-shadow:
-        inset 9px 0 18px rgba(255,255,255,.05),
-        0 25px 45px rgba(0,0,0,.4);
-
-    transition:
-        filter .8s ease;
-}
-
-.candle-top{
-    position:absolute;
-
-    top:-8px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:78px;
-    height:15px;
-
-    border-radius:50%;
-
-    background:#e8cfb2;
-}
-
-.wick{
-    position:absolute;
-
-    top:-25px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:3px;
-    height:18px;
-
-    background:#20100f;
-
-    border-radius:2px;
-}
-
-.flame{
-    position:absolute;
-
-    top:-63px;
-    left:50%;
-
-    width:24px;
-    height:38px;
-
-    transform:
-        translateX(-50%)
-        rotate(45deg)
-        scale(.05);
-
-    border-radius:
-        70%
-        20%
-        70%
-        20%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff4aa,
-            #f3a13c,
-            #d83a31
-        );
-
-    box-shadow:
-        0 0 20px #f3a541,
-        0 0 65px rgba(245,165,67,.8);
-
-    opacity:0;
-
-    visibility:hidden;
-}
-
-.candle.lit{
-    filter:
-        drop-shadow(
-            0 0 35px
-            rgba(244,166,72,.52)
-        );
-}
-
-.candle.lit .flame{
-    visibility:visible;
-
-    animation:
-        igniteFlame
-        .9s
-        cubic-bezier(.2,.8,.2,1)
-        forwards,
-
-        flameMove
-        .13s
-        infinite alternate
-        .9s;
-}
-
-@keyframes igniteFlame{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateX(-50%)
-            rotate(45deg)
-            scale(.05);
-    }
-
-    45%{
-        opacity:1;
-
-        transform:
-            translateX(-50%)
-            rotate(45deg)
-            scale(1.25);
-    }
-
-    100%{
-        opacity:1;
-
-        transform:
-            translateX(-50%)
-            rotate(45deg)
-            scale(1);
-    }
-}
-
-@keyframes flameMove{
-
-    from{
-        transform:
-            translateX(-50%)
-            rotate(40deg)
-            scale(.94);
-    }
-
-    to{
-        transform:
-            translateX(-50%)
-            rotate(50deg)
-            scale(1.06);
-    }
-}
-
-
-/* =========================================================
-   CANDLE WARMTH
-========================================================= */
-
-.candle-warmth{
-    position:absolute;
-
-    width:220px;
-    height:220px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,176,72,.24),
-            rgba(255,149,60,.06) 40%,
-            transparent 70%
-        );
-
-    filter:blur(14px);
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-.candle-warmth.active{
-    animation:
-        warmthPulse
-        2s
-        ease-in-out
-        infinite;
-}
-
-@keyframes warmthPulse{
-
-    0%,
-    100%{
-        opacity:.45;
-        transform:
-            translate(-50%,-50%)
-            scale(.85);
-    }
-
-    50%{
-        opacity:.9;
-        transform:
-            translate(-50%,-50%)
-            scale(1.12);
-    }
-}
-
-
-/* =========================================================
-   PERFUME
-========================================================= */
-
-.perfume{
-    position:relative;
-
-    width:100px;
-    height:125px;
-
-    border-radius:
-        12px
-        12px
-        17px
-        17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #09080c,
-            #40323f,
-            #09080c
-        );
-
-    border:
-        1px solid
-        rgba(240,207,150,.5);
-
-    box-shadow:
-        inset 12px 0 22px rgba(255,255,255,.05),
-        0 25px 40px rgba(0,0,0,.35);
-
-    transition:
-        transform .5s ease;
-}
-
-.perfume::after{
-    content:"CHANEL";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    top:51px;
-
-    color:#ead29c;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-}
-
-.perfume-cap{
-    position:absolute;
-
-    width:47px;
-    height:31px;
-
-    left:50%;
-    top:-30px;
-
-    transform:translateX(-50%);
-
-    border-radius:
-        5px
-        5px
-        2px
-        2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #a77437,
-            #f2d38c,
-            #9a682d
-        );
-
-    transition:.5s ease;
-}
-
-.perfume.sprayed{
-    animation:
-        perfumeTilt
-        .7s
-        ease;
-}
-
-@keyframes perfumeTilt{
-
-    30%{
-        transform:
-            rotate(-4deg)
-            translateY(-4px);
-    }
-
-    65%{
-        transform:
-            rotate(3deg)
-            translateY(-2px);
-    }
-}
-
-.perfume.sprayed .perfume-cap{
-    transform:
-        translate(-50%,-22px)
-        rotate(-12deg);
-}
-
-.mist{
-    position:absolute;
-
-    width:190px;
-    height:120px;
-
-    left:50%;
-    top:-30px;
-
-    transform:translateX(-50%);
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-.mist span{
-    position:absolute;
-
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    background:
-        rgba(238,225,207,.12);
-
-    filter:blur(7px);
-}
-
-.mist span:nth-child(1){
-    left:20px;
-}
-
-.mist span:nth-child(2){
-    left:65px;
-    top:-20px;
-}
-
-.mist span:nth-child(3){
-    right:15px;
-    top:10px;
-}
-
-.perfume.sprayed .mist{
-    animation:
-        perfumeMist
-        1.2s
-        ease
-        forwards;
-}
-
-@keyframes perfumeMist{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateX(-50%)
-            scale(.3);
-    }
-
-    35%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-
-        transform:
-            translateX(-50%)
-            translateY(-60px)
-            scale(1.5);
-    }
-}
-
-
-/* =========================================================
-   MIRROR
-========================================================= */
-
-.mirror{
-    width:155px;
-    height:105px;
-
-    border-radius:50%;
-
-    border:
-        8px solid
-        #d3a35e;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #c3d2d7 30%,
-            #7d939b 52%,
-            #ffffff 70%
-        );
-
-    box-shadow:
-        0 25px 45px rgba(0,0,0,.35),
-        inset 0 0 20px rgba(255,255,255,.65);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:
-        transform .5s ease;
-}
-
-.mirror::after{
-    content:"";
-
-    position:absolute;
-
-    width:45px;
-    height:170px;
-
-    top:-30px;
-    left:-60px;
-
-    transform:rotate(25deg);
-
-    background:
-        rgba(255,255,255,.7);
-
-    filter:blur(7px);
-}
-
-.mirror.shine{
-    animation:
-        mirrorLift
-        .8s
-        ease;
-}
-
-@keyframes mirrorLift{
-
-    35%{
-        transform:
-            translateY(-9px)
-            scale(1.04);
-    }
-
     70%{
-        transform:
-            translateY(-3px)
-            scale(1.01);
-    }
-}
-
-.mirror.shine::after{
-    animation:
-        mirrorSweep
-        1.2s
-        ease
-        forwards;
-}
-
-@keyframes mirrorSweep{
-
-    to{
-        left:190px;
-    }
-}
-
-.mirror-message{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.8);
-
-    width:160px;
-
-    color:#4a3440;
-
-    font-family:Georgia,serif;
-
-    font-size:14px;
-
-    line-height:1.35;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.6s ease;
-}
-
-.mirror.shine .mirror-message{
-    opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
-
-.mirror-message strong{
-    display:block;
-
-    color:#762244;
-
-    font-size:18px;
-}
-
-
-/* =========================================================
-   SELF CARE
-========================================================= */
-
-.selfcare{
-    position:relative;
-
-    width:190px;
-    height:120px;
-
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #a96e27,
-            #f2d17f,
-            #b4772b
-        );
-
-    box-shadow:
-        0 25px 45px rgba(0,0,0,.35);
-
-    transition:
-        transform .6s ease;
-}
-
-.selfcare::before{
-    content:"TISHUU";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    color:#50270e;
-
-    font-family:Georgia,serif;
-
-    letter-spacing:4px;
-
-    font-size:15px;
-}
-
-.selfcare::after{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    bottom:0;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:18px;
-
-    background:
-        rgba(85,44,12,.22);
-}
-
-.selfcare.glow{
-    animation:
-        goldGlow
-        1.3s
-        ease;
-}
-
-@keyframes goldGlow{
-
-    25%{
-        transform:
-            translateY(-6px)
-            scale(1.02);
-    }
-
-    50%{
-        box-shadow:
-            0 0 90px
-            rgba(246,202,111,.85);
-    }
-}
-
-
-/* =========================================================
-   PLUSHIE
-========================================================= */
-
-.plushie{
-    position:relative;
-
-    width:165px;
-    height:165px;
-
-    border-radius:
-        48%
-        48%
-        43%
-        43%;
-
-    background:
-        radial-gradient(
-            circle at 35% 25%,
-            #e993aa,
-            #a52b53 55%,
-            #571029
-        );
-
-    box-shadow:
-        inset 12px 14px 25px rgba(255,255,255,.08),
-        0 30px 50px rgba(0,0,0,.4);
-
-    transition:
-        transform .3s ease;
-}
-
-.ear{
-    position:absolute;
-
-    width:65px;
-    height:65px;
-
-    border-radius:50%;
-
-    background:#a72c55;
-
-    top:-25px;
-}
-
-.ear.left{
-    left:5px;
-}
-
-.ear.right{
-    right:5px;
-}
-
-.eye{
-    position:absolute;
-
-    width:11px;
-    height:14px;
-
-    border-radius:50%;
-
-    background:#260611;
-
-    top:62px;
-}
-
-.eye.left{
-    left:52px;
-}
-
-.eye.right{
-    right:52px;
-}
-
-.mouth{
-    position:absolute;
-
-    width:28px;
-    height:13px;
-
-    left:50%;
-    top:82px;
-
-    transform:
-        translateX(-50%);
-
-    border-bottom:
-        2px solid
-        #3f0e1c;
-
-    border-radius:50%;
-}
-
-.heart{
-    position:absolute;
-
-    bottom:29px;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    color:#f2b8c9;
-
-    font-size:27px;
-}
-
-.plushie.bounce{
-    animation:
-        plushBounce
-        .8s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes plushBounce{
-
-    20%{
-        transform:
-            translateY(-20px)
-            rotate(-5deg);
-    }
-
-    45%{
-        transform:
-            translateY(0)
-            rotate(4deg);
-    }
-
-    65%{
-        transform:
-            translateY(-9px)
-            rotate(-3deg);
+        opacity:.5;
     }
 
     100%{
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-}
-
-.plushie.hug{
-    animation:
-        plushHug
-        .15s
-        infinite alternate;
-}
-
-@keyframes plushHug{
-
-    from{
-        transform:translateX(-2px);
-    }
-
-    to{
-        transform:translateX(2px);
-    }
-}
-
-
-/* =========================================================
-   SCRUNCHIES
-========================================================= */
-
-.scrunchies{
-    position:relative;
-
-    width:290px;
-    height:205px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:12px;
-
-    filter:
-        drop-shadow(
-            0 25px 25px
-            rgba(0,0,0,.35)
-        );
-}
-
-.scrunchie{
-    position:relative;
-
-    width:122px;
-    height:122px;
-
-    border-radius:50%;
-
-    transform:rotate(-10deg);
-
-    background:
-        radial-gradient(
-            circle,
-            transparent 0 34%,
-            #08090b 35% 43%,
-            #19191c 44% 49%,
-            #050608 50% 57%,
-            #252529 58% 62%,
-            #07080a 63% 70%,
-            transparent 71%
-        );
-
-    box-shadow:
-        inset 10px 10px 18px rgba(255,255,255,.08),
-        inset -10px -12px 20px rgba(0,0,0,.65),
-        0 22px 35px rgba(0,0,0,.5);
-}
-
-.scrunchie::before{
-    content:"";
-
-    position:absolute;
-    inset:8px;
-
-    border-radius:50%;
-
-    background:
-        repeating-conic-gradient(
-            from 0deg,
-            rgba(255,255,255,.10) 0deg 7deg,
-            rgba(0,0,0,.05) 7deg 14deg
-        );
-
-    -webkit-mask:
-        radial-gradient(
-            circle,
-            transparent 0 36%,
-            #000 37% 65%,
-            transparent 66%
-        );
-
-    mask:
-        radial-gradient(
-            circle,
-            transparent 0 36%,
-            #000 37% 65%,
-            transparent 66%
-        );
-
-    opacity:.8;
-}
-
-.scrunchie::after{
-    content:"";
-
-    position:absolute;
-
-    width:43px;
-    height:43px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #29292c,
-            #050608 70%
-        );
-
-    border:
-        2px solid
-        rgba(255,255,255,.08);
-
-    box-shadow:
-        inset 4px 4px 8px rgba(255,255,255,.06),
-        inset -5px -5px 8px rgba(0,0,0,.7);
-}
-
-.scrunchie.gold{
-    transform:
-        rotate(11deg)
-        translateY(5px);
-
-    background:
-        radial-gradient(
-            circle,
-            transparent 0 34%,
-            #8d5a1d 35% 40%,
-            #f5d88d 41% 47%,
-            #b77b2b 48% 54%,
-            #ffe6a4 55% 59%,
-            #8b561b 60% 69%,
-            transparent 70%
-        );
-}
-
-.scrunchie.gold::before{
-    background:
-        repeating-conic-gradient(
-            from 0deg,
-            rgba(255,255,255,.32) 0deg 6deg,
-            rgba(91,52,12,.05) 6deg 14deg
-        );
-
-    -webkit-mask:
-        radial-gradient(
-            circle,
-            transparent 0 36%,
-            #000 37% 65%,
-            transparent 66%
-        );
-
-    mask:
-        radial-gradient(
-            circle,
-            transparent 0 36%,
-            #000 37% 65%,
-            transparent 66%
-        );
-}
-
-.scrunchie.gold::after{
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #f2d187,
-            #7c4b15 70%
-        );
-
-    border:
-        2px solid
-        rgba(255,224,155,.35);
-}
-
-.scrunchies.active .scrunchie.black{
-    animation:
-        satinBlackReveal
-        1s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.scrunchies.active .scrunchie.gold{
-    animation:
-        goldScrunchieReveal
-        1s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes satinBlackReveal{
-
-    0%{
-        transform:
-            translateX(30px)
-            rotate(-25deg)
-            scale(.75);
-
-        opacity:.2;
-    }
-
-    60%{
-        transform:
-            translateX(-7px)
-            rotate(4deg)
-            scale(1.08);
-    }
-
-    100%{
-        transform:
-            translateX(0)
-            rotate(-10deg)
-            scale(1);
-
-        opacity:1;
-    }
-}
-
-@keyframes goldScrunchieReveal{
-
-    0%{
-        transform:
-            translateX(-30px)
-            rotate(25deg)
-            scale(.75);
-
-        opacity:.2;
-    }
-
-    60%{
-        transform:
-            translateX(7px)
-            rotate(-4deg)
-            scale(1.08);
-    }
-
-    100%{
-        transform:
-            translateX(0)
-            rotate(11deg)
-            scale(1);
-
-        opacity:1;
-    }
-}
-
-.scrunchies.shimmer::after{
-    content:"";
-
-    position:absolute;
-
-    width:80px;
-    height:240px;
-
-    top:-25px;
-    left:20%;
-
-    transform:rotate(25deg);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,239,190,.42),
-            transparent
-        );
-
-    filter:blur(8px);
-
-    animation:
-        accessoryShimmer
-        1.4s
-        ease
-        forwards;
-
-    pointer-events:none;
-}
-
-@keyframes accessoryShimmer{
-
-    from{
-        left:-25%;
+        transform:translateY(-110vh) scale(1);
         opacity:0;
     }
-
-    25%{
-        opacity:1;
-    }
-
-    to{
-        left:115%;
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   CHOCOLATE
-========================================================= */
-
-.chocolate{
-    position:relative;
-
-    width:190px;
-    height:150px;
-
-    border-radius:8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #321006,
-            #68190b 50%,
-            #260b04
-        );
-
-    border:
-        2px solid
-        #b87a32;
-
-    box-shadow:
-        0 25px 45px rgba(0,0,0,.5),
-        inset 8px 8px 15px rgba(255,255,255,.05);
-
-    transition:
-        transform .7s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.chocolate-title{
-    position:absolute;
-
-    top:18px;
-    left:0;
-    right:0;
-
-    color:#f4d38a;
-
-    font-family:Georgia,serif;
-
-    font-size:14px;
-
-    letter-spacing:3px;
-}
-
-.chocolate-grid{
-    position:absolute;
-
-    left:50%;
-    bottom:17px;
-
-    transform:
-        translateX(-50%);
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,24px);
-
-    gap:5px;
-}
-
-.choco{
-    width:24px;
-    height:24px;
-
-    border-radius:4px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #8b401b,
-            #4a1708
-        );
-
-    box-shadow:
-        inset 3px 3px 4px rgba(255,255,255,.08),
-        2px 3px 5px rgba(0,0,0,.4);
-
-    transition:.4s ease;
-}
-
-.chocolate.open{
-    animation:
-        chocolateSnap
-        .8s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes chocolateSnap{
-
-    20%{
-        transform:
-            rotate(-4deg)
-            translateY(-7px);
-    }
-
-    45%{
-        transform:
-            rotate(3deg)
-            translateY(-2px);
-    }
-
-    70%{
-        transform:
-            rotate(-1deg)
-            translateY(-4px);
-    }
-
-    100%{
-        transform:
-            rotate(0)
-            translateY(0);
-    }
-}
-
-.chocolate.open .choco:nth-child(1){
-    transform:translateY(-14px);
-}
-
-.chocolate.open .choco:nth-child(2){
-    transform:translateY(-8px);
-}
-
-.chocolate.open .choco:nth-child(3){
-    transform:translateY(-17px);
-}
-
-.chocolate.open .choco:nth-child(4){
-    transform:translateY(-7px);
-}
-
-.chocolate.open .choco:nth-child(5){
-    transform:translateY(-13px);
-}
-
-
-/* =========================================================
-   BRACELET
-========================================================= */
-
-.bracelet{
-    position:relative;
-
-    width:300px;
-    height:220px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    perspective:1000px;
-}
-
-.bracelet::before{
-    content:"";
-
-    position:absolute;
-
-    width:270px;
-    height:65px;
-
-    left:50%;
-    bottom:9px;
-
-    transform:
-        translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(0,0,0,.7),
-            transparent 70%
-        );
-
-    filter:blur(8px);
-}
-
-.pearl-strand{
-    position:absolute;
-
-    width:220px;
-    height:150px;
-
-    left:50%;
-    top:49%;
-
-    transform:
-        translate(-50%,-50%)
-        rotate(-4deg);
-
-    border:8px solid transparent;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            #28130f,
-            #28130f
-        ) padding-box;
-
-    box-shadow:
-        0 12px 18px rgba(0,0,0,.5);
-
-    opacity:.7;
-}
-
-.pearl{
-    position:absolute;
-
-    width:37px;
-    height:37px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #ffffff 0%,
-            #fffefa 17%,
-            #e9e4da 48%,
-            #c8c2b8 75%,
-            #8d8881 100%
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.7);
-
-    box-shadow:
-        inset 5px 5px 8px rgba(255,255,255,.8),
-        inset -6px -7px 9px rgba(80,70,63,.28),
-        0 6px 10px rgba(0,0,0,.38);
-
-    z-index:3;
-
-    opacity:0;
-
-    transform:scale(.4);
-}
-
-.pearl::after{
-    content:"";
-
-    position:absolute;
-
-    width:8px;
-    height:6px;
-
-    left:8px;
-    top:7px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,255,255,.85);
-
-    filter:blur(1px);
-}
-
-.pearl.p1{left:5px;top:54px;}
-.pearl.p2{left:18px;top:22px;}
-.pearl.p3{left:51px;top:0;}
-.pearl.p4{left:91px;top:-8px;}
-.pearl.p5{left:132px;top:2px;}
-.pearl.p6{left:166px;top:24px;}
-.pearl.p7{left:180px;top:57px;}
-.pearl.p8{left:169px;top:91px;}
-.pearl.p9{left:132px;top:111px;}
-.pearl.p10{left:91px;top:118px;}
-.pearl.p11{left:50px;top:108px;}
-.pearl.p12{left:19px;top:91px;}
-
-.gold-spacer{
-    position:absolute;
-
-    width:15px;
-    height:15px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #fff0b0,
-            #dca64d 40%,
-            #81501c 100%
-        );
-
-    border:
-        1px solid
-        rgba(255,230,164,.65);
-
-    box-shadow:
-        inset 2px 2px 3px rgba(255,255,255,.55),
-        0 3px 5px rgba(0,0,0,.4);
-
-    z-index:4;
-
-    opacity:0;
-
-    transform:scale(.2);
-}
-
-.gold-spacer.s1{left:35px;top:31px;}
-.gold-spacer.s2{left:76px;top:5px;}
-.gold-spacer.s3{left:116px;top:-3px;}
-.gold-spacer.s4{left:158px;top:12px;}
-.gold-spacer.s5{left:184px;top:47px;}
-.gold-spacer.s6{left:155px;top:105px;}
-.gold-spacer.s7{left:111px;top:123px;}
-.gold-spacer.s8{left:68px;top:111px;}
-.gold-spacer.s9{left:31px;top:78px;}
-
-.pearl-charm{
-    position:absolute;
-
-    width:54px;
-    height:54px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.2)
-        rotate(-90deg);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 32% 25%,
-            #fff1b0,
-            #e2b85f 32%,
-            #a66c22 70%,
-            #6e4316 100%
-        );
-
-    border:
-        2px solid
-        #f5d991;
-
-    box-shadow:
-        inset 4px 4px 8px rgba(255,255,255,.45),
-        inset -7px -7px 10px rgba(80,43,10,.4),
-        0 0 25px rgba(241,197,102,.35),
-        0 10px 15px rgba(0,0,0,.4);
-
-    z-index:10;
-
-    opacity:0;
-}
-
-.pearl-charm::before{
-    content:"T";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-52%);
-
-    color:#fff1bf;
-
-    font-family:Georgia,serif;
-
-    font-size:24px;
-
-    font-style:italic;
-}
-
-.pearl-charm::after{
-    content:"";
-
-    position:absolute;
-
-    width:13px;
-    height:8px;
-
-    left:11px;
-    top:9px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,255,255,.65);
-
-    filter:blur(1px);
-}
-
-.bracelet.reveal .pearl{
-    animation:
-        pearlAppear
-        .75s
-        ease
-        forwards;
-}
-
-.bracelet.reveal .gold-spacer{
-    animation:
-        spacerAppear
-        .6s
-        ease
-        forwards;
-}
-
-.bracelet.reveal .pearl-charm{
-    animation:
-        charmAppear
-        1s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
-}
-
-@keyframes pearlAppear{
-
-    from{
-        opacity:0;
-
-        transform:
-            scale(.45)
-            translateY(20px);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            scale(1)
-            translateY(0);
-    }
-}
-
-@keyframes spacerAppear{
-
-    from{
-        opacity:0;
-        transform:scale(.2);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-@keyframes charmAppear{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.2)
-            rotate(-90deg);
-    }
-
-    65%{
-        transform:
-            translate(-50%,-50%)
-            scale(1.13)
-            rotate(8deg);
-    }
-
-    100%{
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1)
-            rotate(0);
-    }
-}
-
-.bracelet.shimmer .pearl:nth-child(1),
-.bracelet.shimmer .pearl:nth-child(4),
-.bracelet.shimmer .pearl:nth-child(7),
-.bracelet.shimmer .pearl:nth-child(10){
-    animation:
-        pearlShine
-        1.5s
-        ease-in-out
-        infinite;
-}
-
-.bracelet.shimmer .pearl:nth-child(2),
-.bracelet.shimmer .pearl:nth-child(5),
-.bracelet.shimmer .pearl:nth-child(8),
-.bracelet.shimmer .pearl:nth-child(11){
-    animation:
-        pearlShine
-        1.5s
-        ease-in-out
-        .2s
-        infinite;
-}
-
-.bracelet.shimmer .pearl:nth-child(3),
-.bracelet.shimmer .pearl:nth-child(6),
-.bracelet.shimmer .pearl:nth-child(9),
-.bracelet.shimmer .pearl:nth-child(12){
-    animation:
-        pearlShine
-        1.5s
-        ease-in-out
-        .4s
-        infinite;
-}
-
-@keyframes pearlShine{
-
-    50%{
-        filter:
-            brightness(1.35)
-            drop-shadow(
-                0 0 10px
-                rgba(255,245,210,.55)
-            );
-    }
-}
-
-.bracelet.shimmer .pearl-charm{
-    animation:
-        charmGlow
-        1.6s
-        ease-in-out
-        infinite alternate;
-}
-
-@keyframes charmGlow{
-
-    from{
-        box-shadow:
-            inset 4px 4px 8px rgba(255,255,255,.45),
-            inset -7px -7px 10px rgba(80,43,10,.4),
-            0 0 20px rgba(241,197,102,.25),
-            0 10px 15px rgba(0,0,0,.4);
-    }
-
-    to{
-        box-shadow:
-            inset 4px 4px 8px rgba(255,255,255,.55),
-            inset -7px -7px 10px rgba(80,43,10,.4),
-            0 0 48px rgba(241,197,102,.85),
-            0 10px 15px rgba(0,0,0,.4);
-    }
-}
-
-
-/* =========================================================
-   BRACELET CLIMAX OVERLAY
-========================================================= */
-
-.climax-overlay{
-    position:fixed;
-    inset:0;
-
-    z-index:120;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(245,207,139,.10),
-            rgba(12,1,6,.88)
-        );
-
-    opacity:0;
-    visibility:hidden;
-
-    pointer-events:none;
-
-    transition:
-        opacity 1s ease;
-}
-
-.climax-overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.interact-button,
-.next-button,
-.final-step{
-    touch-action:manipulation;
-}
-
-.interact-button{
-    margin-top:4px;
-
-    padding:13px 27px;
-
-    border:
-        1px solid
-        rgba(228,179,98,.48);
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(113,21,50,.75),
-            rgba(57,7,25,.78)
-        );
-
-    color:#f0cb80;
-
-    font-size:9px;
-    font-weight:600;
-
-    letter-spacing:2.4px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.24);
-
-    transition:
-        .35s ease;
-}
-
-.interact-button:active{
-    transform:scale(.96);
-}
-
-.interact-button.done{
-    display:none;
-}
-
-
-/* =========================================================
-   REACTION
-========================================================= */
-
-.reaction{
-    width:min(94%,580px);
-
-    min-height:84px;
-
-    margin-top:10px;
-
-    opacity:0;
-
-    transform:translateY(16px);
-
-    pointer-events:none;
-
-    transition:.8s ease;
-}
-
-.reaction.show{
-    opacity:1;
-
-    transform:translateY(0);
-
-    pointer-events:auto;
-}
-
-.reaction-title{
-    font-family:Georgia,serif;
-
-    color:#f0cb80;
-
-    font-size:19px;
-
-    line-height:1.25;
-
-    text-align:center;
-}
-
-.reaction-text{
-    margin-top:7px;
-
-    color:#ead5d7;
-
-    font-size:11px;
-
-    line-height:1.7;
-
-    text-align:center;
-}
-
-.next-button{
-    margin-top:14px;
-
-    padding:11px 23px;
-
-    border:
-        1px solid
-        rgba(226,179,98,.45);
-
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #9c2850,
-            #62122d
-        );
-
-    color:#fff;
-
-    font-size:8px;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    opacity:0;
-
-    animation:
-        revealNext
-        .8s
-        ease
-        .5s
-        forwards;
-}
-
-@keyframes revealNext{
-
-    to{
-        opacity:1;
-    }
-}
-
-
-/* =========================================================
-   GOLD PARTICLES
-========================================================= */
-
-.gold-particle{
-    position:fixed;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    background:#f0c778;
-
-    box-shadow:
-        0 0 12px #f0c778;
-
-    z-index:130;
-
-    pointer-events:none;
 }
 
 
@@ -2516,200 +205,1376 @@ body{
    HEART PARTICLES
 ========================================================= */
 
-.floating-heart{
-    position:fixed;
-
-    z-index:130;
-
+.heart-particle{
+    position:absolute;
+    color:#e88c9f;
+    opacity:.12;
+    font-size:20px;
     pointer-events:none;
 
-    color:#e47e9e;
+    animation:
+        floatHeart 10s linear infinite;
+}
+
+@keyframes floatHeart{
+
+    from{
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.15;
+    }
+
+    85%{
+        opacity:.12;
+    }
+
+    to{
+        transform:
+            translateY(-20vh)
+            rotate(25deg);
+        opacity:0;
+    }
 }
 
 
 /* =========================================================
-   FINAL SCREEN
+   TOP PROGRESS
 ========================================================= */
 
-.final-screen{
-    position:fixed;
-    inset:0;
+.progress{
+    position:absolute;
+    top:34px;
+    left:50%;
+    transform:translateX(-50%);
 
-    z-index:150;
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    z-index:20;
+
+    font-family:"Montserrat",sans-serif;
+}
+
+.progress-line{
+    width:70px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d9a64c
+    );
+}
+
+.progress-line.right{
+    background:linear-gradient(
+        90deg,
+        #d9a64c,
+        transparent
+    );
+}
+
+.progress-number{
+    color:#f4c76b;
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:5px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content{
+    position:relative;
+    z-index:5;
+
+    width:min(1100px, 92vw);
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+
+    padding-top:82px;
+    padding-bottom:32px;
+}
+
+
+/* =========================================================
+   GIFT CATEGORY
+========================================================= */
+
+.category{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:15px;
+    font-weight:600;
+
+    letter-spacing:6px;
+    text-transform:uppercase;
+
+    color:#e8a6bd;
+
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
+
+/* =========================================================
+   GIFT TITLE
+========================================================= */
+
+.title{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:clamp(38px,4.8vw,68px);
+
+    line-height:1.05;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#fff7f0;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 4px 25px rgba(0,0,0,.35);
+
+    transition:all .4s ease;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description{
+    width:min(760px,90vw);
+
+    margin-top:17px;
+
+    font-size:clamp(18px,1.55vw,23px);
+
+    line-height:1.55;
+
+    color:#f3e3e1;
+
+    font-weight:400;
+
+    letter-spacing:.15px;
+}
+
+
+/* =========================================================
+   GIFT STAGE
+========================================================= */
+
+.gift-stage{
+    position:relative;
+
+    width:min(850px,90vw);
+
+    height:300px;
+
+    margin-top:15px;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
+}
 
-    text-align:center;
 
-    padding:25px;
+/* =========================================================
+   STAGE PLATFORM
+========================================================= */
+
+.platform{
+    position:absolute;
+
+    width:min(620px,75vw);
+    height:55px;
+
+    bottom:25px;
+
+    border-radius:50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(105,18,47,.98),
-            rgba(20,2,9,.995)
+        linear-gradient(
+            180deg,
+            #6c1733,
+            #270712
         );
 
-    opacity:0;
-    visibility:hidden;
+    border:2px solid rgba(225,173,74,.7);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.08),
+        0 0 30px rgba(220,153,62,.16);
+}
+
+.platform::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:-4px;
+
+    transform:translateX(-50%);
+
+    width:70%;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#dca84d;
+
+    filter:blur(5px);
+
+    opacity:.5;
+}
+
+
+/* =========================================================
+   GIFT OBJECT
+========================================================= */
+
+.gift-object{
+    position:relative;
+    z-index:3;
+
+    cursor:pointer;
 
     transition:
-        opacity 1.1s ease;
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        filter .45s ease;
 }
 
-.final-screen.active{
-    opacity:1;
-    visibility:visible;
+.gift-object:hover{
+    transform:translateY(-8px) scale(1.03);
 }
 
-.final-content{
-    width:min(92%,650px);
-
-    text-align:center;
+.gift-object:active{
+    transform:scale(.95);
 }
 
-.final-heart{
-    font-size:45px;
 
-    margin-bottom:21px;
+/* =========================================================
+   REVEAL BUTTON
+========================================================= */
 
-    animation:
-        heartPulse
-        2s
-        ease-in-out
-        infinite;
-}
+.action{
+    position:relative;
 
-@keyframes heartPulse{
+    z-index:20;
 
-    50%{
-        transform:
-            scale(1.08);
-    }
-}
+    border:none;
+    outline:none;
 
-.final-content h2{
-    font-family:Georgia,serif;
+    min-width:230px;
 
-    font-weight:400;
+    padding:15px 30px;
 
-    font-size:
-        clamp(30px,7vw,52px);
+    border-radius:50px;
 
-    line-height:1.1;
+    background:
+        linear-gradient(
+            135deg,
+            #8e2148,
+            #64112f
+        );
 
-    color:#f8e8e5;
-}
+    border:1px solid #c99543;
 
-.final-content h2 span{
-    display:block;
+    color:#fff;
 
-    color:#efc477;
+    font-family:"Montserrat",sans-serif;
 
-    font-style:italic;
-
-    margin-top:8px;
-}
-
-.final-content p{
-    margin-top:20px;
-
-    color:#d9bac2;
-
-    font-size:12px;
-
-    line-height:1.9;
-}
-
-.final-step{
-    display:inline-block;
-
-    margin-top:25px;
-
-    padding:12px 22px;
-
-    border:
-        1px solid
-        rgba(226,179,98,.45);
-
-    border-radius:24px;
-
-    color:#e2b56b;
-
-    font-size:8px;
+    font-size:14px;
+    font-weight:700;
 
     letter-spacing:2.2px;
 
     cursor:pointer;
 
-    animation:
-        gentlePulse
-        2s
-        infinite;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.12);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
-@keyframes gentlePulse{
+.action:hover{
+    transform:translateY(-3px);
 
-    50%{
-        opacity:.45;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.4),
+        0 0 20px rgba(214,155,72,.18);
+}
+
+.action:active{
+    transform:scale(.96);
+}
+
+
+/* =========================================================
+   REACTION AREA
+========================================================= */
+
+.reaction{
+    min-height:74px;
+
+    margin-top:10px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    opacity:1;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.reaction.hidden{
+    opacity:0;
+    transform:translateY(10px);
+    pointer-events:none;
+}
+
+.reaction-title{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:clamp(20px,2vw,27px);
+
+    font-weight:700;
+
+    color:#f3c76a;
+
+    margin-bottom:7px;
+}
+
+.reaction-text{
+    width:min(720px,90vw);
+
+    font-size:clamp(16px,1.35vw,20px);
+
+    line-height:1.5;
+
+    color:#f5e6e4;
+}
+
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+.next-wrap{
+    margin-top:4px;
+}
+
+.next{
+    border:none;
+    background:transparent;
+
+    color:#e6b35a;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    padding:10px 20px;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.next:hover{
+    color:#fff;
+    transform:translateX(5px);
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music{
+    position:fixed;
+
+    right:25px;
+    bottom:22px;
+
+    z-index:100;
+
+    border:1px solid rgba(212,154,69,.6);
+
+    background:rgba(39,5,16,.72);
+
+    backdrop-filter:blur(12px);
+
+    color:#e8bb67;
+
+    border-radius:50px;
+
+    padding:11px 18px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:11px;
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   SIDE PROGRESS
+========================================================= */
+
+.side-progress{
+    position:fixed;
+
+    left:26px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:30;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:15px;
+}
+
+.side-progress::before{
+    content:"";
+
+    position:absolute;
+
+    width:1px;
+
+    height:calc(100% - 25px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #9b6a2c,
+            rgba(155,106,44,.15)
+        );
+
+    z-index:-1;
+}
+
+.step{
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#5a3440;
+
+    border:1px solid #b57b35;
+
+    position:relative;
+}
+
+.step span{
+    position:absolute;
+
+    left:27px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#9d7a52;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+.step.active{
+    width:18px;
+    height:18px;
+
+    background:#e1ad54;
+
+    box-shadow:
+        0 0 0 6px rgba(225,173,84,.08),
+        0 0 20px rgba(225,173,84,.5);
+}
+
+.step.active span{
+    color:#f3c76a;
+}
+
+
+/* =========================================================
+   OBJECT 01 — CANDLE
+========================================================= */
+
+.candle{
+    width:150px;
+    height:145px;
+
+    border-radius:
+        18px 18px 25px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b0b22,
+            #9b2348 48%,
+            #4b0b22
+        );
+
+    border:2px solid rgba(213,157,71,.7);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.45),
+        inset 10px 0 15px rgba(255,255,255,.06);
+
+    position:relative;
+}
+
+.candle::before{
+    content:"";
+
+    position:absolute;
+
+    top:-8px;
+    left:10px;
+    right:10px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#e8b876;
+
+    box-shadow:
+        inset 0 5px 8px rgba(0,0,0,.25);
+}
+
+.wick{
+    position:absolute;
+
+    top:-28px;
+    left:50%;
+
+    width:4px;
+    height:25px;
+
+    background:#1c0b09;
+
+    transform:translateX(-50%);
+}
+
+.flame{
+    position:absolute;
+
+    top:-73px;
+    left:50%;
+
+    width:28px;
+    height:48px;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+
+    border-radius:
+        50% 50% 50% 50% /
+        65% 65% 35% 35%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff 0 15%,
+            #ffe46d 28%,
+            #ff9b26 55%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(0 0 15px #ff9b26);
+
+    opacity:0;
+
+    transition:opacity .4s ease;
+}
+
+.candle.lit .flame{
+    opacity:1;
+
+    animation:
+        flameMove .14s infinite alternate;
+}
+
+.candle.lit{
+    box-shadow:
+        0 0 50px rgba(255,145,43,.25),
+        0 25px 40px rgba(0,0,0,.45);
+}
+
+@keyframes flameMove{
+    from{
+        transform:
+            translateX(-50%)
+            rotate(-4deg)
+            scaleY(.95);
+    }
+
+    to{
+        transform:
+            translateX(-50%)
+            rotate(4deg)
+            scaleY(1.05);
     }
 }
 
 
 /* =========================================================
-   GOLDEN REWARD TRANSITION
+   OBJECT 02 — PERFUME
 ========================================================= */
 
-.reward-light{
-    position:fixed;
-    inset:0;
+.perfume{
+    width:125px;
+    height:175px;
 
-    z-index:190;
+    border-radius:18px 18px 25px 25px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #d7aa56,
+            #fff0b0 48%,
+            #b8792e
+        );
+
+    border:2px solid #d6a34a;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.5);
+}
+
+.perfume-cap{
+    position:absolute;
+
+    width:70px;
+    height:45px;
+
+    top:-42px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #8e6b37,
+            #e3c276,
+            #795728
+        );
+
+    border-radius:7px 7px 4px 4px;
+
+    border:1px solid #d3a34f;
+}
+
+.perfume-label{
+    position:absolute;
+
+    width:90px;
+
+    padding:10px 4px;
+
+    top:70px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:rgba(255,248,220,.8);
+
+    color:#5b1728;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   OBJECT 03 — MIRROR
+========================================================= */
+
+.mirror{
+    width:190px;
+    height:240px;
+
+    border-radius:50% 50% 46% 46%;
+
+    border:8px solid #d1a052;
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(255,231,172,1) 0%,
-            rgba(239,194,108,.7) 8%,
-            rgba(116,36,57,.5) 28%,
-            #120107 68%
+            circle at 35% 30%,
+            rgba(255,255,255,.8),
+            transparent 14%
+        ),
+        linear-gradient(
+            135deg,
+            #d5e3e5,
+            #80939a 45%,
+            #e9f3f1
+        );
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.55),
+        0 0 35px rgba(216,168,86,.15);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.mirror::after{
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:360px;
+
+    top:-50px;
+    left:-110px;
+
+    transform:rotate(30deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.75),
+            transparent
+        );
+
+    transition:left 1s ease;
+}
+
+.mirror.shine::after{
+    left:220px;
+}
+
+.mirror-word{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    color:#6e1935;
+
+    opacity:0;
+
+    transition:opacity .5s ease;
+}
+
+.mirror.revealed .mirror-word{
+    opacity:1;
+}
+
+
+/* =========================================================
+   OBJECT 04 — SELF CARE
+========================================================= */
+
+.spa-set{
+    width:250px;
+    height:180px;
+
+    position:relative;
+}
+
+.bottle{
+    position:absolute;
+
+    bottom:15px;
+
+    width:90px;
+    height:135px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c47e97,
+            #f3ccd8,
+            #a95572
+        );
+
+    border:2px solid #d8a65e;
+
+    box-shadow:
+        0 20px 30px rgba(0,0,0,.4);
+}
+
+.bottle.one{
+    left:30px;
+}
+
+.bottle.two{
+    right:30px;
+    height:115px;
+}
+
+.bottle::before{
+    content:"";
+
+    position:absolute;
+
+    top:-28px;
+    left:24px;
+
+    width:42px;
+    height:30px;
+
+    border-radius:5px 5px 2px 2px;
+
+    background:#d6aa5b;
+
+    border:1px solid #9d702e;
+}
+
+
+/* =========================================================
+   OBJECT 05 — PLUSHIE
+========================================================= */
+
+.plushie{
+    width:190px;
+    height:180px;
+
+    position:relative;
+
+    transition:transform .4s ease;
+}
+
+.plushie.bounce{
+    animation:
+        plushBounce .55s ease;
+}
+
+@keyframes plushBounce{
+
+    0%{transform:scale(1)}
+
+    30%{transform:scale(1.12) rotate(-4deg)}
+
+    60%{transform:scale(.94) rotate(3deg)}
+
+    100%{transform:scale(1)}
+}
+
+.ear{
+    position:absolute;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    background:#c99565;
+
+    top:5px;
+}
+
+.ear.left{
+    left:15px;
+}
+
+.ear.right{
+    right:15px;
+}
+
+.head{
+    position:absolute;
+
+    width:150px;
+    height:140px;
+
+    left:20px;
+    top:25px;
+
+    border-radius:50% 50% 46% 46%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e3b17b,
+            #a86b3e
+        );
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.4);
+}
+
+.eye{
+    position:absolute;
+
+    width:11px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:#26120e;
+
+    top:54px;
+}
+
+.eye.left{
+    left:45px;
+}
+
+.eye.right{
+    right:45px;
+}
+
+.nose{
+    position:absolute;
+
+    width:22px;
+    height:16px;
+
+    border-radius:50%;
+
+    background:#6f382d;
+
+    left:50%;
+    top:72px;
+
+    transform:translateX(-50%);
+}
+
+.smile{
+    position:absolute;
+
+    width:30px;
+    height:14px;
+
+    border-bottom:3px solid #51241e;
+
+    border-radius:50%;
+
+    left:50%;
+    top:82px;
+
+    transform:translateX(-50%);
+}
+
+
+/* =========================================================
+   OBJECT 06 — SCRUNCHIES
+========================================================= */
+
+.scrunchies{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:25px;
+}
+
+.scrunchie{
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.45);
+}
+
+.scrunchie::before{
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border-radius:50%;
+
+    background:#3a101a;
+}
+
+.scrunchie.black{
+    background:
+        repeating-radial-gradient(
+            circle,
+            #080808 0 7px,
+            #292929 8px 11px
+        );
+
+    border:2px solid #777;
+}
+
+.scrunchie.gold{
+    background:
+        repeating-radial-gradient(
+            circle,
+            #d89a35 0 7px,
+            #ffe5a2 8px 11px
+        );
+
+    border:2px solid #e6bb64;
+
+    box-shadow:
+        0 0 35px rgba(224,173,74,.2),
+        0 25px 40px rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   OBJECT 07 — CHOCOLATE
+========================================================= */
+
+.chocolate{
+    width:280px;
+    height:175px;
+
+    position:relative;
+
+    perspective:700px;
+
+    cursor:pointer;
+}
+
+.choco-box{
+    position:absolute;
+
+    inset:0;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4c1b14,
+            #9c542e,
+            #4c1710
+        );
+
+    border:2px solid #d7a251;
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.5);
+
+    transition:
+        transform .6s ease;
+}
+
+.chocolate.open .choco-box{
+    transform:
+        rotateX(65deg)
+        translateY(-15px);
+}
+
+.choco-ribbon{
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    width:38px;
+    height:100%;
+
+    transform:translateX(-50%);
+
+    background:#e4ad54;
+}
+
+.choco-label{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:#fff0c6;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    font-size:18px;
+}
+
+.choco-pieces{
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.4);
+
+    opacity:0;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,45px);
+
+    gap:5px;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.chocolate.open .choco-pieces{
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.piece{
+    width:45px;
+    height:40px;
+
+    border-radius:5px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #5b1d0f,
+            #b65c2b
+        );
+
+    border:1px solid #d58a45;
+}
+
+
+/* =========================================================
+   OBJECT 08 — BRACELET
+========================================================= */
+
+.bracelet{
+    width:290px;
+    height:180px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    animation:braceletFloat 4s ease-in-out infinite;
+}
+
+@keyframes braceletFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.bracelet-ring{
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:14px solid #d5a04d;
+
+    box-shadow:
+        inset 0 0 8px rgba(255,255,255,.7),
+        0 0 25px rgba(239,193,97,.28),
+        0 25px 45px rgba(0,0,0,.5);
+
+    position:relative;
+}
+
+.bead{
+    position:absolute;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff8df,
+            #e7c46d 45%,
+            #b17c2e
+        );
+
+    box-shadow:
+        0 0 8px rgba(255,222,143,.5);
+}
+
+.bead:nth-child(1){
+    top:-20px;
+    left:50%;
+}
+
+.bead:nth-child(2){
+    top:25px;
+    right:-20px;
+}
+
+.bead:nth-child(3){
+    bottom:25px;
+    right:-20px;
+}
+
+.bead:nth-child(4){
+    bottom:-20px;
+    left:50%;
+}
+
+.bead:nth-child(5){
+    bottom:25px;
+    left:-20px;
+}
+
+.bead:nth-child(6){
+    top:25px;
+    left:-20px;
+}
+
+.bracelet.centerpiece .bracelet-ring{
+    animation:
+        braceletGlow 1.8s ease infinite alternate;
+}
+
+@keyframes braceletGlow{
+
+    from{
+        filter:brightness(1);
+        box-shadow:
+            inset 0 0 8px rgba(255,255,255,.7),
+            0 0 20px rgba(239,193,97,.2),
+            0 25px 45px rgba(0,0,0,.5);
+    }
+
+    to{
+        filter:brightness(1.25);
+        box-shadow:
+            inset 0 0 10px rgba(255,255,255,.9),
+            0 0 45px rgba(239,193,97,.6),
+            0 25px 45px rgba(0,0,0,.5);
+    }
+}
+
+
+/* =========================================================
+   SCREEN TRANSITION
+========================================================= */
+
+#transition{
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle,
+            #8c1d43,
+            #25000d 70%
         );
 
     opacity:0;
 
-    visibility:hidden;
-
-    pointer-events:none;
-
-    transform:scale(.15);
+    transform:scale(1.08);
 
     transition:
-        opacity 1.5s ease,
-        transform 1.7s
-        cubic-bezier(.2,.8,.2,1);
+        opacity .5s ease,
+        transform .65s cubic-bezier(.2,.7,.2,1);
 }
 
-.reward-light.active{
+#transition.active{
     opacity:1;
-
-    visibility:visible;
-
     transform:scale(1);
 }
 
 
 /* =========================================================
-   ALBUM
+   FINAL EMOTIONAL SCREEN
 ========================================================= */
 
-.album-screen{
+#final-screen{
     position:fixed;
+
     inset:0;
 
-    z-index:200;
+    z-index:500;
 
     display:flex;
 
@@ -2718,401 +1583,349 @@ body{
 
     text-align:center;
 
+    padding:30px;
+
     background:
         radial-gradient(
-            circle at center,
-            #68152f,
-            #310713 60%,
-            #110106
+            circle at 50% 40%,
+            #741a38,
+            #21000c 70%
         );
 
     opacity:0;
+
     visibility:hidden;
 
     transition:
-        opacity 1.2s ease;
+        opacity 1s ease;
 }
 
-.album-screen.active{
+#final-screen.show{
     opacity:1;
     visibility:visible;
 }
 
-.album-wrapper{
-    width:100%;
-
-    text-align:center;
+.final-inner{
+    max-width:850px;
 }
 
-.album{
-    position:relative;
+.final-step{
+    color:#e5b65d;
 
-    width:min(70vw,360px);
-    height:min(88vw,470px);
+    font-family:"Montserrat",sans-serif;
 
-    margin:auto;
+    font-size:14px;
 
-    perspective:1200px;
+    font-weight:700;
+
+    letter-spacing:5px;
+
+    margin-bottom:28px;
+}
+
+.final-line{
+    font-size:clamp(28px,4vw,56px);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-weight:600;
+
+    line-height:1.25;
+
+    color:#fff5ee;
+
+    margin:16px 0;
+}
+
+.final-line.gold{
+    color:#e7b65c;
+}
+
+.final-small{
+    font-size:clamp(17px,1.7vw,23px);
+
+    line-height:1.65;
+
+    color:#f3dedc;
+
+    margin:30px auto;
+
+    max-width:680px;
+}
+
+.universe{
+    margin-top:25px;
+
+    padding:17px 34px;
+
+    border-radius:50px;
+
+    border:1px solid #d3a14d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b1e45,
+            #58102b
+        );
+
+    color:white;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
 
     cursor:pointer;
 
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.universe:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(225,172,77,.2);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:90px;
+
     transform:
-        translateY(70px)
-        scale(.75)
-        rotateX(8deg);
+        translateX(-50%)
+        translateY(20px);
+
+    z-index:300;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    background:rgba(30,3,12,.9);
+
+    border:1px solid rgba(214,158,71,.6);
+
+    color:#f4dca7;
+
+    font-size:14px;
 
     opacity:0;
 
+    pointer-events:none;
+
     transition:
-        1.4s
-        cubic-bezier(.2,.8,.2,1);
+        opacity .3s ease,
+        transform .3s ease;
 }
 
-.album-screen.active .album{
+.toast.show{
     opacity:1;
 
     transform:
-        translateY(0)
-        scale(1)
-        rotateX(0);
-}
-
-.album-pages{
-    position:absolute;
-
-    inset:
-        5px
-        8px
-        5px
-        10px;
-
-    border-radius:4px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f3e6d3,
-            #d8c5aa
-        );
-}
-
-.album-cover{
-    position:absolute;
-
-    inset:0;
-
-    z-index:2;
-
-    border-radius:
-        7px
-        15px
-        15px
-        7px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #68122f,
-            #92264b 45%,
-            #4d0a22
-        );
-
-    border:
-        2px solid
-        #c99755;
-
-    box-shadow:
-        18px 30px 55px rgba(0,0,0,.55),
-        inset 10px 0 25px rgba(255,255,255,.05);
-
-    transform-origin:left center;
-
-    transition:
-        1.3s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.album.open .album-cover{
-    transform:
-        rotateY(-145deg);
-}
-
-.album-cover::before{
-    content:"";
-
-    position:absolute;
-
-    inset:18px;
-
-    border:
-        1px solid
-        rgba(232,188,111,.55);
-
-    border-radius:5px;
-}
-
-.album-title{
-    position:absolute;
-
-    left:50%;
-    top:40%;
-
-    transform:
-        translateX(-50%);
-
-    width:90%;
-
-    color:#f0d09a;
-
-    text-align:center;
-}
-
-.album-title strong{
-    display:block;
-
-    font-family:Georgia,serif;
-
-    font-size:42px;
-
-    font-weight:400;
-
-    letter-spacing:7px;
-}
-
-.album-title span{
-    display:block;
-
-    margin-top:12px;
-
-    font-size:10px;
-
-    letter-spacing:3px;
-}
-
-.album-heart{
-    position:absolute;
-
-    left:50%;
-    bottom:45px;
-
-    transform:
-        translateX(-50%);
-
-    font-size:27px;
-
-    color:#dfb56b;
-}
-
-.album-hint{
-    margin-top:25px;
-
-    color:#dcb06a;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    animation:
-        hintPulse
-        2s
-        infinite;
-}
-
-@keyframes hintPulse{
-
-    50%{
-        opacity:.35;
-    }
+        translateX(-50%)
+        translateY(0);
 }
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
+
+@media(max-width:900px){
+
+    .side-progress{
+        display:none;
+    }
+
+    .content{
+        padding-top:78px;
+    }
+
+    .category{
+        font-size:12px;
+        letter-spacing:4px;
+    }
+
+    .gift-stage{
+        height:260px;
+    }
+
+    .platform{
+        width:70vw;
+    }
+
+    .description{
+        font-size:18px;
+    }
+
+    .reaction-text{
+        font-size:16px;
+    }
+
+    .music{
+        right:15px;
+        bottom:15px;
+    }
+}
+
 
 @media(max-width:600px){
 
-    .gift-header{
-        top:3.7%;
+    #experience{
+        min-height:100svh;
     }
 
-    .gift-header h1{
-        font-size:29px;
+    .progress{
+        top:18px;
     }
 
-    .stage{
-        inset:
-            16.5%
-            4%
-            3%;
+    .progress-number{
+        font-size:13px;
+        letter-spacing:4px;
     }
 
-    .gift-number{
-        margin-bottom:8px;
+    .progress-line{
+        width:35px;
     }
 
-    .gift-kicker{
-        font-size:11px;
-        margin-bottom:6px;
+    .content{
+        width:94vw;
+        padding-top:58px;
+        padding-bottom:20px;
     }
 
-    .gift-title{
-        font-size:28px;
-    }
-
-    .gift-description{
-        font-size:10.5px;
-
-        line-height:1.65;
-
-        margin-top:9px;
-    }
-
-    .object-area{
-        height:215px;
-
-        margin-top:2px;
-    }
-
-    .candle{
-        transform:scale(.82);
-    }
-
-    .perfume{
-        transform:scale(.82);
-    }
-
-    .mirror{
-        transform:scale(.78);
-    }
-
-    .selfcare{
-        transform:scale(.78);
-    }
-
-    .plushie{
-        transform:scale(.78);
-    }
-
-    .scrunchies{
-        transform:scale(.70);
-    }
-
-    .chocolate{
-        transform:scale(.84);
-    }
-
-    .bracelet{
-        transform:scale(.70);
-    }
-
-    .reaction-title{
-        font-size:17px;
-    }
-
-    .reaction-text{
+    .category{
         font-size:10px;
-        line-height:1.6;
+        letter-spacing:3px;
+        margin-top:10px;
     }
 
-    .interact-button{
-        padding:12px 22px;
-        font-size:8px;
-    }
-}
-
-
-/* =========================================================
-   SMALL HEIGHT DEVICES
-========================================================= */
-
-@media(max-height:700px){
-
-    .gift-header{
-        top:2.5%;
+    .title{
+        font-size:34px;
+        line-height:1.1;
     }
 
-    .stage{
-        inset:
-            14%
-            3%
-            2%;
+    .description{
+        font-size:16px;
+        line-height:1.45;
+        margin-top:12px;
+        width:92vw;
     }
 
-    .object-area{
-        height:185px;
+    .gift-stage{
+        height:225px;
+        margin-top:4px;
     }
 
-    .gift-description{
-        margin-top:6px;
-    }
-
-    .interact-button{
-        margin-top:0;
+    .platform{
+        bottom:8px;
+        height:42px;
     }
 
     .reaction{
-        margin-top:5px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media(max-width:380px){
-
-    .gift-title{
-        font-size:25px;
-    }
-
-    .gift-description{
-        width:94%;
-
-        font-size:9.5px;
-    }
-
-    .object-area{
-        height:175px;
-    }
-
-    .bracelet{
-        transform:scale(.59);
-    }
-
-    .scrunchies{
-        transform:scale(.59);
-    }
-
-    .plushie{
-        transform:scale(.68);
+        min-height:65px;
     }
 
     .reaction-title{
-        font-size:15px;
+        font-size:19px;
     }
 
     .reaction-text{
-        font-size:9px;
+        font-size:14px;
+        line-height:1.4;
+        width:90vw;
     }
+
+    .action{
+        min-width:205px;
+        padding:13px 20px;
+        font-size:11px;
+        letter-spacing:1.7px;
+    }
+
+    .next{
+        font-size:11px;
+        letter-spacing:1.5px;
+    }
+
+    .candle{
+        transform:scale(.78);
+    }
+
+    .perfume{
+        transform:scale(.8);
+    }
+
+    .mirror{
+        transform:scale(.72);
+    }
+
+    .spa-set{
+        transform:scale(.75);
+    }
+
+    .plushie{
+        transform:scale(.78);
+    }
+
+    .scrunchie{
+        width:105px;
+        height:105px;
+    }
+
+    .scrunchie::before{
+        inset:16px;
+    }
+
+    .scrunchies{
+        gap:12px;
+    }
+
+    .chocolate{
+        transform:scale(.76);
+    }
+
+    .bracelet{
+        transform:scale(.75);
+    }
+
+    .music{
+        font-size:9px;
+        padding:9px 13px;
+    }
+
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+@media(max-height:700px) and (min-width:601px){
 
-@media(prefers-reduced-motion:reduce){
+    .content{
+        padding-top:65px;
+    }
 
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        transition-duration:.01ms!important;
+    .gift-stage{
+        height:230px;
+    }
+
+    .description{
+        margin-top:10px;
+    }
+
+    .reaction{
+        min-height:55px;
     }
 }
 
@@ -3122,1200 +1935,237 @@ body{
 
 <body>
 
-<div id="app">
 
-<div class="ambient-light" id="ambientLight"></div>
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
 
-<div id="particles"></div>
+<div id="experience">
 
+    <div class="ambient one"></div>
+    <div class="ambient two"></div>
+    <div class="ambient three"></div>
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+    <div class="light-ray left"></div>
+    <div class="light-ray right"></div>
 
-<div class="overlay active" id="intro">
-
-    <div class="popup">
-
-        <div class="popup-icon" id="introIcon">
-            🥹❤️
-        </div>
-
-        <h1 id="introTitle">
-            My girl deserves
-            <span>a LOT more...</span>
-        </h1>
-
-        <p id="introText">
-            If I could, I'd fill the whole world
-            with things that make you smile.
-        </p>
-
-        <button
-            class="popup-button"
-            id="introButton"
-        >
-            TAP →
-        </button>
-
-    </div>
-
-</div>
+    <div class="particles" id="particles"></div>
 
 
-<!-- =====================================================
-     GIFT EXPERIENCE
-===================================================== -->
+    <!-- TOP PROGRESS -->
+    <div class="progress">
 
-<section id="giftExperience">
+        <div class="progress-line"></div>
 
-<header class="gift-header">
-
-    <small>
-        ✦ SOMETHING SPECIAL ✦
-    </small>
-
-    <h1>
-        For my
-        <span>Tishuuu ❤️</span>
-    </h1>
-
-    <div class="decor-line"></div>
-
-</header>
-
-
-<main class="stage">
-
-    <div id="giftContent">
-
-        <div
-            class="gift-number"
-            id="giftNumber"
-        >
+        <div class="progress-number" id="topProgress">
             01 / 08
         </div>
 
-        <div
-            class="gift-kicker"
-            id="giftKicker"
-        >
-            A little warmth...
-        </div>
-
-        <h2
-            class="gift-title"
-            id="giftTitle"
-        >
-            A Little Warmth
-        </h2>
-
-        <p
-            class="gift-description"
-            id="giftDescription"
-        >
-            For the girl who somehow makes
-            every place feel warmer.
-        </p>
+        <div class="progress-line right"></div>
 
     </div>
 
 
-    <div
-        class="object-area"
-        id="objectArea"
-    ></div>
+    <!-- SIDE PROGRESS -->
+    <div class="side-progress" id="sideProgress">
+
+        <div class="step active">
+            <span>01</span>
+        </div>
+
+        <div class="step">
+            <span>02</span>
+        </div>
+
+        <div class="step">
+            <span>03</span>
+        </div>
+
+        <div class="step">
+            <span>04</span>
+        </div>
+
+        <div class="step">
+            <span>05</span>
+        </div>
+
+        <div class="step">
+            <span>06</span>
+        </div>
+
+        <div class="step">
+            <span>07</span>
+        </div>
+
+        <div class="step">
+            <span>08</span>
+        </div>
+
+    </div>
 
 
-    <button
-        class="interact-button"
-        id="interactButton"
-    >
-        TOUCH TO LIGHT 🕯️
-    </button>
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
 
-
-    <div
-        class="reaction"
-        id="reaction"
-    >
+    <main class="content">
 
         <div
-            class="reaction-title"
-            id="reactionTitle"
-        ></div>
+            class="category"
+            id="category">
+            A LITTLE WARMTH
+        </div>
 
-        <div
-            class="reaction-text"
-            id="reactionText"
-        ></div>
+
+        <h1
+            class="title"
+            id="title">
+            A LITTLE WARMTH
+        </h1>
+
+
+        <p
+            class="description"
+            id="description">
+            For the girl who has an extraordinary way
+            of making every place feel a little warmer.
+        </p>
+
+
+        <!-- GIFT STAGE -->
+
+        <div class="gift-stage" id="giftStage">
+
+            <div class="platform"></div>
+
+            <!-- OBJECT INSERTED BY JS -->
+
+        </div>
+
+
+        <!-- ACTION -->
 
         <button
-            class="next-button"
-            id="nextButton"
-        >
-            NEXT LITTLE GIFT →
+            class="action"
+            id="actionButton">
+            🔥 TOUCH TO LIGHT
+        </button>
+
+
+        <!-- REACTION -->
+
+        <div
+            class="reaction hidden"
+            id="reaction">
+
+            <div
+                class="reaction-title"
+                id="reactionTitle">
+            </div>
+
+            <div
+                class="reaction-text"
+                id="reactionText">
+            </div>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <div class="next-wrap">
+
+            <button
+                class="next"
+                id="nextButton">
+                NEXT LITTLE GIFT →
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- MUSIC -->
+
+    <button
+        class="music"
+        id="musicButton">
+        ♫ MUSIC OFF
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     TRANSITION
+========================================================= -->
+
+<div id="transition"></div>
+
+
+<!-- =========================================================
+     FINAL SCREEN
+========================================================= -->
+
+<section id="final-screen">
+
+    <div class="final-inner">
+
+        <div class="final-step">
+            08 / 08 · THE FINAL TREASURE
+        </div>
+
+        <div class="final-line">
+            These little gifts...
+        </div>
+
+        <div class="final-line gold">
+            were never really the point.
+        </div>
+
+        <div class="final-line">
+            Because the best gift
+            I've ever received...
+        </div>
+
+        <div class="final-line gold">
+            was you. ❤️
+        </div>
+
+        <p class="final-small">
+            And since you found all eight,
+            I think you've earned one last surprise.
+            Something far more precious than anything
+            I could ever place inside a gift box.
+        </p>
+
+        <button
+            class="universe"
+            id="universeButton">
+            OPEN OUR LITTLE UNIVERSE →
         </button>
 
     </div>
 
-</main>
-
 </section>
 
 
-<!-- =====================================================
-     BRACELET CLIMAX DIMMER
-===================================================== -->
+<!-- =========================================================
+     TOAST
+========================================================= -->
 
 <div
-    class="climax-overlay"
-    id="climaxOverlay"
-></div>
-
-
-<!-- =====================================================
-     FINAL
-===================================================== -->
-
-<section
-    class="final-screen"
-    id="finalScreen"
->
-
-<div class="final-content">
-
-    <div class="final-heart">
-        🥹❤️
-    </div>
-
-    <h2 id="finalTitle">
-        These little gifts...
-        <span>were never really the point.</span>
-    </h2>
-
-    <p id="finalText">
-        They were just little ways of saying
-        how much you mean to me.
-    </p>
-
-    <div
-        class="final-step"
-        id="finalStep"
-    >
-        TAP...
-    </div>
-
+    class="toast"
+    id="toast">
 </div>
 
-</section>
 
-
-<!-- =====================================================
-     GOLDEN REWARD
-===================================================== -->
-
-<div
-    class="reward-light"
-    id="rewardLight"
-></div>
-
-
-<!-- =====================================================
-     ALBUM
-===================================================== -->
-
-<section
-    class="album-screen"
-    id="albumScreen"
->
-
-<div class="album-wrapper">
-
-    <div
-        class="album"
-        id="album"
-    >
-
-        <div class="album-pages"></div>
-
-        <div class="album-cover">
-
-            <div class="album-title">
-
-                <strong>
-                    T + R
-                </strong>
-
-                <span>
-                    OUR LITTLE UNIVERSE
-                </span>
-
-            </div>
-
-            <div class="album-heart">
-                ♡
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="album-hint">
-        TAP TO OPEN OUR STORY
-    </div>
-
-</div>
-
-</section>
-
-</div>
-
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
-
-/* =========================================================
-   AUDIO ENGINE
-========================================================= */
-
-let audioContext = null;
-
-let masterGain = null;
-let musicGain = null;
-let effectGain = null;
-
-let musicStarted = false;
-let musicTimer = null;
-
-let audioUnavailable = false;
-
-
-function initAudio(){
-
-    if(audioContext || audioUnavailable){
-        return;
-    }
-
-    const AudioClass =
-        window.AudioContext ||
-        window.webkitAudioContext;
-
-    if(!AudioClass){
-
-        audioUnavailable = true;
-
-        return;
-    }
-
-    try{
-
-        audioContext =
-            new AudioClass();
-
-        masterGain =
-            audioContext.createGain();
-
-        musicGain =
-            audioContext.createGain();
-
-        effectGain =
-            audioContext.createGain();
-
-        masterGain.gain.value =
-            .92;
-
-        musicGain.gain.value =
-            .38;
-
-        effectGain.gain.value =
-            .48;
-
-        musicGain.connect(
-            masterGain
-        );
-
-        effectGain.connect(
-            masterGain
-        );
-
-        masterGain.connect(
-            audioContext.destination
-        );
-
-    }catch(error){
-
-        audioUnavailable = true;
-
-    }
-}
-
-
-async function unlockAudio(){
-
-    initAudio();
-
-    if(!audioContext){
-        return;
-    }
-
-    try{
-
-        if(
-            audioContext.state ===
-            "suspended"
-        ){
-
-            await audioContext.resume();
-
-        }
-
-    }catch(error){
-
-        /* Graceful fallback */
-    }
-}
-
-
-/* =========================================================
-   TONE
-========================================================= */
-
-function playTone(
-    frequency,
-    duration,
-    type="sine",
-    volume=.04,
-    destination=effectGain,
-    delay=0
-){
-
-    if(!audioContext){
-        return;
-    }
-
-    try{
-
-        const now =
-            audioContext.currentTime +
-            delay;
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-        oscillator.type =
-            type;
-
-        oscillator.frequency.setValueAtTime(
-            frequency,
-            now
-        );
-
-        gain.gain.setValueAtTime(
-            .0001,
-            now
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            volume,
-            now + .05
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            now + duration
-        );
-
-        oscillator.connect(gain);
-
-        gain.connect(destination);
-
-        oscillator.start(now);
-
-        oscillator.stop(
-            now +
-            duration +
-            .05
-        );
-
-    }catch(error){
-
-        /* Audio is optional */
-    }
-}
-
-
-/* =========================================================
-   ROMANTIC BGM
-========================================================= */
-
-function startMusic(){
-
-    if(
-        musicStarted ||
-        !audioContext
-    ){
-        return;
-    }
-
-    musicStarted = true;
-
-    const chords = [
-
-        [261.63,329.63,392.00,493.88],
-
-        [220.00,261.63,329.63,392.00],
-
-        [174.61,220.00,261.63,329.63],
-
-        [196.00,246.94,293.66,392.00]
-
-    ];
-
-    let index = 0;
-
-
-    function playChord(){
-
-        if(!audioContext){
-            return;
-        }
-
-        const chord =
-            chords[
-                index %
-                chords.length
-            ];
-
-
-        chord.forEach(
-            (note,i)=>{
-
-                playTone(
-                    note,
-                    1.8,
-                    "sine",
-                    .026,
-                    musicGain,
-                    i*.06
-                );
-
-            }
-        );
-
-
-        playTone(
-            chord[3]*2,
-            .7,
-            "triangle",
-            .015,
-            musicGain,
-            .25
-        );
-
-
-        playTone(
-            chord[2]*2,
-            .8,
-            "triangle",
-            .012,
-            musicGain,
-            .95
-        );
-
-
-        playTone(
-            chord[0]/2,
-            1.7,
-            "sine",
-            .018,
-            musicGain
-        );
-
-
-        index++;
-
-    }
-
-
-    playChord();
-
-
-    musicTimer =
-        setInterval(
-            playChord,
-            1760
-        );
-}
-
-
-function stopMusic(){
-
-    if(musicTimer){
-
-        clearInterval(
-            musicTimer
-        );
-
-        musicTimer = null;
-
-    }
-
-    musicStarted = false;
-}
-
-
-/* =========================================================
-   SOUND EFFECTS
-========================================================= */
-
-function tapSound(){
-
-    playTone(
-        700,
-        .07,
-        "sine",
-        .045
-    );
-
-    playTone(
-        1000,
-        .10,
-        "sine",
-        .022,
-        effectGain,
-        .05
-    );
-}
-
-
-function sparkle(){
-
-    playTone(
-        880,
-        .13,
-        "sine",
-        .04
-    );
-
-    playTone(
-        1174.66,
-        .18,
-        "sine",
-        .03,
-        effectGain,
-        .09
-    );
-
-    playTone(
-        1567.98,
-        .3,
-        "sine",
-        .022,
-        effectGain,
-        .18
-    );
-}
-
-
-function candleSound(){
-
-    playTone(
-        150,
-        .18,
-        "triangle",
-        .025
-    );
-
-    playTone(
-        392,
-        .45,
-        "sine",
-        .035,
-        effectGain,
-        .12
-    );
-
-    playTone(
-        587.33,
-        .7,
-        "sine",
-        .03,
-        effectGain,
-        .2
-    );
-}
-
-
-function perfumeSound(){
-
-    playTone(
-        160,
-        .35,
-        "sawtooth",
-        .012
-    );
-
-    playTone(
-        1250,
-        .12,
-        "sine",
-        .035,
-        effectGain,
-        .1
-    );
-}
-
-
-function mirrorSound(){
-
-    playTone(
-        523.25,
-        .16,
-        "sine",
-        .025
-    );
-
-    playTone(
-        783.99,
-        .3,
-        "sine",
-        .03,
-        effectGain,
-        .10
-    );
-
-    playTone(
-        1046.5,
-        .5,
-        "sine",
-        .022,
-        effectGain,
-        .25
-    );
-}
-
-
-function plushSound(){
-
-    playTone(
-        330,
-        .12,
-        "triangle",
-        .045
-    );
-
-    playTone(
-        440,
-        .15,
-        "triangle",
-        .035,
-        effectGain,
-        .08
-    );
-
-    playTone(
-        587,
-        .2,
-        "triangle",
-        .025,
-        effectGain,
-        .17
-    );
-}
-
-
-function accessorySound(){
-
-    playTone(
-        523.25,
-        .18,
-        "sine",
-        .035
-    );
-
-    playTone(
-        659.25,
-        .24,
-        "sine",
-        .03,
-        effectGain,
-        .1
-    );
-
-    playTone(
-        783.99,
-        .35,
-        "sine",
-        .025,
-        effectGain,
-        .22
-    );
-
-    playTone(
-        1046.5,
-        .55,
-        "sine",
-        .018,
-        effectGain,
-        .36
-    );
-}
-
-
-function chocolateSound(){
-
-    playTone(
-        170,
-        .08,
-        "square",
-        .025
-    );
-
-    playTone(
-        250,
-        .12,
-        "triangle",
-        .03,
-        effectGain,
-        .08
-    );
-
-    sparkle();
-}
-
-
-function braceletSound(){
-
-    playTone(
-        392,
-        .2,
-        "sine",
-        .025
-    );
-
-    playTone(
-        523.25,
-        .35,
-        "sine",
-        .035,
-        effectGain,
-        .12
-    );
-
-    playTone(
-        659.25,
-        .45,
-        "sine",
-        .03,
-        effectGain,
-        .25
-    );
-
-    playTone(
-        783.99,
-        .65,
-        "sine",
-        .025,
-        effectGain,
-        .42
-    );
-
-    playTone(
-        1046.5,
-        .9,
-        "sine",
-        .018,
-        effectGain,
-        .58
-    );
-}
-
-
-function emotionalChord(){
-
-    playTone(
-        261.63,
-        .8,
-        "sine",
-        .035
-    );
-
-    playTone(
-        329.63,
-        .9,
-        "sine",
-        .03,
-        effectGain,
-        .14
-    );
-
-    playTone(
-        392,
-        1,
-        "sine",
-        .026,
-        effectGain,
-        .28
-    );
-
-    playTone(
-        523.25,
-        1.3,
-        "sine",
-        .025,
-        effectGain,
-        .44
-    );
-}
-
-
-/* =========================================================
-   PARTICLES
-========================================================= */
-
-const particles =
-    document.getElementById(
-        "particles"
-    );
-
-
-function createParticle(){
-
-    const p =
-        document.createElement(
-            "div"
-        );
-
-    p.className =
-        "particle";
-
-    p.style.left =
-        Math.random()*100 +
-        "%";
-
-    p.style.bottom =
-        (-5 +
-        Math.random()*10) +
-        "%";
-
-    p.style.animationDuration =
-        4 +
-        Math.random()*4 +
-        "s";
-
-    particles.appendChild(p);
-
-    setTimeout(
-        ()=>{
-            p.remove();
-        },
-        8500
-    );
-}
-
-
-setInterval(
-    createParticle,
-    500
-);
-
-
-/* =========================================================
-   GOLD PARTICLES
-========================================================= */
-
-function createGoldParticles(
-    count=20
-){
-
-    for(
-        let i=0;
-        i<count;
-        i++
-    ){
-
-        const p =
-            document.createElement(
-                "div"
-            );
-
-        p.className =
-            "gold-particle";
-
-        p.style.left =
-            35 +
-            Math.random()*30 +
-            "%";
-
-        p.style.top =
-            40 +
-            Math.random()*25 +
-            "%";
-
-        document.body.appendChild(p);
-
-        p.animate(
-
-            [
-
-                {
-                    transform:
-                        "translateY(0) scale(.3)",
-                    opacity:0
-                },
-
-                {
-                    transform:
-                        `translate(
-                            ${-40+Math.random()*80}px,
-                            -70px
-                        ) scale(1)`,
-                    opacity:1
-                },
-
-                {
-                    transform:
-                        `translate(
-                            ${-80+Math.random()*160}px,
-                            -160px
-                        ) scale(0)`,
-                    opacity:0
-                }
-
-            ],
-
-            {
-                duration:
-                    1200 +
-                    Math.random()*700,
-
-                easing:"ease-out"
-            }
-
-        ).onfinish =
-            ()=>{
-                p.remove();
-            };
-    }
-}
-
-
-/* =========================================================
-   HEART PARTICLES
-========================================================= */
-
-function createHearts(
-    count=16
-){
-
-    for(
-        let i=0;
-        i<count;
-        i++
-    ){
-
-        const heart =
-            document.createElement(
-                "div"
-            );
-
-        heart.className =
-            "floating-heart";
-
-        heart.textContent =
-            "♥";
-
-        heart.style.left =
-            38 +
-            Math.random()*24 +
-            "%";
-
-        heart.style.top =
-            43 +
-            Math.random()*20 +
-            "%";
-
-        heart.style.fontSize =
-            12 +
-            Math.random()*16 +
-            "px";
-
-        document.body.appendChild(
-            heart
-        );
-
-        heart.animate(
-
-            [
-
-                {
-                    transform:
-                        "translateY(0) scale(.5)",
-                    opacity:0
-                },
-
-                {
-                    transform:
-                        "translateY(-80px) scale(1)",
-                    opacity:1
-                },
-
-                {
-                    transform:
-                        "translateY(-170px) scale(.4)",
-                    opacity:0
-                }
-
-            ],
-
-            {
-                duration:
-                    1400 +
-                    Math.random()*700,
-
-                easing:"ease-out"
-            }
-
-        ).onfinish =
-            ()=>{
-                heart.remove();
-            };
-    }
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-const introSteps = [
-
-    {
-        icon:"🥹❤️",
-
-        title:
-            "My girl deserves <span>a LOT more...</span>",
-
-        text:
-            "If I could, I'd fill the whole world with things that make you smile.",
-
-        button:
-            "TAP →"
-    },
-
-    {
-        icon:"✨",
-
-        title:
-            "But for this birthday...",
-
-        text:
-            "I've brought you a few special things...",
-
-        button:
-            "TAP →"
-    },
-
-    {
-        icon:"🎁❤️",
-
-        title:
-            "Wanna see themmm?",
-
-        text:
-            "Come on... I made these little surprises just for you.",
-
-        button:
-            "YES ❤️"
-    }
-
-];
-
-
-let introIndex = 0;
-
-
-const intro =
-    document.getElementById(
-        "intro"
-    );
-
-const introIcon =
-    document.getElementById(
-        "introIcon"
-    );
-
-const introTitle =
-    document.getElementById(
-        "introTitle"
-    );
-
-const introText =
-    document.getElementById(
-        "introText"
-    );
-
-const introButton =
-    document.getElementById(
-        "introButton"
-    );
-
-
-introButton.addEventListener(
-    "click",
-    async()=>{
-
-        await unlockAudio();
-
-        startMusic();
-
-        tapSound();
-
-        introIndex++;
-
-
-        if(
-            introIndex <
-            introSteps.length
-        ){
-
-            const step =
-                introSteps[
-                    introIndex
-                ];
-
-            introIcon.innerHTML =
-                step.icon;
-
-            introTitle.innerHTML =
-                step.title;
-
-            introText.textContent =
-                step.text;
-
-            introButton.textContent =
-                step.button;
-
-        }
-
-        else{
-
-            intro.classList.remove(
-                "active"
-            );
-
-            setTimeout(
-                beginExperience,
-                700
-            );
-        }
-
-    }
-);
-
 
 /* =========================================================
    GIFT DATA
@@ -4323,317 +2173,713 @@ introButton.addEventListener(
 
 const gifts = [
 
-{
+    /* =====================================================
+       01
+    ====================================================== */
 
-    number:"01 / 08",
+    {
+        category:"A LITTLE WARMTH",
 
-    kicker:
-        "A little warmth...",
+        title:"A LITTLE WARMTH",
 
-    title:
-        "A Little Warmth",
+        description:
+        "For the girl who has an extraordinary way of making every place feel a little warmer.",
 
-    description:
-        "For the girl who somehow makes every place feel warmer.",
+        button:"🔥 TOUCH TO LIGHT",
 
-    button:
-        "TOUCH TO LIGHT 🕯️",
-
-    type:
-        "candle",
-
-    reactionTitle:
+        reactionTitle:
         "LIT FOR MY TISHUUU ❤️",
 
-    reactionText:
-        "I hope this little flame reminds you of the warmth you bring into my life."
+        reactionText:
+        "A tiny flame for the warmth you bring into my life so effortlessly. May this little glow always remind you that you are deeply cherished.",
 
-},
+        object:"candle"
+    },
 
-{
 
-    number:"02 / 08",
+    /* =====================================================
+       02
+    ====================================================== */
 
-    kicker:
-        "Something elegant...",
+    {
+        category:"A TOUCH OF ELEGANCE",
 
-    title:
-        "A Little Luxury",
+        title:"A TOUCH OF ELEGANCE",
 
-    description:
-        "A fragrance for someone who already carries herself beautifully.",
+        description:
+        "Something refined for the girl whose presence can turn even the simplest moment into something memorable.",
 
-    button:
-        "TOUCH TO SPRAY ✨",
+        button:"✨ REVEAL THE SCENT",
 
-    type:
-        "perfume",
+        reactionTitle:
+        "A SCENT WORTH REMEMBERING ✨",
 
-    reactionTitle:
-        "Elegance looks good on you.",
+        reactionText:
+        "Elegant, subtle and impossible to overlook — rather like you. Consider this a little luxury chosen for someone who deserves to be surrounded by beautiful things.",
 
-    reactionText:
-        "You already have your own charm. This is just a little luxury to match it."
+        object:"perfume"
+    },
 
-},
 
-{
+    /* =====================================================
+       03
+    ====================================================== */
 
-    number:"03 / 08",
+    {
+        category:"LOOK CLOSER",
 
-    kicker:
-        "For my pretty girl...",
+        title:"THE PRETTIEST VIEW",
 
-    title:
-        "A Mirror For Tisha",
+        description:
+        "There is one thing this little mirror could never quite capture — just how beautiful you are through my eyes.",
 
-    description:
-        "Come a little closer... there's something I want you to see.",
+        button:"🪞 LOOK CLOSER",
 
-    button:
-        "LOOK CLOSER 🪞",
+        reactionTitle:
+        "NO FILTER. NO EDITING. JUST YOU. ❤️",
 
-    type:
-        "mirror",
+        reactionText:
+        "No filter. No editing. No perfect angle required. Just my beautiful girl — exactly as she is, and exactly as I would always choose her.",
 
-    reactionTitle:
-        "Tishuuu ❤️",
+        object:"mirror"
+    },
 
-    reactionText:
-        "No filter. No editing. Just my beautiful girl."
 
-},
+    /* =====================================================
+       04
+    ====================================================== */
 
-{
+    {
+        category:"A LITTLE PAMPERING",
 
-    number:"04 / 08",
+        title:"YOU DESERVE THIS",
 
-    kicker:
-        "Time to be pampered...",
+        description:
+        "For the moments when you need to slow down, breathe deeply and let the world wait for a while.",
 
-    title:
-        "Luxury Self-Care",
+        button:"🧖‍♀️ UNWRAP THE SELF-CARE",
 
-    description:
-        "Because my girl deserves to slow down, relax and be spoiled.",
+        reactionTitle:
+        "SLOW DOWN, BEAUTIFUL. 🤍",
 
-    button:
-        "TOUCH TO GLOW ✨",
+        reactionText:
+        "You spend enough time taking care of everything around you. Consider this a gentle reminder that you deserve softness, rest and a little indulgence too.",
 
-    type:
-        "selfcare",
+        object:"spa"
+    },
 
-    reactionTitle:
-        "Pampering my pretty girl.",
 
-    reactionText:
-        "Although honestly... you deserve an entire spa, not just one little box."
+    /* =====================================================
+       05
+    ====================================================== */
 
-},
+    {
+        category:"EMERGENCY CUTENESS",
 
-{
+        title:"ONE VERY CUDDLY PROBLEM",
 
-    number:"05 / 08",
+        description:
+        "Every sophisticated collection needs one completely adorable exception.",
 
-    kicker:
-        "Your emergency hug...",
+        button:"🧸 ACTIVATE THE HUG",
 
-    title:
-        "A Big Plushie",
+        reactionTitle:
+        "EMERGENCY HUG ACTIVATED 🧸❤️",
 
-    description:
-        "For those moments when I'm not physically there to annoy you.",
+        reactionText:
+        "Whenever you miss me, hug this. But if you start talking to it more than you talk to me, we are going to have a serious problem. 😂",
 
-    button:
-        "TOUCH FOR A HUG 🧸",
+        object:"plushie"
+    },
 
-    type:
-        "plushie",
 
-    reactionTitle:
-        "EMERGENCY HUG ACTIVATED 🧸",
+    /* =====================================================
+       06
+    ====================================================== */
 
-    reactionText:
-        "Whenever you miss me, hug this. But if you start talking to it more than me, we're going to have a problem. 😂❤️"
+    {
+        category:"THOUGHTFULLY CURATED",
 
-},
+        title:"SATIN SCRUNCHIES",
 
-{
+        description:
+        "Two exquisite pieces of luxury — one mysterious, one golden — chosen for my vibrant and beautiful girl.",
 
-    number:"06 / 08",
+        button:"✨ TOUCH TO REVEAL",
 
-    kicker:
-        "Something chic...",
+        reactionTitle:
+        "BLACK SATIN + GOLDEN GLOW. 🖤✨",
 
-    title:
-        "Satin Scrunchies",
+        reactionText:
+        "A little sophisticated, a little dramatic and effortlessly stylish — essentially, something that feels perfectly at home with you.",
 
-    description:
-        "Two little pieces of luxury — one mysterious, one golden — for my colourful girl.",
+        object:"scrunchies"
+    },
 
-    button:
-        "TOUCH TO REVEAL ✨",
 
-    type:
-        "scrunchies",
+    /* =====================================================
+       07
+    ====================================================== */
 
-    reactionTitle:
-        "Black satin + golden glow. 🖤✨",
+    {
+        category:"SOMETHING SWEET",
 
-    reactionText:
-        "A little classy, a little dramatic... basically, something that belongs with my Tishuuu."
+        title:"OBVIOUSLY... CHOCOLATE",
 
-},
+        description:
+        "Because no carefully curated collection for you could possibly be complete without something deliciously indulgent.",
 
-{
+        button:"🍫 OPEN THE BOX",
 
-    number:"07 / 08",
+        reactionTitle:
+        "OBVIOUSLY... CHOCOLATE. 😂🍫",
 
-    kicker:
-        "Obviously...",
+        reactionText:
+        "Some decisions require careful thought. This one did not. You deserve something sweet — and honestly, chocolate was inevitable.",
 
-    title:
-        "Chocolate ❤️",
+        object:"chocolate"
+    },
 
-    description:
-        "Because every birthday girl needs a chocolate emergency supply.",
 
-    button:
-        "OPEN THE CHOCOLATE 🍫",
+    /* =====================================================
+       08
+    ====================================================== */
 
-    type:
-        "chocolate",
+    {
+        category:"THE FINAL LITTLE TREASURE",
 
-    reactionTitle:
-        "Obviously... chocolate. 😂",
+        title:"FOR MY TISHUUU 🤍",
 
-    reactionText:
-        "For every 'Riteshhh, I want something sweet' emergency."
+        description:
+        "The final treasure was always meant to feel different — quieter, more precious and a little closer to the heart.",
 
-},
+        button:"🤍 REVEAL THE FINAL TREASURE",
 
-{
+        reactionTitle:
+        "FOR MY TISHUUU 🤍",
 
-    number:"08 / 08",
+        reactionText:
+        "A little bracelet for the girl who has become such a beautiful part of my world. Wear it whenever you want a tiny reminder that someone, somewhere, is always thinking of you.",
 
-    kicker:
-        "THE FINAL LITTLE TREASURE",
-
-    title:
-        "Pearls For My Tishuuu",
-
-    description:
-        "Something delicate, elegant and close to you — just like the thought behind it.",
-
-    button:
-        "TOUCH TO SHIMMER ✨",
-
-    type:
-        "bracelet",
-
-    reactionTitle:
-        "For my Tishuuu. 🤍",
-
-    reactionText:
-        "A little white pearl and gold bracelet... because if something stays close to you, I want it to be beautiful enough to remind you of me.",
-
-    finalGift:true
-
-}
+        object:"bracelet"
+    }
 
 ];
 
 
+/* =========================================================
+   STATE
+========================================================= */
+
 let currentGift = 0;
-let interacted = false;
+
+let revealed = false;
+
+let musicOn = false;
+
+let audioContext = null;
+
+let bgm = null;
 
 
 /* =========================================================
-   ELEMENTS
+   DOM
 ========================================================= */
 
 const experience =
-    document.getElementById(
-        "giftExperience"
-    );
+    document.getElementById("experience");
 
-const stage =
-    document.querySelector(
-        ".stage"
-    );
+const category =
+    document.getElementById("category");
 
-const giftNumber =
-    document.getElementById(
-        "giftNumber"
-    );
+const title =
+    document.getElementById("title");
 
-const giftKicker =
-    document.getElementById(
-        "giftKicker"
-    );
+const description =
+    document.getElementById("description");
 
-const giftTitle =
-    document.getElementById(
-        "giftTitle"
-    );
+const giftStage =
+    document.getElementById("giftStage");
 
-const giftDescription =
-    document.getElementById(
-        "giftDescription"
-    );
-
-const objectArea =
-    document.getElementById(
-        "objectArea"
-    );
-
-const interactButton =
-    document.getElementById(
-        "interactButton"
-    );
+const actionButton =
+    document.getElementById("actionButton");
 
 const reaction =
-    document.getElementById(
-        "reaction"
-    );
+    document.getElementById("reaction");
 
 const reactionTitle =
-    document.getElementById(
-        "reactionTitle"
-    );
+    document.getElementById("reactionTitle");
 
 const reactionText =
-    document.getElementById(
-        "reactionText"
-    );
+    document.getElementById("reactionText");
 
 const nextButton =
-    document.getElementById(
-        "nextButton"
-    );
+    document.getElementById("nextButton");
 
-const ambientLight =
-    document.getElementById(
-        "ambientLight"
-    );
+const topProgress =
+    document.getElementById("topProgress");
 
-const climaxOverlay =
-    document.getElementById(
-        "climaxOverlay"
-    );
+const transition =
+    document.getElementById("transition");
+
+const finalScreen =
+    document.getElementById("final-screen");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const toast =
+    document.getElementById("toast");
 
 
 /* =========================================================
-   BEGIN
+   PARTICLES
 ========================================================= */
 
-function beginExperience(){
+function createParticles(){
 
-    experience.classList.add(
-        "active"
+    const container =
+        document.getElementById("particles");
+
+    for(let i=0;i<45;i++){
+
+        const particle =
+            document.createElement("div");
+
+        particle.className="particle";
+
+        particle.style.left =
+            Math.random()*100+"%";
+
+        particle.style.bottom =
+            (-10-Math.random()*30)+"%";
+
+        particle.style.animationDuration =
+            (7+Math.random()*10)+"s";
+
+        particle.style.animationDelay =
+            (-Math.random()*15)+"s";
+
+        particle.style.opacity =
+            Math.random()*.8;
+
+        container.appendChild(particle);
+    }
+
+
+    for(let i=0;i<12;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className="heart-particle";
+
+        heart.innerHTML =
+            Math.random()>.5 ? "♡" : "♥";
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.animationDelay =
+            (-Math.random()*12)+"s";
+
+        heart.style.animationDuration =
+            (9+Math.random()*8)+"s";
+
+        heart.style.fontSize =
+            (12+Math.random()*18)+"px";
+
+        container.appendChild(heart);
+    }
+}
+
+createParticles();
+
+
+/* =========================================================
+   SOUND ENGINE
+========================================================= */
+
+function initAudio(){
+
+    if(!audioContext){
+
+        try{
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }catch(error){
+
+            console.log(
+                "Web Audio not supported."
+            );
+
+        }
+
+    }
+
+    if(audioContext &&
+       audioContext.state==="suspended"){
+
+        audioContext.resume();
+    }
+}
+
+
+/* =========================================================
+   SIMPLE SOUND
+========================================================= */
+
+function playTone(
+    frequency=440,
+    duration=.12,
+    type="sine",
+    volume=.04
+){
+
+    if(!audioContext)
+        return;
+
+    const oscillator =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+    oscillator.type=type;
+
+    oscillator.frequency.value=
+        frequency;
+
+    gain.gain.setValueAtTime(
+        0,
+        audioContext.currentTime
     );
 
-    loadGift(0);
+    gain.gain.linearRampToValueAtTime(
+        volume,
+        audioContext.currentTime+.015
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audioContext.currentTime+duration
+    );
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime+duration
+    );
+}
+
+
+/* =========================================================
+   REVEAL SOUND
+========================================================= */
+
+function revealSound(){
+
+    initAudio();
+
+    playTone(
+        523.25,
+        .14,
+        "sine",
+        .035
+    );
+
+    setTimeout(()=>{
+        playTone(
+            659.25,
+            .18,
+            "sine",
+            .035
+        );
+    },80);
+
+    setTimeout(()=>{
+        playTone(
+            783.99,
+            .25,
+            "sine",
+            .03
+        );
+    },170);
+}
+
+
+/* =========================================================
+   TRANSITION SOUND
+========================================================= */
+
+function transitionSound(){
+
+    initAudio();
+
+    playTone(
+        392,
+        .12,
+        "sine",
+        .025
+    );
+
+    setTimeout(()=>{
+        playTone(
+            523,
+            .15,
+            "sine",
+            .025
+        );
+    },100);
+}
+
+
+/* =========================================================
+   CREATE GIFT OBJECT
+========================================================= */
+
+function createObject(type){
+
+    const wrapper =
+        document.createElement("div");
+
+    wrapper.className="gift-object";
+
+
+    /* -----------------------------------------------------
+       CANDLE
+    ----------------------------------------------------- */
+
+    if(type==="candle"){
+
+        wrapper.innerHTML=`
+
+            <div class="candle" id="candle">
+
+                <div class="wick"></div>
+
+                <div class="flame"></div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       PERFUME
+    ----------------------------------------------------- */
+
+    if(type==="perfume"){
+
+        wrapper.innerHTML=`
+
+            <div class="perfume">
+
+                <div class="perfume-cap"></div>
+
+                <div class="perfume-label">
+                    TISHUU
+                </div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       MIRROR
+    ----------------------------------------------------- */
+
+    if(type==="mirror"){
+
+        wrapper.innerHTML=`
+
+            <div
+                class="mirror"
+                id="mirror">
+
+                <div class="mirror-word">
+                    TISHUUU ❤️
+                </div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       SPA
+    ----------------------------------------------------- */
+
+    if(type==="spa"){
+
+        wrapper.innerHTML=`
+
+            <div class="spa-set">
+
+                <div class="bottle one"></div>
+
+                <div class="bottle two"></div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       PLUSHIE
+    ----------------------------------------------------- */
+
+    if(type==="plushie"){
+
+        wrapper.innerHTML=`
+
+            <div
+                class="plushie"
+                id="plushie">
+
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="head">
+
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+
+                    <div class="nose"></div>
+
+                    <div class="smile"></div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       SCRUNCHIES
+    ----------------------------------------------------- */
+
+    if(type==="scrunchies"){
+
+        wrapper.innerHTML=`
+
+            <div class="scrunchies">
+
+                <div class="scrunchie black"></div>
+
+                <div class="scrunchie gold"></div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       CHOCOLATE
+    ----------------------------------------------------- */
+
+    if(type==="chocolate"){
+
+        wrapper.innerHTML=`
+
+            <div
+                class="chocolate"
+                id="chocolate">
+
+                <div class="choco-box">
+
+                    <div class="choco-ribbon"></div>
+
+                    <div class="choco-label">
+                        FOR YOU
+                    </div>
+
+                </div>
+
+
+                <div class="choco-pieces">
+
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+                    <div class="piece"></div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
+
+    /* -----------------------------------------------------
+       BRACELET
+    ----------------------------------------------------- */
+
+    if(type==="bracelet"){
+
+        wrapper.innerHTML=`
+
+            <div
+                class="bracelet"
+                id="bracelet">
+
+                <div class="bracelet-ring">
+
+                    <div class="bead"></div>
+                    <div class="bead"></div>
+                    <div class="bead"></div>
+                    <div class="bead"></div>
+                    <div class="bead"></div>
+                    <div class="bead"></div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return wrapper;
+    }
+
 }
 
 
@@ -4643,39 +2889,29 @@ function beginExperience(){
 
 function loadGift(index){
 
-    currentGift =
-        index;
-
-    interacted =
-        false;
-
     const gift =
         gifts[index];
 
+    currentGift=index;
 
-    giftNumber.textContent =
-        gift.number;
+    revealed=false;
 
-    giftKicker.textContent =
-        gift.kicker;
 
-    giftTitle.textContent =
+    /* -----------------------------------------------------
+       TEXT
+    ----------------------------------------------------- */
+
+    category.textContent =
+        gift.category;
+
+    title.textContent =
         gift.title;
 
-    giftDescription.textContent =
+    description.textContent =
         gift.description;
 
-    interactButton.textContent =
+    actionButton.textContent =
         gift.button;
-
-    interactButton.classList.remove(
-        "done"
-    );
-
-
-    reaction.classList.remove(
-        "show"
-    );
 
     reactionTitle.textContent =
         "";
@@ -4683,316 +2919,176 @@ function loadGift(index){
     reactionText.textContent =
         "";
 
-    objectArea.innerHTML =
-        "";
+    reaction.classList.add("hidden");
 
 
-    if(
-        gift.finalGift
-    ){
+    topProgress.textContent =
+        `${String(index+1).padStart(2,"0")} / 08`;
 
-        climaxOverlay.classList.add(
-            "active"
-        );
 
-        setTimeout(
-            ()=>{
-                climaxOverlay.classList.remove(
-                    "active"
-                );
-            },
-            900
-        );
+    /* -----------------------------------------------------
+       SIDE PROGRESS
+    ----------------------------------------------------- */
+
+    document
+        .querySelectorAll(".step")
+        .forEach((step,i)=>{
+
+            step.classList.toggle(
+                "active",
+                i===index
+            );
+
+        });
+
+
+    /* -----------------------------------------------------
+       OBJECT
+    ----------------------------------------------------- */
+
+    giftStage
+        .querySelectorAll(".gift-object")
+        .forEach(obj=>obj.remove());
+
+    const object =
+        createObject(gift.object);
+
+    giftStage.appendChild(object);
+
+
+    /* -----------------------------------------------------
+       NEXT BUTTON
+    ----------------------------------------------------- */
+
+    if(index===7){
+
+        nextButton.textContent =
+            "THERE'S ONE LAST THING... →";
+
+    }else{
+
+        nextButton.textContent =
+            "NEXT LITTLE GIFT →";
 
     }
 
 
-    createGiftObject(
-        gift.type
-    );
+    /* -----------------------------------------------------
+       OBJECT ENTRANCE
+    ----------------------------------------------------- */
 
+    object.style.opacity="0";
+    object.style.transform="translateY(20px) scale(.94)";
 
-    objectArea.style.opacity =
-        "0";
+    requestAnimationFrame(()=>{
 
-    objectArea.style.transform =
-        "translateY(25px) scale(.88)";
+        setTimeout(()=>{
 
+            object.style.transition=
+                "opacity .6s ease, transform .7s cubic-bezier(.2,.8,.2,1)";
 
-    requestAnimationFrame(
-        ()=>{
+            object.style.opacity="1";
 
-            objectArea.style.transition =
-                "opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)";
-
-            objectArea.style.opacity =
-                "1";
-
-            objectArea.style.transform =
+            object.style.transform=
                 "translateY(0) scale(1)";
 
-        }
-    );
+        },80);
+
+    });
+
 }
 
 
 /* =========================================================
-   CREATE GIFT OBJECT
+   SHOW REACTION
 ========================================================= */
 
-function createGiftObject(type){
+function revealGift(){
 
-    if(type === "candle"){
+    if(revealed)
+        return;
 
-        objectArea.innerHTML = `
+    revealed=true;
 
-            <div class="object-spotlight"></div>
+    revealSound();
 
-            <div
-                class="candle-warmth"
-                id="candleWarmth"
-            ></div>
+    const gift =
+        gifts[currentGift];
 
-            <div
-                class="candle"
-                id="candleObject"
-            >
 
-                <div class="candle-top"></div>
+    /* -----------------------------------------------------
+       SPECIAL OBJECT ANIMATIONS
+    ----------------------------------------------------- */
 
-                <div class="wick"></div>
+    if(gift.object==="candle"){
 
-                <div class="flame"></div>
+        const candle =
+            document.getElementById("candle");
 
-            </div>
+        candle.classList.add("lit");
 
-        `;
     }
 
 
-    else if(type === "perfume"){
+    if(gift.object==="mirror"){
 
-        objectArea.innerHTML = `
+        const mirror =
+            document.getElementById("mirror");
 
-            <div class="object-spotlight"></div>
+        mirror.classList.add("shine");
 
-            <div
-                class="perfume"
-                id="perfumeObject"
-            >
+        setTimeout(()=>{
 
-                <div class="perfume-cap"></div>
+            mirror.classList.add("revealed");
 
-                <div class="mist">
+        },700);
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </div>
-
-            </div>
-
-        `;
     }
 
 
-    else if(type === "mirror"){
+    if(gift.object==="plushie"){
 
-        objectArea.innerHTML = `
+        const plushie =
+            document.getElementById("plushie");
 
-            <div class="object-spotlight"></div>
+        plushie.classList.add("bounce");
 
-            <div
-                class="mirror"
-                id="mirrorObject"
-            >
+        createHeartBurst();
 
-                <div class="mirror-message">
-
-                    LOOK CLOSER...
-
-                    <strong>
-                        Tishuuu ❤️
-                    </strong>
-
-                </div>
-
-            </div>
-
-        `;
     }
 
 
-    else if(type === "selfcare"){
+    if(gift.object==="chocolate"){
 
-        objectArea.innerHTML = `
+        const chocolate =
+            document.getElementById("chocolate");
 
-            <div class="object-spotlight"></div>
+        chocolate.classList.add("open");
 
-            <div
-                class="selfcare"
-                id="selfcareObject"
-            ></div>
+        createSparkleBurst();
 
-        `;
     }
 
 
-    else if(type === "plushie"){
+    if(gift.object==="bracelet"){
 
-        objectArea.innerHTML = `
+        const bracelet =
+            document.getElementById("bracelet");
 
-            <div class="object-spotlight"></div>
+        bracelet.classList.add("centerpiece");
 
-            <div
-                class="plushie"
-                id="plushieObject"
-            >
+        createSparkleBurst();
 
-                <div class="ear left"></div>
-                <div class="ear right"></div>
+        createHeartBurst();
 
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-
-                <div class="mouth"></div>
-
-                <div class="heart">
-                    ♥
-                </div>
-
-            </div>
-
-        `;
     }
 
 
-    else if(type === "scrunchies"){
+    /* -----------------------------------------------------
+       REACTION TEXT
+    ----------------------------------------------------- */
 
-        objectArea.innerHTML = `
-
-            <div class="object-spotlight"></div>
-
-            <div
-                class="scrunchies"
-                id="scrunchieObject"
-            >
-
-                <div class="scrunchie black"></div>
-
-                <div class="scrunchie gold"></div>
-
-            </div>
-
-        `;
-    }
-
-
-    else if(type === "chocolate"){
-
-        objectArea.innerHTML = `
-
-            <div class="object-spotlight"></div>
-
-            <div
-                class="chocolate"
-                id="chocolateObject"
-            >
-
-                <div class="chocolate-title">
-                    DAIRY MILK
-                </div>
-
-                <div class="chocolate-grid">
-
-                    <div class="choco"></div>
-                    <div class="choco"></div>
-                    <div class="choco"></div>
-                    <div class="choco"></div>
-                    <div class="choco"></div>
-
-                </div>
-
-            </div>
-
-        `;
-    }
-
-
-    else if(type === "bracelet"){
-
-        objectArea.innerHTML = `
-
-            <div class="object-spotlight"></div>
-
-            <div
-                class="bracelet reveal"
-                id="braceletObject"
-            >
-
-                <div class="pearl-strand"></div>
-
-                <div class="pearl p1"></div>
-                <div class="pearl p2"></div>
-                <div class="pearl p3"></div>
-                <div class="pearl p4"></div>
-                <div class="pearl p5"></div>
-                <div class="pearl p6"></div>
-                <div class="pearl p7"></div>
-                <div class="pearl p8"></div>
-                <div class="pearl p9"></div>
-                <div class="pearl p10"></div>
-                <div class="pearl p11"></div>
-                <div class="pearl p12"></div>
-
-                <div class="gold-spacer s1"></div>
-                <div class="gold-spacer s2"></div>
-                <div class="gold-spacer s3"></div>
-                <div class="gold-spacer s4"></div>
-                <div class="gold-spacer s5"></div>
-                <div class="gold-spacer s6"></div>
-                <div class="gold-spacer s7"></div>
-                <div class="gold-spacer s8"></div>
-                <div class="gold-spacer s9"></div>
-
-                <div class="pearl-charm"></div>
-
-            </div>
-
-        `;
-    }
-}
-
-
-/* =========================================================
-   INTERACTION
-========================================================= */
-
-interactButton.addEventListener(
-    "click",
-    async()=>{
-
-        if(interacted){
-            return;
-        }
-
-        interacted =
-            true;
-
-        await unlockAudio();
-
-        tapSound();
-
-
-        performInteraction(
-            gifts[currentGift].type
-        );
-
-
-        const gift =
-            gifts[currentGift];
-
+    setTimeout(()=>{
 
         reactionTitle.textContent =
             gift.reactionTitle;
@@ -5000,281 +3096,26 @@ interactButton.addEventListener(
         reactionText.textContent =
             gift.reactionText;
 
-
-        interactButton.classList.add(
-            "done"
+        reaction.classList.remove(
+            "hidden"
         );
 
+    },350);
 
-        setTimeout(
-            ()=>{
 
-                reaction.classList.add(
-                    "show"
-                );
+    /* -----------------------------------------------------
+       BUTTON
+    ----------------------------------------------------- */
 
-            },
-            gift.type === "bracelet"
-                ? 1500
-                : 850
-        );
+    if(currentGift===7){
 
-    }
-);
+        actionButton.textContent =
+            "🤍 TREASURE FOUND";
 
+    }else{
 
-/* =========================================================
-   PERFORM INTERACTION
-========================================================= */
-
-function performInteraction(type){
-
-
-    if(type === "candle"){
-
-        const candle =
-            document.getElementById(
-                "candleObject"
-            );
-
-        const warmth =
-            document.getElementById(
-                "candleWarmth"
-            );
-
-
-        candle.classList.add(
-            "lit"
-        );
-
-        warmth.classList.add(
-            "active"
-        );
-
-        ambientLight.classList.add(
-            "warm"
-        );
-
-
-        candleSound();
-
-        createGoldParticles(
-            28
-        );
-
-    }
-
-
-    else if(type === "perfume"){
-
-        const perfume =
-            document.getElementById(
-                "perfumeObject"
-            );
-
-        perfume.classList.add(
-            "sprayed"
-        );
-
-        perfumeSound();
-
-        createGoldParticles(
-            10
-        );
-
-    }
-
-
-    else if(type === "mirror"){
-
-        const mirror =
-            document.getElementById(
-                "mirrorObject"
-            );
-
-        mirror.classList.add(
-            "shine"
-        );
-
-        mirrorSound();
-
-        sparkle();
-
-        createGoldParticles(
-            14
-        );
-
-    }
-
-
-    else if(type === "selfcare"){
-
-        const box =
-            document.getElementById(
-                "selfcareObject"
-            );
-
-        box.classList.add(
-            "glow"
-        );
-
-        sparkle();
-
-        createGoldParticles(
-            22
-        );
-
-    }
-
-
-    else if(type === "plushie"){
-
-        const plush =
-            document.getElementById(
-                "plushieObject"
-            );
-
-        plush.classList.add(
-            "bounce"
-        );
-
-        plushSound();
-
-        createHearts(
-            20
-        );
-
-        setTimeout(
-            ()=>{
-                plush.classList.add(
-                    "hug"
-                );
-            },
-            800
-        );
-
-        setTimeout(
-            ()=>{
-                plush.classList.remove(
-                    "hug"
-                );
-            },
-            1700
-        );
-
-    }
-
-
-    else if(type === "scrunchies"){
-
-        const scrunchies =
-            document.getElementById(
-                "scrunchieObject"
-            );
-
-        scrunchies.classList.add(
-            "active"
-        );
-
-        scrunchies.classList.add(
-            "shimmer"
-        );
-
-        accessorySound();
-
-        sparkle();
-
-        createGoldParticles(
-            24
-        );
-
-    }
-
-
-    else if(type === "chocolate"){
-
-        const chocolate =
-            document.getElementById(
-                "chocolateObject"
-            );
-
-        chocolate.classList.add(
-            "open"
-        );
-
-        chocolateSound();
-
-        setTimeout(
-            ()=>{
-                createGoldParticles(
-                    16
-                );
-            },
-            250
-        );
-
-    }
-
-
-    else if(type === "bracelet"){
-
-        climaxOverlay.classList.add(
-            "active"
-        );
-
-
-        setTimeout(
-            ()=>{
-
-                const bracelet =
-                    document.getElementById(
-                        "braceletObject"
-                    );
-
-                bracelet.classList.add(
-                    "shimmer"
-                );
-
-
-                braceletSound();
-
-                createGoldParticles(
-                    35
-                );
-
-
-                setTimeout(
-                    ()=>{
-                        createGoldParticles(
-                            25
-                        );
-                    },
-                    450
-                );
-
-
-                setTimeout(
-                    ()=>{
-                        createGoldParticles(
-                            25
-                        );
-                    },
-                    900
-                );
-
-
-                setTimeout(
-                    ()=>{
-                        climaxOverlay.classList.remove(
-                            "active"
-                        );
-                    },
-                    1300
-                );
-
-            },
-            300
-        );
+        actionButton.textContent =
+            "✓ LITTLE TREASURE FOUND";
 
     }
 
@@ -5285,370 +3126,507 @@ function performInteraction(type){
    NEXT GIFT
 ========================================================= */
 
-nextButton.addEventListener(
-    "click",
-    ()=>{
+function nextGift(){
 
-        if(!interacted){
-            return;
-        }
+    if(!revealed){
 
-        tapSound();
-
-
-        if(
-            currentGift ===
-            gifts.length - 1
-        ){
-
-            experience.classList.remove(
-                "active"
-            );
-
-            setTimeout(
-                showFinal,
-                900
-            );
-
-            return;
-        }
-
-
-        stage.classList.add(
-            "transitioning"
+        showToast(
+            "Reveal this little treasure first ❤️"
         );
 
-        objectArea.style.opacity =
-            "0";
-
-        objectArea.style.transform =
-            "translateY(-18px) scale(.90)";
-
-
-        reaction.classList.remove(
-            "show"
-        );
-
-
-        setTimeout(
-            ()=>{
-
-                stage.classList.remove(
-                    "transitioning"
-                );
-
-                loadGift(
-                    currentGift + 1
-                );
-
-            },
-            520
-        );
-
+        return;
     }
-);
+
+
+    if(currentGift===7){
+
+        showFinalScreen();
+
+        return;
+    }
+
+
+    transitionSound();
+
+    transition.classList.add("active");
+
+
+    setTimeout(()=>{
+
+        loadGift(
+            currentGift+1
+        );
+
+    },420);
+
+
+    setTimeout(()=>{
+
+        transition.classList.remove(
+            "active"
+        );
+
+    },720);
+
+}
 
 
 /* =========================================================
    FINAL SCREEN
 ========================================================= */
 
-const finalScreen =
-    document.getElementById(
-        "finalScreen"
-    );
+function showFinalScreen(){
 
-const finalTitle =
-    document.getElementById(
-        "finalTitle"
-    );
+    transition.classList.add("active");
 
-const finalText =
-    document.getElementById(
-        "finalText"
-    );
+    setTimeout(()=>{
 
-const finalStep =
-    document.getElementById(
-        "finalStep"
-    );
+        experience.style.opacity="0";
 
+        setTimeout(()=>{
 
-let finalTap =
-    0;
+            finalScreen.classList.add(
+                "show"
+            );
 
+        },500);
 
-function showFinal(){
-
-    finalTap =
-        0;
-
-    emotionalChord();
-
-    finalScreen.classList.add(
-        "active"
-    );
-
-
-    finalTitle.innerHTML =
-        `These little gifts...
-        <span>were never really the point.</span>`;
-
-
-    finalText.innerHTML =
-        `They were just little ways of saying
-        how much you mean to me.`;
-
-
-    finalStep.textContent =
-        "TAP...";
+    },500);
 
 }
 
 
 /* =========================================================
-   FINAL TAPS
+   SPARKLE BURST
 ========================================================= */
 
-finalStep.addEventListener(
-    "click",
-    ()=>{
+function createSparkleBurst(){
 
-        tapSound();
+    const stage =
+        document.getElementById(
+            "giftStage"
+        );
 
-        finalTap++;
+    for(let i=0;i<22;i++){
 
+        const sparkle =
+            document.createElement("div");
 
-        if(finalTap === 1){
+        sparkle.innerHTML="✦";
 
-            finalTitle.innerHTML =
-                `Because the best gift
-                <span>I've ever received...</span>`;
+        sparkle.style.position=
+            "absolute";
 
+        sparkle.style.left=
+            "50%";
 
-            finalText.innerHTML =
-                `wasn't something I could buy.`;
+        sparkle.style.top=
+            "45%";
 
+        sparkle.style.zIndex="10";
 
-            finalStep.textContent =
-                "TAP...";
+        sparkle.style.color=
+            "#f6ca70";
 
-        }
+        sparkle.style.fontSize=
+            (8+Math.random()*14)+"px";
 
+        sparkle.style.pointerEvents=
+            "none";
 
-        else if(finalTap === 2){
+        const angle =
+            Math.random()*Math.PI*2;
 
-            emotionalChord();
+        const distance =
+            70+Math.random()*180;
 
+        const x =
+            Math.cos(angle)*distance;
 
-            finalTitle.innerHTML =
-                `It was
-                <span>you. ❤️</span>`;
+        const y =
+            Math.sin(angle)*distance;
 
+        sparkle.animate(
 
-            finalText.innerHTML =
-                `And since you found all eight...
-                <br><br>
-                I think you've earned one last surprise.`;
-
-
-            finalStep.textContent =
-                "OPEN OUR LITTLE UNIVERSE →";
-
-        }
-
-
-        else{
-
-            finalScreen.classList.remove(
-                "active"
-            );
-
-
-            setTimeout(
-                ()=>{
-                    revealAlbum();
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.2)",
+                    opacity:0
                 },
-                900
-            );
 
-        }
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x*.5}px),
+                            calc(-50% + ${y*.5}px)
+                        ) scale(1)`,
+                    opacity:1
+                },
 
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        ) scale(.3)`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:
+                    900+Math.random()*500,
+
+                easing:
+                    "cubic-bezier(.2,.7,.2,1)"
+            }
+
+        );
+
+        stage.appendChild(
+            sparkle
+        );
+
+        setTimeout(()=>{
+            sparkle.remove();
+        },1500);
     }
-);
-
-
-/* =========================================================
-   ALBUM REVEAL
-========================================================= */
-
-const rewardLight =
-    document.getElementById(
-        "rewardLight"
-    );
-
-const albumScreen =
-    document.getElementById(
-        "albumScreen"
-    );
-
-
-function revealAlbum(){
-
-    rewardLight.classList.add(
-        "active"
-    );
-
-
-    sparkle();
-
-
-    setTimeout(
-        ()=>{
-
-            albumScreen.classList.add(
-                "active"
-            );
-
-        },
-        900
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            rewardLight.classList.remove(
-                "active"
-            );
-
-        },
-        1700
-    );
-
 }
 
 
 /* =========================================================
-   ALBUM
+   HEART BURST
 ========================================================= */
 
-const album =
-    document.getElementById(
-        "album"
+function createHeartBurst(){
+
+    const stage =
+        document.getElementById(
+            "giftStage"
+        );
+
+    for(let i=0;i<12;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.textContent =
+            i%2===0 ? "♥" : "♡";
+
+        heart.style.position=
+            "absolute";
+
+        heart.style.left="50%";
+        heart.style.top="45%";
+
+        heart.style.zIndex="15";
+
+        heart.style.color=
+            i%2===0
+                ? "#ff7898"
+                : "#f3c76b";
+
+        heart.style.fontSize=
+            (12+Math.random()*15)+"px";
+
+        heart.style.pointerEvents=
+            "none";
+
+        const angle =
+            Math.random()*Math.PI*2;
+
+        const distance =
+            80+Math.random()*130;
+
+        const x =
+            Math.cos(angle)*distance;
+
+        const y =
+            Math.sin(angle)*distance;
+
+        heart.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.2)",
+                    opacity:0
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        ) scale(1)`,
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x*1.3}px),
+                            calc(-50% + ${y*1.3}px)
+                        ) scale(.4)`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:1200,
+                easing:"ease-out"
+            }
+
+        );
+
+        stage.appendChild(
+            heart
+        );
+
+        setTimeout(()=>{
+            heart.remove();
+        },1300);
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    toast.textContent=
+        message;
+
+    toast.classList.add(
+        "show"
     );
 
+    clearTimeout(
+        toastTimer
+    );
 
-let albumOpening =
-    false;
+    toastTimer=
+        setTimeout(()=>{
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },2200);
+}
 
 
-album.addEventListener(
+/* =========================================================
+   MUSIC
+========================================================= */
+
+function startMusic(){
+
+    if(!bgm){
+
+        bgm =
+            new Audio(
+                "gift-bgm.mp3"
+            );
+
+        bgm.loop=true;
+
+        bgm.volume=.35;
+    }
+
+    bgm.play()
+        .then(()=>{
+
+            musicOn=true;
+
+            musicButton.textContent=
+                "♫ MUSIC ON";
+
+        })
+        .catch(()=>{
+
+            showToast(
+                "Tap again to start the music 🎵"
+            );
+
+        });
+}
+
+
+function stopMusic(){
+
+    if(bgm){
+
+        bgm.pause();
+
+    }
+
+    musicOn=false;
+
+    musicButton.textContent=
+        "♫ MUSIC OFF";
+}
+
+
+musicButton.addEventListener(
     "click",
     ()=>{
 
-        if(
-            albumOpening ||
-            album.classList.contains(
-                "open"
-            )
-        ){
-            return;
+        if(musicOn){
+
+            stopMusic();
+
+        }else{
+
+            startMusic();
+
         }
-
-
-        albumOpening =
-            true;
-
-
-        tapSound();
-
-
-        album.classList.add(
-            "open"
-        );
-
-
-        setTimeout(
-            ()=>{
-
-                window.location.href =
-                    "photo.html";
-
-            },
-            1400
-        );
 
     }
 );
 
 
 /* =========================================================
-   FIRST TOUCH AUDIO
+   FIRST USER TOUCH
+   Unlock audio safely
 ========================================================= */
 
-let firstTouchHandled =
-    false;
-
+let firstTouch=false;
 
 document.addEventListener(
     "pointerdown",
-    async()=>{
+    ()=>{
 
-        if(firstTouchHandled){
-            return;
+        if(!firstTouch){
+
+            firstTouch=true;
+
+            initAudio();
+
         }
 
-        firstTouchHandled =
-            true;
+    },
+    {once:true}
+);
 
-        await unlockAudio();
 
-        startMusic();
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+actionButton.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+
+        revealGift();
+
+    }
+);
+
+
+nextButton.addEventListener(
+    "click",
+    ()=>{
+
+        nextGift();
+
+    }
+);
+
+
+/* =========================================================
+   OBJECT CLICK SUPPORT
+========================================================= */
+
+giftStage.addEventListener(
+    "click",
+    (event)=>{
+
+        if(
+            event.target.closest(
+                ".gift-object"
+            )
+        ){
+
+            revealGift();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   UNIVERSE BUTTON
+========================================================= */
+
+document
+    .getElementById("universeButton")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            /*
+             * Change this to the actual
+             * next page in your project.
+             */
+
+            window.location.href =
+                "universe.html";
+
+        }
+    );
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadGift(0);
+
+
+/* =========================================================
+   PREVENT ACCIDENTAL CONTEXT MENU
+========================================================= */
+
+document.addEventListener(
+    "contextmenu",
+    event=>{
+        event.preventDefault();
+    }
+);
+
+
+/* =========================================================
+   PREVENT DOUBLE-TAP ZOOM
+========================================================= */
+
+let lastTouchEnd=0;
+
+document.addEventListener(
+    "touchend",
+    event=>{
+
+        const now =
+            Date.now();
+
+        if(now-lastTouchEnd<=300){
+
+            event.preventDefault();
+
+        }
+
+        lastTouchEnd=now;
 
     },
-    {
-        once:true,
-        passive:true
-    }
-);
-
-
-/* =========================================================
-   PREVENT DOUBLE TAP ZOOM
-========================================================= */
-
-document.addEventListener(
-    "dblclick",
-    event=>{
-        event.preventDefault();
-    }
-);
-
-
-/* =========================================================
-   PREVENT GESTURE ZOOM
-========================================================= */
-
-document.addEventListener(
-    "gesturestart",
-    event=>{
-        event.preventDefault();
-    }
-);
-
-document.addEventListener(
-    "gesturechange",
-    event=>{
-        event.preventDefault();
-    }
-);
-
-document.addEventListener(
-    "gestureend",
-    event=>{
-        event.preventDefault();
-    }
+    false
 );
 
 </script>
