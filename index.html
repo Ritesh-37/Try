@@ -3,216 +3,2862 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12:37 AM ❤️</title>
+
+<title>For My Baby ❤️</title>
+
 <style>
-:root{
-  --deepest:#260611;--deep:#3b0718;--wine:#570b24;--rich:#790f31;--red:#a72249;--rose:#d94f70;
-  --soft:#f3a6ba;--cream:#fff3f6;--gold:#c9a96e;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden}
-body{font-family:Georgia,"Times New Roman",serif;background:var(--deepest);color:var(--cream);cursor:pointer}
-button{font:inherit}
-.screen{position:fixed;inset:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
 
-/* PAGE 3-CONTINUITY BACKGROUND */
-#scene{
-  background:
-    radial-gradient(circle at 50% 42%,rgba(167,34,73,.42),transparent 34%),
-    radial-gradient(circle at 14% 82%,rgba(121,15,49,.72),transparent 38%),
-    radial-gradient(circle at 88% 16%,rgba(167,34,73,.32),transparent 34%),
-    linear-gradient(135deg,#260611 0%,#570b24 42%,#3b0718 72%,#19040b 100%);
+html,
+body{
+    width:100%;
+    height:100%;
 }
-#scene:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 18%,rgba(30,2,10,.32) 72%,rgba(15,1,5,.78) 100%);pointer-events:none;z-index:20}
-#scene:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(217,79,112,.11),transparent 28%),radial-gradient(circle at 75% 70%,rgba(121,15,49,.22),transparent 35%);animation:breathe 6s ease-in-out infinite alternate;pointer-events:none;z-index:2}
-@keyframes breathe{from{opacity:.55;transform:scale(.96)}to{opacity:1;transform:scale(1.06)}}
-.ambient{position:absolute;width:80vmin;height:80vmin;border-radius:50%;background:radial-gradient(circle,rgba(217,79,112,.23),rgba(121,15,49,.15),transparent 70%);filter:blur(45px);animation:ambient 6s ease-in-out infinite alternate;pointer-events:none;z-index:1}
-@keyframes ambient{from{transform:scale(.82);opacity:.5}to{transform:scale(1.14);opacity:.95}}
-.ring{position:absolute;left:50%;top:50%;width:76vmin;height:76vmin;transform:translate(-50%,-50%);border:1px solid rgba(217,79,112,.27);border-radius:50%;animation:spin 11s linear infinite;z-index:3;pointer-events:none}
-.ring:before{content:"";position:absolute;inset:8%;border:1px solid rgba(167,34,73,.36);border-radius:50%;animation:reverseSpin 7s linear infinite}
-.ring:after{content:"";position:absolute;inset:20%;border:1px dashed rgba(243,166,186,.16);border-radius:50%;animation:spin 5s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes reverseSpin{from{transform:rotate(360deg)}to{transform:rotate(0)}}
-.particles{position:absolute;inset:0;z-index:5;pointer-events:none}
-.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--rose);box-shadow:0 0 14px rgba(217,79,112,.65);opacity:0;animation:float 10s linear infinite}
-.particle:nth-child(1){left:8%;bottom:-5%;animation-duration:11s}.particle:nth-child(2){left:26%;bottom:-5%;animation-delay:2s;animation-duration:13s}.particle:nth-child(3){left:48%;bottom:-5%;animation-delay:1s;animation-duration:9s}.particle:nth-child(4){left:70%;bottom:-5%;animation-delay:3s;animation-duration:12s}.particle:nth-child(5){left:91%;bottom:-5%;animation-delay:1s;animation-duration:10s}
-@keyframes float{0%{transform:translateY(0) scale(.3);opacity:0}20%{opacity:.55}70%{opacity:.2}100%{transform:translateY(-110vh) translateX(30px) scale(1);opacity:0}}
 
-/* WAKE */
-#wake{z-index:100;transition:opacity 1.4s ease,visibility 1.4s ease}
-#wake.blur{opacity:0;visibility:hidden;pointer-events:none}
-.blur{position:absolute;inset:-30px;background:radial-gradient(circle at center,rgba(80,8,30,.48),rgba(38,6,17,.94));backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);transition:opacity 3.6s ease;z-index:10}
-.blur.clear{opacity:0}
-.wake-copy{position:relative;z-index:30;text-align:center;width:min(90%,700px);padding:30px}
-.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--soft);opacity:.62;margin-bottom:20px}
-.dialogue{min-height:130px;display:flex;align-items:center;justify-content:center}
-.dialogue h1{font-size:clamp(30px,7vw,58px);line-height:1.18;font-weight:500;text-shadow:0 5px 30px rgba(0,0,0,.38);opacity:0;filter:blur(9px);transform:translateY(20px) scale(.97);transition:all 1.4s cubic-bezier(.2,.8,.2,1)}
-.dialogue h1.show{opacity:1;filter:blur(0);transform:none}
+body{
+    overflow:hidden;
+    font-family:"DM Sans","Segoe UI",Arial,sans-serif;
+    color:#7d1834;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fffafa 0%,
+            #fff1f4 35%,
+            #ffe3e8 70%,
+            #ffd0d9 100%
+        );
+}
 
-/* PHONE NOTIFICATION */
-#notification{z-index:200;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity 1s ease,transform 1s ease,visibility 1s ease}
-#notification.active{opacity:1;visibility:visible;transform:scale(1)}
-.phone{position:relative;width:min(330px,82vw);height:min(700px,86vh);padding:9px;border-radius:43px;background:linear-gradient(145deg,#393939,#080808 55%,#1d1d1d);box-shadow:0 45px 100px rgba(0,0,0,.58),0 15px 40px rgba(217,79,112,.2);transform:translateY(38px) scale(.92);opacity:0;transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1);z-index:3}
-#notification.active .phone{opacity:1;transform:none}
-.phone:before{content:"";position:absolute;inset:3px;border:1px solid rgba(255,255,255,.16);border-radius:41px;pointer-events:none;z-index:5}
-.phone-screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:35px;background:radial-gradient(circle at 50% 25%,rgba(167,34,73,.5),transparent 30%),linear-gradient(145deg,#5d0c28,#210610 70%,#100308)}
-.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:92px;height:27px;border-radius:30px;background:#050505;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);z-index:10}
-.status{position:absolute;top:15px;left:22px;right:22px;display:flex;justify-content:space-between;font:600 10px Arial,sans-serif;color:white;z-index:8;opacity:.92}
-.lock-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:112px;text-align:center;color:white}
-.lock-time{font:300 clamp(44px,13vw,68px)/1 Arial,sans-serif;letter-spacing:-3px}
-.lock-date{font:500 13px Arial,sans-serif;margin-top:5px;opacity:.88}
-.notification-card{position:absolute;left:16px;right:16px;top:45%;padding:15px 16px;border-radius:22px;background:rgba(35,18,25,.7);border:1px solid rgba(255,255,255,.12);box-shadow:0 15px 35px rgba(0,0,0,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);text-align:left;transform:translateY(20px);opacity:0;transition:opacity .8s ease,transform .8s ease}
-.notification-card.show{opacity:1;transform:none}
-.not-head{display:flex;gap:10px;align-items:center;font:600 12px Arial,sans-serif}.not-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#e45a7b,#78102f);font-size:15px}.not-title{font-size:13px}.not-time{margin-left:auto;font-size:10px;opacity:.55}.not-body{font:400 12px/1.45 Arial,sans-serif;margin-top:9px;color:#fff;opacity:.94}.phone-hint{position:absolute;bottom:34px;width:100%;text-align:center;font:600 9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;opacity:.52;animation:pulse 2s ease-in-out infinite}.ringing{animation:ringPhone .18s linear 0s 3}.ringing2{animation:ringPhone .18s linear 0s 3}
-@keyframes ringPhone{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
-@keyframes pulse{50%{opacity:.85}}
 
-/* CHAT */
-#chat{z-index:300;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s ease}
-#chat.active{opacity:1;visibility:visible}
-.chat-phone{height:min(700px,86vh)}
-.chat-wallpaper{position:absolute;inset:0;background:radial-gradient(circle at 25% 20%,rgba(217,79,112,.18),transparent 26%),radial-gradient(circle at 80% 75%,rgba(167,34,73,.18),transparent 30%),linear-gradient(145deg,#250813,#100308 70%)}
-.chat-header{position:absolute;top:0;left:0;right:0;height:76px;padding:33px 18px 8px;background:rgba(20,5,12,.68);backdrop-filter:blur(18px);z-index:4;display:flex;align-items:flex-end;gap:9px;font-family:Arial,sans-serif;color:#fff}.back{font-size:24px;line-height:1;opacity:.9}.avatar{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#e65c7e,#72102d);font-size:13px}.chat-name{font-size:12px;font-weight:700}.online{font-size:8px;color:#9ee6b0;margin-left:3px;font-weight:500}.chat-body{position:absolute;inset:76px 0 62px;padding:18px 14px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}.typing{align-self:flex-start;display:none;padding:9px 13px;border-radius:18px 18px 18px 5px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.08);font:11px Arial,sans-serif;color:#eee}.typing.show{display:block}.dots span{display:inline-block;animation:dot 1.1s infinite}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-3px);opacity:1}}
-.msg{max-width:82%;padding:11px 14px;border-radius:18px;font:12px/1.4 Arial,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;transform:translateY(10px) scale(.98);animation:msgIn .55s ease forwards}.msg.rites{align-self:flex-start;background:#f1edf0;color:#2b1b22;border-bottom-left-radius:5px}.msg.tisha{align-self:flex-end;background:linear-gradient(135deg,#a72249,#7b1231);color:#fff;border-bottom-right-radius:5px}@keyframes msgIn{to{opacity:1;transform:none}}
-.chat-input{position:absolute;bottom:0;left:0;right:0;height:62px;background:rgba(20,5,12,.8);display:flex;align-items:center;padding:9px 13px;z-index:4}.fake-input{flex:1;height:40px;border-radius:20px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.08);display:flex;align-items:center;padding:0 14px;color:rgba(255,255,255,.38);font:11px Arial,sans-serif}.send{width:40px;height:40px;margin-left:8px;border:0;border-radius:50%;background:linear-gradient(135deg,#d94f70,#8c1537);color:white;font-size:17px;box-shadow:0 7px 18px rgba(217,79,112,.22)}
-.chat-tap{position:absolute;bottom:76px;left:0;right:0;text-align:center;font:600 9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#f3a6ba;opacity:.58;animation:pulse 2s ease-in-out infinite}
+/* =========================================================
+   PAGE 3 BACKGROUND — SAME VISUAL LANGUAGE
+========================================================= */
 
-/* QUIZ HANDOFF */
-#quiz{z-index:500;opacity:0;visibility:hidden;transform:scale(1.03);transition:opacity 1.2s ease,transform 1.2s ease,visibility 1.2s ease}
-#quiz.active{opacity:1;visibility:visible;transform:none}
-.quiz-card{text-align:center;width:min(90%,620px);padding:30px}.quiz-card .eyebrow{margin-bottom:18px}.quiz-card h2{font-size:clamp(34px,8vw,58px);font-weight:500;line-height:1.05}.quiz-card h2 span{display:block;color:var(--rose);font-style:italic}.quiz-card p{margin:18px auto 0;max-width:480px;color:#efc9d3;font:13px/1.7 Arial,sans-serif;opacity:.8}.quiz-start{margin-top:28px;display:inline-flex;padding:13px 22px;border:1px solid rgba(217,79,112,.55);border-radius:30px;background:rgba(167,34,73,.18);color:#fff;font:600 10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
-.fade-out{animation:fadeOut .75s ease forwards}@keyframes fadeOut{to{opacity:0;transform:scale(.985)}}
-@media(max-width:420px){.phone{width:min(320px,84vw)}.chat-body{padding-left:11px;padding-right:11px}.msg{font-size:11.5px}}
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fffafa 0%,
+            #fff1f4 35%,
+            #ffe3e8 70%,
+            #ffd0d9 100%
+        );
+}
+
+.background-glow{
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(255,90,130,.16);
+
+    filter:blur(110px);
+
+    border-radius:50%;
+
+    animation:
+        glowBreath 7s ease-in-out infinite alternate;
+}
+
+@keyframes glowBreath{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            scale(.9);
+
+        opacity:.65;
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+
+        opacity:1;
+    }
+}
+
+.background::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            rgba(180,40,70,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:28px 28px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-hearts{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.floating-hearts span{
+    position:absolute;
+
+    font-size:20px;
+
+    opacity:.20;
+
+    animation:
+        floatHeart 5s ease-in-out infinite;
+}
+
+.floating-hearts span:nth-child(1){
+    left:8%;
+    top:25%;
+}
+
+.floating-hearts span:nth-child(2){
+    left:20%;
+    top:70%;
+    animation-delay:.7s;
+}
+
+.floating-hearts span:nth-child(3){
+    left:38%;
+    top:15%;
+    animation-delay:1.2s;
+}
+
+.floating-hearts span:nth-child(4){
+    left:65%;
+    top:75%;
+    animation-delay:1.8s;
+}
+
+.floating-hearts span:nth-child(5){
+    left:80%;
+    top:20%;
+    animation-delay:.4s;
+}
+
+.floating-hearts span:nth-child(6){
+    left:90%;
+    top:60%;
+    animation-delay:2s;
+}
+
+@keyframes floatHeart{
+
+    0%,
+    100%{
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(8deg);
+    }
+}
+
+
+/* =========================================================
+   CINEMATIC DIZZY LAYER
+========================================================= */
+
+.dizzy-layer{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.75;
+
+    transition:
+        opacity 2.5s ease,
+        transform 3s ease;
+}
+
+.dizzy-layer.calm{
+    opacity:0;
+    transform:scale(1.12);
+}
+
+.dizzy-ring{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:75vmin;
+    height:75vmin;
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        1px solid
+        rgba(180,40,70,.16);
+
+    border-radius:50%;
+
+    animation:
+        dizzySpin 12s linear infinite;
+}
+
+.dizzy-ring::before{
+    content:"";
+
+    position:absolute;
+    inset:8%;
+
+    border:
+        1px solid
+        rgba(180,40,70,.13);
+
+    border-radius:50%;
+}
+
+.dizzy-ring::after{
+    content:"";
+
+    position:absolute;
+    inset:20%;
+
+    border:
+        1px dashed
+        rgba(180,40,70,.11);
+
+    border-radius:50%;
+}
+
+@keyframes dizzySpin{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   WAKE-UP VISUAL BLUR
+========================================================= */
+
+.wake-blur{
+    position:absolute;
+    inset:-40px;
+
+    background:
+        rgba(255,245,248,.38);
+
+    backdrop-filter:
+        blur(28px);
+
+    -webkit-backdrop-filter:
+        blur(28px);
+
+    z-index:5;
+
+    opacity:1;
+
+    transition:
+        opacity 3.5s ease;
+}
+
+.wake-blur.clear{
+    opacity:0;
+}
+
+
+/* =========================================================
+   DIALOGUE
+========================================================= */
+
+.dialogue-layer{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    z-index:20;
+
+    pointer-events:none;
+}
+
+.dialogue{
+    position:absolute;
+
+    width:min(90%,700px);
+
+    padding:20px;
+
+    opacity:0;
+
+    filter:blur(10px);
+
+    transform:
+        translateY(20px)
+        scale(.97);
+
+    transition:
+        opacity 1.1s ease,
+        filter 1.1s ease,
+        transform 1.1s ease;
+}
+
+.dialogue.show{
+    opacity:1;
+
+    filter:blur(0);
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.dialogue.hide{
+    opacity:0;
+
+    filter:blur(7px);
+
+    transform:
+        translateY(-15px)
+        scale(.98);
+}
+
+.dialogue h1{
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-weight:600;
+
+    font-size:
+        clamp(34px,7vw,64px);
+
+    line-height:1.08;
+
+    color:#7d1834;
+
+    text-shadow:
+        0 8px 25px
+        rgba(125,24,52,.12);
+}
+
+.dialogue .emoji{
+    display:inline-block;
+
+    margin-left:5px;
+
+    animation:
+        emojiFloat 1.8s ease-in-out infinite;
+}
+
+@keyframes emojiFloat{
+
+    0%,
+    100%{
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50%{
+        transform:
+            translateY(-6px)
+            rotate(5deg);
+    }
+}
+
+
+/* =========================================================
+   IPHONE STAGE
+========================================================= */
+
+.phone-stage{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:100;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.phone-stage.visible{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =========================================================
+   IPHONE
+========================================================= */
+
+.iphone{
+    position:relative;
+
+    width:min(330px,82vw);
+    height:min(680px,84vh);
+
+    padding:9px;
+
+    border-radius:46px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4e4e4,
+            #767676 20%,
+            #161616 52%,
+            #555 82%,
+            #d0d0d0
+        );
+
+    box-shadow:
+        0 35px 80px
+        rgba(90,10,30,.28),
+
+        0 12px 30px
+        rgba(90,10,30,.16);
+
+    transform:
+        translateY(60px)
+        scale(.88);
+
+    opacity:0;
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        opacity 1s ease;
+}
+
+.phone-stage.visible .iphone{
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity:1;
+}
+
+.iphone::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:3px;
+
+    border-radius:43px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.65);
+
+    pointer-events:none;
+
+    z-index:50;
+}
+
+.iphone::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:48px;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(0,0,0,.4);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   PHONE SCREEN
+========================================================= */
+
+.phone-screen{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    border-radius:38px;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,120,150,.30),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #7d1834,
+            #421020 55%,
+            #1e0810
+        );
+
+    color:white;
+}
+
+
+/* =========================================================
+   DYNAMIC ISLAND
+========================================================= */
+
+.dynamic-island{
+
+    position:absolute;
+
+    top:12px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:94px;
+    height:28px;
+
+    border-radius:30px;
+
+    background:#050505;
+
+    z-index:30;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.04);
+}
+
+
+/* =========================================================
+   STATUS BAR
+========================================================= */
+
+.status-bar{
+
+    position:absolute;
+
+    top:16px;
+    left:22px;
+    right:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:white;
+
+    font:
+        600 10px
+        Arial,sans-serif;
+
+    z-index:31;
+}
+
+
+/* =========================================================
+   LOCK SCREEN
+========================================================= */
+
+.lock-screen{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding-top:105px;
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease;
+}
+
+.lock-screen.opened{
+
+    opacity:0;
+
+    transform:
+        scale(1.05);
+
+    pointer-events:none;
+}
+
+.lock-time{
+
+    font:
+        300
+        clamp(48px,13vw,70px)
+        Arial,sans-serif;
+
+    letter-spacing:-3px;
+}
+
+.lock-date{
+
+    margin-top:4px;
+
+    font:
+        500 13px
+        Arial,sans-serif;
+
+    opacity:.85;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.notification{
+
+    position:absolute;
+
+    left:15px;
+    right:15px;
+
+    top:44%;
+
+    padding:15px;
+
+    border-radius:22px;
+
+    background:
+        rgba(40,20,27,.72);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.28);
+
+    opacity:0;
+
+    transform:
+        translateY(25px)
+        scale(.97);
+
+    transition:
+        opacity .75s ease,
+        transform .75s ease;
+
+    cursor:pointer;
+}
+
+.notification.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.notification-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font:
+        600 12px
+        Arial,sans-serif;
+}
+
+.notification-avatar{
+
+    width:34px;
+    height:34px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e45a7b,
+            #78102f
+        );
+
+    font-size:15px;
+}
+
+.notification-name{
+
+    font-size:13px;
+}
+
+.notification-time{
+
+    margin-left:auto;
+
+    font-size:10px;
+
+    opacity:.5;
+}
+
+.notification-body{
+
+    margin-top:9px;
+
+    font:
+        400 13px/1.4
+        Arial,sans-serif;
+
+    color:white;
+}
+
+.notification-hint{
+
+    position:absolute;
+
+    bottom:32px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font:
+        600 9px
+        Arial,sans-serif;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:white;
+
+    opacity:.55;
+
+    animation:
+        hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse{
+
+    50%{
+        opacity:.9;
+    }
+}
+
+
+/* =========================================================
+   PHONE RING
+========================================================= */
+
+.phone-ring{
+
+    animation:
+        phoneShake .18s ease-in-out 0s 3;
+}
+
+@keyframes phoneShake{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-3px);
+    }
+
+    50%{
+        transform:translateX(3px);
+    }
+
+    75%{
+        transform:translateX(-2px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+
+/* =========================================================
+   CHAT SCREEN
+========================================================= */
+
+.chat-screen{
+
+    position:absolute;
+    inset:0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translateX(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        visibility .7s;
+}
+
+.chat-screen.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translateX(0);
+}
+
+
+/* =========================================================
+   CHAT BACKGROUND
+========================================================= */
+
+.chat-background{
+
+    position:absolute;
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255,100,140,.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(255,100,140,.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #461020,
+            #210811 70%,
+            #100308
+        );
+}
+
+
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+.chat-header{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:76px;
+
+    padding:
+        34px
+        17px
+        8px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:9px;
+
+    background:
+        rgba(25,6,13,.72);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index:10;
+}
+
+.chat-back{
+
+    font-size:25px;
+
+    line-height:1;
+
+    opacity:.9;
+}
+
+.chat-avatar{
+
+    width:30px;
+    height:30px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e45a7b,
+            #78102f
+        );
+
+    font-size:13px;
+}
+
+.chat-name{
+
+    color:white;
+
+    font:
+        700 12px
+        Arial,sans-serif;
+}
+
+.chat-online{
+
+    color:#9ee6b0;
+
+    font:
+        500 8px
+        Arial,sans-serif;
+}
+
+
+/* =========================================================
+   CHAT BODY
+========================================================= */
+
+.chat-body{
+
+    position:absolute;
+
+    top:76px;
+    bottom:65px;
+
+    left:0;
+    right:0;
+
+    padding:
+        20px
+        14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message{
+
+    align-self:flex-start;
+
+    max-width:84%;
+
+    padding:
+        11px
+        14px;
+
+    border-radius:
+        18px
+        18px
+        18px
+        5px;
+
+    background:
+        #f3eef1;
+
+    color:#2c1b22;
+
+    font:
+        400 12px/1.45
+        Arial,sans-serif;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0,0,0,.16);
+
+    animation:
+        messageAppear .55s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes messageAppear{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(12px)
+            scale(.96);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TYPING INDICATOR
+========================================================= */
+
+.typing{
+
+    align-self:flex-start;
+
+    display:none;
+
+    padding:
+        9px
+        13px;
+
+    border-radius:
+        18px
+        18px
+        18px
+        5px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font:
+        11px
+        Arial,sans-serif;
+}
+
+.typing.show{
+    display:block;
+}
+
+.typing-dots span{
+
+    display:inline-block;
+
+    animation:
+        typingDot 1.1s infinite;
+}
+
+.typing-dots span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing-dots span:nth-child(3){
+    animation-delay:.30s;
+}
+
+@keyframes typingDot{
+
+    0%,
+    60%,
+    100%{
+        transform:translateY(0);
+        opacity:.4;
+    }
+
+    30%{
+        transform:translateY(-3px);
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   CHAT INPUT
+========================================================= */
+
+.chat-input{
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    height:65px;
+
+    padding:
+        10px
+        13px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+        rgba(20,5,12,.82);
+
+    z-index:10;
+}
+
+.fake-input{
+
+    flex:1;
+
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:
+        rgba(255,255,255,.4);
+
+    font:
+        11px
+        Arial,sans-serif;
+}
+
+.send-button{
+
+    width:40px;
+    height:40px;
+
+    margin-left:8px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d94f70,
+            #8c1537
+        );
+
+    color:white;
+
+    font-size:17px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(217,79,112,.25);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.send-button:active{
+    transform:scale(.88);
+}
+
+.send-button:disabled{
+    opacity:.45;
+}
+
+
+/* =========================================================
+   CHAT TAP HINT
+========================================================= */
+
+.chat-hint{
+
+    position:absolute;
+
+    bottom:76px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    font:
+        600 9px
+        Arial,sans-serif;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#f3a6ba;
+
+    opacity:.65;
+
+    animation:
+        hintPulse 2s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   QUIZ HANDOFF
+========================================================= */
+
+.quiz-transition{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:500;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #fff5f7,
+            #ffdce4 65%,
+            #f7bccb
+        );
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:scale(1.04);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        visibility 1.2s;
+}
+
+.quiz-transition.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:scale(1);
+}
+
+.quiz-content{
+
+    width:min(90%,650px);
+
+    padding:30px;
+}
+
+.quiz-eyebrow{
+
+    font:
+        700 10px
+        Arial,sans-serif;
+
+    letter-spacing:4px;
+
+    color:#8b2945;
+
+    margin-bottom:18px;
+
+    opacity:.7;
+}
+
+.quiz-content h2{
+
+    font:
+        500
+        clamp(48px,9vw,76px)
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    line-height:.9;
+
+    color:#7d1834;
+}
+
+.quiz-content h2 span{
+
+    display:block;
+
+    color:#a92549;
+
+    font-style:italic;
+}
+
+.quiz-content p{
+
+    margin:
+        20px auto
+        0;
+
+    max-width:470px;
+
+    color:#633040;
+
+    font:
+        400 13px/1.7
+        Arial,sans-serif;
+
+    opacity:.8;
+}
+
+.quiz-ready{
+
+    margin-top:25px;
+
+    display:inline-block;
+
+    padding:
+        12px
+        20px;
+
+    border:
+        1px solid
+        rgba(125,24,52,.25);
+
+    border-radius:30px;
+
+    color:#7d1834;
+
+    font:
+        700 10px
+        Arial,sans-serif;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:420px){
+
+    .iphone{
+        width:min(320px,84vw);
+        height:min(670px,86vh);
+    }
+
+    .dialogue h1{
+        font-size:
+            clamp(31px,8vw,48px);
+    }
+
+    .notification{
+        left:13px;
+        right:13px;
+    }
+
+    .message{
+        font-size:11.5px;
+    }
+}
+
 </style>
 </head>
+
+
 <body>
-<div id="scene" class="screen">
-  <div class="ambient"></div><div class="ring"></div>
-  <div class="particles"><i class="particle"></i><i class="particle"></i><i class="particle"></i><i class="particle"></i><i class="particle"></i></div>
 
-  <section id="wake" class="screen">
-    <div id="blur" class="blur"></div>
-    <div class="wake-copy">
-      <p class="eyebrow">SOMEWHERE BETWEEN A DREAM AND A MEMORY</p>
-      <div class="dialogue"><h1 id="line1">Oh God...<br>I'm still dizzy...</h1></div>
-      <div class="dialogue"><h1 id="line2">Riteshhh....<br>where are you?</h1></div>
-    </div>
-  </section>
 
-  <section id="notification" class="screen">
-    <div class="phone" id="notificationPhone">
-      <div class="phone-screen">
-        <div class="island"></div>
-        <div class="status"><span>12:37</span><span>▮▮▮ ◉</span></div>
-        <div class="lock-content"><div class="lock-time">12:37</div><div class="lock-date">Wednesday, September 3</div></div>
-        <div class="notification-card" id="notificationCard">
-          <div class="not-head"><div class="not-avatar">R</div><div><div class="not-title">Ritesh ❤️</div></div><div class="not-time">now</div></div>
-          <div class="not-body">So love finally you wake up... Since I remember everything about us... Is your memory sharp enough? Let's see... ❤️</div>
-        </div>
-        <div class="phone-hint">Tap to open</div>
-      </div>
-    </div>
-  </section>
+<!-- =======================================================
+     BACKGROUND
+======================================================= -->
 
-  <section id="chat" class="screen">
-    <div class="phone chat-phone">
-      <div class="phone-screen">
-        <div class="chat-wallpaper"></div>
-        <div class="island"></div>
-        <div class="chat-header"><div class="back">‹</div><div class="avatar">R</div><div><div class="chat-name">Ritesh ❤️ <span class="online">● online</span></div></div></div>
-        <div class="chat-body" id="chatBody"><div class="typing" id="typing">typing <span class="dots"><span>•</span><span>•</span><span>•</span></span></div></div>
-        <div class="chat-tap" id="chatTap">Tap to read</div>
-        <div class="chat-input"><div class="fake-input">Message</div><button class="send" aria-label="Next message">↑</button></div>
-      </div>
-    </div>
-  </section>
+<div class="background">
 
-  <section id="quiz" class="screen">
-    <div class="quiz-card">
-      <p class="eyebrow">THE MEMORY TEST</p>
-      <h2>Seven Wonders<br><span>of us.</span></h2>
-      <p>The last message brought you here. Now let's see just how sharp that birthday girl's memory really is...</p>
-      <div class="quiz-start">Quiz section ready →</div>
+    <div class="background-glow"></div>
+
+    <div class="floating-hearts">
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
     </div>
-  </section>
+
+    <div class="dizzy-layer" id="dizzyLayer">
+        <div class="dizzy-ring"></div>
+    </div>
+
+    <div class="wake-blur" id="wakeBlur"></div>
+
 </div>
 
+
+<!-- =======================================================
+     WAKE-UP DIALOGUES
+======================================================= -->
+
+<div class="dialogue-layer">
+
+    <div class="dialogue" id="dialogue1">
+
+        <h1>
+            Oh God.... I'm still dizzy...
+            <span class="emoji">😵‍💫</span>
+        </h1>
+
+    </div>
+
+
+    <div class="dialogue" id="dialogue2">
+
+        <h1>
+            Riteshhh... Babeeeee!!
+            <span class="emoji">🥺</span>
+        </h1>
+
+    </div>
+
+
+    <div class="dialogue" id="dialogue3">
+
+        <h1>
+            Babe.... Where are you?
+            <span class="emoji">🥺❤️</span>
+        </h1>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     IPHONE
+======================================================= -->
+
+<div class="phone-stage" id="phoneStage">
+
+    <div class="iphone" id="iphone">
+
+        <div class="phone-screen">
+
+
+            <!-- =================================================
+                 DYNAMIC ISLAND
+            ================================================== -->
+
+            <div class="dynamic-island"></div>
+
+
+            <!-- =================================================
+                 STATUS BAR
+            ================================================== -->
+
+            <div class="status-bar">
+
+                <span>12:37</span>
+
+                <span>
+                    ▮▮▮ ◉
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOCK SCREEN
+            ================================================== -->
+
+            <div class="lock-screen" id="lockScreen">
+
+                <div class="lock-time">
+                    12:37
+                </div>
+
+                <div class="lock-date">
+                    Wednesday, September 3
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTIFICATION
+            ================================================== -->
+
+            <div class="notification" id="notification">
+
+                <div class="notification-header">
+
+                    <div class="notification-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <div class="notification-name">
+                            Ritesh ❤️
+                        </div>
+
+                    </div>
+
+                    <div class="notification-time">
+                        now
+                    </div>
+
+                </div>
+
+
+                <div class="notification-body">
+                    Hi baby ❤️
+                </div>
+
+            </div>
+
+
+            <div class="notification-hint">
+                Tap notification
+            </div>
+
+
+            <!-- =================================================
+                 CHAT
+            ================================================== -->
+
+            <div class="chat-screen" id="chatScreen">
+
+                <div class="chat-background"></div>
+
+
+                <div class="chat-header">
+
+                    <div class="chat-back">
+                        ‹
+                    </div>
+
+                    <div class="chat-avatar">
+                        R
+                    </div>
+
+                    <div>
+
+                        <div class="chat-name">
+                            Ritesh ❤️
+                        </div>
+
+                        <div class="chat-online">
+                            ● online
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat-body" id="chatBody">
+
+                    <div
+                        class="typing"
+                        id="typing"
+                    >
+
+                        typing
+
+                        <span class="typing-dots">
+
+                            <span>•</span>
+                            <span>•</span>
+                            <span>•</span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="chat-hint"
+                    id="chatHint"
+                >
+                    Tap to read
+                </div>
+
+
+                <div class="chat-input">
+
+                    <div class="fake-input">
+                        Message
+                    </div>
+
+                    <button
+                        class="send-button"
+                        id="sendButton"
+                    >
+                        ↑
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     QUIZ HANDOFF
+======================================================= -->
+
+<div
+    class="quiz-transition"
+    id="quizTransition"
+>
+
+    <div class="quiz-content">
+
+        <div class="quiz-eyebrow">
+            THE MEMORY TEST
+        </div>
+
+        <h2>
+            Seven Wonders
+            <span>of us.</span>
+        </h2>
+
+        <p>
+            You remember him.
+            You remember everything.
+            Now let's see just how sharp that birthday girl's
+            memory really is...
+        </p>
+
+        <div class="quiz-ready">
+            Memory test →
+        </div>
+
+    </div>
+
+</div>
+
+
 <script>
+
 /* =========================================================
-   PAGE 4 AUDIO — same philosophy as Pages 1/2:
-   procedural, light, romantic, no external audio files.
+   PAGE 4 AUDIO ENGINE
+
+   STYLE:
+   Page 1 inspired:
+   - soft piano
+   - cute chimes
+   - warm romantic atmosphere
+   - subtle UI sounds
 ========================================================= */
-let ctx=null, master=null, music=null, sfx=null, musicTimer=null, musicStep=0, unlocked=false;
-function audioInit(){
-  if(ctx)return true;
-  const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
-  ctx=new AC();master=ctx.createGain();music=ctx.createGain();sfx=ctx.createGain();
-  master.gain.value=.72;music.gain.value=.14;sfx.gain.value=.48;
-  music.connect(master);sfx.connect(master);master.connect(ctx.destination);return true;
-}
-async function unlockAudio(){if(!audioInit())return false;try{if(ctx.state==='suspended')await ctx.resume();unlocked=true;return true}catch(e){return false}}
-function tone(f,d,type='sine',v=.05,dest=sfx,delay=0){if(!ctx)return;const t=ctx.currentTime+delay,o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(v,.0001),t+.018);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.03)}
-function clickSfx(){if(!unlocked)return;tone(880,.055,'sine',.055);tone(1320,.04,'sine',.022,sfx,.012)}
-function receiveSfx(){if(!unlocked)return;tone(740,.09,'sine',.075);tone(988,.16,'sine',.055,sfx,.075);tone(1318,.22,'sine',.035,sfx,.13)}
-function revealSfx(){if(!unlocked)return;tone(523,.25,'sine',.06);tone(659,.3,'sine',.05,sfx,.1);tone(784,.45,'sine',.04,sfx,.2)}
-function phoneRing(){if(!unlocked)return;tone(880,.16,'sine',.09);tone(1175,.18,'sine',.07,sfx,.12);tone(880,.16,'sine',.075,sfx,.34);tone(1175,.22,'sine',.055,sfx,.46)}
-function typeTick(){if(!unlocked)return;tone(820,.035,'sine',.018)}
-function startBgm(){
-  if(!unlocked||musicTimer)return;
-  const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
-  musicTimer=setInterval(()=>{const n=notes[musicStep++%notes.length];tone(n,.9,'sine',.018,music);tone(n*2,.45,'triangle',.007,music,.12)},900);
-}
-function stopBgm(){if(musicTimer){clearInterval(musicTimer);musicTimer=null}}
 
-/* First real tap unlocks audio AND starts BGM. */
-window.addEventListener('pointerdown',async()=>{if(!unlocked){await unlockAudio();startBgm()}},{once:true});
+let audioContext = null;
 
-const wake=document.getElementById('wake'),blur=document.getElementById('blur'),line1=document.getElementById('line1'),line2=document.getElementById('line2');
-const notification=document.getElementById('notification'),notificationPhone=document.getElementById('notificationPhone'),notificationCard=document.getElementById('notificationCard');
-const chat=document.getElementById('chat'),chatBody=document.getElementById('chatBody'),typing=document.getElementById('typing'),chatTap=document.getElementById('chatTap'),send=document.querySelector('.send'),quiz=document.getElementById('quiz');
-let chatIndex=0, transitioning=false;
+let masterGain = null;
+let musicGain = null;
+let effectGain = null;
 
-/* Cinematic wake-up: no interaction required. */
-setTimeout(()=>blur.classList.add('clear'),650);
-setTimeout(()=>line1.classList.add('show'),1700);
-setTimeout(()=>line1.classList.remove('show'),4200);
-setTimeout(()=>line2.classList.add('show'),4700);
-setTimeout(()=>line2.classList.remove('show'),7100);
-setTimeout(()=>{wake.classList.add('blur');notification.classList.add('active');setTimeout(()=>notificationCard.classList.add('show'),700);setTimeout(phoneRing,850)},7600);
+let musicInterval = null;
 
-notificationPhone.addEventListener('click',async()=>{
-  await unlockAudio();startBgm();clickSfx();notificationPhone.classList.remove('ringing');notification.classList.remove('active');
-  setTimeout(()=>{chat.classList.add('active');receiveSfx();chatTap.textContent='Tap to read'},550);
-});
+let audioUnlocked = false;
 
-const messages=[
-  'Riteshhhhhhhh....',
-  'Babyyyy... ❤️',
-  'Since I remember everything about us...',
-  'Let\'s see if you remember everything too... 😏'
-];
-function showNextMessage(){
-  if(transitioning)return;
-  clickSfx();chatTap.style.opacity='0';send.disabled=true;
-  typing.classList.add('show');
-  typeTick();setTimeout(typeTick,120);setTimeout(typeTick,250);
-  setTimeout(()=>{
-    typing.classList.remove('show');
-    const m=document.createElement('div');m.className='msg rites';m.textContent=messages[chatIndex];chatBody.insertBefore(m,typing);receiveSfx();chatIndex++;
-    if(chatIndex<messages.length){
-      send.disabled=false;chatTap.textContent='Tap to read';chatTap.style.opacity='';
-    }else{
-      chatTap.textContent='';
-      setTimeout(()=>goToQuiz(),1700);
+
+/* =========================================================
+   INITIALIZE AUDIO
+========================================================= */
+
+function initAudio(){
+
+    if(audioContext){
+        return true;
     }
-  },1250);
+
+    const AudioCtx =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if(!AudioCtx){
+        return false;
+    }
+
+    audioContext =
+        new AudioCtx();
+
+    masterGain =
+        audioContext.createGain();
+
+    musicGain =
+        audioContext.createGain();
+
+    effectGain =
+        audioContext.createGain();
+
+
+    masterGain.gain.value =
+        0.72;
+
+    musicGain.gain.value =
+        0.18;
+
+    effectGain.gain.value =
+        0.45;
+
+
+    musicGain.connect(masterGain);
+
+    effectGain.connect(masterGain);
+
+    masterGain.connect(
+        audioContext.destination
+    );
+
+    return true;
 }
+
+
+/* =========================================================
+   UNLOCK AUDIO
+========================================================= */
+
+async function unlockAudio(){
+
+    if(!initAudio()){
+        return false;
+    }
+
+    try{
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            await audioContext.resume();
+
+        }
+
+        audioUnlocked = true;
+
+        return true;
+
+    }catch(error){
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   OSCILLATOR
+========================================================= */
+
+function playTone(
+    frequency,
+    duration,
+    type="sine",
+    volume=.04,
+    destination=effectGain,
+    delay=0
+){
+
+    if(!audioContext){
+        return;
+    }
+
+    const now =
+        audioContext.currentTime +
+        delay;
+
+    const oscillator =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+
+    oscillator.type =
+        type;
+
+    oscillator.frequency.setValueAtTime(
+        frequency,
+        now
+    );
+
+
+    gain.gain.setValueAtTime(
+        .0001,
+        now
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        Math.max(volume,.0001),
+        now + .025
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .0001,
+        now + duration
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(destination);
+
+
+    oscillator.start(now);
+
+    oscillator.stop(
+        now +
+        duration +
+        .04
+    );
+
+}
+
+
+/* =========================================================
+   SOFT PAGE 1 STYLE CLICK
+========================================================= */
+
+function uiClick(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        880,
+        .06,
+        "sine",
+        .045
+    );
+
+    playTone(
+        1320,
+        .045,
+        "sine",
+        .018,
+        effectGain,
+        .018
+    );
+
+}
+
+
+/* =========================================================
+   MESSAGE RECEIVED
+========================================================= */
+
+function messageReceived(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        784,
+        .10,
+        "sine",
+        .055
+    );
+
+    playTone(
+        988,
+        .16,
+        "sine",
+        .045,
+        effectGain,
+        .075
+    );
+
+    playTone(
+        1318,
+        .22,
+        "sine",
+        .025,
+        effectGain,
+        .14
+    );
+
+}
+
+
+/* =========================================================
+   PHONE NOTIFICATION
+========================================================= */
+
+function notificationSound(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        659,
+        .14,
+        "sine",
+        .065
+    );
+
+    playTone(
+        988,
+        .20,
+        "sine",
+        .05,
+        effectGain,
+        .10
+    );
+
+}
+
+
+/* =========================================================
+   PHONE VIBRATION SOUND
+========================================================= */
+
+function phoneVibration(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        90,
+        .10,
+        "sine",
+        .055
+    );
+
+}
+
+
+/* =========================================================
+   TYPING SOUND
+========================================================= */
+
+function typingTick(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        760,
+        .035,
+        "sine",
+        .012
+    );
+
+}
+
+
+/* =========================================================
+   SOFT WHOOSH
+========================================================= */
+
+function transitionSound(){
+
+    if(!audioUnlocked){
+        return;
+    }
+
+    playTone(
+        392,
+        .35,
+        "sine",
+        .035
+    );
+
+    playTone(
+        523,
+        .40,
+        "sine",
+        .025,
+        effectGain,
+        .10
+    );
+
+    playTone(
+        659,
+        .50,
+        "sine",
+        .02,
+        effectGain,
+        .20
+    );
+
+}
+
+
+/* =========================================================
+   PAGE 1 INSPIRED ROMANTIC BGM
+========================================================= */
+
+function startRomanticBGM(){
+
+    if(
+        !audioUnlocked ||
+        musicInterval
+    ){
+        return;
+    }
+
+
+    /*
+       Gentle repeating progression.
+
+       C major
+       A minor
+       F major
+       G major
+
+       Very soft and dreamy.
+    */
+
+    const progression = [
+
+        [261.63,329.63,392.00],
+
+        [220.00,261.63,329.63],
+
+        [174.61,220.00,261.63],
+
+        [196.00,246.94,293.66]
+
+    ];
+
+
+    let chordIndex = 0;
+
+
+    function playChord(){
+
+        const chord =
+            progression[
+                chordIndex %
+                progression.length
+            ];
+
+        chordIndex++;
+
+
+        chord.forEach(
+            (note,index)=>{
+
+                playTone(
+                    note,
+                    2.8,
+                    "sine",
+                    .010,
+                    musicGain,
+                    index*.06
+                );
+
+                playTone(
+                    note*2,
+                    1.8,
+                    "triangle",
+                    .004,
+                    musicGain,
+                    .12
+                );
+
+            }
+        );
+
+
+        /*
+           Small magical bell.
+        */
+
+        const melody = [
+            659.25,
+            783.99,
+            880.00,
+            783.99
+        ];
+
+        playTone(
+            melody[
+                chordIndex %
+                melody.length
+            ],
+            .75,
+            "sine",
+            .009,
+            musicGain,
+            .42
+        );
+
+    }
+
+
+    playChord();
+
+    musicInterval =
+        setInterval(
+            playChord,
+            2800
+        );
+
+}
+
+
+/* =========================================================
+   STOP BGM
+========================================================= */
+
+function stopRomanticBGM(){
+
+    if(musicInterval){
+
+        clearInterval(
+            musicInterval
+        );
+
+        musicInterval = null;
+
+    }
+
+}
+
+
+/* =========================================================
+   FIRST USER INTERACTION
+
+   Browser audio unlock.
+========================================================= */
+
+window.addEventListener(
+    "pointerdown",
+    async function(){
+
+        if(!audioUnlocked){
+
+            await unlockAudio();
+
+            startRomanticBGM();
+
+        }
+
+    },
+    {once:true}
+);
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const wakeBlur =
+    document.getElementById(
+        "wakeBlur"
+    );
+
+const dizzyLayer =
+    document.getElementById(
+        "dizzyLayer"
+    );
+
+const dialogue1 =
+    document.getElementById(
+        "dialogue1"
+    );
+
+const dialogue2 =
+    document.getElementById(
+        "dialogue2"
+    );
+
+const dialogue3 =
+    document.getElementById(
+        "dialogue3"
+    );
+
+const phoneStage =
+    document.getElementById(
+        "phoneStage"
+    );
+
+const iphone =
+    document.getElementById(
+        "iphone"
+    );
+
+const notification =
+    document.getElementById(
+        "notification"
+    );
+
+const lockScreen =
+    document.getElementById(
+        "lockScreen"
+    );
+
+const chatScreen =
+    document.getElementById(
+        "chatScreen"
+    );
+
+const chatBody =
+    document.getElementById(
+        "chatBody"
+    );
+
+const typing =
+    document.getElementById(
+        "typing"
+    );
+
+const sendButton =
+    document.getElementById(
+        "sendButton"
+    );
+
+const chatHint =
+    document.getElementById(
+        "chatHint"
+    );
+
+const quizTransition =
+    document.getElementById(
+        "quizTransition"
+    );
+
+
+/* =========================================================
+   WAKE-UP SEQUENCE
+========================================================= */
+
+/*
+   The blur slowly clears.
+*/
+
+setTimeout(
+    ()=>{
+        wakeBlur.classList.add(
+            "clear"
+        );
+
+        dizzyLayer.classList.add(
+            "calm"
+        );
+
+    },
+    900
+);
+
+
+/*
+   Dialogue 1
+*/
+
+setTimeout(
+    ()=>{
+        dialogue1.classList.add(
+            "show"
+        );
+    },
+    1900
+);
+
+
+/*
+   Dialogue 1 out
+*/
+
+setTimeout(
+    ()=>{
+        dialogue1.classList.remove(
+            "show"
+        );
+
+        dialogue1.classList.add(
+            "hide"
+        );
+    },
+    4500
+);
+
+
+/*
+   Dialogue 2
+*/
+
+setTimeout(
+    ()=>{
+        dialogue2.classList.add(
+            "show"
+        );
+    },
+    5000
+);
+
+
+/*
+   Dialogue 2 out
+*/
+
+setTimeout(
+    ()=>{
+        dialogue2.classList.remove(
+            "show"
+        );
+
+        dialogue2.classList.add(
+            "hide"
+        );
+    },
+    7100
+);
+
+
+/*
+   Dialogue 3
+*/
+
+setTimeout(
+    ()=>{
+        dialogue3.classList.add(
+            "show"
+        );
+    },
+    7550
+);
+
+
+/*
+   Dialogue 3 out
+*/
+
+setTimeout(
+    ()=>{
+        dialogue3.classList.remove(
+            "show"
+        );
+
+        dialogue3.classList.add(
+            "hide"
+        );
+    },
+    10100
+);
+
+
+/* =========================================================
+   PHONE ARRIVAL
+========================================================= */
+
+setTimeout(
+    ()=>{
+        phoneStage.classList.add(
+            "visible"
+        );
+
+        setTimeout(
+            ()=>{
+                iphone.classList.add(
+                    "phone-ring"
+                );
+
+                phoneVibration();
+
+            },
+            900
+        );
+
+
+        setTimeout(
+            ()=>{
+                notification.classList.add(
+                    "show"
+                );
+
+                notificationSound();
+
+            },
+            1500
+        );
+
+    },
+    10500
+);
+
+
+/* =========================================================
+   NOTIFICATION CLICK
+========================================================= */
+
+notification.addEventListener(
+    "click",
+    async function(event){
+
+        event.stopPropagation();
+
+        await unlockAudio();
+
+        startRomanticBGM();
+
+        uiClick();
+
+
+        notification.classList.remove(
+            "show"
+        );
+
+        lockScreen.classList.add(
+            "opened"
+        );
+
+
+        setTimeout(
+            ()=>{
+                chatScreen.classList.add(
+                    "active"
+                );
+
+                chatHint.textContent =
+                    "Tap to read";
+
+                messageReceived();
+
+            },
+            450
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CHAT MESSAGES
+========================================================= */
+
+const messages = [
+
+    "Riteshhhhhhhh....",
+
+    "Babyyyyyyyy ❤️",
+
+    "Finally you're awake... 😏",
+
+    "I was waiting for you. ❤️",
+
+    "Since I remember everything about us...",
+
+    "Let's see if you remember everything too... 😏"
+
+];
+
+
+let messageIndex = 0;
+
+let messageBusy = false;
+
+let quizReady = false;
+
+
+/* =========================================================
+   SHOW NEXT MESSAGE
+========================================================= */
+
+function showNextMessage(){
+
+    if(messageBusy){
+        return;
+    }
+
+    if(messageIndex >= messages.length){
+        return;
+    }
+
+
+    messageBusy = true;
+
+    sendButton.disabled = true;
+
+    chatHint.style.opacity = "0";
+
+
+    uiClick();
+
+
+    /*
+       Typing starts.
+    */
+
+    typing.classList.add(
+        "show"
+    );
+
+
+    /*
+       Tiny typing sounds.
+    */
+
+    typingTick();
+
+    setTimeout(
+        typingTick,
+        130
+    );
+
+    setTimeout(
+        typingTick,
+        270
+    );
+
+
+    /*
+       Message appears.
+    */
+
+    setTimeout(
+        ()=>{
+
+            typing.classList.remove(
+                "show"
+            );
+
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+            message.className =
+                "message";
+
+            message.textContent =
+                messages[
+                    messageIndex
+                ];
+
+
+            chatBody.insertBefore(
+                message,
+                typing
+            );
+
+
+            messageReceived();
+
+
+            messageIndex++;
+
+
+            /*
+               More messages remain.
+            */
+
+            if(
+                messageIndex <
+                messages.length
+            ){
+
+                messageBusy = false;
+
+                sendButton.disabled =
+                    false;
+
+                chatHint.style.opacity =
+                    "";
+
+                chatHint.textContent =
+                    "Tap to read";
+
+            }
+
+            /*
+               LAST MESSAGE
+            */
+
+            else{
+
+                chatHint.textContent =
+                    "";
+
+                messageBusy = false;
+
+                sendButton.disabled =
+                    true;
+
+                /*
+                   Last click becomes
+                   the quiz handoff.
+                */
+
+                setTimeout(
+                    ()=>{
+                        chatHint.textContent =
+                            "Tap to continue";
+
+                        chatHint.style.opacity =
+                            "0.65";
+
+                        quizReady = true;
+
+                    },
+                    1200
+                );
+
+            }
+
+        },
+        1450
+    );
+
+}
+
+
+/* =========================================================
+   CHAT CLICK
+========================================================= */
+
+chatScreen.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            sendButton
+        ){
+            return;
+        }
+
+
+        /*
+           If all messages have appeared,
+           the next click starts quiz.
+        */
+
+        if(
+            quizReady &&
+            !messageBusy
+        ){
+
+            goToQuiz();
+
+            return;
+
+        }
+
+
+        if(
+            messageIndex <
+            messages.length &&
+            !messageBusy
+        ){
+
+            showNextMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+sendButton.addEventListener(
+    "click",
+    function(event){
+
+        event.stopPropagation();
+
+
+        if(
+            quizReady &&
+            !messageBusy
+        ){
+
+            goToQuiz();
+
+            return;
+
+        }
+
+
+        if(
+            !messageBusy &&
+            messageIndex <
+            messages.length
+        ){
+
+            showNextMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   QUIZ TRANSITION
+========================================================= */
+
 function goToQuiz(){
-  if(transitioning)return;transitioning=true;revealSfx();chat.classList.add('fade-out');
-  setTimeout(()=>{chat.classList.remove('active');chat.classList.remove('fade-out');quiz.classList.add('active')},850);
+
+    if(!quizReady){
+        return;
+    }
+
+
+    quizReady = false;
+
+
+    transitionSound();
+
+
+    /*
+       Chat gently fades.
+    */
+
+    chatScreen.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    chatScreen.style.opacity =
+        "0";
+
+    chatScreen.style.transform =
+        "scale(.97)";
+
+
+    /*
+       Phone follows.
+    */
+
+    iphone.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    iphone.style.opacity =
+        "0";
+
+    iphone.style.transform =
+        "scale(.94)";
+
+
+    setTimeout(
+        ()=>{
+            quizTransition.classList.add(
+                "active"
+            );
+        },
+        650
+    );
+
 }
-send.addEventListener('click',e=>{e.stopPropagation();showNextMessage()});
-chat.addEventListener('click',e=>{if(e.target===send)return;if(chatIndex<messages.length&&!send.disabled)showNextMessage()});
+
+
+/* =========================================================
+   PREVENT DOUBLE CLICKS
+========================================================= */
+
+document.addEventListener(
+    "dblclick",
+    function(event){
+        event.preventDefault();
+    }
+);
+
 </script>
+
 </body>
 </html>
