@@ -6,6 +6,7 @@
 <title>For My Tishuuu ♡</title>
 
 <style>
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -42,6 +43,7 @@ body{
         );
 
     color:#633747;
+
     transition:
         background 2s ease,
         filter 1s ease;
@@ -59,6 +61,7 @@ button{
     position:fixed;
     inset:0;
     overflow:hidden;
+
     transition:
         opacity 1.5s ease,
         filter 1.5s ease,
@@ -78,24 +81,42 @@ button{
     position:absolute;
     border-radius:50%;
     pointer-events:none;
+
     background:rgba(255,255,255,.18);
     border:1px solid rgba(255,255,255,.35);
+
     filter:blur(.5px);
+
     animation:floatBubble linear infinite;
 }
 
 @keyframes floatBubble{
+
     0%{
-        transform:translate3d(0,110vh,0) scale(.7);
+        transform:
+            translate3d(0,110vh,0)
+            scale(.7);
         opacity:0;
     }
-    10%{opacity:.5;}
-    50%{
-        transform:translate3d(30px,50vh,0) scale(1);
+
+    10%{
+        opacity:.5;
     }
-    90%{opacity:.4;}
+
+    50%{
+        transform:
+            translate3d(30px,50vh,0)
+            scale(1);
+    }
+
+    90%{
+        opacity:.4;
+    }
+
     100%{
-        transform:translate3d(-40px,-15vh,0) scale(1.15);
+        transform:
+            translate3d(-40px,-15vh,0)
+            scale(1.15);
         opacity:0;
     }
 }
@@ -117,11 +138,14 @@ button{
     pointer-events:auto;
     cursor:default;
     opacity:.78;
+
     animation:
         drift var(--duration) ease-in-out infinite alternate,
         floatY var(--float) ease-in-out infinite alternate;
+
     filter:
         drop-shadow(0 5px 8px rgba(135,71,98,.10));
+
     transition:
         transform .3s ease,
         opacity .3s ease;
@@ -132,11 +156,13 @@ button{
 }
 
 @keyframes drift{
+
     from{
         transform:
             translateX(-22px)
             rotate(var(--r1));
     }
+
     to{
         transform:
             translateX(22px)
@@ -145,9 +171,11 @@ button{
 }
 
 @keyframes floatY{
+
     from{
         margin-top:-12px;
     }
+
     to{
         margin-top:12px;
     }
@@ -163,29 +191,53 @@ button{
 
 .flower .petal{
     position:absolute;
+
     width:17px;
     height:25px;
+
     background:rgba(255,255,255,.9);
     border:1px solid rgba(255,255,255,.8);
+
     border-radius:70% 70% 50% 50%;
+
     left:12px;
     top:8px;
+
     transform-origin:50% 90%;
-    box-shadow:0 2px 8px rgba(180,110,140,.10);
+
+    box-shadow:
+        0 2px 8px rgba(180,110,140,.10);
 }
 
-.flower .p1{transform:rotate(0deg) translateY(-7px);}
-.flower .p2{transform:rotate(72deg) translateY(-7px);}
-.flower .p3{transform:rotate(144deg) translateY(-7px);}
-.flower .p4{transform:rotate(216deg) translateY(-7px);}
-.flower .p5{transform:rotate(288deg) translateY(-7px);}
+.flower .p1{
+    transform:rotate(0deg) translateY(-7px);
+}
+
+.flower .p2{
+    transform:rotate(72deg) translateY(-7px);
+}
+
+.flower .p3{
+    transform:rotate(144deg) translateY(-7px);
+}
+
+.flower .p4{
+    transform:rotate(216deg) translateY(-7px);
+}
+
+.flower .p5{
+    transform:rotate(288deg) translateY(-7px);
+}
 
 .flower .center{
     position:absolute;
+
     width:10px;
     height:10px;
+
     border-radius:50%;
     background:#f5cfdb;
+
     left:16px;
     top:16px;
 }
@@ -195,17 +247,24 @@ button{
 .envelope{
     width:58px;
     height:42px;
+
     background:rgba(255,255,255,.84);
     border:1px solid rgba(204,142,165,.3);
+
     border-radius:7px;
-    box-shadow:0 7px 18px rgba(120,70,90,.12);
+
+    box-shadow:
+        0 7px 18px rgba(120,70,90,.12);
+
     position:relative;
 }
 
 .envelope:before{
     content:"";
+
     position:absolute;
     inset:0;
+
     background:
         linear-gradient(
             32deg,
@@ -219,15 +278,21 @@ button{
             rgba(209,145,166,.35) 50%,
             transparent 52%
         );
+
     border-radius:inherit;
 }
 
 .envelope:after{
     content:"♡";
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     color:#dc8da9;
     font-size:18px;
 }
@@ -243,57 +308,91 @@ button{
 
 .teddy .head{
     position:absolute;
+
     width:42px;
     height:39px;
+
     border-radius:48%;
+
     left:8px;
     top:10px;
+
     background:#fff;
     border:1px solid #e6ccd6;
-    box-shadow:0 5px 14px rgba(120,70,90,.12);
+
+    box-shadow:
+        0 5px 14px rgba(120,70,90,.12);
 }
 
 .teddy .ear{
     position:absolute;
+
     width:17px;
     height:17px;
+
     border-radius:50%;
+
     background:#fff;
     border:1px solid #e6ccd6;
+
     top:5px;
 }
 
-.teddy .ear.left{left:5px;}
-.teddy .ear.right{right:5px;}
+.teddy .ear.left{
+    left:5px;
+}
+
+.teddy .ear.right{
+    right:5px;
+}
 
 .teddy .eye{
     position:absolute;
+
     width:4px;
     height:4px;
+
     background:#65434d;
+
     border-radius:50%;
+
     top:26px;
 }
 
-.teddy .eye.left{left:20px;}
-.teddy .eye.right{right:20px;}
+.teddy .eye.left{
+    left:20px;
+}
+
+.teddy .eye.right{
+    right:20px;
+}
 
 .teddy .nose{
     position:absolute;
+
     width:7px;
     height:6px;
+
     border-radius:50%;
+
     background:#d894a9;
+
     left:50%;
     top:30px;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
 }
 
 .teddy .heart{
     position:absolute;
+
     left:50%;
     bottom:0;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     color:#e6a0b7;
     font-size:16px;
 }
@@ -304,16 +403,23 @@ button{
 
 .click-particle{
     position:fixed;
+
     width:6px;
     height:6px;
+
     border-radius:50%;
+
     background:#fff;
+
     pointer-events:none;
     z-index:9999;
-    animation:particleBurst .75s ease-out forwards;
+
+    animation:
+        particleBurst .75s ease-out forwards;
 }
 
 @keyframes particleBurst{
+
     to{
         transform:
             translate(
@@ -321,6 +427,7 @@ button{
                 var(--y)
             )
             scale(0);
+
         opacity:0;
     }
 }
@@ -332,11 +439,15 @@ button{
 #opening{
     position:absolute;
     inset:0;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     z-index:20;
-    transition:opacity 1.2s ease;
+
+    transition:
+        opacity 1.2s ease;
 }
 
 .opening-card{
@@ -348,11 +459,17 @@ button{
 .opening-small{
     font-size:15px;
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     color:#b36d87;
+
     margin-bottom:18px;
+
     opacity:0;
-    animation:fadeUp 1s .3s forwards;
+
+    animation:
+        fadeUp 1s .3s forwards;
 }
 
 .opening-title{
@@ -360,11 +477,18 @@ button{
         "Georgia",
         "Times New Roman",
         serif;
-    font-size:clamp(38px,7vw,76px);
+
+    font-size:
+        clamp(38px,7vw,76px);
+
     line-height:1.05;
+
     color:#7d3e56;
+
     opacity:0;
-    animation:fadeUp 1.2s .6s forwards;
+
+    animation:
+        fadeUp 1.2s .6s forwards;
 }
 
 .opening-title span{
@@ -372,47 +496,74 @@ button{
 }
 
 .opening-sub{
-    margin:24px auto 30px;
+    margin:
+        24px auto 30px;
+
     max-width:560px;
+
     font-size:18px;
     line-height:1.8;
+
     color:#855568;
+
     opacity:0;
-    animation:fadeUp 1.2s 1s forwards;
+
+    animation:
+        fadeUp 1.2s 1s forwards;
 }
 
 .open-btn{
     border:none;
-    padding:15px 31px;
+
+    padding:
+        15px 31px;
+
     border-radius:999px;
+
     color:white;
+
     background:
         linear-gradient(
             135deg,
             #d98ba6,
             #b96783
         );
+
     box-shadow:
         0 12px 30px rgba(165,84,112,.25),
         inset 0 1px rgba(255,255,255,.45);
+
     font-size:16px;
+
     cursor:pointer;
+
     opacity:0;
+
     animation:
         fadeUp 1.2s 1.4s forwards,
         softPulse 2.2s 2.6s infinite;
-    transition:transform .3s ease;
+
+    transition:
+        transform .3s ease;
 }
 
 .open-btn:hover{
-    transform:translateY(-3px) scale(1.03);
+    transform:
+        translateY(-3px)
+        scale(1.03);
+}
+
+.open-btn:disabled{
+    cursor:default;
 }
 
 @keyframes fadeUp{
+
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
@@ -420,11 +571,13 @@ button{
 }
 
 @keyframes softPulse{
+
     0%,100%{
         box-shadow:
             0 12px 30px rgba(165,84,112,.25),
             0 0 0 rgba(220,130,160,0);
     }
+
     50%{
         box-shadow:
             0 12px 35px rgba(165,84,112,.35),
@@ -439,14 +592,24 @@ button{
 #chapterScreen{
     position:absolute;
     inset:0;
+
     z-index:15;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     padding:25px;
-    background:rgba(255,245,249,.45);
-    backdrop-filter:blur(8px);
+
+    background:
+        rgba(255,245,249,.45);
+
+    backdrop-filter:
+        blur(8px);
+
     opacity:0;
 }
 
@@ -456,36 +619,57 @@ button{
 
 .chapter-number{
     font-size:13px;
+
     letter-spacing:5px;
+
     text-transform:uppercase;
+
     color:#c17b94;
+
     margin-bottom:15px;
 }
 
 .chapter-title{
     font-family:Georgia,serif;
+
     color:#713b51;
-    font-size:clamp(38px,7vw,68px);
+
+    font-size:
+        clamp(38px,7vw,68px);
+
     line-height:1.05;
 }
 
 .chapter-sub{
     font-size:17px;
     line-height:1.7;
-    margin:20px auto 30px;
+
+    margin:
+        20px auto 30px;
+
     max-width:600px;
+
     color:#87566a;
 }
 
 .chapter-go{
     border:none;
+
     background:#d88ba5;
+
     color:#fff;
+
     border-radius:999px;
-    padding:14px 30px;
+
+    padding:
+        14px 30px;
+
     cursor:pointer;
+
     font-size:16px;
-    box-shadow:0 10px 25px rgba(190,100,130,.25);
+
+    box-shadow:
+        0 10px 25px rgba(190,100,130,.25);
 }
 
 /* =========================================================
@@ -495,7 +679,9 @@ button{
 #chapterWorld{
     position:absolute;
     inset:0;
+
     z-index:10;
+
     display:none;
     opacity:0;
 }
@@ -503,11 +689,14 @@ button{
 .chapter-content{
     position:absolute;
     inset:0;
+
     padding:
         clamp(25px,5vw,55px)
         clamp(20px,5vw,60px)
         100px;
+
     overflow:auto;
+
     scrollbar-width:none;
 }
 
@@ -522,55 +711,86 @@ button{
 
 .chapter-heading h2{
     font-family:Georgia,serif;
-    font-size:clamp(34px,6vw,55px);
+
+    font-size:
+        clamp(34px,6vw,55px);
+
     color:#743d53;
 }
 
 .chapter-heading p{
     margin-top:10px;
+
     color:#956174;
+
     font-size:16px;
 }
 
-/* CHANGED: equal spacing + equal chit sizing */
+/* =========================================================
+   CHITS
+========================================================= */
 
 .chit-grid{
     width:min(1050px,100%);
-    margin:25px auto;
+
+    margin:
+        25px auto;
+
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:28px;
+
     align-items:stretch;
 }
 
 .chit{
     min-height:155px;
     height:155px;
+
     border:none;
-    padding:25px 18px;
+
+    padding:
+        25px 18px;
+
     position:relative;
+
     cursor:pointer;
+
     color:#704153;
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.96),
             rgba(255,241,246,.95)
         );
-    border:1px solid rgba(210,150,170,.25);
+
+    border:
+        1px solid rgba(210,150,170,.25);
+
     box-shadow:
         0 13px 28px rgba(122,68,88,.10),
         0 2px 0 rgba(255,255,255,.9) inset;
+
     border-radius:7px;
+
     transform:
         rotate(var(--rotation));
+
     transition:
         transform .35s ease,
         box-shadow .35s ease;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
 }
 
@@ -587,6 +807,7 @@ button{
         rotate(0deg)
         translateY(-8px)
         scale(1.025);
+
     box-shadow:
         0 20px 38px rgba(122,68,88,.16),
         0 0 20px rgba(240,166,190,.16);
@@ -594,48 +815,73 @@ button{
 
 .chit:after{
     content:"✦";
+
     position:absolute;
+
     right:12px;
     top:8px;
+
     font-size:12px;
+
     color:#e3a3b8;
 }
 
 .chit-word{
     font-family:Georgia,serif;
+
     font-size:23px;
+
     color:#843f5b;
+
     margin-bottom:10px;
 }
 
 .chit-hint{
     font-size:13px;
+
     color:#b47a8e;
+
     line-height:1.5;
 }
 
 /* =========================================================
-   PROGRESS CONSTELLATION
+   PROGRESS
 ========================================================= */
 
 #progress{
     position:fixed;
+
     right:20px;
     top:18px;
+
     z-index:100;
+
     display:flex;
+
     gap:7px;
+
     align-items:center;
-    padding:9px 12px;
+
+    padding:
+        9px 12px;
+
     border-radius:999px;
-    background:rgba(255,255,255,.55);
-    border:1px solid rgba(200,135,158,.18);
-    backdrop-filter:blur(10px);
+
+    background:
+        rgba(255,255,255,.55);
+
+    border:
+        1px solid rgba(200,135,158,.18);
+
+    backdrop-filter:
+        blur(10px);
 }
 
 .progress-star{
     font-size:14px;
+
     color:#e1bac7;
+
     transition:
         color .6s ease,
         transform .6s ease,
@@ -644,7 +890,10 @@ button{
 
 .progress-star.active{
     color:#d57999;
-    transform:scale(1.3);
+
+    transform:
+        scale(1.3);
+
     text-shadow:
         0 0 10px rgba(218,120,154,.55);
 }
@@ -656,37 +905,55 @@ button{
 #noteOverlay{
     position:fixed;
     inset:0;
+
     z-index:300;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
-    background:rgba(57,25,38,.32);
-    backdrop-filter:blur(12px);
+
+    background:
+        rgba(57,25,38,.32);
+
+    backdrop-filter:
+        blur(12px);
+
     opacity:0;
 }
 
 .note{
     width:min(650px,94%);
+
     max-height:85vh;
+
     overflow:auto;
+
     padding:
         clamp(30px,6vw,60px)
         clamp(25px,6vw,65px);
+
     position:relative;
+
     border-radius:8px;
+
     background:
         linear-gradient(
             145deg,
             #fffefb,
             #fff5f8
         );
+
     box-shadow:
         0 30px 80px rgba(49,24,35,.25);
+
     transform:
         translateY(40px)
         scale(.85)
         rotate(-2deg);
+
     transition:
         transform .65s cubic-bezier(.2,.9,.25,1),
         opacity .5s ease;
@@ -701,24 +968,36 @@ button{
 
 .note:before{
     content:"";
+
     position:absolute;
     inset:15px;
-    border:1px dashed rgba(205,137,158,.25);
+
+    border:
+        1px dashed rgba(205,137,158,.25);
+
     pointer-events:none;
 }
 
 .note-label{
     font-size:12px;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     color:#c18499;
+
     margin-bottom:15px;
 }
 
 .note h3{
     font-family:Georgia,serif;
-    font-size:clamp(30px,6vw,45px);
+
+    font-size:
+        clamp(30px,6vw,45px);
+
     color:#783e54;
+
     margin-bottom:22px;
 }
 
@@ -727,20 +1006,34 @@ button{
         Georgia,
         "Times New Roman",
         serif;
-    font-size:clamp(17px,2.8vw,21px);
+
+    font-size:
+        clamp(17px,2.8vw,21px);
+
     line-height:1.85;
+
     color:#6d4655;
+
     white-space:pre-line;
 }
 
 .note-close{
     display:block;
-    margin:28px auto 0;
+
+    margin:
+        28px auto 0;
+
     border:none;
+
     background:#d98da7;
+
     color:white;
+
     border-radius:999px;
-    padding:12px 24px;
+
+    padding:
+        12px 24px;
+
     cursor:pointer;
 }
 
@@ -751,47 +1044,71 @@ button{
 #gameOverlay{
     position:fixed;
     inset:0;
+
     z-index:400;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
-    background:rgba(69,34,48,.38);
-    backdrop-filter:blur(12px);
+
+    background:
+        rgba(69,34,48,.38);
+
+    backdrop-filter:
+        blur(12px);
+
     opacity:0;
 }
 
 .game-card{
     width:min(620px,94%);
+
     padding:35px;
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.98),
             rgba(255,241,247,.98)
         );
+
     border-radius:22px;
-    box-shadow:0 30px 80px rgba(54,24,37,.25);
+
+    box-shadow:
+        0 30px 80px rgba(54,24,37,.25);
+
     text-align:center;
 }
 
 .game-label{
     color:#bd7890;
+
     font-size:12px;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
 }
 
 .game-card h2{
-    margin:12px 0;
+    margin:
+        12px 0;
+
     font-family:Georgia,serif;
+
     color:#763c53;
+
     font-size:35px;
 }
 
 .game-card p{
     color:#895a6b;
+
     line-height:1.6;
+
     margin-bottom:25px;
 }
 
@@ -801,60 +1118,100 @@ button{
 
 .option-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:12px;
 }
 
 .game-option{
-    border:1px solid rgba(203,132,156,.3);
+    border:
+        1px solid rgba(203,132,156,.3);
+
     background:#fff;
+
     color:#714253;
+
     border-radius:14px;
+
     padding:15px;
+
     cursor:pointer;
+
     transition:.25s;
+
     font-size:15px;
 }
 
 .game-option:hover{
-    transform:translateY(-3px);
+    transform:
+        translateY(-3px);
+
     border-color:#d98da8;
-    box-shadow:0 8px 18px rgba(180,90,120,.12);
+
+    box-shadow:
+        0 8px 18px rgba(180,90,120,.12);
 }
 
 .game-option.correct{
     background:#e9f8ed;
+
     border-color:#8cc59a;
 }
 
 .game-option.wrong{
-    animation:shake .35s;
+    animation:
+        shake .35s;
+
     background:#fff0f2;
+
     border-color:#e4a0ad;
 }
 
 @keyframes shake{
-    0%,100%{transform:translateX(0);}
-    25%{transform:translateX(-7px);}
-    75%{transform:translateX(7px);}
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-7px);
+    }
+
+    75%{
+        transform:translateX(7px);
+    }
 }
 
 .game-message{
     min-height:30px;
+
     margin-top:18px;
+
     font-size:15px;
+
     color:#b46781;
 }
 
 .game-next{
     border:none;
+
     background:#d88ba5;
+
     color:#fff;
-    padding:12px 25px;
+
+    padding:
+        12px 25px;
+
     border-radius:999px;
+
     cursor:pointer;
+
     display:none;
-    margin:15px auto 0;
+
+    margin:
+        15px auto 0;
 }
 
 /* =========================================================
@@ -863,33 +1220,49 @@ button{
 
 .match-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:18px;
 }
 
 .match-side{
     display:flex;
+
     flex-direction:column;
+
     gap:10px;
 }
 
 .match-item{
     padding:13px;
+
     background:#fff;
-    border:1px solid rgba(210,140,160,.25);
+
+    border:
+        1px solid rgba(210,140,160,.25);
+
     border-radius:12px;
+
     cursor:pointer;
+
     transition:.25s;
 }
 
 .match-item.selected{
-    transform:scale(1.03);
+    transform:
+        scale(1.03);
+
     border-color:#d77f9d;
-    box-shadow:0 0 15px rgba(215,127,157,.15);
+
+    box-shadow:
+        0 0 15px rgba(215,127,157,.15);
 }
 
 .match-item.matched{
     opacity:.35;
+
     pointer-events:none;
 }
 
@@ -900,114 +1273,178 @@ button{
 #finalGame{
     position:fixed;
     inset:0;
+
     z-index:500;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
+
     background:
         radial-gradient(
             circle at center,
             rgba(255,235,243,.96),
             rgba(95,44,64,.94)
         );
-    backdrop-filter:blur(10px);
-}
 
-/* CHANGED: contrasting text */
+    backdrop-filter:
+        blur(10px);
+}
 
 .final-card{
     width:min(700px,95%);
+
     text-align:center;
 }
 
 .final-top{
     font-size:12px;
+
     letter-spacing:5px;
+
     text-transform:uppercase;
+
     color:#713348;
+
     font-weight:bold;
 }
 
 .final-card h2{
     color:#5c263d;
+
     font-family:Georgia,serif;
-    font-size:clamp(35px,7vw,60px);
-    margin:12px 0;
-    text-shadow:0 2px 10px rgba(255,255,255,.45);
+
+    font-size:
+        clamp(35px,7vw,60px);
+
+    margin:
+        12px 0;
+
+    text-shadow:
+        0 2px 10px rgba(255,255,255,.45);
 }
 
 .final-card .question{
     color:#642d43;
+
     font-family:Georgia,serif;
-    font-size:clamp(19px,3vw,25px);
+
+    font-size:
+        clamp(19px,3vw,25px);
+
     line-height:1.6;
-    margin:25px auto;
+
+    margin:
+        25px auto;
+
     max-width:600px;
+
     font-weight:600;
 }
 
 .final-options{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:13px;
+
     max-width:600px;
+
     margin:auto;
 }
 
 .final-option{
-    border:1px solid rgba(103,49,69,.28);
-    background:rgba(255,255,255,.72);
+    border:
+        1px solid rgba(103,49,69,.28);
+
+    background:
+        rgba(255,255,255,.72);
+
     color:#602b40;
+
     border-radius:15px;
+
     padding:15px;
+
     cursor:pointer;
+
     transition:.25s;
-    backdrop-filter:blur(8px);
+
+    backdrop-filter:
+        blur(8px);
+
     font-weight:500;
 }
 
 .final-option:hover{
-    background:rgba(255,255,255,.9);
-    transform:translateY(-3px);
+    background:
+        rgba(255,255,255,.9);
+
+    transform:
+        translateY(-3px);
 }
 
 .final-option.correct{
-    background:rgba(180,240,195,.5);
+    background:
+        rgba(180,240,195,.5);
+
     border-color:#79ad86;
+
     color:#315c3b;
 }
 
 .final-option.wrong{
-    animation:shake .35s;
-    background:rgba(255,120,145,.35);
+    animation:
+        shake .35s;
+
+    background:
+        rgba(255,120,145,.35);
+
     color:#702238;
 }
 
 .final-feedback{
     color:#632d43;
+
     min-height:30px;
+
     margin:20px;
+
     font-weight:600;
 }
 
 .final-progress{
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     margin-bottom:20px;
 }
 
 .final-heart{
-    color:rgba(110,55,75,.25);
+    color:
+        rgba(110,55,75,.25);
+
     transition:.6s;
+
     font-size:18px;
 }
 
 .final-heart.active{
     color:#9c3d61;
-    text-shadow:0 0 14px #d77799;
-    transform:scale(1.3);
+
+    text-shadow:
+        0 0 14px #d77799;
+
+    transform:
+        scale(1.3);
 }
 
 /* =========================================================
@@ -1017,42 +1454,57 @@ button{
 #letterStage{
     position:fixed;
     inset:0;
+
     z-index:600;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
+
     background:
         radial-gradient(
             circle at center,
             #fff1f6,
             #d987a4
         );
+
     opacity:0;
 }
 
-/* premium burgundy envelope */
-
 .final-envelope{
     width:min(650px,90%);
+
     text-align:center;
+
     cursor:pointer;
-    animation:envelopeFloat 4s ease-in-out infinite;
+
+    animation:
+        envelopeFloat 4s ease-in-out infinite;
 }
 
 @keyframes envelopeFloat{
+
     0%,100%{
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
+
     50%{
-        transform:translateY(-8px);
+        transform:
+            translateY(-8px);
     }
 }
 
 .final-envelope-body{
     width:min(390px,78%);
+
     aspect-ratio:1.4;
+
     margin:auto;
+
     background:
         linear-gradient(
             145deg,
@@ -1060,31 +1512,46 @@ button{
             #67132b 48%,
             #4b0d20 100%
         );
+
     border-radius:10px;
+
     position:relative;
+
     box-shadow:
         0 30px 70px rgba(57,15,30,.42),
         0 0 35px rgba(112,25,55,.18);
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    border:1px solid rgba(244,210,180,.45);
+
+    border:
+        1px solid rgba(244,210,180,.45);
+
     overflow:hidden;
 }
 
 .final-envelope-body:after{
     content:"";
+
     position:absolute;
     inset:9px;
-    border:1px solid rgba(244,210,180,.35);
+
+    border:
+        1px solid rgba(244,210,180,.35);
+
     border-radius:7px;
+
     pointer-events:none;
 }
 
 .final-envelope-body:before{
     content:"";
+
     position:absolute;
     inset:0;
+
     background:
         linear-gradient(
             35deg,
@@ -1102,27 +1569,42 @@ button{
 
 .envelope-text{
     position:relative;
+
     z-index:2;
+
     font-family:Georgia,serif;
+
     color:#f8dfcf;
+
     font-size:24px;
+
     letter-spacing:2px;
+
     text-shadow:
         0 2px 10px rgba(0,0,0,.3);
 }
 
 .envelope-seal{
     position:absolute;
+
     z-index:4;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     width:64px;
     height:64px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     background:
         radial-gradient(
             circle at 35% 30%,
@@ -1130,12 +1612,18 @@ button{
             #73142f 65%,
             #4c0c20
         );
-    border:2px solid rgba(244,210,180,.8);
+
+    border:
+        2px solid rgba(244,210,180,.8);
+
     color:#f7d7c5;
+
     font-size:25px;
+
     box-shadow:
         0 7px 20px rgba(39,5,17,.4),
         inset 0 2px 5px rgba(255,255,255,.18);
+
     transition:.4s ease;
 }
 
@@ -1144,6 +1632,7 @@ button{
         translate(-50%,-50%)
         scale(1.08)
         rotate(-5deg);
+
     box-shadow:
         0 8px 30px rgba(70,10,30,.5),
         0 0 22px rgba(255,210,190,.22);
@@ -1151,8 +1640,11 @@ button{
 
 .envelope-instruction{
     color:#fff;
+
     margin-top:25px;
+
     font-size:15px;
+
     letter-spacing:.5px;
 }
 
@@ -1162,82 +1654,133 @@ button{
 
 #letter{
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:650;
+
     align-items:center;
     justify-content:center;
+
     padding:14px;
+
     background:
         rgba(255,232,240,.96);
 }
 
-/* CHANGED: no scrolling, one screen */
-
 .letter-paper{
     width:min(820px,94%);
+
     height:min(94vh,760px);
+
     overflow:hidden;
-    padding:clamp(22px,4vh,42px) clamp(25px,5vw,60px);
+
+    padding:
+        clamp(22px,4vh,42px)
+        clamp(25px,5vw,60px);
+
     background:#fffdfa;
+
     border-radius:5px;
-    box-shadow:0 30px 80px rgba(75,36,48,.22);
+
+    box-shadow:
+        0 30px 80px rgba(75,36,48,.22);
+
     position:relative;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
 }
 
 .letter-paper:before{
     content:"";
+
     position:absolute;
+
     inset:14px;
-    border:1px dashed rgba(200,130,153,.25);
+
+    border:
+        1px dashed rgba(200,130,153,.25);
+
     pointer-events:none;
 }
 
 .letter-title{
     text-align:center;
+
     font-family:Georgia,serif;
-    font-size:clamp(28px,5vw,43px);
+
+    font-size:
+        clamp(28px,5vw,43px);
+
     color:#7a3e55;
+
     margin-bottom:18px;
+
     flex-shrink:0;
 }
 
 .letter-body{
     font-family:Georgia,serif;
+
     color:#65424f;
-    font-size:clamp(13px,1.7vw,16px);
+
+    font-size:
+        clamp(13px,1.7vw,16px);
+
     line-height:1.55;
+
     white-space:pre-line;
+
     overflow:hidden;
+
     text-align:left;
 }
 
 .letter-end{
     margin-top:15px;
+
     text-align:center;
+
     color:#bd6684;
+
     font-family:Georgia,serif;
-    font-size:clamp(16px,2.2vw,20px);
+
+    font-size:
+        clamp(16px,2.2vw,20px);
+
     flex-shrink:0;
 }
 
 .universe-transition{
     margin-top:15px;
+
     text-align:center;
+
     flex-shrink:0;
 }
 
 .universe-transition button{
     border:none;
-    padding:12px 28px;
+
+    padding:
+        12px 28px;
+
     border-radius:999px;
+
     color:white;
+
     background:#c97998;
-    box-shadow:0 12px 30px rgba(157,74,103,.25);
+
+    box-shadow:
+        0 12px 30px rgba(157,74,103,.25);
+
     cursor:pointer;
+
     font-size:15px;
 }
 
@@ -1248,14 +1791,26 @@ button{
 #universeEnding{
     position:fixed;
     inset:0;
+
     z-index:1000;
+
     display:none;
+
     opacity:0;
+
     background:
-        radial-gradient(circle at 50% 50%, #171329 0%, #090811 55%, #04040a 100%);
+        radial-gradient(
+            circle at 50% 50%,
+            #171329 0%,
+            #090811 55%,
+            #04040a 100%
+        );
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     overflow:hidden;
 }
 
@@ -1266,83 +1821,143 @@ button{
 
 .star{
     position:absolute;
+
     width:2px;
     height:2px;
+
     background:white;
+
     border-radius:50%;
-    box-shadow:0 0 7px rgba(255,255,255,.8);
+
+    box-shadow:
+        0 0 7px rgba(255,255,255,.8);
+
     opacity:.7;
-    animation:twinkle var(--twinkle) ease-in-out infinite alternate;
+
+    animation:
+        twinkle var(--twinkle)
+        ease-in-out infinite alternate;
 }
 
 @keyframes twinkle{
-    from{opacity:.25;transform:scale(.7);}
-    to{opacity:1;transform:scale(1.5);}
+
+    from{
+        opacity:.25;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
 }
 
 .constellation-line{
     position:absolute;
+
     height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(221,205,255,.7),
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(221,205,255,.7),
+            transparent
+        );
+
     transform-origin:left center;
+
     opacity:0;
-    transition:opacity 1.2s ease;
+
+    transition:
+        opacity 1.2s ease;
 }
 
 .universe-content{
     position:relative;
+
     z-index:3;
+
     width:min(800px,90%);
 }
 
 .universe-text{
     color:#e8dff8;
+
     font-family:Georgia,serif;
-    font-size:clamp(25px,5vw,48px);
+
+    font-size:
+        clamp(25px,5vw,48px);
+
     line-height:1.5;
+
     min-height:150px;
+
+    transition:
+        opacity .8s ease,
+        transform 1s ease;
 }
 
 .universe-sub{
     color:#aaa1c5;
+
     margin-top:25px;
+
     font-size:16px;
+
     opacity:0;
-    transition:opacity 1.5s ease;
+
+    transition:
+        opacity 1.5s ease;
 }
 
 .universe-button{
     margin-top:30px;
-    padding:15px 35px;
+
+    padding:
+        15px 35px;
+
     border-radius:999px;
-    border:1px solid rgba(255,255,255,.35);
+
+    border:
+        1px solid rgba(255,255,255,.35);
+
     background:
         linear-gradient(
             135deg,
             rgba(255,255,255,.13),
             rgba(174,132,221,.18)
         );
+
     color:white;
+
     font-family:Georgia,serif;
+
     font-size:18px;
+
     cursor:pointer;
+
     opacity:0;
-    transform:translateY(15px) scale(.9);
+
+    transform:
+        translateY(15px)
+        scale(.9);
+
     transition:
         opacity 1s ease,
         transform 1s ease,
         box-shadow .4s ease;
-    backdrop-filter:blur(12px);
+
+    backdrop-filter:
+        blur(12px);
 }
 
 .universe-button.show{
     opacity:1;
-    transform:translateY(0) scale(1);
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 .universe-button:hover{
@@ -1358,7 +1973,9 @@ button{
 @media(max-width:900px){
 
     .chit-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
         gap:20px;
     }
 
@@ -1371,14 +1988,18 @@ button{
     }
 
     .chit-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
+
         gap:12px;
     }
 
     .chit{
         min-height:135px;
         height:135px;
-        padding:18px 12px;
+
+        padding:
+            18px 12px;
     }
 
     .chit-word{
@@ -1395,21 +2016,26 @@ button{
     }
 
     .game-card{
-        padding:25px 18px;
+        padding:
+            25px 18px;
     }
 
     .letter-paper{
         height:94vh;
-        padding:22px 22px;
+
+        padding:
+            22px 22px;
     }
 
     .letter-body{
         font-size:12.5px;
+
         line-height:1.45;
     }
 
     .letter-end{
         font-size:15px;
+
         margin-top:10px;
     }
 
@@ -1428,11 +2054,13 @@ button{
 
     .letter-body{
         font-size:11.5px;
+
         line-height:1.4;
     }
 
     .letter-title{
         font-size:26px;
+
         margin-bottom:12px;
     }
 
@@ -1441,6 +2069,7 @@ button{
     }
 
 }
+
 </style>
 </head>
 
@@ -1607,6 +2236,7 @@ button{
         <h2>Do you know your boyfriend? ♡</h2>
 
         <div class="final-progress">
+
             <span class="final-heart">♡</span>
             <span class="final-heart">♡</span>
             <span class="final-heart">♡</span>
@@ -1614,6 +2244,7 @@ button{
             <span class="final-heart">♡</span>
             <span class="final-heart">♡</span>
             <span class="final-heart">♡</span>
+
         </div>
 
         <div class="question" id="finalQuestion"></div>
@@ -1724,15 +2355,20 @@ const chapters = [
 
 {
     number:"CHAPTER 01",
+
     title:"The Things I Notice About You",
+
     sub:"Some things are impossible not to notice... especially when it's you.",
+
     type:"chits",
 
     chits:[
+
         {
             word:"Smile ♡",
             hint:"The dangerous one ✦",
             title:"That Smile ♡",
+
             text:
 `Your smile should honestly be illegal. ♡
 
@@ -1743,6 +2379,7 @@ It makes your whole face glow... and your laugh makes everything better. ✦🥹
             word:"Cheeks ♡",
             hint:"Those fluffy ones 🫶🏻",
             title:"Those Cheeks ♡",
+
             text:
 `Those fluffy cheeks are ridiculously cute. 🥹♡
 
@@ -1753,6 +2390,7 @@ Especially when teasing you makes that little pout appear. ✦`
             word:"Pout ♡",
             hint:"Madam is angry 😌",
             title:"The Pout ♡",
+
             text:
 `That little pout when I tease you...
 
@@ -1763,6 +2401,7 @@ Madam, that's not an argument. That's cheating. 😂♡`
             word:"Lips ♡",
             hint:"Ahem... moving on 😌",
             title:"Your Lips ♡",
+
             text:
 `I'm going to behave myself here... mostly. 😂
 
@@ -1773,6 +2412,7 @@ But yes, you know exactly what effect that smile has on me. ♡`
             word:"Nails ♡",
             hint:"A tiny detail ✦",
             title:"Those Nails ♡",
+
             text:
 `Funny how such a tiny detail stayed in my memory. ✨
 
@@ -1783,25 +2423,32 @@ That's what happens when someone starts becoming special. ♡`
             word:"Glow ♡",
             hint:"Effortless beauty ✨",
             title:"Your Natural Glow ♡",
+
             text:
 `Messy hair, casual clothes or dressed up...
 
 You somehow manage to win every version of the competition. 😂♡`
         }
+
     ]
 },
 
 {
     number:"CHAPTER 02",
+
     title:"Your Strange Little Habits",
+
     sub:"The tiny things you do that somehow became my favourite things.",
+
     type:"chits",
 
     chits:[
+
         {
             word:"HMMMM ♡",
             hint:"Sab samajh rahe hain hum 😌",
             title:"That Hmmmm ♡",
+
             text:
 `"HMMMM... sab samajh rahe hain hum..." 😂
 
@@ -1812,6 +2459,7 @@ You sound innocent while being absolutely not innocent. ♡`
             word:"BABUUU ♡",
             hint:"My favourite word 🥹",
             title:"Babuuu ♡",
+
             text:
 `There are words... and then there's "babuuu" from you. ♡
 
@@ -1822,6 +2470,7 @@ Somehow it instantly makes me smile. ✦`
             word:"CLUMSY ♡",
             hint:"A cute software bug 😂",
             title:"Your Clumsy Moments ♡",
+
             text:
 `Ladki sundar ho aur clumsy na ho...
 
@@ -1832,6 +2481,7 @@ Aisa ho hi nahi sakta. 😂♡`
             word:"FLIRTY ♡",
             hint:"Dangerous madam 😭",
             title:"That Random Flirting ♡",
+
             text:
 `Everything is normal...
 
@@ -1844,6 +2494,7 @@ How exactly am I supposed to behave normally? ♡`
             word:"TIRED ♡",
             hint:"Come here 🫶🏻",
             title:"When You're Tired ♡",
+
             text:
 `When you're tired and simply lean on me...
 
@@ -1854,25 +2505,32 @@ I secretly love being the person you can relax around. ♡`
             word:"ANGRY ♡",
             hint:"The gun is pointed at me 😂",
             title:"Fiery Tisha ♡",
+
             text:
 `Argumentative. Fiery. Dangerous. 😂
 
 And somehow the imaginary gun is always pointed at me. ♡`
         }
+
     ]
 },
 
 {
     number:"CHAPTER 03",
+
     title:"The Girl I Feel Lucky To Know",
+
     sub:"The things that made me see something much deeper than just a beautiful girl.",
+
     type:"chits",
 
     chits:[
+
         {
             word:"TRUST ♡",
             hint:"Something precious ✦",
             title:"Trust ♡",
+
             text:
 `I didn't just fall for your beauty.
 
@@ -1883,6 +2541,7 @@ I fell for your thoughts, your opinions and the way you see the world. ♡`
             word:"KINDNESS ♡",
             hint:"Your soft side 🫶🏻",
             title:"Your Kindness ♡",
+
             text:
 `You have this beautiful way of making people feel comfortable.
 
@@ -1893,6 +2552,7 @@ That's something I genuinely admire. ✨`
             word:"PARTNER ♡",
             hint:"More than romance ✦",
             title:"The Way You Think About Us ♡",
+
             text:
 `You think about compatibility, understanding and growing together.
 
@@ -1903,6 +2563,7 @@ That makes me feel incredibly lucky. ♡`
             word:"TRUTH ♡",
             hint:"I respect this ✦",
             title:"Your Strong Opinions ♡",
+
             text:
 `You think. You decide. You have your own opinions.
 
@@ -1913,6 +2574,7 @@ And honestly, I respect that about you. ♡`
             word:"SAFE ♡",
             hint:"Lean on me 🫶🏻",
             title:"The Feeling I Want You To Have ♡",
+
             text:
 `When you're with me, you don't always have to be strong.
 
@@ -1923,25 +2585,32 @@ You can relax. I've got you. ♡`
             word:"LUCKY ♡",
             hint:"A feeling I can't ignore ✨",
             title:"How Lucky I Feel ♡",
+
             text:
 `Sometimes I genuinely wonder what good thing I did...
 
 Because somehow, I found you. ♡`
         }
+
     ]
 },
 
 {
     number:"CHAPTER 04",
+
     title:"My Favourite Versions Of You",
+
     sub:"Because there isn't just one Tisha I love.",
+
     type:"objects",
 
     chits:[
+
         {
             word:"SLEEPY ♡",
             hint:"Messy hair supremacy ☁️",
             title:"Sleepy Tisha ♡",
+
             text:
 `Messy hair. Tired face. Zero effort.
 
@@ -1952,6 +2621,7 @@ And somehow... still beautiful. 🥹♡`
             word:"DRESSED ♡",
             hint:"The dangerous version 😭",
             title:"Dressed-Up Tisha ♡",
+
             text:
 `Brown top. Blue jeans. White heels.
 
@@ -1964,6 +2634,7 @@ Yeah. I'm still not over that. ♡`
             word:"VOICE ♡",
             hint:"My favourite sound 🎶",
             title:"Your Voice ♡",
+
             text:
 `Your voice became one of the most comforting sounds in my life.
 
@@ -1974,6 +2645,7 @@ And your laugh? Pure positivity. ♡`
             word:"COMFORT ♡",
             hint:"Just be yourself 🫶🏻",
             title:"Comfortable Tisha ♡",
+
             text:
 `No pretending. No trying too hard.
 
@@ -1984,25 +2656,32 @@ Just you being completely yourself. That's beautiful. ♡`
             word:"BEAUTY ♡",
             hint:"The whole picture ✨",
             title:"The Whole Picture ♡",
+
             text:
 `Your beauty isn't just your face.
 
 It's your laugh, thoughts, energy, care and the person you are. ♡`
         }
+
     ]
 },
 
 {
     number:"CHAPTER 05",
+
     title:"Things I Never Want You To Forget",
+
     sub:"These ones aren't really compliments. They're things I genuinely want you to remember.",
+
     type:"letters",
 
     chits:[
+
         {
             word:"WHEN YOU DOUBT ♡",
             hint:"Borrow my eyes 🥹",
             title:"Borrow My Eyes ♡",
+
             text:
 `If you ever doubt your beauty...
 
@@ -2015,6 +2694,7 @@ You'd see exactly what I see. ♡`
             word:"WHEN YOU'RE TIRED ♡",
             hint:"Lean on me 🫶🏻",
             title:"Lean On Me ♡",
+
             text:
 `You don't have to carry everything alone.
 
@@ -2025,6 +2705,7 @@ If you're tired, lean on me. We'll figure things out together. ♡`
             word:"WHEN LIFE IS HARD ♡",
             hint:"Keep walking ✦",
             title:"Keep Walking ♡",
+
             text:
 `You don't need everything figured out today.
 
@@ -2035,6 +2716,7 @@ Keep growing. Keep laughing. Keep being you. ♡`
             word:"WHEN YOU FORGET ♡",
             hint:"A little reminder ✨",
             title:"You Are Special ♡",
+
             text:
 `Your voice, your laugh, your presence...
 
@@ -2045,13 +2727,17 @@ All those little pieces became part of my life. ♡`
             word:"MY PROMISE ♡",
             hint:"The one I mean 🫶🏻",
             title:"What I Want ♡",
+
             text:
 `I want to keep making you laugh.
 
 Keep teasing you. Keep choosing you. Keep walking with you. ♡`
         }
+
     ]
-};
+}
+
+];
 
 
 /* =========================================================
@@ -2062,78 +2748,92 @@ const finalQuestions = [
 
 {
     q:"What did Ritesh feel when he first started seeing how you thought and what you believed?",
+
     options:[
         "He trusted you more",
         "He wanted to run away",
         "He forgot everything",
         "He became a professional dancer"
     ],
+
     correct:0
 },
 
 {
     q:"What does Ritesh secretly love about your laugh?",
+
     options:[
         "It makes him sleepy",
         "It brings positivity and makes him laugh too",
         "It makes him hungry",
         "It scares him"
     ],
+
     correct:1
 },
 
 {
     q:"What happens when Ritesh teases you?",
+
     options:[
         "You disappear",
         "You become a statue",
         "You pout, blush, laugh and giggle",
         "You start doing mathematics"
     ],
+
     correct:2
 },
 
 {
     q:"What does Ritesh think about your clumsiness?",
+
     options:[
         "It must be eliminated",
         "It is part of your charm",
         "It is a national emergency",
         "He hasn't noticed"
     ],
+
     correct:1
 },
 
 {
     q:"What does Ritesh want you to feel when you're with him?",
+
     options:[
         "Safe and protected",
         "Confused",
         "Late for class",
         "Like you're in an exam"
     ],
+
     correct:0
 },
 
 {
     q:"What does Ritesh want to keep doing with you?",
+
     options:[
         "Arguing about everything",
         "Walking through life together",
         "Ignoring you",
         "Watching paint dry"
     ],
+
     correct:1
 },
 
 {
     q:"What is the one thing Ritesh says he wants most for the two of you?",
+
     options:[
         "To stop laughing",
         "To become strangers",
         "To keep walking together",
         "To never talk again"
     ],
+
     correct:2
 }
 
@@ -2148,36 +2848,56 @@ const miniGames = [
 
 {
     type:"Match the Following",
+
     title:"Okay Madam... Match Us ♡",
-    question:"Let's see if you actually know everyone properly. 😌",
+
+    question:
+        "Let's see if you actually know everyone properly. 😌",
+
     mode:"match"
 },
 
 {
     type:"Guess Who?",
+
     title:"How Well Do You Know Us? ♡",
-    question:"Three little clues. Three little chances to prove yourself. 😂",
+
+    question:
+        "Three little clues. Three little chances to prove yourself. 😂",
+
     mode:"guess"
 },
 
 {
     type:"Fill in the Blank",
+
     title:"Complete The Thought ♡",
-    question:"Three quick ones. No cheating, madam. 😌",
+
+    question:
+        "Three quick ones. No cheating, madam. 😌",
+
     mode:"fill"
 },
 
 {
     type:"True or False",
+
     title:"Very Serious Investigation ♡",
-    question:"Three statements. Decide what is actually true. 😂",
+
+    question:
+        "Three statements. Decide what is actually true. 😂",
+
     mode:"tf"
 },
 
 {
     type:"Odd One Out",
+
     title:"Spot The Imposter ♡",
-    question:"Three rounds. Find the one that clearly doesn't belong.",
+
+    question:
+        "Three rounds. Find the one that clearly doesn't belong.",
+
     mode:"odd"
 }
 
@@ -2202,58 +2922,129 @@ let effectGain = null;
 let musicTimer = null;
 let musicStep = 0;
 
+let pageStarted = false;
+
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const world = document.getElementById("world");
-const opening = document.getElementById("opening");
-const beginBtn = document.getElementById("beginBtn");
+const world =
+    document.getElementById("world");
 
-const chapterScreen = document.getElementById("chapterScreen");
-const chapterNumber = document.getElementById("chapterNumber");
-const chapterTitle = document.getElementById("chapterTitle");
-const chapterSub = document.getElementById("chapterSub");
-const chapterGo = document.getElementById("chapterGo");
+const opening =
+    document.getElementById("opening");
 
-const chapterWorld = document.getElementById("chapterWorld");
-const worldTitle = document.getElementById("worldTitle");
-const worldSub = document.getElementById("worldSub");
-const chitGrid = document.getElementById("chitGrid");
+const beginBtn =
+    document.getElementById("beginBtn");
 
-const noteOverlay = document.getElementById("noteOverlay");
-const note = document.getElementById("note");
-const noteTitle = document.getElementById("noteTitle");
-const noteText = document.getElementById("noteText");
-const noteClose = document.getElementById("noteClose");
+const chapterScreen =
+    document.getElementById("chapterScreen");
 
-const gameOverlay = document.getElementById("gameOverlay");
-const gameType = document.getElementById("gameType");
-const gameTitle = document.getElementById("gameTitle");
-const gameQuestion = document.getElementById("gameQuestion");
-const gameArea = document.getElementById("gameArea");
-const gameMessage = document.getElementById("gameMessage");
-const gameNext = document.getElementById("gameNext");
+const chapterNumber =
+    document.getElementById("chapterNumber");
 
-const finalGame = document.getElementById("finalGame");
-const finalQuestion = document.getElementById("finalQuestion");
-const finalOptions = document.getElementById("finalOptions");
-const finalFeedback = document.getElementById("finalFeedback");
-const finalHearts = document.querySelectorAll(".final-heart");
+const chapterTitle =
+    document.getElementById("chapterTitle");
 
-const letterStage = document.getElementById("letterStage");
-const finalEnvelope = document.getElementById("finalEnvelope");
+const chapterSub =
+    document.getElementById("chapterSub");
 
-const letter = document.getElementById("letter");
-const letterBody = document.getElementById("letterBody");
-const universeBtn = document.getElementById("universeBtn");
+const chapterGo =
+    document.getElementById("chapterGo");
 
-const universeEnding = document.getElementById("universeEnding");
-const starField = document.getElementById("starField");
-const universeText = document.getElementById("universeText");
-const universeSub = document.querySelector(".universe-sub");
-const universeButton = document.getElementById("universeButton");
+const chapterWorld =
+    document.getElementById("chapterWorld");
+
+const worldTitle =
+    document.getElementById("worldTitle");
+
+const worldSub =
+    document.getElementById("worldSub");
+
+const chitGrid =
+    document.getElementById("chitGrid");
+
+const noteOverlay =
+    document.getElementById("noteOverlay");
+
+const note =
+    document.getElementById("note");
+
+const noteTitle =
+    document.getElementById("noteTitle");
+
+const noteText =
+    document.getElementById("noteText");
+
+const noteClose =
+    document.getElementById("noteClose");
+
+const gameOverlay =
+    document.getElementById("gameOverlay");
+
+const gameType =
+    document.getElementById("gameType");
+
+const gameTitle =
+    document.getElementById("gameTitle");
+
+const gameQuestion =
+    document.getElementById("gameQuestion");
+
+const gameArea =
+    document.getElementById("gameArea");
+
+const gameMessage =
+    document.getElementById("gameMessage");
+
+const gameNext =
+    document.getElementById("gameNext");
+
+const finalGame =
+    document.getElementById("finalGame");
+
+const finalQuestion =
+    document.getElementById("finalQuestion");
+
+const finalOptions =
+    document.getElementById("finalOptions");
+
+const finalFeedback =
+    document.getElementById("finalFeedback");
+
+const finalHearts =
+    document.querySelectorAll(".final-heart");
+
+const letterStage =
+    document.getElementById("letterStage");
+
+const finalEnvelope =
+    document.getElementById("finalEnvelope");
+
+const letter =
+    document.getElementById("letter");
+
+const letterBody =
+    document.getElementById("letterBody");
+
+const universeBtn =
+    document.getElementById("universeBtn");
+
+const universeEnding =
+    document.getElementById("universeEnding");
+
+const starField =
+    document.getElementById("starField");
+
+const universeText =
+    document.getElementById("universeText");
+
+const universeSub =
+    document.querySelector(".universe-sub");
+
+const universeButton =
+    document.getElementById("universeButton");
 
 
 /* =========================================================
@@ -2264,29 +3055,92 @@ function initAudio(){
 
     if(audioCtx) return;
 
-    audioCtx = new (
-        window.AudioContext ||
-        window.webkitAudioContext
-    )();
+    try{
 
-    musicGain = audioCtx.createGain();
-    effectGain = audioCtx.createGain();
+        audioCtx = new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
 
-    musicGain.gain.value = 0.16;
-    effectGain.gain.value = 0.34;
+        musicGain =
+            audioCtx.createGain();
 
-    musicGain.connect(audioCtx.destination);
-    effectGain.connect(audioCtx.destination);
+        effectGain =
+            audioCtx.createGain();
+
+        musicGain.gain.value = 0.16;
+        effectGain.gain.value = 0.34;
+
+        musicGain.connect(
+            audioCtx.destination
+        );
+
+        effectGain.connect(
+            audioCtx.destination
+        );
+
+    }catch(error){
+
+        console.log(
+            "Audio initialization unavailable:",
+            error
+        );
+
+        audioCtx = null;
+        musicGain = null;
+        effectGain = null;
+    }
 }
+
+
+/*
+    FIX:
+    Audio can never prevent the visual page
+    transition from happening.
+*/
 
 function unlockAudio(){
 
-    initAudio();
+    try{
 
-    if(audioCtx.state === "suspended"){
-        audioCtx.resume();
+        initAudio();
+
+        if(
+            audioCtx &&
+            audioCtx.state === "suspended"
+        ){
+
+            const resumePromise =
+                audioCtx.resume();
+
+            if(
+                resumePromise &&
+                resumePromise.catch
+            ){
+
+                resumePromise.catch(
+                    ()=>{
+                        console.log(
+                            "Audio resume was blocked."
+                        );
+                    }
+                );
+
+            }
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Audio unlock skipped:",
+            error
+        );
+
     }
+
 }
+
 
 function tone(
     frequency,
@@ -2296,126 +3150,330 @@ function tone(
     destination=effectGain
 ){
 
-    if(!audioCtx) return;
+    if(!audioCtx || !destination) return;
 
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
+    try{
 
-    osc.type = type;
-    osc.frequency.value = frequency;
+        const osc =
+            audioCtx.createOscillator();
 
-    gain.gain.setValueAtTime(
-        0.0001,
-        audioCtx.currentTime
-    );
+        const gain =
+            audioCtx.createGain();
 
-    gain.gain.exponentialRampToValueAtTime(
-        volume,
-        audioCtx.currentTime + .015
-    );
+        osc.type = type;
+        osc.frequency.value = frequency;
 
-    gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        audioCtx.currentTime + duration
-    );
+        gain.gain.setValueAtTime(
+            0.0001,
+            audioCtx.currentTime
+        );
 
-    osc.connect(gain);
-    gain.connect(destination);
+        gain.gain.exponentialRampToValueAtTime(
+            volume,
+            audioCtx.currentTime + .015
+        );
 
-    osc.start();
-    osc.stop(audioCtx.currentTime + duration + .03);
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioCtx.currentTime + duration
+        );
+
+        osc.connect(gain);
+        gain.connect(destination);
+
+        osc.start();
+
+        osc.stop(
+            audioCtx.currentTime +
+            duration +
+            .03
+        );
+
+    }catch(error){
+
+        console.log(
+            "Tone skipped:",
+            error
+        );
+
+    }
+
 }
+
 
 function uiClick(){
-    tone(520,.08,.08,"sine");
-    setTimeout(()=>tone(760,.11,.06,"sine"),45);
+
+    tone(
+        520,
+        .08,
+        .08,
+        "sine"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                760,
+                .11,
+                .06,
+                "sine"
+            );
+        },
+        45
+    );
+
 }
+
 
 function paperSound(){
 
-    tone(250,.08,.05,"triangle");
-    setTimeout(()=>tone(330,.09,.04,"triangle"),55);
+    tone(
+        250,
+        .08,
+        .05,
+        "triangle"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                330,
+                .09,
+                .04,
+                "triangle"
+            );
+        },
+        55
+    );
 
 }
+
 
 function sparkleSound(){
 
-    tone(880,.12,.06,"sine");
-    setTimeout(()=>tone(1175,.18,.05,"sine"),70);
-    setTimeout(()=>tone(1568,.22,.035,"sine"),140);
+    tone(
+        880,
+        .12,
+        .06,
+        "sine"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                1175,
+                .18,
+                .05,
+                "sine"
+            );
+        },
+        70
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                1568,
+                .22,
+                .035,
+                "sine"
+            );
+        },
+        140
+    );
 
 }
+
 
 function wrongSound(){
 
-    tone(170,.15,.08,"square");
-    setTimeout(()=>tone(130,.18,.05,"square"),90);
+    tone(
+        170,
+        .15,
+        .08,
+        "square"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                130,
+                .18,
+                .05,
+                "square"
+            );
+        },
+        90
+    );
 
 }
+
 
 function correctSound(){
 
-    tone(523,.12,.07,"sine");
-    setTimeout(()=>tone(659,.14,.07,"sine"),100);
-    setTimeout(()=>tone(784,.22,.08,"sine"),200);
+    tone(
+        523,
+        .12,
+        .07,
+        "sine"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                659,
+                .14,
+                .07,
+                "sine"
+            );
+        },
+        100
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                784,
+                .22,
+                .08,
+                "sine"
+            );
+        },
+        200
+    );
 
 }
+
 
 function magicalReveal(){
 
-    tone(392,.18,.05,"sine");
-    setTimeout(()=>tone(523,.18,.06,"sine"),90);
-    setTimeout(()=>tone(659,.24,.07,"sine"),180);
-    setTimeout(()=>tone(1047,.4,.04,"sine"),300);
+    tone(
+        392,
+        .18,
+        .05,
+        "sine"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                523,
+                .18,
+                .06,
+                "sine"
+            );
+        },
+        90
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                659,
+                .24,
+                .07,
+                "sine"
+            );
+        },
+        180
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                1047,
+                .4,
+                .04,
+                "sine"
+            );
+        },
+        300
+    );
 
 }
+
 
 function heartbeat(){
 
-    tone(85,.12,.08,"sine");
-    setTimeout(()=>tone(75,.12,.06,"sine"),170);
+    tone(
+        85,
+        .12,
+        .08,
+        "sine"
+    );
+
+    setTimeout(
+        ()=>{
+            tone(
+                75,
+                .12,
+                .06,
+                "sine"
+            );
+        },
+        170
+    );
 
 }
 
+
 function whoosh(){
 
-    if(!audioCtx) return;
+    if(!audioCtx || !effectGain) return;
 
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
+    try{
 
-    osc.type="sine";
+        const osc =
+            audioCtx.createOscillator();
 
-    osc.frequency.setValueAtTime(
-        180,
-        audioCtx.currentTime
-    );
+        const gain =
+            audioCtx.createGain();
 
-    osc.frequency.exponentialRampToValueAtTime(
-        900,
-        audioCtx.currentTime + .65
-    );
+        osc.type="sine";
 
-    gain.gain.setValueAtTime(
-        .0001,
-        audioCtx.currentTime
-    );
+        osc.frequency.setValueAtTime(
+            180,
+            audioCtx.currentTime
+        );
 
-    gain.gain.exponentialRampToValueAtTime(
-        .11,
-        audioCtx.currentTime + .1
-    );
+        osc.frequency.exponentialRampToValueAtTime(
+            900,
+            audioCtx.currentTime + .65
+        );
 
-    gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        audioCtx.currentTime + .65
-    );
+        gain.gain.setValueAtTime(
+            .0001,
+            audioCtx.currentTime
+        );
 
-    osc.connect(gain);
-    gain.connect(effectGain);
+        gain.gain.exponentialRampToValueAtTime(
+            .11,
+            audioCtx.currentTime + .1
+        );
 
-    osc.start();
-    osc.stop(audioCtx.currentTime+.7);
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            audioCtx.currentTime + .65
+        );
+
+        osc.connect(gain);
+        gain.connect(effectGain);
+
+        osc.start();
+
+        osc.stop(
+            audioCtx.currentTime + .7
+        );
+
+    }catch(error){
+
+        console.log(
+            "Whoosh skipped:",
+            error
+        );
+
+    }
+
 }
 
 
@@ -2424,6 +3482,7 @@ function whoosh(){
 ========================================================= */
 
 const melody = [
+
     261.63,
     329.63,
     392.00,
@@ -2432,45 +3491,70 @@ const melody = [
     349.23,
     440.00,
     349.23
+
 ];
+
 
 function playMusicNote(){
 
     if(!audioCtx || !musicGain) return;
 
-    const frequency =
-        melody[musicStep % melody.length];
+    try{
 
-    musicStep++;
+        const frequency =
+            melody[
+                musicStep %
+                melody.length
+            ];
 
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
+        musicStep++;
 
-    osc.type = "triangle";
-    osc.frequency.value = frequency;
+        const osc =
+            audioCtx.createOscillator();
 
-    gain.gain.setValueAtTime(
-        .0001,
-        audioCtx.currentTime
-    );
+        const gain =
+            audioCtx.createGain();
 
-    gain.gain.linearRampToValueAtTime(
-        .055,
-        audioCtx.currentTime + .04
-    );
+        osc.type = "triangle";
 
-    gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        audioCtx.currentTime + .65
-    );
+        osc.frequency.value =
+            frequency;
 
-    osc.connect(gain);
-    gain.connect(musicGain);
+        gain.gain.setValueAtTime(
+            .0001,
+            audioCtx.currentTime
+        );
 
-    osc.start();
-    osc.stop(audioCtx.currentTime+.7);
+        gain.gain.linearRampToValueAtTime(
+            .055,
+            audioCtx.currentTime + .04
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            audioCtx.currentTime + .65
+        );
+
+        osc.connect(gain);
+        gain.connect(musicGain);
+
+        osc.start();
+
+        osc.stop(
+            audioCtx.currentTime + .7
+        );
+
+    }catch(error){
+
+        console.log(
+            "Music note skipped:",
+            error
+        );
+
+    }
 
 }
+
 
 function startMusic(){
 
@@ -2478,13 +3562,16 @@ function startMusic(){
 
     if(musicTimer) return;
 
-    musicTimer = setInterval(
-        playMusicNote,
-        620
-    );
+    musicTimer =
+        setInterval(
+            playMusicNote,
+            620
+        );
 
     playMusicNote();
+
 }
+
 
 function duckMusic(amount=.05){
 
@@ -2496,10 +3583,11 @@ function duckMusic(amount=.05){
 
     musicGain.gain.linearRampToValueAtTime(
         amount,
-        audioCtx.currentTime+.25
+        audioCtx.currentTime + .25
     );
 
 }
+
 
 function restoreMusic(){
 
@@ -2511,10 +3599,11 @@ function restoreMusic(){
 
     musicGain.gain.linearRampToValueAtTime(
         .16,
-        audioCtx.currentTime+.5
+        audioCtx.currentTime + .5
     );
 
 }
+
 
 function emotionalMusic(){
 
@@ -2526,7 +3615,7 @@ function emotionalMusic(){
 
     musicGain.gain.linearRampToValueAtTime(
         .08,
-        audioCtx.currentTime+1
+        audioCtx.currentTime + 1
     );
 
 }
@@ -2539,7 +3628,9 @@ function emotionalMusic(){
 function createDecorations(){
 
     const container =
-        document.getElementById("decorations");
+        document.getElementById(
+            "decorations"
+        );
 
     container.innerHTML="";
 
@@ -2554,19 +3645,26 @@ function createDecorations(){
     for(let i=0;i<32;i++){
 
         const type =
-            types[i % types.length];
+            types[
+                i % types.length
+            ];
 
         const el =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         el.className =
-            "float-item " + type;
+            "float-item " +
+            type;
 
         el.style.left =
-            Math.random()*100 + "%";
+            Math.random()*100 +
+            "%";
 
         el.style.top =
-            Math.random()*100 + "%";
+            Math.random()*100 +
+            "%";
 
         el.style.setProperty(
             "--duration",
@@ -2602,7 +3700,9 @@ function createDecorations(){
         }
 
         if(type==="envelope"){
+
             el.innerHTML="";
+
         }
 
         if(type==="heart"){
@@ -2632,11 +3732,16 @@ function createDecorations(){
             el.innerHTML=`
                 <div class="ear left"></div>
                 <div class="ear right"></div>
+
                 <div class="head">
+
                     <div class="eye left"></div>
                     <div class="eye right"></div>
+
                     <div class="nose"></div>
+
                 </div>
+
                 <div class="heart">♡</div>
             `;
 
@@ -2648,29 +3753,43 @@ function createDecorations(){
         }
 
         container.appendChild(el);
+
     }
+
 
     for(let i=0;i<12;i++){
 
         const bubble =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         bubble.className="bubble";
 
         const size =
             15+Math.random()*45;
 
-        bubble.style.width=size+"px";
-        bubble.style.height=size+"px";
-        bubble.style.left=Math.random()*100+"%";
-        bubble.style.animationDuration=
+        bubble.style.width =
+            size+"px";
+
+        bubble.style.height =
+            size+"px";
+
+        bubble.style.left =
+            Math.random()*100+"%";
+
+        bubble.style.animationDuration =
             (10+Math.random()*12)+"s";
 
-        bubble.style.animationDelay=
+        bubble.style.animationDelay =
             (-Math.random()*15)+"s";
 
-        container.appendChild(bubble);
+        container.appendChild(
+            bubble
+        );
+
     }
+
 }
 
 
@@ -2681,34 +3800,60 @@ function createDecorations(){
 function teddySecret(){
 
     unlockAudio();
+
     sparkleSound();
 
-    const t = document.createElement("div");
+    const t =
+        document.createElement("div");
 
     t.style.position="fixed";
+
     t.style.left="50%";
+
     t.style.top="18%";
-    t.style.transform="translateX(-50%)";
+
+    t.style.transform=
+        "translateX(-50%)";
+
     t.style.zIndex="9998";
+
     t.style.color="#8a4660";
-    t.style.fontFamily="Georgia,serif";
+
+    t.style.fontFamily=
+        "Georgia,serif";
+
     t.style.fontSize="20px";
-    t.style.padding="14px 22px";
+
+    t.style.padding=
+        "14px 22px";
+
     t.style.borderRadius="999px";
-    t.style.background="rgba(255,255,255,.92)";
-    t.style.boxShadow="0 15px 40px rgba(120,70,90,.18)";
-    t.textContent="Teddy says you're cute. 🧸♡";
+
+    t.style.background=
+        "rgba(255,255,255,.92)";
+
+    t.style.boxShadow=
+        "0 15px 40px rgba(120,70,90,.18)";
+
+    t.textContent=
+        "Teddy says you're cute. 🧸♡";
 
     document.body.appendChild(t);
 
     setTimeout(()=>{
 
         t.style.opacity="0";
-        t.style.transition="opacity .5s ease";
 
-        setTimeout(()=>t.remove(),550);
+        t.style.transition=
+            "opacity .5s ease";
+
+        setTimeout(
+            ()=>t.remove(),
+            550
+        );
 
     },1400);
+
 }
 
 
@@ -2723,12 +3868,18 @@ document.addEventListener(
         for(let i=0;i<7;i++){
 
             const p =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
-            p.className="click-particle";
+            p.className=
+                "click-particle";
 
-            p.style.left=e.clientX+"px";
-            p.style.top=e.clientY+"px";
+            p.style.left=
+                e.clientX+"px";
+
+            p.style.top=
+                e.clientY+"px";
 
             p.style.setProperty(
                 "--x",
@@ -2746,6 +3897,7 @@ document.addEventListener(
                 ()=>p.remove(),
                 800
             );
+
         }
 
     }
@@ -2754,26 +3906,82 @@ document.addEventListener(
 
 /* =========================================================
    BEGIN
+   FIXED: FIRST CLICK / FIRST TOUCH
 ========================================================= */
 
-beginBtn.addEventListener(
-    "click",
-    ()=>{
+function startPage(){
+
+    /*
+        Prevent accidental double activation.
+    */
+    if(pageStarted) return;
+
+    pageStarted = true;
+
+    beginBtn.disabled = true;
+
+    /*
+        IMPORTANT:
+        Start the visual transition FIRST.
+
+        This means even if the browser blocks,
+        delays, or rejects AudioContext,
+        the first click still works.
+    */
+
+    opening.style.opacity="0";
+
+    setTimeout(()=>{
+
+        opening.style.display="none";
+
+        showChapterIntro();
+
+    },800);
+
+
+    /*
+        Audio is attempted separately.
+        Audio failure can no longer stop the page.
+    */
+
+    try{
 
         unlockAudio();
+
         startMusic();
+
         uiClick();
 
-        opening.style.opacity="0";
+    }catch(error){
 
-        setTimeout(()=>{
+        console.log(
+            "Audio initialization skipped:",
+            error
+        );
 
-            opening.style.display="none";
+    }
 
-            showChapterIntro();
+}
 
-        },800);
 
+/*
+    pointerdown is more reliable than click
+    for the very first interaction, especially
+    on mobile browsers.
+*/
+
+beginBtn.addEventListener(
+    "pointerdown",
+    e=>{
+
+        e.preventDefault();
+
+        startPage();
+
+    },
+    {
+        once:true
     }
 );
 
@@ -2796,15 +4004,18 @@ function showChapterIntro(){
     chapterSub.textContent =
         c.sub;
 
-    chapterScreen.style.display="flex";
+    chapterScreen.style.display=
+        "flex";
 
     requestAnimationFrame(()=>{
 
-        chapterScreen.style.opacity="1";
+        chapterScreen.style.opacity=
+            "1";
 
     });
 
 }
+
 
 chapterGo.addEventListener(
     "click",
@@ -2812,11 +4023,13 @@ chapterGo.addEventListener(
 
         uiClick();
 
-        chapterScreen.style.opacity="0";
+        chapterScreen.style.opacity=
+            "0";
 
         setTimeout(()=>{
 
-            chapterScreen.style.display="none";
+            chapterScreen.style.display=
+                "none";
 
             openChapter();
 
@@ -2849,7 +4062,9 @@ function openChapter(){
         (item,index)=>{
 
             const button =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
             button.className="chit";
 
@@ -2857,6 +4072,7 @@ function openChapter(){
                 <div class="chit-word">
                     ${item.word}
                 </div>
+
                 <div class="chit-hint">
                     ${item.hint}
                 </div>
@@ -2869,19 +4085,26 @@ function openChapter(){
 
             button.addEventListener(
                 "click",
-                ()=>openNote(item,button)
+                ()=>openNote(
+                    item,
+                    button
+                )
             );
 
-            chitGrid.appendChild(button);
+            chitGrid.appendChild(
+                button
+            );
 
         }
     );
 
-    chapterWorld.style.display="block";
+    chapterWorld.style.display=
+        "block";
 
     requestAnimationFrame(()=>{
 
-        chapterWorld.style.opacity="1";
+        chapterWorld.style.opacity=
+            "1";
 
     });
 
@@ -2892,15 +4115,26 @@ function openChapter(){
    NOTE
 ========================================================= */
 
-function openNote(item,button){
+function openNote(
+    item,
+    button
+){
 
     unlockAudio();
+
     paperSound();
+
     duckMusic(.045);
 
-    if(!button.classList.contains("opened")){
+    if(
+        !button.classList.contains(
+            "opened"
+        )
+    ){
 
-        button.classList.add("opened");
+        button.classList.add(
+            "opened"
+        );
 
         openedChits++;
 
@@ -2912,16 +4146,22 @@ function openNote(item,button){
     noteText.textContent =
         item.text;
 
-    noteOverlay.style.display="flex";
+    noteOverlay.style.display=
+        "flex";
 
     requestAnimationFrame(()=>{
 
-        noteOverlay.style.opacity="1";
-        note.classList.add("show");
+        noteOverlay.style.opacity=
+            "1";
+
+        note.classList.add(
+            "show"
+        );
 
     });
 
 }
+
 
 noteClose.addEventListener(
     "click",
@@ -2929,12 +4169,17 @@ noteClose.addEventListener(
 
         uiClick();
 
-        note.classList.remove("show");
-        noteOverlay.style.opacity="0";
+        note.classList.remove(
+            "show"
+        );
+
+        noteOverlay.style.opacity=
+            "0";
 
         setTimeout(()=>{
 
-            noteOverlay.style.display="none";
+            noteOverlay.style.display=
+                "none";
 
             restoreMusic();
 
@@ -2953,9 +4198,13 @@ noteClose.addEventListener(
 function checkChapterComplete(){
 
     const total =
-        chapters[currentChapter].chits.length;
+        chapters[
+            currentChapter
+        ].chits.length;
 
-    if(openedChits < total) return;
+    if(
+        openedChits < total
+    ) return;
 
     if(chapterReady) return;
 
@@ -2978,7 +4227,10 @@ function launchMiniGame(){
     chapterReady=false;
 
     const g =
-        miniGames[gameIndex % miniGames.length];
+        miniGames[
+            gameIndex %
+            miniGames.length
+        ];
 
     gameType.textContent =
         g.type;
@@ -2990,14 +4242,19 @@ function launchMiniGame(){
         g.question;
 
     gameArea.innerHTML="";
-    gameMessage.textContent="";
-    gameNext.style.display="none";
 
-    gameOverlay.style.display="flex";
+    gameMessage.textContent="";
+
+    gameNext.style.display=
+        "none";
+
+    gameOverlay.style.display=
+        "flex";
 
     requestAnimationFrame(()=>{
 
-        gameOverlay.style.opacity="1";
+        gameOverlay.style.opacity=
+            "1";
 
     });
 
@@ -3008,13 +4265,20 @@ function launchMiniGame(){
         buildGuessGame();
 
     if(g.mode==="fill")
-        buildMultiQuestionGame("fill");
+        buildMultiQuestionGame(
+            "fill"
+        );
 
     if(g.mode==="tf")
-        buildMultiQuestionGame("tf");
+        buildMultiQuestionGame(
+            "tf"
+        );
 
     if(g.mode==="odd")
-        buildMultiQuestionGame("odd");
+        buildMultiQuestionGame(
+            "odd"
+        );
+
 }
 
 
@@ -3025,89 +4289,159 @@ function launchMiniGame(){
 function buildMatchGame(){
 
     const pairs=[
-        ["Tisha","Musalmani 🧕🏻"],
-        ["Ritesh","Hindu 🙏"],
-        ["Anisha","Katvi 🕌"],
-        ["Rachit","Tisha Ka Devar ⭐"],
-        ["Arya","Ritesh Ki Sautan 😂"]
+
+        [
+            "Tisha",
+            "Musalmani 🧕🏻"
+        ],
+
+        [
+            "Ritesh",
+            "Hindu 🙏"
+        ],
+
+        [
+            "Anisha",
+            "Katvi 🕌"
+        ],
+
+        [
+            "Rachit",
+            "Tisha Ka Devar ⭐"
+        ],
+
+        [
+            "Arya",
+            "Ritesh Ki Sautan 😂"
+        ]
+
     ];
 
+
     const left =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     const right =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    left.className="match-side";
-    right.className="match-side";
+    left.className=
+        "match-side";
+
+    right.className=
+        "match-side";
+
 
     const grid =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-    grid.className="match-grid";
+    grid.className=
+        "match-grid";
+
 
     let selectedLeft=null;
+
     let matched=0;
+
 
     const shuffled =
         [...pairs]
-        .map(x=>x[1])
-        .sort(()=>Math.random()-.5);
+        .map(
+            x=>x[1]
+        )
+        .sort(
+            ()=>Math.random()-.5
+        );
+
 
     pairs.forEach(
         pair=>{
 
             const item =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
-            item.className="match-item";
-            item.textContent=pair[0];
-            item.dataset.value=pair[1];
+            item.className=
+                "match-item";
+
+            item.textContent=
+                pair[0];
+
+            item.dataset.value=
+                pair[1];
 
             item.addEventListener(
                 "click",
                 ()=>{
 
-                    selectedLeft=item;
+                    selectedLeft=
+                        item;
 
                     left
-                        .querySelectorAll(".match-item")
+                        .querySelectorAll(
+                            ".match-item"
+                        )
                         .forEach(
-                            x=>x.classList.remove("selected")
+                            x=>
+                                x.classList.remove(
+                                    "selected"
+                                )
                         );
 
-                    item.classList.add("selected");
+                    item.classList.add(
+                        "selected"
+                    );
 
                 }
             );
 
-            left.appendChild(item);
+            left.appendChild(
+                item
+            );
 
         }
     );
+
 
     shuffled.forEach(
         value=>{
 
             const item =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
-            item.className="match-item";
-            item.textContent=value;
+            item.className=
+                "match-item";
+
+            item.textContent=
+                value;
 
             item.addEventListener(
                 "click",
                 ()=>{
 
-                    if(!selectedLeft) return;
+                    if(!selectedLeft)
+                        return;
 
                     if(
                         selectedLeft.dataset.value ===
                         value
                     ){
 
-                        selectedLeft.classList.add("matched");
-                        item.classList.add("matched");
+                        selectedLeft.classList.add(
+                            "matched"
+                        );
+
+                        item.classList.add(
+                            "matched"
+                        );
 
                         selectedLeft=null;
 
@@ -3124,7 +4458,8 @@ function buildMatchGame(){
                             matched===pairs.length
                         ){
 
-                            gameNext.style.display="block";
+                            gameNext.style.display=
+                                "block";
 
                         }
 
@@ -3140,15 +4475,25 @@ function buildMatchGame(){
                 }
             );
 
-            right.appendChild(item);
+            right.appendChild(
+                item
+            );
 
         }
     );
 
-    grid.appendChild(left);
-    grid.appendChild(right);
 
-    gameArea.appendChild(grid);
+    grid.appendChild(
+        left
+    );
+
+    grid.appendChild(
+        right
+    );
+
+    gameArea.appendChild(
+        grid
+    );
 
 }
 
@@ -3157,87 +4502,144 @@ function buildMatchGame(){
    GUESS WHO GAME
 ========================================================= */
 
-const guessQuestions = [
+const guessQuestions=[
 
 {
-    q:"Who says: \"HMMMM... sab samajh rahe hain hum...\" 😌",
-    options:["Tisha","Ritesh","Rachit","Arya"],
+    q:
+        'Who says: "HMMMM... sab samajh rahe hain hum..." 😌',
+
+    options:[
+        "Tisha",
+        "Ritesh",
+        "Rachit",
+        "Arya"
+    ],
+
     correct:0
 },
 
 {
-    q:"Who is most likely to point the imaginary gun during an argument? 😂",
-    options:["Ritesh","Tisha","Anisha","Rachit"],
+    q:
+        "Who is most likely to point the imaginary gun during an argument? 😂",
+
+    options:[
+        "Ritesh",
+        "Tisha",
+        "Anisha",
+        "Rachit"
+    ],
+
     correct:1
 },
 
 {
-    q:"Who is Ritesh's favourite little troublemaker? 😭♡",
-    options:["Rachit","Arya","Tisha","Nobody"],
+    q:
+        "Who is Ritesh's favourite little troublemaker? 😭♡",
+
+    options:[
+        "Rachit",
+        "Arya",
+        "Tisha",
+        "Nobody"
+    ],
+
     correct:2
 }
 
 ];
 
+
 function buildGuessGame(){
 
     let index=0;
 
+
     function show(){
 
         gameArea.innerHTML="";
+
         gameMessage.textContent="";
-        gameNext.style.display="none";
 
-        const q=guessQuestions[index];
+        gameNext.style.display=
+            "none";
 
-        gameQuestion.textContent=
+
+        const q =
+            guessQuestions[index];
+
+
+        gameQuestion.textContent =
             `${index+1}/3 — ${q.q}`;
 
-        const grid=
-            document.createElement("div");
 
-        grid.className="option-grid";
+        const grid =
+            document.createElement(
+                "div"
+            );
+
+        grid.className=
+            "option-grid";
+
 
         q.options.forEach(
             (option,i)=>{
 
-                const button=
-                    document.createElement("button");
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-                button.className="game-option";
-                button.textContent=option;
+                button.className=
+                    "game-option";
+
+                button.textContent=
+                    option;
+
 
                 button.addEventListener(
                     "click",
                     ()=>{
 
-                        if(i===q.correct){
+                        if(
+                            i===q.correct
+                        ){
 
-                            button.classList.add("correct");
+                            button.classList.add(
+                                "correct"
+                            );
+
                             correctSound();
 
-                            gameMessage.textContent=
+                            gameMessage.textContent =
                                 index===2
                                 ? "Okayyy... you know us. 😂♡"
                                 : "Correcttt. 😌♡";
 
+
                             grid
-                                .querySelectorAll("button")
+                                .querySelectorAll(
+                                    "button"
+                                )
                                 .forEach(
-                                    b=>b.disabled=true
+                                    b=>
+                                        b.disabled=true
                                 );
+
 
                             if(index===2){
 
-                                gameNext.style.display="block";
+                                gameNext.style.display=
+                                    "block";
 
                             }else{
 
                                 setTimeout(
                                     ()=>{
+
                                         index++;
+
                                         show();
+
                                     },
                                     800
                                 );
@@ -3246,14 +4648,19 @@ function buildGuessGame(){
 
                         }else{
 
-                            button.classList.add("wrong");
+                            button.classList.add(
+                                "wrong"
+                            );
+
                             wrongSound();
 
-                            gameMessage.textContent=
+                            gameMessage.textContent =
                                 "Nopeee 😂 Think again.";
 
                             setTimeout(
-                                ()=>button.classList.remove("wrong"),
+                                ()=>button.classList.remove(
+                                    "wrong"
+                                ),
                                 400
                             );
 
@@ -3262,14 +4669,20 @@ function buildGuessGame(){
                     }
                 );
 
-                grid.appendChild(button);
+                grid.appendChild(
+                    button
+                );
 
             }
         );
 
-        gameArea.appendChild(grid);
+
+        gameArea.appendChild(
+            grid
+        );
 
     }
+
 
     show();
 
@@ -3283,68 +4696,137 @@ function buildGuessGame(){
 const fillQuestions=[
 
 {
-    q:"When I say \"Babuuu\", you probably become...",
-    options:["Happy 🥹","A potato 🥔","Invisible 👻","Angry at mathematics"],
+    q:
+        'When I say "Babuuu", you probably become...',
+
+    options:[
+        "Happy 🥹",
+        "A potato 🥔",
+        "Invisible 👻",
+        "Angry at mathematics"
+    ],
+
     correct:0
 },
 
 {
-    q:"Your natural version can still look...",
-    options:["Beautiful ✨","Like a traffic signal","Invisible","Very boring"],
+    q:
+        "Your natural version can still look...",
+
+    options:[
+        "Beautiful ✨",
+        "Like a traffic signal",
+        "Invisible",
+        "Very boring"
+    ],
+
     correct:0
 },
 
 {
-    q:"When life gets difficult, I want us to...",
-    options:["Keep walking together ♡","Run away","Stop talking","Become astronauts"],
+    q:
+        "When life gets difficult, I want us to...",
+
+    options:[
+        "Keep walking together ♡",
+        "Run away",
+        "Stop talking",
+        "Become astronauts"
+    ],
+
     correct:0
 }
 
 ];
 
+
 const tfQuestions=[
 
 {
-    q:"Ritesh secretly likes teasing Tisha because of her little pout.",
-    options:["TRUE ♡","FALSE"],
+    q:
+        "Ritesh secretly likes teasing Tisha because of her little pout.",
+
+    options:[
+        "TRUE ♡",
+        "FALSE"
+    ],
+
     correct:0
 },
 
 {
-    q:"Tisha's laugh is one of Ritesh's favourite sources of positivity.",
-    options:["TRUE ♡","FALSE"],
+    q:
+        "Tisha's laugh is one of Ritesh's favourite sources of positivity.",
+
+    options:[
+        "TRUE ♡",
+        "FALSE"
+    ],
+
     correct:0
 },
 
 {
-    q:"Ritesh wants Tisha to carry every difficult thing completely alone.",
-    options:["TRUE","FALSE ♡"],
+    q:
+        "Ritesh wants Tisha to carry every difficult thing completely alone.",
+
+    options:[
+        "TRUE",
+        "FALSE ♡"
+    ],
+
     correct:1
 }
 
 ];
 
+
 const oddQuestions=[
 
 {
-    q:"Which one doesn't belong?",
-    options:["Rose 🌹","Tulip 🌷","Lily 🌸","Potato 🥔"],
+    q:
+        "Which one doesn't belong?",
+
+    options:[
+        "Rose 🌹",
+        "Tulip 🌷",
+        "Lily 🌸",
+        "Potato 🥔"
+    ],
+
     correct:3
 },
 
 {
-    q:"Which one is the odd one out?",
-    options:["Smile 😊","Laugh 😂","Pout 😗","Calculator 🧮"],
+    q:
+        "Which one is the odd one out?",
+
+    options:[
+        "Smile 😊",
+        "Laugh 😂",
+        "Pout 😗",
+        "Calculator 🧮"
+    ],
+
     correct:3
 },
 
 {
-    q:"Which one clearly doesn't belong?",
-    options:["Love ♡","Trust ✦","Care 🫶🏻","Homework 📚"],
+    q:
+        "Which one clearly doesn't belong?",
+
+    options:[
+        "Love ♡",
+        "Trust ✦",
+        "Care 🫶🏻",
+        "Homework 📚"
+    ],
+
     correct:3
 }
 
 ];
+
 
 function buildMultiQuestionGame(mode){
 
@@ -3355,64 +4837,100 @@ function buildMultiQuestionGame(mode){
         ? tfQuestions
         : oddQuestions;
 
+
     let index=0;
+
 
     function show(){
 
         gameArea.innerHTML="";
+
         gameMessage.textContent="";
-        gameNext.style.display="none";
 
-        const q=questions[index];
+        gameNext.style.display=
+            "none";
 
-        gameQuestion.textContent=
+
+        const q =
+            questions[index];
+
+
+        gameQuestion.textContent =
             `${index+1}/3 — ${q.q}`;
 
-        const grid=
-            document.createElement("div");
 
-        grid.className="option-grid";
+        const grid =
+            document.createElement(
+                "div"
+            );
+
+        grid.className=
+            "option-grid";
+
 
         q.options.forEach(
             (option,i)=>{
 
-                const button=
-                    document.createElement("button");
+                const button =
+                    document.createElement(
+                        "button"
+                    );
 
-                button.className="game-option";
-                button.textContent=option;
+                button.className=
+                    "game-option";
+
+                button.textContent=
+                    option;
+
 
                 button.addEventListener(
                     "click",
                     ()=>{
 
-                        if(i===q.correct){
+                        if(
+                            i===q.correct
+                        ){
 
-                            button.classList.add("correct");
+                            button.classList.add(
+                                "correct"
+                            );
+
                             correctSound();
 
+
                             grid
-                                .querySelectorAll("button")
+                                .querySelectorAll(
+                                    "button"
+                                )
                                 .forEach(
-                                    b=>b.disabled=true
+                                    b=>
+                                        b.disabled=true
                                 );
 
-                            if(index===questions.length-1){
 
-                                gameMessage.textContent=
+                            if(
+                                index===
+                                questions.length-1
+                            ){
+
+                                gameMessage.textContent =
                                     "Perfecttt... all three survived. 😂♡";
 
-                                gameNext.style.display="block";
+                                gameNext.style.display=
+                                    "block";
 
                             }else{
 
-                                gameMessage.textContent=
+                                gameMessage.textContent =
                                     "Correct! 😌♡";
 
                                 setTimeout(
                                     ()=>{
+
                                         index++;
+
                                         show();
+
                                     },
                                     800
                                 );
@@ -3421,14 +4939,19 @@ function buildMultiQuestionGame(mode){
 
                         }else{
 
-                            button.classList.add("wrong");
+                            button.classList.add(
+                                "wrong"
+                            );
+
                             wrongSound();
 
-                            gameMessage.textContent=
+                            gameMessage.textContent =
                                 "Nopeee 😂 Try again.";
 
                             setTimeout(
-                                ()=>button.classList.remove("wrong"),
+                                ()=>button.classList.remove(
+                                    "wrong"
+                                ),
                                 400
                             );
 
@@ -3437,19 +4960,29 @@ function buildMultiQuestionGame(mode){
                     }
                 );
 
-                grid.appendChild(button);
+                grid.appendChild(
+                    button
+                );
 
             }
         );
 
-        gameArea.appendChild(grid);
+
+        gameArea.appendChild(
+            grid
+        );
 
     }
+
 
     show();
 
 }
 
+
+/* =========================================================
+   GAME NEXT
+========================================================= */
 
 gameNext.addEventListener(
     "click",
@@ -3457,11 +4990,13 @@ gameNext.addEventListener(
 
         uiClick();
 
-        gameOverlay.style.opacity="0";
+        gameOverlay.style.opacity=
+            "0";
 
         setTimeout(()=>{
 
-            gameOverlay.style.display="none";
+            gameOverlay.style.display=
+                "none";
 
             gameIndex++;
 
@@ -3484,10 +5019,18 @@ function completeChapter(){
             ".progress-star"
         );
 
-    if(stars[currentChapter]){
+
+    if(
         stars[currentChapter]
-            .classList.add("active");
+    ){
+
+        stars[currentChapter]
+            .classList.add(
+                "active"
+            );
+
     }
+
 
     if(
         currentChapter ===
@@ -3503,11 +5046,15 @@ function completeChapter(){
 
     }
 
-    chapterWorld.style.opacity="0";
+
+    chapterWorld.style.opacity=
+        "0";
+
 
     setTimeout(()=>{
 
-        chapterWorld.style.display="none";
+        chapterWorld.style.display=
+            "none";
 
         currentChapter++;
 
@@ -3527,13 +5074,16 @@ function launchFinalGame(){
     emotionalMusic();
 
     finalIndex=0;
+
     finalCorrect=0;
 
-    finalGame.style.display="flex";
+    finalGame.style.display=
+        "flex";
 
     requestAnimationFrame(()=>{
 
-        finalGame.style.opacity="1";
+        finalGame.style.opacity=
+            "1";
 
     });
 
@@ -3541,47 +5091,67 @@ function launchFinalGame(){
 
 }
 
+
 function showFinalQuestion(){
 
     const q =
-        finalQuestions[finalIndex];
+        finalQuestions[
+            finalIndex
+        ];
+
 
     finalQuestion.textContent =
         q.q;
+
 
     finalOptions.innerHTML="";
 
     finalFeedback.textContent="";
 
+
     finalHearts.forEach(
         (h,i)=>{
+
             h.classList.toggle(
                 "active",
                 i<finalCorrect
             );
+
         }
     );
+
 
     q.options.forEach(
         (option,index)=>{
 
             const button =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
-            button.className="final-option";
-            button.textContent=option;
+            button.className=
+                "final-option";
+
+            button.textContent=
+                option;
+
 
             button.addEventListener(
                 "click",
                 ()=>{
 
-                    if(index===q.correct){
+                    if(
+                        index===q.correct
+                    ){
 
-                        button.classList.add("correct");
+                        button.classList.add(
+                            "correct"
+                        );
 
                         finalCorrect++;
 
                         correctSound();
+
 
                         finalFeedback.textContent =
                             finalIndex===
@@ -3589,15 +5159,21 @@ function showFinalQuestion(){
                             ? "You did it. ♡"
                             : "I knew you'd know that. 😌♡";
 
+
                         finalOptions
-                            .querySelectorAll("button")
+                            .querySelectorAll(
+                                "button"
+                            )
                             .forEach(
-                                b=>b.disabled=true
+                                b=>
+                                    b.disabled=true
                             );
+
 
                         setTimeout(()=>{
 
                             finalIndex++;
+
 
                             if(
                                 finalIndex >=
@@ -3614,17 +5190,24 @@ function showFinalQuestion(){
 
                         },1100);
 
+
                     }else{
 
-                        button.classList.add("wrong");
+                        button.classList.add(
+                            "wrong"
+                        );
 
                         wrongSound();
+
 
                         finalFeedback.textContent =
                             "Hmmm... really? Try again. 😂";
 
+
                         setTimeout(
-                            ()=>button.classList.remove("wrong"),
+                            ()=>button.classList.remove(
+                                "wrong"
+                            ),
                             450
                         );
 
@@ -3633,7 +5216,10 @@ function showFinalQuestion(){
                 }
             );
 
-            finalOptions.appendChild(button);
+
+            finalOptions.appendChild(
+                button
+            );
 
         }
     );
@@ -3649,26 +5235,39 @@ function finishFinalGame(){
 
     magicalReveal();
 
+
     finalHearts.forEach(
-        h=>h.classList.add("active")
+        h=>
+            h.classList.add(
+                "active"
+            )
     );
+
 
     finalFeedback.textContent =
         "Okay... you passed. I knew you would. ♡";
 
+
     setTimeout(()=>{
 
-        finalGame.style.opacity="0";
+        finalGame.style.opacity=
+            "0";
+
 
         setTimeout(()=>{
 
-            finalGame.style.display="none";
+            finalGame.style.display=
+                "none";
 
-            letterStage.style.display="flex";
+
+            letterStage.style.display=
+                "flex";
+
 
             requestAnimationFrame(()=>{
 
-                letterStage.style.opacity="1";
+                letterStage.style.opacity=
+                    "1";
 
             });
 
@@ -3689,13 +5288,17 @@ finalEnvelope.addEventListener(
 
         magicalReveal();
 
-        letterStage.style.opacity="0";
+        letterStage.style.opacity=
+            "0";
+
 
         setTimeout(()=>{
 
-            letterStage.style.display="none";
+            letterStage.style.display=
+                "none";
 
-            letter.style.display="flex";
+            letter.style.display=
+                "flex";
 
             typeLetter();
 
@@ -3756,14 +5359,19 @@ function typeLetter(){
 
     const speed=24;
 
+
     function type(){
 
-        if(index < finalLetter.length){
+        if(
+            index <
+            finalLetter.length
+        ){
 
             letterBody.textContent +=
                 finalLetter[index];
 
             index++;
+
 
             setTimeout(
                 type,
@@ -3773,6 +5381,7 @@ function typeLetter(){
         }
 
     }
+
 
     type();
 
@@ -3789,11 +5398,14 @@ universeBtn.addEventListener(
 
         uiClick();
 
-        letter.style.opacity="0";
+        letter.style.opacity=
+            "0";
+
 
         setTimeout(()=>{
 
-            letter.style.display="none";
+            letter.style.display=
+                "none";
 
             beginUniverseEnding();
 
@@ -3811,17 +5423,24 @@ function beginUniverseEnding(){
 
     heartbeat();
 
-    universeEnding.style.display="flex";
+
+    universeEnding.style.display=
+        "flex";
+
 
     requestAnimationFrame(()=>{
 
-        universeEnding.style.opacity="1";
+        universeEnding.style.opacity=
+            "1";
 
     });
 
+
     createStars();
 
+
     universeText.innerHTML="";
+
 
     const lines=[
 
@@ -3835,11 +5454,15 @@ function beginUniverseEnding(){
 
     ];
 
+
     let line=0;
+
 
     function nextLine(){
 
-        if(line>=lines.length){
+        if(
+            line>=lines.length
+        ){
 
             showUniverseSub();
 
@@ -3847,21 +5470,27 @@ function beginUniverseEnding(){
 
         }
 
-        universeText.style.opacity="0";
+
+        universeText.style.opacity=
+            "0";
+
 
         setTimeout(()=>{
 
             universeText.innerHTML =
                 lines[line];
 
-            universeText.style.opacity="1";
+            universeText.style.opacity=
+                "1";
 
             magicalReveal();
 
             line++;
 
+
             setTimeout(
                 nextLine,
+
                 line===lines.length
                 ? 3800
                 : 2800
@@ -3870,6 +5499,7 @@ function beginUniverseEnding(){
         },700);
 
     }
+
 
     nextLine();
 
@@ -3886,12 +5516,16 @@ function createStars(){
 
     const stars=[];
 
+
     for(let i=0;i<100;i++){
 
         const star =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         star.className="star";
+
 
         const x =
             Math.random()*100;
@@ -3899,18 +5533,28 @@ function createStars(){
         const y =
             Math.random()*100;
 
-        star.style.left=x+"%";
-        star.style.top=y+"%";
+
+        star.style.left =
+            x+"%";
+
+        star.style.top =
+            y+"%";
+
 
         star.style.setProperty(
             "--twinkle",
             (1+Math.random()*3)+"s"
         );
 
-        star.style.animationDelay=
+
+        star.style.animationDelay =
             (-Math.random()*3)+"s";
 
-        starField.appendChild(star);
+
+        starField.appendChild(
+            star
+        );
+
 
         stars.push({
             x,
@@ -3920,50 +5564,79 @@ function createStars(){
 
     }
 
+
     const chosen =
         stars.slice(0,8);
 
-    for(let i=0;i<chosen.length-1;i++){
 
-        const a=chosen[i];
-        const b=chosen[i+1];
+    for(
+        let i=0;
+        i<chosen.length-1;
+        i++
+    ){
+
+        const a=
+            chosen[i];
+
+        const b=
+            chosen[i+1];
+
 
         const dx =
             (b.x-a.x) *
             window.innerWidth/100;
 
+
         const dy =
             (b.y-a.y) *
             window.innerHeight/100;
 
+
         const distance =
             Math.sqrt(
-                dx*dx+dy*dy
+                dx*dx +
+                dy*dy
             );
 
+
         const angle =
-            Math.atan2(dy,dx) *
+            Math.atan2(
+                dy,
+                dx
+            ) *
             180/Math.PI;
 
+
         const line =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         line.className=
             "constellation-line";
 
-        line.style.width=
+
+        line.style.width =
             distance+"px";
 
-        line.style.left=
+
+        line.style.left =
             a.x+"%";
 
-        line.style.top=
+
+        line.style.top =
             a.y+"%";
 
-        line.style.transform=
+
+        line.style.transform =
             `rotate(${angle}deg)`;
 
-        starField.appendChild(line);
+
+        starField.appendChild(
+            line
+        );
+
 
         setTimeout(
             ()=>line.style.opacity=".75",
@@ -3981,11 +5654,15 @@ function createStars(){
 
 function showUniverseSub(){
 
-    universeSub.style.opacity="1";
+    universeSub.style.opacity=
+        "1";
+
 
     setTimeout(()=>{
 
-        universeButton.classList.add("show");
+        universeButton.classList.add(
+            "show"
+        );
 
         sparkleSound();
 
@@ -3993,29 +5670,39 @@ function showUniverseSub(){
 
 }
 
+
 universeButton.addEventListener(
     "click",
     ()=>{
 
         heartbeat();
 
+
         setTimeout(
             whoosh,
             180
         );
 
+
         universeButton.style.transform=
             "scale(1.15)";
 
-        universeButton.style.opacity="0";
+
+        universeButton.style.opacity=
+            "0";
+
 
         universeText.style.transform=
             "scale(1.15)";
 
+
         universeEnding.style.transition=
             "opacity 1.8s ease";
 
-        universeEnding.style.opacity="0";
+
+        universeEnding.style.opacity=
+            "0";
+
 
         setTimeout(()=>{
 
@@ -4037,26 +5724,39 @@ document.addEventListener(
     e=>{
 
         const x =
-            (e.clientX/window.innerWidth-.5);
+            (
+                e.clientX /
+                window.innerWidth
+                -.5
+            );
 
         const y =
-            (e.clientY/window.innerHeight-.5);
+            (
+                e.clientY /
+                window.innerHeight
+                -.5
+            );
+
 
         const decorations =
             document.querySelectorAll(
                 ".float-item"
             );
 
+
         decorations.forEach(
             (el,index)=>{
 
                 const amount =
-                    4+(index%5)*2;
+                    4 +
+                    (index%5)*2;
 
-                el.style.marginLeft=
+
+                el.style.marginLeft =
                     (x*amount)+"px";
 
-                el.style.marginTop=
+
+                el.style.marginTop =
                     (y*amount)+"px";
 
             }
