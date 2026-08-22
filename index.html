@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0,
                maximum-scale=1.0,user-scalable=no">
 
-<title>Our Little Universe ✨</title>
+<title>Our Little Universe ✦</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -34,142 +35,94 @@ body{
 
 body{
     overflow:hidden;
-    background:#02030d;
+    background:#02020b;
     color:white;
     font-family:"Montserrat",sans-serif;
-    cursor:default;
-}
-
-button{
-    font-family:inherit;
 }
 
 
 /* =========================================================
-   MAIN UNIVERSE
+   MASTER SPACE
 ========================================================= */
 
-#universe{
+#space{
     position:fixed;
     inset:0;
     overflow:hidden;
 
     background:
         radial-gradient(
-            ellipse at 50% 48%,
-            rgba(51,45,130,.42) 0%,
-            rgba(18,17,65,.32) 28%,
-            rgba(4,6,25,.8) 62%,
-            #01020a 100%
+            ellipse at 50% 50%,
+            #171444 0%,
+            #0b0929 35%,
+            #040413 70%,
+            #010107 100%
         );
 }
 
 
 /* =========================================================
-   DEEP SPACE LAYERS
-========================================================= */
-
-.space-layer{
-    position:absolute;
-    inset:-10%;
-    pointer-events:none;
-}
-
-.space-layer.one{
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(83,57,180,.18),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 65%,
-            rgba(159,46,127,.15),
-            transparent 28%
-        );
-    animation:spaceDrift 28s ease-in-out infinite alternate;
-}
-
-.space-layer.two{
-    background:
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(38,97,190,.13),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 30% 80%,
-            rgba(107,44,160,.12),
-            transparent 28%
-        );
-    animation:spaceDriftTwo 35s ease-in-out infinite alternate;
-}
-
-@keyframes spaceDrift{
-    from{
-        transform:translate(-2%,1%) scale(1);
-    }
-    to{
-        transform:translate(3%,-2%) scale(1.08);
-    }
-}
-
-@keyframes spaceDriftTwo{
-    from{
-        transform:translate(2%,0) scale(1);
-    }
-    to{
-        transform:translate(-3%,2%) scale(1.12);
-    }
-}
-
-
-/* =========================================================
-   NEBULAE
+   NEBULAS
 ========================================================= */
 
 .nebula{
     position:absolute;
     border-radius:50%;
     filter:blur(90px);
-    opacity:.2;
     pointer-events:none;
+    opacity:.18;
+    animation:nebulaFloat 18s ease-in-out infinite alternate;
 }
 
 .nebula.one{
-    width:550px;
-    height:550px;
-    left:-180px;
-    top:-180px;
-    background:#593cba;
-    animation:nebulaFloat 20s ease-in-out infinite alternate;
+    width:650px;
+    height:650px;
+    left:-230px;
+    top:-250px;
+    background:#673d9b;
 }
 
 .nebula.two{
-    width:500px;
-    height:500px;
-    right:-160px;
-    bottom:-170px;
-    background:#a13b86;
-    animation:nebulaFloat 25s ease-in-out infinite alternate-reverse;
+    width:600px;
+    height:600px;
+    right:-250px;
+    bottom:-250px;
+    background:#9c376c;
+    animation-delay:4s;
 }
 
 .nebula.three{
-    width:420px;
-    height:420px;
-    left:42%;
-    top:35%;
-    background:#274b9d;
-    opacity:.11;
-    animation:nebulaFloat 30s ease-in-out infinite alternate;
+    width:500px;
+    height:500px;
+    left:35%;
+    top:30%;
+    background:#31569c;
+    opacity:.12;
+    animation-delay:8s;
+}
+
+.nebula.four{
+    width:350px;
+    height:350px;
+    right:15%;
+    top:5%;
+    background:#663b99;
+    opacity:.1;
+    animation-delay:12s;
 }
 
 @keyframes nebulaFloat{
-    from{
-        transform:translate(0,0) scale(.85);
+
+    0%{
+        transform:translate(0,0) scale(.9);
     }
-    to{
-        transform:translate(50px,-35px) scale(1.15);
+
+    50%{
+        transform:translate(50px,-30px) scale(1.1);
+    }
+
+    100%{
+        transform:translate(-30px,40px) scale(.95);
     }
 }
 
@@ -182,87 +135,41 @@ button{
     position:absolute;
     inset:0;
     pointer-events:none;
+    z-index:2;
 }
 
 .star{
     position:absolute;
+    width:2px;
+    height:2px;
     border-radius:50%;
     background:white;
+    opacity:.5;
+
+    animation:
+        twinkle var(--duration)
+        ease-in-out infinite;
+}
+
+.star.big{
+    width:4px;
+    height:4px;
+
     box-shadow:
-        0 0 4px rgba(255,255,255,.8),
-        0 0 10px rgba(180,200,255,.6);
-    animation:twinkle var(--duration) ease-in-out infinite;
-    animation-delay:var(--delay);
-}
-
-.star.cross{
-    background:transparent;
-    box-shadow:none;
-}
-
-.star.cross::before,
-.star.cross::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    background:rgba(255,255,255,.85);
-    border-radius:10px;
-}
-
-.star.cross::before{
-    width:1px;
-    height:18px;
-    box-shadow:0 0 8px white;
-}
-
-.star.cross::after{
-    width:18px;
-    height:1px;
-    box-shadow:0 0 8px white;
+        0 0 8px white,
+        0 0 16px rgba(200,210,255,.8);
 }
 
 @keyframes twinkle{
+
     0%,100%{
         opacity:.15;
-        transform:scale(.65);
+        transform:scale(.7);
     }
+
     50%{
-        opacity:1;
-        transform:scale(1.35);
-    }
-}
-
-
-/* =========================================================
-   DUST
-========================================================= */
-
-.cosmic-dust{
-    position:absolute;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:rgba(190,210,255,.5);
-    filter:blur(1px);
-    animation:dustFloat linear infinite;
-}
-
-@keyframes dustFloat{
-    from{
-        transform:translateY(100vh) translateX(0);
-        opacity:0;
-    }
-    15%{
-        opacity:.7;
-    }
-    85%{
-        opacity:.5;
-    }
-    to{
-        transform:translateY(-20vh) translateX(80px);
-        opacity:0;
+        opacity:.95;
+        transform:scale(1.5);
     }
 }
 
@@ -271,42 +178,53 @@ button{
    SHOOTING STARS
 ========================================================= */
 
-.meteor{
+.shooting-star{
     position:absolute;
     width:3px;
     height:3px;
-    border-radius:50%;
+
     background:white;
+    border-radius:50%;
+
     box-shadow:
         0 0 8px white,
-        0 0 18px #aebdff;
-    z-index:4;
-    pointer-events:none;
+        0 0 20px #b9caff;
+
+    z-index:8;
+    cursor:pointer;
+
+    animation:meteor 1.8s linear forwards;
 }
 
-.meteor::after{
+.shooting-star::after{
     content:"";
     position:absolute;
+
     width:130px;
     height:2px;
-    right:0;
+
+    right:2px;
     top:1px;
+
+    transform-origin:right;
 
     background:
         linear-gradient(
             to left,
-            rgba(255,255,255,.85),
-            rgba(165,185,255,.4),
+            rgba(255,255,255,.9),
             transparent
         );
 
-    transform-origin:right center;
+    filter:blur(.5px);
 }
 
-@keyframes meteorFly{
+@keyframes meteor{
+
     0%{
         opacity:0;
-        transform:translate(0,0) rotate(-35deg);
+        transform:
+            translate(0,0)
+            rotate(-35deg);
     }
 
     10%{
@@ -315,118 +233,182 @@ button{
 
     100%{
         opacity:0;
-        transform:translate(-450px,450px) rotate(-35deg);
+        transform:
+            translate(-430px,430px)
+            rotate(-35deg);
     }
 }
 
 
 /* =========================================================
-   FLOATING ROCKETS
+   PLANETS
+========================================================= */
+
+.planet{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:3;
+
+    animation:
+        planetFloat
+        10s ease-in-out infinite alternate;
+}
+
+.planet.small{
+    width:42px;
+    height:42px;
+}
+
+.planet.medium{
+    width:85px;
+    height:85px;
+}
+
+.planet.p1{
+    left:7%;
+    top:25%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #d9c7ff,
+            #7051b7 45%,
+            #22164f
+        );
+
+    box-shadow:
+        0 0 30px rgba(120,100,255,.4);
+}
+
+.planet.p2{
+    right:8%;
+    top:18%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffd4df,
+            #a34d79 45%,
+            #35152e
+        );
+
+    box-shadow:
+        0 0 35px rgba(255,110,180,.3);
+
+    animation-delay:2s;
+}
+
+.planet.p3{
+    left:8%;
+    bottom:13%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #a8e5ff,
+            #4167a3 50%,
+            #16243d
+        );
+
+    box-shadow:
+        0 0 35px rgba(100,180,255,.3);
+
+    animation-delay:5s;
+}
+
+.planet.p4{
+    right:11%;
+    bottom:11%;
+
+    width:55px;
+    height:55px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffe9b0,
+            #a56b40 45%,
+            #321c18
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,190,110,.25);
+
+    animation-delay:7s;
+}
+
+@keyframes planetFloat{
+
+    from{
+        transform:translateY(-10px) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(15px) rotate(20deg);
+    }
+}
+
+
+/* =========================================================
+   ROCKET
 ========================================================= */
 
 .rocket{
     position:absolute;
-    z-index:3;
-    opacity:.35;
-    font-size:22px;
-    filter:
-        drop-shadow(0 0 8px rgba(150,180,255,.8));
-    pointer-events:none;
+
+    font-size:25px;
+
+    right:-60px;
+    bottom:20%;
+
+    z-index:7;
+    opacity:.7;
+
     animation:
-        rocketFloat 18s linear infinite;
+        rocketFlight
+        14s linear infinite;
 }
 
-@keyframes rocketFloat{
+@keyframes rocketFlight{
+
     0%{
         transform:
-            translate(110vw,85vh)
-            rotate(-25deg);
+            translate(0,0)
+            rotate(-30deg);
         opacity:0;
     }
 
     10%{
-        opacity:.35;
+        opacity:.8;
     }
 
     90%{
-        opacity:.35;
+        opacity:.8;
     }
 
     100%{
         transform:
-            translate(-15vw,-20vh)
-            rotate(-25deg);
+            translate(-120vw,-90vh)
+            rotate(-30deg);
         opacity:0;
     }
 }
 
 
 /* =========================================================
-   DWARF PLANETS
+   CONSTELLATION SVG
 ========================================================= */
 
-.dwarf{
+#constellationCanvas{
     position:absolute;
-    width:48px;
-    height:48px;
-    border-radius:50%;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
     pointer-events:none;
-    opacity:.35;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #e7dfff,
-            #8b75c4 35%,
-            #34255f 70%,
-            #120c2b
-        );
-
-    box-shadow:
-        inset -10px -10px 18px rgba(0,0,0,.55),
-        0 0 25px rgba(125,105,230,.25);
-
-    animation:planetDrift 12s ease-in-out infinite alternate;
-}
-
-.dwarf::after{
-    content:"";
-    position:absolute;
-    inset:8px -14px;
-    border:
-        1px solid rgba(200,190,255,.22);
-    border-radius:50%;
-    transform:rotate(-18deg);
-}
-
-.dwarf.a{
-    left:8%;
-    top:22%;
-}
-
-.dwarf.b{
-    right:7%;
-    top:56%;
-    width:35px;
-    height:35px;
-    animation-delay:3s;
-}
-
-.dwarf.c{
-    left:70%;
-    bottom:8%;
-    width:28px;
-    height:28px;
-    animation-delay:6s;
-}
-
-@keyframes planetDrift{
-    from{
-        transform:translateY(0) rotate(0);
-    }
-    to{
-        transform:translateY(-25px) rotate(12deg);
-    }
+    z-index:4;
 }
 
 
@@ -434,10 +416,9 @@ button{
    INTRO
 ========================================================= */
 
-#intro{
+.screen{
     position:absolute;
     inset:0;
-    z-index:30;
 
     display:flex;
     align-items:center;
@@ -445,103 +426,107 @@ button{
 
     text-align:center;
 
-    padding:30px;
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
 
     transition:
-        opacity 1.5s ease,
-        transform 1.5s ease;
+        opacity 1s ease,
+        visibility 1s ease;
+
+    z-index:20;
 }
 
-#intro.hide{
-    opacity:0;
-    transform:scale(1.12);
-    pointer-events:none;
+.screen.active{
+    opacity:1;
+    visibility:visible;
 }
 
 .intro-content{
-    width:min(850px,92%);
+    width:min(900px,92%);
+}
+
+.eyebrow{
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.55;
+    margin-bottom:20px;
 }
 
 .intro-star{
-    font-size:42px;
-    margin-bottom:20px;
+    font-size:55px;
+    margin-bottom:10px;
 
     animation:
-        introStar 3s ease-in-out infinite;
+        cosmicPulse
+        3s ease-in-out infinite;
 
     text-shadow:
-        0 0 15px white,
-        0 0 40px #aebdff;
+        0 0 20px white,
+        0 0 50px #a7b5ff;
 }
 
-@keyframes introStar{
+@keyframes cosmicPulse{
+
     0%,100%{
         transform:scale(.8);
-        opacity:.55;
+        opacity:.5;
     }
+
     50%{
-        transform:scale(1.2);
+        transform:scale(1.25);
         opacity:1;
     }
 }
 
-.eyebrow{
-    font-size:10px;
-    letter-spacing:5px;
-    opacity:.55;
-    margin-bottom:18px;
-}
-
-.intro-title{
+.intro-content h1{
     font-family:"Cormorant Garamond",serif;
-    font-size:clamp(65px,11vw,125px);
-    font-weight:300;
-    line-height:.82;
-    margin-bottom:28px;
-}
-
-.intro-title span{
-    font-family:"Great Vibes",cursive;
     font-weight:400;
+
+    font-size:
+        clamp(60px,11vw,115px);
+
+    line-height:.85;
+
+    margin-bottom:25px;
+
+    text-shadow:
+        0 0 40px rgba(150,150,255,.25);
 }
 
-.intro-subtitle{
+.script{
+    font-family:"Great Vibes",cursive;
+}
+
+.intro-description{
     font-family:"Cormorant Garamond",serif;
-    font-size:clamp(22px,4vw,31px);
-    line-height:1.35;
-    opacity:.75;
+
+    font-size:
+        clamp(20px,4vw,29px);
+
+    opacity:.78;
+
+    line-height:1.3;
 }
 
-.intro-small{
-    font-family:"Cormorant Garamond",serif;
-    font-size:20px;
-    opacity:.45;
-    margin-top:7px;
-}
+.cosmic-button{
+    margin-top:32px;
 
+    padding:15px 28px;
 
-/* =========================================================
-   GLOW BUTTON
-========================================================= */
-
-.glow-button{
-    position:relative;
-
-    margin-top:36px;
-
-    padding:15px 30px;
-
-    border:1px solid rgba(255,255,255,.3);
     border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.35);
 
     background:
         linear-gradient(
-            110deg,
-            rgba(255,255,255,.98),
-            rgba(222,225,255,.95)
+            120deg,
+            rgba(255,255,255,.96),
+            rgba(232,235,255,.96)
         );
 
-    color:#151333;
+    color:#17143b;
 
     font-size:10px;
     font-weight:600;
@@ -550,123 +535,291 @@ button{
     cursor:pointer;
 
     box-shadow:
-        0 0 20px rgba(180,195,255,.2),
-        0 15px 45px rgba(0,0,0,.4);
+        0 0 20px rgba(255,255,255,.18),
+        0 15px 40px rgba(0,0,0,.4);
 
     transition:
         transform .3s ease,
         box-shadow .3s ease;
 }
 
-.glow-button::before{
-    content:"";
-    position:absolute;
-    inset:-6px;
-    border-radius:inherit;
-    border:1px solid rgba(190,205,255,.18);
-    opacity:0;
-    transition:.3s ease;
-}
+.cosmic-button:hover{
+    transform:
+        translateY(-4px)
+        scale(1.03);
 
-.glow-button:hover{
-    transform:translateY(-4px);
     box-shadow:
-        0 0 30px rgba(180,195,255,.45),
-        0 20px 55px rgba(0,0,0,.55);
+        0 0 35px rgba(255,255,255,.3),
+        0 20px 55px rgba(0,0,0,.5);
 }
 
-.glow-button:hover::before{
-    opacity:1;
-}
-
-.glow-button:active{
-    transform:scale(.95);
+.cosmic-button:active{
+    transform:scale(.96);
 }
 
 
 /* =========================================================
-   UNIVERSE INTERFACE
+   MAIN OBSERVATORY
 ========================================================= */
 
-#exploration{
+#observatory{
     position:absolute;
     inset:0;
-    z-index:15;
 
     opacity:0;
     visibility:hidden;
 
-    transition:opacity 1.4s ease;
+    transition:
+        opacity 1.2s ease;
+
+    z-index:15;
 }
 
-#exploration.active{
+#observatory.active{
     opacity:1;
     visibility:visible;
 }
 
 
 /* =========================================================
-   HEADING
+   TOP HUD
 ========================================================= */
 
-.universe-heading{
+.hud{
     position:absolute;
-    top:5%;
+
+    top:20px;
     left:50%;
+
     transform:translateX(-50%);
 
-    width:90%;
+    width:min(500px,90%);
+
     text-align:center;
 
-    z-index:20;
+    z-index:30;
 }
 
-.universe-heading h2{
+.hud-title{
     font-family:"Great Vibes",cursive;
-    font-size:clamp(42px,7vw,72px);
+    font-size:42px;
     font-weight:400;
+
+    text-shadow:
+        0 0 20px rgba(200,200,255,.4);
 }
 
-.universe-heading p{
-    font-family:"Cormorant Garamond",serif;
-    font-size:19px;
-    opacity:.6;
-}
-
-.counter{
-    margin-top:13px;
+.hud-subtitle{
     font-size:8px;
     letter-spacing:3px;
     opacity:.45;
 }
 
-.progress{
-    width:180px;
-    height:2px;
-    margin:8px auto;
-    border-radius:10px;
+.energy{
+    margin:13px auto 0;
+
+    width:min(220px,60%);
+
+    height:3px;
+
     background:rgba(255,255,255,.08);
+
+    border-radius:10px;
+
     overflow:hidden;
 }
 
-.progress-fill{
+.energy-fill{
     width:0%;
     height:100%;
-    background:white;
-    box-shadow:0 0 10px white;
-    transition:width 1s ease;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9c8cff,
+            #ffffff,
+            #ffafd3
+        );
+
+    box-shadow:
+        0 0 15px rgba(200,190,255,.9);
+
+    transition:
+        width 1s cubic-bezier(.22,1,.36,1);
+}
+
+.energy-text{
+    margin-top:6px;
+
+    font-size:7px;
+    letter-spacing:2px;
+    opacity:.4;
 }
 
 
 /* =========================================================
-   MEMORY ORBS
+   ORBITAL OBJECTS
 ========================================================= */
 
-.memory-orb{
+.orbital{
     position:absolute;
 
-    width:110px;
-    height:110px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:18;
+
+    transition:
+        transform .4s ease;
+}
+
+.orbital:hover{
+    transform:scale(1.12);
+}
+
+.orbital-core{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+        0 0 30px rgba(170,180,255,.18);
+
+    backdrop-filter:blur(5px);
+
+    font-size:23px;
+}
+
+.orbital-label{
+    position:absolute;
+
+    top:68px;
+
+    width:130px;
+
+    text-align:center;
+
+    font-size:7px;
+
+    letter-spacing:1.5px;
+
+    opacity:.55;
+}
+
+.orbit-planet{
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:180px;
+    height:180px;
+}
+
+.orbit-planet .orbital-core{
+    width:125px;
+    height:125px;
+
+    font-size:55px;
+
+    border:none;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #f5d7ff,
+            #8d63c8 35%,
+            #382164 68%,
+            #110b27
+        );
+
+    box-shadow:
+        0 0 35px rgba(180,130,255,.45),
+        inset -20px -25px 40px rgba(0,0,0,.45);
+}
+
+.orbit-ring{
+    position:absolute;
+
+    width:190px;
+    height:55px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:50%;
+
+    transform:rotate(-18deg);
+
+    box-shadow:
+        0 0 15px rgba(200,200,255,.1);
+}
+
+
+/* =========================================================
+   ACTION ORBS
+========================================================= */
+
+.action-zodiac{
+    left:13%;
+    top:39%;
+}
+
+.action-moon{
+    right:13%;
+    top:39%;
+}
+
+.action-oracle{
+    left:23%;
+    bottom:18%;
+}
+
+.action-love{
+    right:23%;
+    bottom:18%;
+}
+
+.action-message{
+    left:50%;
+    bottom:8%;
+
+    transform:translateX(-50%);
+}
+
+.action-message:hover{
+    transform:
+        translateX(-50%)
+        scale(1.12);
+}
+
+
+/* =========================================================
+   MEMORY STARS
+========================================================= */
+
+.memory-star{
+    position:absolute;
+
+    width:55px;
+    height:55px;
 
     border:none;
     background:transparent;
@@ -675,203 +828,151 @@ button{
 
     cursor:pointer;
 
-    z-index:25;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    z-index:22;
 
     transition:
-        transform .45s cubic-bezier(.22,1,.36,1);
+        transform .4s ease;
 }
 
-.memory-orb:hover{
-    transform:scale(1.18);
+.memory-star:hover{
+    transform:scale(1.25);
 }
 
-.orb-core{
+.memory-star span{
     position:absolute;
 
-    width:24px;
-    height:24px;
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+}
+
+.memory-star .glow{
+    width:30px;
+    height:30px;
 
     border-radius:50%;
 
-    background:
-        radial-gradient(
-            circle,
-            #fff 0%,
-            #dce5ff 25%,
-            #9baeff 45%,
-            transparent 72%
-        );
+    background:rgba(255,255,255,.08);
 
-    box-shadow:
-        0 0 12px white,
-        0 0 30px #9aaeff,
-        0 0 65px rgba(130,145,255,.65);
+    filter:blur(8px);
 
     animation:
-        orbPulse 3s ease-in-out infinite;
+        memoryGlow
+        2.5s ease-in-out infinite;
 }
 
-.orb-halo{
+.memory-star .symbol{
+    font-size:22px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #a9b8ff;
+}
+
+.memory-star .label{
     position:absolute;
 
-    width:70px;
-    height:70px;
+    top:47px;
+    left:50%;
 
-    border-radius:50%;
+    transform:translateX(-50%);
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(175,190,255,.2),
-            transparent 70%
-        );
+    width:120px;
 
-    filter:blur(4px);
+    font-size:7px;
+    letter-spacing:1px;
 
-    animation:
-        haloPulse 3s ease-in-out infinite;
+    opacity:.5;
+
+    white-space:nowrap;
 }
 
-@keyframes orbPulse{
-    0%,100%{
-        transform:scale(.75);
-    }
-    50%{
-        transform:scale(1.15);
-    }
+.memory-star.discovered .symbol{
+    color:#ffcde4;
+
+    text-shadow:
+        0 0 10px #ffd3e8,
+        0 0 30px #ff7eb7;
 }
 
-@keyframes haloPulse{
+.memory-star.discovered{
+    opacity:.75;
+}
+
+.memory-star.discovered::after{
+    content:"✓";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    font-size:9px;
+}
+
+@keyframes memoryGlow{
+
     0%,100%{
-        transform:scale(.7);
-        opacity:.35;
+        transform:
+            translate(-50%,-50%)
+            scale(.7);
+        opacity:.3;
     }
+
     50%{
-        transform:scale(1.3);
+        transform:
+            translate(-50%,-50%)
+            scale(1.5);
         opacity:.9;
     }
 }
 
-.orb-label{
-    position:absolute;
-    top:86px;
 
-    width:150px;
+/* =========================================================
+   MEMORY POSITIONS
+========================================================= */
 
-    font-size:9px;
-    letter-spacing:1.5px;
-
-    opacity:.55;
-
-    transition:.3s ease;
+.m1{
+    left:17%;
+    top:32%;
 }
 
-.memory-orb:hover .orb-label{
-    opacity:1;
+.m2{
+    left:35%;
+    top:27%;
 }
 
-.memory-orb.discovered{
-    opacity:.65;
+.m3{
+    right:28%;
+    top:31%;
 }
 
-.memory-orb.discovered .orb-core{
-    background:
-        radial-gradient(
-            circle,
-            white,
-            #ffc7e3 35%,
-            #ff8ec0 60%,
-            transparent 75%
-        );
-
-    box-shadow:
-        0 0 12px white,
-        0 0 35px #ff9ec7,
-        0 0 65px rgba(255,130,190,.55);
-}
-
-
-/* ORB POSITIONS */
-
-.orb1{
-    left:12%;
-    top:35%;
-}
-
-.orb2{
-    left:39%;
-    top:29%;
-}
-
-.orb3{
+.m4{
     right:14%;
-    top:36%;
+    top:47%;
 }
 
-.orb4{
-    left:23%;
-    bottom:18%;
+.m5{
+    right:30%;
+    bottom:25%;
 }
 
-.orb5{
-    right:36%;
-    bottom:15%;
-}
-
-.orb6{
-    right:8%;
-    bottom:23%;
+.m6{
+    left:30%;
+    bottom:20%;
 }
 
 
 /* =========================================================
-   CONSTELLATION SVG
+   MODAL
 ========================================================= */
 
-#constellation{
+.modal{
     position:absolute;
+
     inset:0;
-
-    width:100%;
-    height:100%;
-
-    pointer-events:none;
-    z-index:18;
-}
-
-.constellation-line{
-    stroke:rgba(220,225,255,.65);
-    stroke-width:1;
-    filter:
-        drop-shadow(0 0 5px rgba(190,205,255,.8));
-
-    stroke-dasharray:1000;
-    stroke-dashoffset:1000;
-
-    animation:
-        drawLine 1.2s ease forwards;
-}
-
-@keyframes drawLine{
-    to{
-        stroke-dashoffset:0;
-    }
-}
-
-
-/* =========================================================
-   MEMORY MODAL
-========================================================= */
-
-#memoryModal{
-    position:absolute;
-    inset:0;
-
-    z-index:100;
 
     display:flex;
     align-items:center;
@@ -882,63 +983,65 @@ button{
     opacity:0;
     visibility:hidden;
 
+    z-index:100;
+
     transition:
-        opacity .5s ease,
-        visibility .5s ease;
+        opacity .4s ease;
 }
 
-#memoryModal.show{
+.modal.show{
     opacity:1;
     visibility:visible;
 }
 
-.modal-bg{
+.modal-backdrop{
     position:absolute;
     inset:0;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(27,28,80,.45),
-            rgba(1,2,12,.9)
-        );
+        rgba(2,2,12,.8);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(15px);
 }
 
-.memory-card{
+.modal-card{
     position:relative;
 
-    width:min(520px,94%);
+    width:min(510px,94%);
 
-    padding:35px 28px 30px;
+    max-height:88vh;
 
-    border-radius:28px;
+    overflow:auto;
+
+    padding:34px 28px;
+
+    border-radius:26px;
 
     text-align:center;
 
     background:
         linear-gradient(
             145deg,
-            rgba(30,28,76,.96),
-            rgba(8,9,31,.98)
+            rgba(29,25,70,.98),
+            rgba(8,7,27,.99)
         );
 
-    border:1px solid rgba(255,255,255,.16);
+    border:
+        1px solid rgba(255,255,255,.15);
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.75),
-        0 0 40px rgba(110,125,255,.1);
+        0 35px 100px rgba(0,0,0,.7),
+        0 0 50px rgba(100,100,255,.08);
 
     transform:
-        translateY(40px)
-        scale(.9);
+        translateY(30px)
+        scale(.92);
 
     transition:
         transform .6s cubic-bezier(.22,1,.36,1);
 }
 
-#memoryModal.show .memory-card{
+.modal.show .modal-card{
     transform:
         translateY(0)
         scale(1);
@@ -946,158 +1049,112 @@ button{
 
 .close{
     position:absolute;
-    top:12px;
-    right:17px;
+
+    right:16px;
+    top:10px;
 
     border:none;
-    background:transparent;
+    background:none;
 
     color:white;
+
     font-size:28px;
 
     opacity:.45;
+
     cursor:pointer;
 }
 
-.memory-icon{
-    font-size:42px;
-    margin-bottom:8px;
+.modal-icon{
+    font-size:40px;
 
-    filter:
-        drop-shadow(0 0 12px rgba(200,210,255,.8));
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,.5);
 }
 
-.memory-number{
+.modal-number{
     font-size:8px;
     letter-spacing:3px;
     opacity:.45;
+
+    margin-bottom:8px;
 }
 
-.memory-title{
+.modal-card h2{
     font-family:"Great Vibes",cursive;
-    font-size:55px;
+
+    font-size:52px;
     font-weight:400;
-    margin-top:5px;
 }
 
-.memory-line{
-    width:55px;
+.modal-line{
+    width:60px;
     height:1px;
-    background:rgba(255,255,255,.4);
-    margin:15px auto;
+
+    margin:14px auto;
+
+    background:
+        rgba(255,255,255,.4);
 }
 
-.memory-text{
+.modal-text{
     font-family:"Cormorant Garamond",serif;
-    font-size:24px;
+
+    font-size:23px;
+
     line-height:1.4;
+
     opacity:.88;
-}
-
-.memory-action{
-    margin-top:23px;
-
-    padding:12px 22px;
-
-    border-radius:999px;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    background:rgba(255,255,255,.95);
-    color:#151333;
-
-    font-size:9px;
-    font-weight:600;
-    letter-spacing:1px;
-
-    cursor:pointer;
 }
 
 
 /* =========================================================
-   ZODIAC REVEAL
+   ZODIAC SCREEN
 ========================================================= */
 
-#zodiacScreen{
+.zodiac-visual{
+    width:250px;
+    height:250px;
+
+    margin:15px auto 20px;
+
+    position:relative;
+}
+
+.zodiac-circle{
     position:absolute;
     inset:0;
-
-    z-index:150;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:30px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(40,35,110,.6),
-            rgba(2,3,15,.96) 68%
-        );
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease;
-}
-
-#zodiacScreen.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.zodiac-small{
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.5;
-}
-
-.zodiac-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(42px,7vw,70px);
-    font-weight:300;
-    margin-top:10px;
-}
-
-.zodiac-title span{
-    font-family:"Great Vibes",cursive;
-}
-
-.zodiac-symbol{
-    position:relative;
-
-    width:min(360px,75vw);
-    height:min(360px,75vw);
-
-    margin:15px auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.zodiac-symbol::before{
-    content:"";
-    position:absolute;
-    inset:10%;
 
     border-radius:50%;
 
     border:
-        1px solid rgba(190,205,255,.1);
+        1px solid rgba(255,255,255,.12);
 
     box-shadow:
-        0 0 70px rgba(120,140,255,.12);
+        0 0 50px rgba(130,150,255,.1);
 
     animation:
-        zodiacRotate 40s linear infinite;
+        zodiacRotate
+        25s linear infinite;
+}
+
+.zodiac-circle::before,
+.zodiac-circle::after{
+    content:"";
+
+    position:absolute;
+    inset:15px;
+
+    border-radius:50%;
+
+    border:
+        1px dashed rgba(255,255,255,.1);
+}
+
+.zodiac-circle::after{
+    inset:45px;
 }
 
 @keyframes zodiacRotate{
@@ -1106,433 +1163,260 @@ button{
     }
 }
 
-.zodiac-center{
-    position:absolute;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:80px;
-
-    opacity:0;
-
-    transform:scale(.2);
-
-    text-shadow:
-        0 0 15px white,
-        0 0 35px #b9c5ff,
-        0 0 70px #889bff;
-
-    transition:
-        opacity 1s ease,
-        transform 1.5s cubic-bezier(.22,1,.36,1);
-}
-
-#zodiacScreen.revealed .zodiac-center{
-    opacity:1;
-    transform:scale(1);
-}
-
-.zodiac-star{
-    position:absolute;
-
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:
-        0 0 8px white,
-        0 0 20px #b5c3ff;
-
-    opacity:0;
-
-    transform:scale(.2);
-
-    transition:
-        opacity .5s ease,
-        transform .8s cubic-bezier(.22,1,.36,1);
-}
-
-#zodiacScreen.revealed .zodiac-star{
-    opacity:1;
-    transform:scale(1);
-}
-
-.zs1{left:30%;top:30%;}
-.zs2{left:43%;top:18%;}
-.zs3{left:57%;top:28%;}
-.zs4{left:67%;top:43%;}
-.zs5{left:53%;top:57%;}
-.zs6{left:37%;top:67%;}
-.zs7{left:25%;top:52%;}
-.zs8{left:48%;top:40%;}
-
-.zodiac-line{
-    position:absolute;
-    height:1px;
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(210,220,255,.8),
-            transparent
-        );
-
-    transform-origin:left center;
-
-    opacity:0;
-}
-
-#zodiacScreen.revealed .zodiac-line{
-    animation:
-        zodiacLine .9s ease forwards;
-}
-
-@keyframes zodiacLine{
-    from{
-        opacity:0;
-        transform:scaleX(0);
-    }
-    to{
-        opacity:1;
-        transform:scaleX(1);
-    }
-}
-
-.zline1{
-    width:65px;
-    left:33%;
-    top:25%;
-    transform:rotate(-25deg);
-}
-
-.zline2{
-    width:65px;
-    left:45%;
-    top:21%;
-    transform:rotate(30deg);
-}
-
-.zline3{
-    width:70px;
-    left:58%;
-    top:31%;
-    transform:rotate(55deg);
-}
-
-.zline4{
-    width:75px;
-    left:63%;
-    top:48%;
-    transform:rotate(140deg);
-}
-
-.zline5{
-    width:70px;
-    left:50%;
-    top:58%;
-    transform:rotate(170deg);
-}
-
-.zline6{
-    width:70px;
-    left:35%;
-    top:63%;
-    transform:rotate(-140deg);
-}
-
-.zline7{
-    width:65px;
-    left:27%;
-    top:48%;
-    transform:rotate(-90deg);
-}
-
-.zodiac-caption{
-    font-family:"Cormorant Garamond",serif;
-    font-size:23px;
-    opacity:.7;
-    max-width:600px;
-}
-
-.zodiac-button{
-    margin-top:20px;
-}
-
-
-/* =========================================================
-   ANALYSIS SCREEN
-========================================================= */
-
-#analysisScreen{
-    position:absolute;
-    inset:0;
-
-    z-index:160;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:30px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(33,31,93,.6),
-            rgba(2,3,15,.97)
-        );
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
-#analysisScreen.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.analysis-container{
-    width:min(900px,95%);
-    text-align:center;
-}
-
-.analysis-eyebrow{
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.45;
-}
-
-.analysis-heading{
-    font-family:"Great Vibes",cursive;
-    font-size:clamp(48px,8vw,80px);
-    font-weight:400;
-    margin:8px 0 20px;
-}
-
-.trait-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:12px;
-}
-
-.trait{
-    min-height:145px;
-
-    padding:20px 12px;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.1);
-
-    backdrop-filter:blur(10px);
-
-    opacity:0;
-    transform:
-        translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-#analysisScreen.show .trait{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.trait:nth-child(2){
-    transition-delay:.12s;
-}
-
-.trait:nth-child(3){
-    transition-delay:.24s;
-}
-
-.trait:nth-child(4){
-    transition-delay:.36s;
-}
-
-.trait-icon{
-    font-size:25px;
-    margin-bottom:10px;
-}
-
-.trait h3{
-    font-family:"Cormorant Garamond",serif;
-    font-size:22px;
-    font-weight:500;
-    margin-bottom:5px;
-}
-
-.trait p{
-    font-family:"Cormorant Garamond",serif;
-    font-size:17px;
-    line-height:1.25;
-    opacity:.7;
-}
-
-.analysis-message{
-    margin:23px auto 0;
-
-    max-width:650px;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:23px;
-
-    line-height:1.35;
-
-    opacity:0;
-
-    transform:translateY(15px);
-
-    transition:
-        opacity 1s ease .7s,
-        transform 1s ease .7s;
-}
-
-#analysisScreen.show .analysis-message{
-    opacity:.8;
-    transform:translateY(0);
-}
-
-
-/* =========================================================
-   US ORBIT
-========================================================= */
-
-#orbitScreen{
-    position:absolute;
-    inset:0;
-
-    z-index:170;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(38,35,104,.6),
-            rgba(2,3,15,.97)
-        );
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
-#orbitScreen.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.orbit-title{
-    position:absolute;
-    top:10%;
-
-    font-family:"Great Vibes",cursive;
-    font-size:65px;
-    font-weight:400;
-}
-
-.orbit-space{
-    position:relative;
-
-    width:min(500px,85vw);
-    height:min(500px,85vw);
-
-    border-radius:50%;
-}
-
-.sun{
+.zodiac-sign{
     position:absolute;
 
     left:50%;
     top:50%;
 
-    width:75px;
-    height:75px;
+    transform:
+        translate(-50%,-50%);
 
-    transform:translate(-50%,-50%);
+    font-size:75px;
+
+    text-shadow:
+        0 0 20px white,
+        0 0 50px #a7b4ff;
+}
+
+.zodiac-stars{
+    position:absolute;
+    inset:0;
+}
+
+.z-dot{
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    background:white;
 
     border-radius:50%;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 18px #a9b9ff;
+}
+
+
+/* =========================================================
+   COMPATIBILITY
+========================================================= */
+
+.compatibility{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:30px;
+
+    margin:20px 0;
+}
+
+.sign-box{
+    width:100px;
+}
+
+.sign-symbol{
+    width:85px;
+    height:85px;
+
+    margin:auto;
 
     display:flex;
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.15);
 
     background:
         radial-gradient(
             circle,
-            white,
-            #ffd5e7 25%,
-            #f27da8 50%,
-            #8d3d74 75%
+            rgba(255,255,255,.12),
+            transparent
         );
 
+    font-size:38px;
+
     box-shadow:
-        0 0 25px #ffb0d0,
-        0 0 70px rgba(255,120,180,.5);
+        0 0 30px rgba(150,160,255,.15);
 }
 
-.sun span{
-    font-size:20px;
+.sign-name{
+    margin-top:10px;
+
+    font-size:8px;
+    letter-spacing:2px;
+
+    opacity:.6;
 }
 
-.orbit-ring{
-    position:absolute;
-    inset:12%;
-
-    border:
-        1px solid rgba(210,220,255,.18);
-
-    border-radius:50%;
+.compat-heart{
+    font-size:30px;
 
     animation:
-        orbitSpin 18s linear infinite;
+        heartPulse
+        2s ease-in-out infinite;
 }
 
-.orbit-ring.two{
-    inset:25%;
-    animation-duration:12s;
-    animation-direction:reverse;
-}
+@keyframes heartPulse{
 
-@keyframes orbitSpin{
-    to{
-        transform:rotate(360deg);
+    0%,100%{
+        transform:scale(.9);
+    }
+
+    50%{
+        transform:scale(1.25);
     }
 }
 
-.person-planet{
-    position:absolute;
+.compat-score{
+    margin:20px auto;
 
-    width:58px;
-    height:58px;
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(170,160,255,.15),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+        0 0 40px rgba(140,140,255,.12);
+}
+
+.score-number{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:50px;
+}
+
+.score-label{
+    font-size:7px;
+    letter-spacing:2px;
+    opacity:.5;
+}
+
+.compat-bars{
+    margin-top:20px;
+}
+
+.compat-row{
+    display:grid;
+
+    grid-template-columns:90px 1fr 40px;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:10px 0;
+
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.compat-bar{
+    height:4px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.08);
+
+    overflow:hidden;
+}
+
+.compat-fill{
+    height:100%;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8995ff,
+            #ffffff,
+            #ff9fc9
+        );
+
+    box-shadow:
+        0 0 10px rgba(200,200,255,.6);
+
+    transition:
+        width 1.2s ease;
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.moon{
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    margin:15px auto 20px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fffef4,
+            #d9d6c8 45%,
+            #77746d 100%
+        );
+
+    box-shadow:
+        0 0 35px rgba(255,255,220,.3),
+        0 0 90px rgba(200,210,255,.12);
+
+    transition:
+        background 1s ease,
+        box-shadow 1s ease;
+}
+
+.moon-phase{
+    font-size:9px;
+    letter-spacing:3px;
+    opacity:.5;
+}
+
+.moon-message{
+    margin-top:15px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:23px;
+    line-height:1.4;
+}
+
+
+/* =========================================================
+   ORACLE
+========================================================= */
+
+.oracle-orb{
+    width:150px;
+    height:150px;
+
+    margin:20px auto;
 
     border-radius:50%;
 
@@ -1540,130 +1424,97 @@ button{
     align-items:center;
     justify-content:center;
 
+    font-size:55px;
+
     background:
         radial-gradient(
-            circle at 30% 25%,
-            #fff,
-            #9faeff 30%,
-            #4554a1 65%,
-            #171943
+            circle at 35% 30%,
+            #d8d4ff,
+            #6255a5 40%,
+            #1b153e 70%,
+            #090715
         );
 
     box-shadow:
-        0 0 20px #8fa0ff,
-        0 0 45px rgba(120,140,255,.35);
-
-    font-size:10px;
-    font-weight:500;
+        0 0 30px rgba(160,150,255,.35),
+        0 0 80px rgba(100,100,255,.15);
 
     animation:
-        personFloat 3s ease-in-out infinite alternate;
+        oraclePulse
+        3s ease-in-out infinite;
 }
 
-.person-planet.tisha{
-    left:8%;
-    top:50%;
-}
+@keyframes oraclePulse{
 
-.person-planet.ritesh{
-    right:8%;
-    top:50%;
-    animation-delay:1s;
-}
-
-@keyframes personFloat{
-    from{
-        transform:translateY(-8px);
+    0%,100%{
+        transform:scale(.95);
+        box-shadow:
+            0 0 30px rgba(160,150,255,.25);
     }
-    to{
-        transform:translateY(8px);
+
+    50%{
+        transform:scale(1.06);
+        box-shadow:
+            0 0 50px rgba(180,170,255,.5),
+            0 0 100px rgba(120,120,255,.2);
     }
 }
 
-.orbit-caption{
-    position:absolute;
-    bottom:10%;
-    left:50%;
-    transform:translateX(-50%);
+.oracle-options{
+    display:flex;
 
-    width:90%;
+    flex-wrap:wrap;
 
-    font-family:"Cormorant Garamond",serif;
-    font-size:23px;
-    opacity:.7;
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:20px;
 }
 
+.oracle-option{
+    padding:10px 15px;
 
-/* =========================================================
-   SECRET STAR
-========================================================= */
+    border-radius:999px;
 
-#secretStar{
-    position:absolute;
+    border:1px solid rgba(255,255,255,.18);
 
-    left:50%;
-    top:18%;
-
-    width:40px;
-    height:40px;
-
-    transform:translateX(-50%);
-
-    border:none;
-    background:transparent;
+    background:rgba(255,255,255,.05);
 
     color:white;
 
+    font-size:8px;
+    letter-spacing:1px;
+
     cursor:pointer;
 
-    z-index:180;
-
-    opacity:0;
-
-    pointer-events:none;
-
     transition:
-        opacity 1s ease;
+        transform .2s ease,
+        background .2s ease;
 }
 
-#secretStar.available{
-    opacity:1;
-    pointer-events:auto;
-}
+.oracle-option:hover{
+    transform:translateY(-2px);
 
-#secretStar::before{
-    content:"✦";
-
-    font-size:28px;
-
-    text-shadow:
-        0 0 8px white,
-        0 0 25px #ffb5da,
-        0 0 45px #aebdff;
-
-    animation:
-        secretPulse 2s ease-in-out infinite;
-}
-
-@keyframes secretPulse{
-    0%,100%{
-        transform:scale(.8);
-    }
-    50%{
-        transform:scale(1.2);
-    }
+    background:
+        rgba(255,255,255,.12);
 }
 
 
 /* =========================================================
-   FINAL MESSAGE
+   FINAL CONSTELLATION
 ========================================================= */
 
-#finalScreen{
+.final-universe{
     position:absolute;
     inset:0;
 
-    z-index:190;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(35,30,90,.5),
+            #02020b 70%
+        );
 
     display:flex;
     align-items:center;
@@ -1671,159 +1522,144 @@ button{
 
     text-align:center;
 
-    padding:30px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(33,25,88,.55),
-            rgba(1,2,10,.97)
-        );
-
     opacity:0;
     visibility:hidden;
 
     transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+        opacity 2s ease;
+
+    z-index:200;
 }
 
-#finalScreen.show{
+.final-universe.show{
     opacity:1;
     visibility:visible;
 }
 
 .final-content{
-    width:min(700px,92%);
+    width:min(700px,90%);
 }
 
-.final-star{
-    font-size:35px;
+.final-constellation{
+    position:relative;
 
-    margin-bottom:20px;
+    width:300px;
+    height:220px;
 
-    text-shadow:
-        0 0 15px white,
-        0 0 45px #aebdff;
+    margin:0 auto 35px;
+}
+
+.final-dot{
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 10px white,
+        0 0 25px #aab9ff;
+
+    animation:
+        finalTwinkle
+        2s ease-in-out infinite;
+}
+
+.final-line{
+    position:absolute;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.75),
+            transparent
+        );
+
+    transform-origin:left center;
+
+    box-shadow:
+        0 0 8px rgba(180,190,255,.7);
+
+    animation:
+        lineAppear
+        2s ease forwards;
+}
+
+@keyframes finalTwinkle{
+
+    0%,100%{
+        transform:scale(.7);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.5);
+        opacity:1;
+    }
+}
+
+@keyframes lineAppear{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
 }
 
 .final-content h2{
     font-family:"Great Vibes",cursive;
-    font-size:clamp(55px,9vw,90px);
+
+    font-size:
+        clamp(48px,8vw,80px);
+
     font-weight:400;
+
     margin-bottom:15px;
 }
 
 .final-content p{
     font-family:"Cormorant Garamond",serif;
-    font-size:27px;
+
+    font-size:
+        clamp(22px,4vw,28px);
+
     line-height:1.4;
-    opacity:.78;
-}
 
-.final-emphasis{
-    margin-top:20px;
-
-    font-family:"Cormorant Garamond",serif;
-    font-size:23px;
-
-    opacity:0;
-
-    transition:opacity 1s ease 1s;
-}
-
-#finalScreen.show .final-emphasis{
-    opacity:.75;
+    opacity:.85;
 }
 
 
 /* =========================================================
-   FINAL PORTAL
+   FINAL TRANSITION
 ========================================================= */
 
-.portal{
-    position:relative;
+#pageTransition{
+    position:fixed;
+    inset:0;
 
-    width:85px;
-    height:85px;
+    background:#010107;
 
-    margin:30px auto 0;
+    opacity:0;
 
-    border-radius:50%;
+    visibility:hidden;
 
-    background:
-        radial-gradient(
-            circle,
-            white 0%,
-            #b9c8ff 18%,
-            #6d7fe0 38%,
-            rgba(80,70,170,.3) 58%,
-            transparent 72%
-        );
+    z-index:999;
 
-    box-shadow:
-        0 0 20px white,
-        0 0 50px #8295ff,
-        0 0 100px rgba(130,145,255,.6);
-
-    cursor:pointer;
-
-    animation:
-        portalPulse 2.5s ease-in-out infinite;
+    transition:
+        opacity 1.3s ease;
 }
 
-.portal::before,
-.portal::after{
-    content:"";
-
-    position:absolute;
-
-    inset:-15px;
-
-    border:
-        1px solid rgba(200,210,255,.3);
-
-    border-radius:50%;
-
-    animation:
-        portalRing 4s linear infinite;
-}
-
-.portal::after{
-    inset:-30px;
-    animation-duration:6s;
-    animation-direction:reverse;
-}
-
-@keyframes portalPulse{
-    0%,100%{
-        transform:scale(.9);
-    }
-    50%{
-        transform:scale(1.08);
-    }
-}
-
-@keyframes portalRing{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.portal span{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:200px;
-
-    font-size:8px;
-    letter-spacing:2px;
-
-    color:white;
+#pageTransition.show{
+    opacity:1;
+    visibility:visible;
 }
 
 
@@ -1831,14 +1667,14 @@ button{
    MUSIC BUTTON
 ========================================================= */
 
-#music{
+.music{
     position:fixed;
 
-    right:20px;
-    bottom:20px;
+    right:18px;
+    bottom:18px;
 
-    width:45px;
-    height:45px;
+    width:42px;
+    height:42px;
 
     border-radius:50%;
 
@@ -1849,90 +1685,81 @@ button{
 
     color:white;
 
-    z-index:300;
+    z-index:500;
 
     cursor:pointer;
 
+    font-size:16px;
+
     backdrop-filter:blur(8px);
-
-    box-shadow:
-        0 0 20px rgba(150,165,255,.12);
-}
-
-#music.playing{
-    animation:
-        musicPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes musicPulse{
-    0%,100%{
-        box-shadow:
-            0 0 10px rgba(150,165,255,.1);
-    }
-    50%{
-        box-shadow:
-            0 0 25px rgba(150,165,255,.5);
-    }
 }
 
 
 /* =========================================================
-   PAGE TRANSITION
+   SECRET MESSAGE
 ========================================================= */
 
-#transition{
-    position:fixed;
-    inset:0;
+.secret-message{
+    position:absolute;
 
-    background:#01020a;
+    left:50%;
+    top:50%;
 
-    z-index:999;
+    transform:
+        translate(-50%,-50%)
+        scale(.8);
 
-    opacity:1;
+    width:min(430px,88%);
 
-    pointer-events:none;
+    padding:30px;
+
+    border-radius:22px;
+
+    background:
+        rgba(12,10,35,.96);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
 
     transition:
-        opacity 1.5s ease;
+        .5s ease;
+
+    z-index:400;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.7);
 }
 
-#transition.hide{
-    opacity:0;
+.secret-message.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
 }
 
+.secret-message h3{
+    font-family:"Great Vibes",cursive;
 
-/* =========================================================
-   FLASH
-========================================================= */
+    font-size:43px;
 
-#flash{
-    position:fixed;
-    inset:0;
-
-    background:white;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    z-index:800;
+    margin-bottom:12px;
 }
 
-#flash.active{
-    animation:
-        flashEffect .8s ease;
-}
+.secret-message p{
+    font-family:"Cormorant Garamond",serif;
 
-@keyframes flashEffect{
-    0%{
-        opacity:0;
-    }
-    25%{
-        opacity:.8;
-    }
-    100%{
-        opacity:0;
-    }
+    font-size:22px;
+
+    line-height:1.4;
+
+    opacity:.85;
 }
 
 
@@ -1942,127 +1769,112 @@ button{
 
 @media(max-width:700px){
 
-    .intro-title{
-        font-size:68px;
+    .hud-title{
+        font-size:35px;
     }
 
-    .universe-heading{
-        top:4%;
+    .orbit-planet{
+        top:47%;
     }
 
-    .universe-heading h2{
-        font-size:48px;
+    .orbit-planet .orbital-core{
+        width:100px;
+        height:100px;
+        font-size:43px;
     }
 
-    .universe-heading p{
-        font-size:17px;
+    .orbit-ring{
+        width:155px;
     }
 
-    .orb1{
-        left:3%;
-        top:35%;
-    }
-
-    .orb2{
-        left:34%;
-        top:27%;
-    }
-
-    .orb3{
-        right:2%;
-        top:37%;
-    }
-
-    .orb4{
+    .action-zodiac{
         left:7%;
-        bottom:17%;
+        top:36%;
     }
 
-    .orb5{
-        right:31%;
-        bottom:13%;
+    .action-moon{
+        right:7%;
+        top:36%;
     }
 
-    .orb6{
-        right:1%;
-        bottom:23%;
+    .action-oracle{
+        left:10%;
+        bottom:15%;
     }
 
-    .orb-label{
-        width:110px;
-        font-size:7px;
+    .action-love{
+        right:10%;
+        bottom:15%;
     }
 
-    .memory-card{
-        padding:30px 20px 25px;
+    .orbital-core{
+        width:52px;
+        height:52px;
+        font-size:19px;
     }
 
-    .memory-title{
-        font-size:47px;
+    .orbital-label{
+        font-size:6px;
+        top:60px;
     }
 
-    .memory-text{
+    .m1{
+        left:7%;
+        top:31%;
+    }
+
+    .m2{
+        left:32%;
+        top:25%;
+    }
+
+    .m3{
+        right:22%;
+        top:29%;
+    }
+
+    .m4{
+        right:5%;
+        top:44%;
+    }
+
+    .m5{
+        right:24%;
+        bottom:24%;
+    }
+
+    .m6{
+        left:20%;
+        bottom:20%;
+    }
+
+    .memory-star .label{
+        font-size:6px;
+    }
+
+    .modal-card{
+        padding:28px 20px;
+    }
+
+    .modal-card h2{
+        font-size:45px;
+    }
+
+    .modal-text{
         font-size:21px;
     }
 
-    .trait-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+    .compatibility{
+        gap:15px;
     }
 
-    .trait{
-        min-height:130px;
+    .sign-box{
+        width:80px;
     }
 
-    .trait p{
-        font-size:15px;
-    }
-
-    .analysis-heading{
-        margin-bottom:12px;
-    }
-
-    .analysis-message{
-        font-size:20px;
-    }
-
-    .orbit-title{
-        top:8%;
-        font-size:55px;
-    }
-
-    .orbit-caption{
-        font-size:20px;
-        bottom:7%;
-    }
-
-    .zodiac-caption{
-        font-size:20px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL SCREENS
-========================================================= */
-
-@media(max-width:380px){
-
-    .trait{
-        padding:14px 8px;
-    }
-
-    .trait h3{
-        font-size:18px;
-    }
-
-    .trait p{
-        font-size:13px;
-    }
-
-    .memory-text{
-        font-size:19px;
+    .sign-symbol{
+        width:70px;
+        height:70px;
     }
 
 }
@@ -2070,62 +1882,64 @@ button{
 </style>
 </head>
 
+
 <body>
 
-<div id="universe">
 
-    <!-- =====================================================
-         COSMIC BACKGROUND
-    ====================================================== -->
+<!-- =====================================================
+     SPACE
+===================================================== -->
 
-    <div class="space-layer one"></div>
-    <div class="space-layer two"></div>
+<div id="space">
 
     <div class="nebula one"></div>
     <div class="nebula two"></div>
     <div class="nebula three"></div>
+    <div class="nebula four"></div>
 
     <div id="stars"></div>
 
-    <div class="dwarf a"></div>
-    <div class="dwarf b"></div>
-    <div class="dwarf c"></div>
+    <div class="planet medium p1"></div>
+    <div class="planet medium p2"></div>
+    <div class="planet small p3"></div>
+    <div class="planet small p4"></div>
 
     <div class="rocket">🚀</div>
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
+    <svg id="constellationCanvas"></svg>
 
-    <section id="intro">
+
+    <!-- =================================================
+         INTRO
+    ================================================== -->
+
+    <section id="intro" class="screen active">
 
         <div class="intro-content">
 
             <div class="intro-star">✦</div>
 
-            <div class="eyebrow">
-                CHAPTER THREE
-            </div>
-
-            <h1 class="intro-title">
-                Our Little
-                <br>
-                <span>Universe</span>
-            </h1>
-
-            <p class="intro-subtitle">
-                Somewhere between all these stars...
+            <p class="eyebrow">
+                CHAPTER ELEVEN
             </p>
 
-            <p class="intro-small">
-                there are little pieces of us. ❤️
+            <h1>
+                Our Little
+                <br>
+                <span class="script">Universe</span>
+            </h1>
+
+            <p class="intro-description">
+                Somewhere between all these stars...
+                <br>
+                I hid a few pieces of us.
             </p>
 
             <button
-                id="explore"
-                class="glow-button">
+                id="enterUniverse"
+                class="cosmic-button">
 
-                EXPLORE THE UNIVERSE ✨
+                ENTER THE UNIVERSE ✦
 
             </button>
 
@@ -2134,61 +1948,173 @@ button{
     </section>
 
 
-    <!-- =====================================================
-         EXPLORATION
-    ====================================================== -->
+    <!-- =================================================
+         OBSERVATORY
+    ================================================== -->
 
-    <section id="exploration">
+    <main id="observatory">
 
-        <div class="universe-heading">
 
-            <div class="eyebrow">
-                TISHA'S LITTLE UNIVERSE
+        <!-- HUD -->
+
+        <div class="hud">
+
+            <div class="hud-title">
+                Our Little Universe
             </div>
 
-            <h2>
-                Find the memories...
-            </h2>
+            <div class="hud-subtitle">
+                TISHA ♍ × RITESH ♋
+            </div>
 
-            <p>
-                Every little star carries a piece of us.
-            </p>
+            <div class="energy">
 
-            <div class="counter">
-                <span id="counter">
-                    0 / 6 DISCOVERED
-                </span>
-
-                <div class="progress">
-                    <div
-                        id="progress"
-                        class="progress-fill">
-                    </div>
+                <div
+                    id="energyFill"
+                    class="energy-fill">
                 </div>
+
+            </div>
+
+            <div
+                id="energyText"
+                class="energy-text">
+
+                COSMIC DISCOVERY 0%
+
             </div>
 
         </div>
 
 
-        <!-- CONSTELLATION -->
+        <!-- =================================================
+             CENTRAL PLANET
+        ================================================== -->
 
-        <svg
-            id="constellation"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none">
-        </svg>
+        <div
+            id="tishaPlanet"
+            class="orbital orbit-planet">
+
+            <div class="orbit-ring"></div>
+
+            <div class="orbital-core">
+                🪐
+            </div>
+
+            <div class="orbital-label">
+                TISHA'S WORLD
+            </div>
+
+        </div>
 
 
-        <!-- MEMORY ORBS -->
+        <!-- =================================================
+             ZODIAC
+        ================================================== -->
+
+        <div
+            class="orbital action-zodiac"
+            id="zodiacButton">
+
+            <div class="orbital-core">
+                ♍
+            </div>
+
+            <div class="orbital-label">
+                HER CONSTELLATION
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MOON
+        ================================================== -->
+
+        <div
+            class="orbital action-moon"
+            id="moonButton">
+
+            <div class="orbital-core">
+                🌙
+            </div>
+
+            <div class="orbital-label">
+                MOON PHASES
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ORACLE
+        ================================================== -->
+
+        <div
+            class="orbital action-oracle"
+            id="oracleButton">
+
+            <div class="orbital-core">
+                🔮
+            </div>
+
+            <div class="orbital-label">
+                ASK THE UNIVERSE
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             COMPATIBILITY
+        ================================================== -->
+
+        <div
+            class="orbital action-love"
+            id="compatibilityButton">
+
+            <div class="orbital-core">
+                ♡
+            </div>
+
+            <div class="orbital-label">
+                OUR COSMIC MATCH
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SECRET MESSAGE
+        ================================================== -->
+
+        <div
+            class="orbital action-message"
+            id="messageButton">
+
+            <div class="orbital-core">
+                🛰️
+            </div>
+
+            <div class="orbital-label">
+                DEEP SPACE
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MEMORY STARS
+        ================================================== -->
 
         <button
-            class="memory-orb orb1"
+            class="memory-star m1"
             data-memory="0">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
+            <span class="label">
                 OUR BEGINNING
             </span>
 
@@ -2196,13 +2122,13 @@ button{
 
 
         <button
-            class="memory-orb orb2"
+            class="memory-star m2"
             data-memory="1">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
+            <span class="label">
                 12.03.26
             </span>
 
@@ -2210,13 +2136,13 @@ button{
 
 
         <button
-            class="memory-orb orb3"
+            class="memory-star m3"
             data-memory="2">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
+            <span class="label">
                 THAT FIRST DAY
             </span>
 
@@ -2224,27 +2150,27 @@ button{
 
 
         <button
-            class="memory-orb orb4"
+            class="memory-star m4"
             data-memory="3">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
-                A LITTLE CONFESSION
+            <span class="label">
+                LITTLE CONFESSION
             </span>
 
         </button>
 
 
         <button
-            class="memory-orb orb5"
+            class="memory-star m5"
             data-memory="4">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
+            <span class="label">
                 SOMETHING I LOVE
             </span>
 
@@ -2252,73 +2178,68 @@ button{
 
 
         <button
-            class="memory-orb orb6"
+            class="memory-star m6"
             data-memory="5">
 
-            <span class="orb-halo"></span>
-            <span class="orb-core"></span>
+            <span class="glow"></span>
+            <span class="symbol">✦</span>
 
-            <span class="orb-label">
+            <span class="label">
                 A SECRET
             </span>
 
         </button>
 
-    </section>
+
+    </main>
 
 
     <!-- =====================================================
          MEMORY MODAL
-    ====================================================== -->
+    ===================================================== -->
 
-    <div id="memoryModal">
+    <div
+        id="memoryModal"
+        class="modal">
 
-        <div class="modal-bg"></div>
+        <div class="modal-backdrop"></div>
 
-        <div class="memory-card">
+        <div class="modal-card">
 
             <button
-                id="closeMemory"
-                class="close">
-
+                class="close"
+                data-close>
                 ×
-
             </button>
 
             <div
                 id="memoryIcon"
-                class="memory-icon">
-                💫
+                class="modal-icon">
+                ✦
             </div>
 
             <div
                 id="memoryNumber"
-                class="memory-number">
-
+                class="modal-number">
                 MEMORY 01
-
             </div>
 
-            <h2
-                id="memoryTitle"
-                class="memory-title">
-
+            <h2 id="memoryTitle">
                 Our Beginning
-
             </h2>
 
-            <div class="memory-line"></div>
+            <div class="modal-line"></div>
 
             <p
                 id="memoryText"
-                class="memory-text">
+                class="modal-text">
             </p>
 
             <button
                 id="memoryDone"
-                class="memory-action">
+                class="cosmic-button">
 
-                DISCOVER THIS MEMORY ✨
+                ADD THIS STAR TO OUR CONSTELLATION ✦
 
             </button>
 
@@ -2328,173 +2249,580 @@ button{
 
 
     <!-- =====================================================
-         ZODIAC
-    ====================================================== -->
+         ZODIAC MODAL
+    ===================================================== -->
 
-    <section id="zodiacScreen">
+    <div
+        id="zodiacModal"
+        class="modal">
 
-        <div class="zodiac-small">
-            THE STARS HAVE SOMETHING TO SAY
-        </div>
+        <div class="modal-backdrop"></div>
 
-        <h2 class="zodiac-title">
-            Your memories became
-            <br>
-            <span>your constellation.</span>
-        </h2>
+        <div class="modal-card">
 
-        <div class="zodiac-symbol">
+            <button class="close" data-close>
+                ×
+            </button>
 
-            <div class="zodiac-star zs1"></div>
-            <div class="zodiac-star zs2"></div>
-            <div class="zodiac-star zs3"></div>
-            <div class="zodiac-star zs4"></div>
-            <div class="zodiac-star zs5"></div>
-            <div class="zodiac-star zs6"></div>
-            <div class="zodiac-star zs7"></div>
-            <div class="zodiac-star zs8"></div>
-
-            <div class="zodiac-line zline1"></div>
-            <div class="zodiac-line zline2"></div>
-            <div class="zodiac-line zline3"></div>
-            <div class="zodiac-line zline4"></div>
-            <div class="zodiac-line zline5"></div>
-            <div class="zodiac-line zline6"></div>
-            <div class="zodiac-line zline7"></div>
-
-            <div class="zodiac-center">
+            <div class="modal-icon">
                 ♍
             </div>
 
+            <div class="modal-number">
+                03 • 09 • 2005
+            </div>
+
+            <h2>
+                Tisha's Stars
+            </h2>
+
+            <div class="zodiac-visual">
+
+                <div class="zodiac-circle"></div>
+
+                <div class="zodiac-stars">
+
+                    <span class="z-dot"
+                          style="left:20%;top:30%"></span>
+
+                    <span class="z-dot"
+                          style="left:35%;top:18%"></span>
+
+                    <span class="z-dot"
+                          style="left:48%;top:37%"></span>
+
+                    <span class="z-dot"
+                          style="left:68%;top:24%"></span>
+
+                    <span class="z-dot"
+                          style="left:77%;top:48%"></span>
+
+                    <span class="z-dot"
+                          style="left:59%;top:67%"></span>
+
+                    <span class="z-dot"
+                          style="left:35%;top:75%"></span>
+
+                    <span class="z-dot"
+                          style="left:20%;top:58%"></span>
+
+                </div>
+
+                <div class="zodiac-sign">
+                    ♍
+                </div>
+
+            </div>
+
+            <p class="modal-text">
+
+                <strong>Virgo — Earth Sign 🌍</strong>
+
+                <br><br>
+
+                You notice the little things.
+                You care more deeply than you sometimes
+                show. You have a sharp mind,
+                a thoughtful heart and a habit of
+                overthinking absolutely everything. 😂
+
+                <br><br>
+
+                Your greatest strength isn't perfection.
+
+                <br>
+
+                It's the way you care.
+
+            </p>
+
         </div>
 
-        <p class="zodiac-caption">
-
-            Virgo ♍
-            <br>
-            Thoughtful. Observant. Warm. Quietly powerful.
-
-        </p>
-
-        <button
-            id="zodiacContinue"
-            class="glow-button zodiac-button">
-
-            SHOW ME WHAT THE STARS SAY ✨
-
-        </button>
-
-    </section>
+    </div>
 
 
     <!-- =====================================================
-         ANALYSIS
-    ====================================================== -->
+         MOON MODAL
+    ===================================================== -->
 
-    <section id="analysisScreen">
+    <div
+        id="moonModal"
+        class="modal">
 
-        <div class="analysis-container">
+        <div class="modal-backdrop"></div>
 
-            <div class="analysis-eyebrow">
-                HER COSMIC PROFILE
+        <div class="modal-card">
+
+            <button class="close" data-close>
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🌙
             </div>
 
-            <h2 class="analysis-heading">
-                The Tisha I see...
+            <div class="modal-number">
+                THE MOON REMEMBERS
+            </div>
+
+            <h2>
+                Our Moon
             </h2>
 
-            <div class="trait-grid">
+            <div
+                id="moonVisual"
+                class="moon">
+            </div>
 
-                <div class="trait">
+            <div
+                id="moonPhase"
+                class="moon-phase">
+                NEW MOON
+            </div>
 
-                    <div class="trait-icon">
-                        🌙
+            <p
+                id="moonMessage"
+                class="moon-message">
+
+                Every story begins in darkness...
+                before the first light appears.
+
+            </p>
+
+            <button
+                id="nextMoon"
+                class="cosmic-button">
+
+                CHANGE THE MOON ✦
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ORACLE MODAL
+    ===================================================== -->
+
+    <div
+        id="oracleModal"
+        class="modal">
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-card">
+
+            <button class="close" data-close>
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🔮
+            </div>
+
+            <div class="modal-number">
+                COSMIC ORACLE
+            </div>
+
+            <h2>
+                Ask The Universe
+            </h2>
+
+            <div class="oracle-orb">
+                ✦
+            </div>
+
+            <p
+                id="oracleText"
+                class="modal-text">
+
+                The universe is listening...
+                Choose something you want to know.
+
+            </p>
+
+            <div class="oracle-options">
+
+                <button
+                    class="oracle-option"
+                    data-oracle="love">
+                    ❤️ LOVE
+                </button>
+
+                <button
+                    class="oracle-option"
+                    data-oracle="us">
+                    ♡ US
+                </button>
+
+                <button
+                    class="oracle-option"
+                    data-oracle="future">
+                    🔮 FUTURE
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         COMPATIBILITY MODAL
+    ===================================================== -->
+
+    <div
+        id="compatModal"
+        class="modal">
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-card">
+
+            <button class="close" data-close>
+                ×
+            </button>
+
+            <div class="modal-icon">
+                ♡
+            </div>
+
+            <div class="modal-number">
+                COSMIC COMPATIBILITY
+            </div>
+
+            <h2>
+                Two Little Worlds
+            </h2>
+
+            <div class="compatibility">
+
+                <div class="sign-box">
+
+                    <div class="sign-symbol">
+                        ♍
                     </div>
 
-                    <h3>
-                        Mind
-                    </h3>
-
-                    <p>
-                        Observant, thoughtful
-                        and naturally curious.
-                    </p>
+                    <div class="sign-name">
+                        TISHA
+                        <br>
+                        VIRGO
+                    </div>
 
                 </div>
 
-
-                <div class="trait">
-
-                    <div class="trait-icon">
-                        ❤️
-                    </div>
-
-                    <h3>
-                        Heart
-                    </h3>
-
-                    <p>
-                        Feels deeply and cares
-                        more than she sometimes shows.
-                    </p>
-
+                <div class="compat-heart">
+                    ♡
                 </div>
 
+                <div class="sign-box">
 
-                <div class="trait">
-
-                    <div class="trait-icon">
-                        ✨
+                    <div class="sign-symbol">
+                        ♋
                     </div>
 
-                    <h3>
-                        Energy
-                    </h3>
-
-                    <p>
-                        Expressive, interactive
-                        and impossible to ignore.
-                    </p>
-
-                </div>
-
-
-                <div class="trait">
-
-                    <div class="trait-icon">
-                        🌸
+                    <div class="sign-name">
+                        RITESH
+                        <br>
+                        CANCER
                     </div>
-
-                    <h3>
-                        Hidden Side
-                    </h3>
-
-                    <p>
-                        Softer, more emotional
-                        and more caring than people realize.
-                    </p>
 
                 </div>
 
             </div>
 
+            <div class="compat-score">
 
-            <p class="analysis-message">
+                <div class="score-number">
+                    96%
+                </div>
 
-                Maybe the stars can describe
-                some of you...
+                <div class="score-label">
+                    COSMIC MATCH
+                </div>
+
+            </div>
+
+            <p class="modal-text">
+
+                <strong>
+                    Earth 🌍 + Water 🌊
+                </strong>
+
+                <br><br>
+
+                One gives the other somewhere to grow.
+
+                <br><br>
+
+                Virgo notices the details.
+                Cancer remembers the feelings.
+
+                <br><br>
+
+                One brings stability.
+                The other brings depth.
+
+                <br><br>
+
+                And together...
+
                 <br>
-                but they could never explain
-                why I love the person I know.
+
+                <strong>
+                    they make a surprisingly beautiful orbit.
+                </strong>
 
             </p>
 
 
-            <button
-                id="analysisContinue"
-                class="glow-button">
+            <div class="compat-bars">
 
-                THEN LET'S LOOK AT US ❤️
+                <div class="compat-row">
+
+                    <span>
+                        TRUST
+                    </span>
+
+                    <div class="compat-bar">
+                        <div
+                            class="compat-fill"
+                            data-width="94%">
+                        </div>
+                    </div>
+
+                    <span>
+                        94
+                    </span>
+
+                </div>
+
+
+                <div class="compat-row">
+
+                    <span>
+                        UNDERSTANDING
+                    </span>
+
+                    <div class="compat-bar">
+                        <div
+                            class="compat-fill"
+                            data-width="91%">
+                        </div>
+                    </div>
+
+                    <span>
+                        91
+                    </span>
+
+                </div>
+
+
+                <div class="compat-row">
+
+                    <span>
+                        FUN
+                    </span>
+
+                    <div class="compat-bar">
+                        <div
+                            class="compat-fill"
+                            data-width="96%">
+                        </div>
+                    </div>
+
+                    <span>
+                        96
+                    </span>
+
+                </div>
+
+
+                <div class="compat-row">
+
+                    <span>
+                        EMOTION
+                    </span>
+
+                    <div class="compat-bar">
+                        <div
+                            class="compat-fill"
+                            data-width="97%">
+                        </div>
+                    </div>
+
+                    <span>
+                        97
+                    </span>
+
+                </div>
+
+            </div>
+
+            <p class="modal-text"
+               style="margin-top:20px">
+
+                <strong>
+                    Cosmic weakness detected:
+                </strong>
+
+                <br>
+
+                Both of you are capable of
+                overthinking absolutely everything. 😂
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TISHA PLANET MODAL
+    ===================================================== -->
+
+    <div
+        id="planetModal"
+        class="modal">
+
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-card">
+
+            <button class="close" data-close>
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🪐
+            </div>
+
+            <div class="modal-number">
+                PLANET TISHA
+            </div>
+
+            <h2>
+                Tisha's World
+            </h2>
+
+            <p class="modal-text">
+
+                Somewhere in this enormous universe...
+
+                <br><br>
+
+                there is a tiny world filled with
+                laughter, stubbornness, kindness,
+                beautiful chaos and a little too much
+                overthinking. 😂
+
+                <br><br>
+
+                Its atmosphere is approximately:
+
+                <br><br>
+
+                <strong>
+                    40% laughter<br>
+                    25% kindness<br>
+                    20% chaos<br>
+                    15% “Riteshhh...” ❤️
+                </strong>
+
+                <br><br>
+
+                Population:
+
+                <br>
+
+                <strong>
+                    1 very special girl.
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SECRET MESSAGE
+    ===================================================== -->
+
+    <div
+        id="secretMessage"
+        class="secret-message">
+
+        <h3>
+            Transmission Received
+        </h3>
+
+        <p id="secretText">
+            ...
+        </p>
+
+        <button
+            class="cosmic-button"
+            data-secret-close>
+
+            CLOSE TRANSMISSION
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         FINAL UNIVERSE
+    ===================================================== -->
+
+    <section
+        id="finalUniverse"
+        class="final-universe">
+
+        <div class="final-content">
+
+            <div
+                id="finalConstellation"
+                class="final-constellation">
+            </div>
+
+            <h2>
+                You Found The Stars.
+            </h2>
+
+            <p>
+
+                You thought you were exploring
+                the universe...
+
+                <br><br>
+
+                but every star was actually
+                a little piece of us.
+
+                <br><br>
+
+                And somehow...
+
+                <br>
+
+                <span class="script">
+                    you became my favourite part of it.
+                </span>
+
+            </p>
+
+            <button
+                id="finalButton"
+                class="cosmic-button">
+
+                ENTER THE FINAL CHAPTER → 
 
             </button>
 
@@ -2503,452 +2831,82 @@ button{
     </section>
 
 
-    <!-- =====================================================
-         ORBIT
-    ====================================================== -->
-
-    <section id="orbitScreen">
-
-        <h2 class="orbit-title">
-            Two little worlds...
-        </h2>
-
-        <div class="orbit-space">
-
-            <div class="orbit-ring"></div>
-            <div class="orbit-ring two"></div>
-
-            <div class="sun">
-                <span>❤️</span>
-            </div>
-
-            <div class="person-planet tisha">
-                TISHA
-            </div>
-
-            <div class="person-planet ritesh">
-                RITESH
-            </div>
-
-        </div>
-
-        <p class="orbit-caption">
-
-            And somehow...
-            they found a way to orbit the same little universe.
-
-        </p>
-
-        <button
-            id="orbitContinue"
-            class="glow-button"
-            style="
-                position:absolute;
-                bottom:10%;
-            ">
-
-            THERE'S ONE MORE STAR...
-
-        </button>
-
-    </section>
-
-
-    <!-- =====================================================
-         SECRET STAR
-    ====================================================== -->
-
-    <button
-        id="secretStar"
-        aria-label="Secret star">
-    </button>
-
-
-    <!-- =====================================================
-         FINAL MESSAGE
-    ====================================================== -->
-
-    <section id="finalScreen">
-
-        <div class="final-content">
-
-            <div class="final-star">
-                ✦
-            </div>
-
-            <h2>
-                But here's the thing...
-            </h2>
-
-            <p>
-
-                I don't think the stars
-                are the reason you are you.
-
-            </p>
-
-            <p class="final-emphasis">
-
-                I think they just got lucky enough
-                to describe someone like you. ❤️
-
-            </p>
-
-            <div
-                id="finalPortal"
-                class="portal">
-
-                <span>
-                    ENTER THE FINAL CHAPTER
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- MUSIC -->
-
-    <button
-        id="music"
-        aria-label="Toggle music">
-
-        ♫
-
-    </button>
-
-
-    <!-- FLASH -->
-
-    <div id="flash"></div>
-
-
-    <!-- PAGE TRANSITION -->
-
-    <div id="transition"></div>
-
 </div>
+
+
+<!-- MUSIC -->
+
+<button
+    id="musicButton"
+    class="music"
+    aria-label="Music">
+
+    ♫
+
+</button>
+
+
+<div id="pageTransition"></div>
 
 
 <script>
 
 /* =========================================================
-   CONFIGURATION
+   UNIVERSE CONFIGURATION
 ========================================================= */
 
-/*
-   TISHA'S DOB
+const TISHA_DOB =
+    "03/09/2005";
 
-   3 September 2005
-   = Virgo ♍
-
-   If her actual DOB is different,
-   ONLY change these two numbers.
-*/
-
-const TISHA_BIRTH_MONTH = 9;
-const TISHA_BIRTH_DAY = 3;
+const RITESH_DOB =
+    "30/06/2001";
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
+const stars =
+    document.getElementById("stars");
+
 const intro =
     document.getElementById("intro");
 
-const explore =
-    document.getElementById("explore");
+const observatory =
+    document.getElementById("observatory");
 
-const exploration =
-    document.getElementById("exploration");
+const enterUniverse =
+    document.getElementById("enterUniverse");
+
+const memoryStars =
+    document.querySelectorAll(".memory-star");
 
 const memoryModal =
     document.getElementById("memoryModal");
 
-const memoryTitle =
-    document.getElementById("memoryTitle");
+const zodiacModal =
+    document.getElementById("zodiacModal");
 
-const memoryText =
-    document.getElementById("memoryText");
+const moonModal =
+    document.getElementById("moonModal");
 
-const memoryIcon =
-    document.getElementById("memoryIcon");
+const oracleModal =
+    document.getElementById("oracleModal");
 
-const memoryNumber =
-    document.getElementById("memoryNumber");
+const compatModal =
+    document.getElementById("compatModal");
 
-const memoryDone =
-    document.getElementById("memoryDone");
+const planetModal =
+    document.getElementById("planetModal");
 
-const closeMemory =
-    document.getElementById("closeMemory");
+const finalUniverse =
+    document.getElementById("finalUniverse");
 
-const memoryOrbs =
-    document.querySelectorAll(".memory-orb");
+const energyFill =
+    document.getElementById("energyFill");
 
-const progress =
-    document.getElementById("progress");
-
-const counter =
-    document.getElementById("counter");
-
-const constellation =
-    document.getElementById("constellation");
-
-const zodiacScreen =
-    document.getElementById("zodiacScreen");
-
-const zodiacContinue =
-    document.getElementById("zodiacContinue");
-
-const analysisScreen =
-    document.getElementById("analysisScreen");
-
-const analysisContinue =
-    document.getElementById("analysisContinue");
-
-const orbitScreen =
-    document.getElementById("orbitScreen");
-
-const orbitContinue =
-    document.getElementById("orbitContinue");
-
-const secretStar =
-    document.getElementById("secretStar");
-
-const finalScreen =
-    document.getElementById("finalScreen");
-
-const finalPortal =
-    document.getElementById("finalPortal");
-
-const stars =
-    document.getElementById("stars");
-
-const musicButton =
-    document.getElementById("music");
-
-const flash =
-    document.getElementById("flash");
-
-
-/* =========================================================
-   MEMORY DATA
-========================================================= */
-
-const memories = [
-
-    {
-        title:"Our Beginning",
-        icon:"💫",
-        text:
-        'It all started with something so simple. I sent you a follow request... and one day, you accepted it. Then came one tiny word that started something much bigger than either of us knew... "Hi." ❤️'
-    },
-
-    {
-        title:"12.03.26",
-        icon:"📅",
-        text:
-        "12.03.26 — just a date on a calendar... but somehow it became the beginning of so many conversations, little moments and memories."
-    },
-
-    {
-        title:"That First Day",
-        icon:"🥹",
-        text:
-        "One of my favorite little memories... you falling asleep on my lap when we were together for the first day. It was such a small moment, but somehow it made me feel incredibly lucky."
-    },
-
-    {
-        title:"A Little Confession",
-        icon:"😂",
-        text:
-        'The first time I heard your voice, I told you that you sounded very young. Looking back... I genuinely have no idea why I thought saying that was a good idea. 😂'
-    },
-
-    {
-        title:"Something I Love",
-        icon:"✨",
-        text:
-        "I love how charismatic you are. How interactive you are. How full of life you are. You have this energy that makes being around you feel different... and I absolutely love that about you."
-    },
-
-    {
-        title:"A Secret",
-        icon:"❤️",
-        text:
-        "Here's something I hope you never forget: I'm genuinely blessed to have you as someone so close to me. Around you, I feel comfortable. I feel loved. And you have a very special place in my life."
-    }
-
-];
-
-
-/* =========================================================
-   STATE
-========================================================= */
-
-let currentMemory = null;
-
-let discovered = [];
-
-let musicStarted = false;
-
-
-/* =========================================================
-   BACKGROUND STARS
-========================================================= */
-
-function createStars(){
-
-    for(let i=0;i<180;i++){
-
-        const star =
-            document.createElement("div");
-
-        star.className =
-            "star";
-
-        const size =
-            Math.random() > .94
-                ? 3
-                : Math.random() * 2 + .5;
-
-        star.style.width =
-            size + "px";
-
-        star.style.height =
-            size + "px";
-
-        star.style.left =
-            Math.random()*100 + "%";
-
-        star.style.top =
-            Math.random()*100 + "%";
-
-        star.style.setProperty(
-            "--duration",
-            (2 + Math.random()*5)+"s"
-        );
-
-        star.style.setProperty(
-            "--delay",
-            (Math.random()*5)+"s"
-        );
-
-        if(Math.random()>.94){
-            star.classList.add("cross");
-        }
-
-        stars.appendChild(star);
-    }
-}
-
-createStars();
-
-
-/* =========================================================
-   COSMIC DUST
-========================================================= */
-
-function createDust(){
-
-    for(let i=0;i<30;i++){
-
-        const dust =
-            document.createElement("div");
-
-        dust.className =
-            "cosmic-dust";
-
-        dust.style.left =
-            Math.random()*100+"%";
-
-        dust.style.top =
-            Math.random()*100+"%";
-
-        dust.style.animationDuration =
-            12+Math.random()*18+"s";
-
-        dust.style.animationDelay =
-            Math.random()*15+"s";
-
-        document.getElementById("universe")
-            .appendChild(dust);
-    }
-}
-
-createDust();
-
-
-/* =========================================================
-   METEORS
-========================================================= */
-
-function meteor(){
-
-    if(
-        !exploration.classList.contains("active") &&
-        !zodiacScreen.classList.contains("show") &&
-        !finalScreen.classList.contains("show")
-    ){
-        return;
-    }
-
-    const m =
-        document.createElement("div");
-
-    m.className =
-        "meteor";
-
-    m.style.left =
-        (65+Math.random()*35)+"%";
-
-    m.style.top =
-        (5+Math.random()*35)+"%";
-
-    m.style.animation =
-        "meteorFly 1.6s linear forwards";
-
-    document.getElementById("universe")
-        .appendChild(m);
-
-    setTimeout(()=>{
-        m.remove();
-    },1700);
-}
-
-setInterval(
-    meteor,
-    4200
-);
-
-
-/* =========================================================
-   FLOATING ROCKET
-========================================================= */
-
-function createRocket(){
-
-    const rocket =
-        document.createElement("div");
-
-    rocket.className =
-        "rocket";
-
-    rocket.textContent =
-        "🚀";
-
-    rocket.style.animationDelay =
-        Math.random()*10+"s";
-
-    document.getElementById("universe")
-        .appendChild(rocket);
-}
-
-createRocket();
+const energyText =
+    document.getElementById("energyText");
 
 
 /* =========================================================
@@ -2956,21 +2914,14 @@ createRocket();
 ========================================================= */
 
 let audioContext = null;
-
 let masterGain = null;
-
 let musicGain = null;
-
 let musicTimer = null;
-
-let musicStep = 0;
-
+let musicPlaying = false;
 
 function initAudio(){
 
-    if(audioContext){
-        return;
-    }
+    if(audioContext) return;
 
     audioContext =
         new (
@@ -2984,47 +2935,33 @@ function initAudio(){
     musicGain =
         audioContext.createGain();
 
-    masterGain.gain.value =
-        .45;
-
-    musicGain.gain.value =
-        .055;
+    masterGain.gain.value = .22;
+    musicGain.gain.value = .035;
 
     musicGain.connect(masterGain);
-
     masterGain.connect(
         audioContext.destination
     );
 }
 
 
-/* =========================================================
-   TONE
-========================================================= */
-
 function tone(
     frequency,
     duration=.4,
     type="sine",
-    volume=.08,
-    destination=masterGain
+    volume=.04
 ){
 
-    if(!audioContext){
-        return;
-    }
+    if(!audioContext) return;
 
-    const oscillator =
+    const osc =
         audioContext.createOscillator();
 
     const gain =
         audioContext.createGain();
 
-    oscillator.type =
-        type;
-
-    oscillator.frequency.value =
-        frequency;
+    osc.type = type;
+    osc.frequency.value = frequency;
 
     gain.gain.setValueAtTime(
         0,
@@ -3033,501 +2970,1213 @@ function tone(
 
     gain.gain.linearRampToValueAtTime(
         volume,
-        audioContext.currentTime+.02
+        audioContext.currentTime + .03
     );
 
     gain.gain.exponentialRampToValueAtTime(
         .001,
-        audioContext.currentTime+duration
+        audioContext.currentTime + duration
     );
 
-    oscillator.connect(gain);
-    gain.connect(destination);
+    osc.connect(gain);
+    gain.connect(masterGain);
 
-    oscillator.start();
-
-    oscillator.stop(
-        audioContext.currentTime+duration+.05
+    osc.start();
+    osc.stop(
+        audioContext.currentTime +
+        duration
     );
 }
 
-
-/* =========================================================
-   COSMIC UI SOUND
-========================================================= */
 
 function cosmicClick(){
 
-    initAudio();
-
-    tone(
-        880,
-        .16,
-        "sine",
-        .055
-    );
+    tone(523,.15,"sine",.045);
 
     setTimeout(()=>{
-        tone(
-            1320,
-            .25,
-            "sine",
-            .035
-        );
-    },60);
+        tone(784,.25,"sine",.025);
+    },70);
 }
 
 
-/* =========================================================
-   MEMORY DISCOVERY SOUND
-========================================================= */
+function magicalReveal(){
 
-function discoverySound(){
-
-    initAudio();
-
-    tone(
-        523.25,
-        .35,
-        "sine",
-        .07
-    );
+    tone(392,.4,"sine",.04);
 
     setTimeout(()=>{
-        tone(
-            659.25,
-            .45,
-            "sine",
-            .06
-        );
-    },100);
+        tone(523,.5,"sine",.035);
+    },120);
 
     setTimeout(()=>{
-        tone(
-            783.99,
-            .65,
-            "sine",
-            .055
-        );
-    },220);
+        tone(659,.7,"sine",.03);
+    },240);
 }
 
-
-/* =========================================================
-   CONSTELLATION SOUND
-========================================================= */
 
 function constellationSound(){
 
-    initAudio();
+    tone(330,.3,"sine",.035);
 
-    const notes =
-        [
-            392,
-            493.88,
-            587.33,
-            659.25,
-            783.99,
-            987.77
-        ];
+    setTimeout(()=>{
+        tone(440,.4,"sine",.035);
+    },150);
 
-    notes.forEach(
-        (note,i)=>{
-
-            setTimeout(
-                ()=>{
-                    tone(
-                        note,
-                        .65,
-                        "sine",
-                        .055
-                    );
-                },
-                i*150
-            );
-
-        }
-    );
+    setTimeout(()=>{
+        tone(660,.7,"sine",.04);
+    },300);
 }
 
-
-/* =========================================================
-   ZODIAC REVEAL SOUND
-========================================================= */
-
-function zodiacSound(){
-
-    initAudio();
-
-    const notes =
-        [
-            261.63,
-            329.63,
-            392,
-            523.25,
-            659.25,
-            783.99
-        ];
-
-    notes.forEach(
-        (note,i)=>{
-
-            setTimeout(
-                ()=>{
-                    tone(
-                        note,
-                        1.2,
-                        "sine",
-                        .055
-                    );
-                },
-                i*180
-            );
-
-        }
-    );
-}
-
-
-/* =========================================================
-   CINEMATIC MUSIC
-========================================================= */
 
 function startMusic(){
 
-    initAudio();
+    if(!audioContext) return;
 
     if(audioContext.state === "suspended"){
         audioContext.resume();
     }
 
-    if(musicStarted){
-        return;
-    }
+    if(musicPlaying) return;
 
-    musicStarted = true;
+    musicPlaying = true;
 
-    musicButton.classList.add(
-        "playing"
-    );
-
-    const scale =
+    const notes =
         [
             261.63,
-            293.66,
             329.63,
             392,
-            440,
-            493.88
+            493.88,
+            392,
+            329.63
         ];
 
-    function musicLoop(){
+    let index = 0;
 
-        if(!musicStarted){
-            return;
-        }
+    musicTimer =
+        setInterval(()=>{
 
-        const note =
-            scale[
-                musicStep %
-                scale.length
-            ];
+            if(!musicPlaying) return;
 
-        tone(
-            note,
-            2.8,
-            "sine",
-            .045,
-            musicGain
-        );
+            const osc =
+                audioContext.createOscillator();
 
-        if(
-            musicStep % 4 === 0
-        ){
+            const gain =
+                audioContext.createGain();
 
-            tone(
-                note/2,
-                3.5,
-                "triangle",
-                .025,
-                musicGain
+            osc.type="sine";
+
+            osc.frequency.value =
+                notes[index];
+
+            gain.gain.value=.018;
+
+            osc.connect(gain);
+            gain.connect(musicGain);
+
+            osc.start();
+
+            gain.gain.exponentialRampToValueAtTime(
+                .001,
+                audioContext.currentTime + 2.5
             );
 
-        }
-
-        musicStep++;
-
-        musicTimer =
-            setTimeout(
-                musicLoop,
-                1800
+            osc.stop(
+                audioContext.currentTime + 2.5
             );
+
+            index =
+                (index + 1) %
+                notes.length;
+
+        },2200);
+}
+
+
+function stopMusic(){
+
+    musicPlaying=false;
+
+    if(musicTimer){
+        clearInterval(musicTimer);
+        musicTimer=null;
+    }
+}
+
+
+document
+.getElementById("musicButton")
+.addEventListener("click",()=>{
+
+    initAudio();
+
+    if(musicPlaying){
+
+        stopMusic();
+
+        document
+        .getElementById("musicButton")
+        .textContent="♫";
+
+    }else{
+
+        startMusic();
+
+        document
+        .getElementById("musicButton")
+        .textContent="◼";
+
     }
 
-    musicLoop();
+});
+
+
+/* =========================================================
+   CREATE BACKGROUND STARS
+========================================================= */
+
+for(let i=0;i<180;i++){
+
+    const star =
+        document.createElement("span");
+
+    star.className="star";
+
+    if(Math.random()>.88){
+        star.classList.add("big");
+    }
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    star.style.setProperty(
+        "--duration",
+        (2+Math.random()*5)+"s"
+    );
+
+    star.style.animationDelay =
+        Math.random()*5+"s";
+
+    stars.appendChild(star);
 }
 
 
 /* =========================================================
-   MUSIC TOGGLE
+   DOB → ZODIAC
 ========================================================= */
 
-musicButton.addEventListener(
+function zodiacFromDOB(dateString){
+
+    const parts =
+        dateString.split("/");
+
+    const day =
+        Number(parts[0]);
+
+    const month =
+        Number(parts[1]);
+
+    if(
+        (month===3 && day>=21) ||
+        (month===4 && day<=19)
+    ) return "Aries";
+
+    if(
+        (month===4 && day>=20) ||
+        (month===5 && day<=20)
+    ) return "Taurus";
+
+    if(
+        (month===5 && day>=21) ||
+        (month===6 && day<=20)
+    ) return "Gemini";
+
+    if(
+        (month===6 && day>=21) ||
+        (month===7 && day<=22)
+    ) return "Cancer";
+
+    if(
+        (month===7 && day>=23) ||
+        (month===8 && day<=22)
+    ) return "Leo";
+
+    if(
+        (month===8 && day>=23) ||
+        (month===9 && day<=22)
+    ) return "Virgo";
+
+    if(
+        (month===9 && day>=23) ||
+        (month===10 && day<=22)
+    ) return "Libra";
+
+    if(
+        (month===10 && day>=23) ||
+        (month===11 && day<=21)
+    ) return "Scorpio";
+
+    if(
+        (month===11 && day>=22) ||
+        (month===12 && day<=21)
+    ) return "Sagittarius";
+
+    if(
+        (month===12 && day>=22) ||
+        (month===1 && day<=19)
+    ) return "Capricorn";
+
+    if(
+        (month===1 && day>=20) ||
+        (month===2 && day<=18)
+    ) return "Aquarius";
+
+    return "Pisces";
+}
+
+const tishaSign =
+    zodiacFromDOB(TISHA_DOB);
+
+const riteshSign =
+    zodiacFromDOB(RITESH_DOB);
+
+console.log(
+    "Tisha:",
+    tishaSign,
+    "Ritesh:",
+    riteshSign
+);
+
+
+/* =========================================================
+   DISCOVERY SYSTEM
+========================================================= */
+
+let discovery = 0;
+
+const discovered =
+    new Set();
+
+function addDiscovery(amount=10){
+
+    discovery =
+        Math.min(
+            100,
+            discovery + amount
+        );
+
+    energyFill.style.width =
+        discovery+"%";
+
+    energyText.textContent =
+        "COSMIC DISCOVERY "+
+        discovery+
+        "%";
+
+    if(discovery>=100){
+        setTimeout(
+            showFinalUniverse,
+            1000
+        );
+    }
+}
+
+
+/* =========================================================
+   ENTER UNIVERSE
+========================================================= */
+
+enterUniverse.addEventListener(
     "click",
     ()=>{
 
         initAudio();
-
-        if(!musicStarted){
-
-            startMusic();
-
-        }else{
-
-            musicStarted = false;
-
-            clearTimeout(
-                musicTimer
-            );
-
-            musicGain.gain.value =
-                0;
-
-            musicButton.classList.remove(
-                "playing"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-explore.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
         startMusic();
 
-        intro.classList.add("hide");
+        cosmicClick();
 
-        setTimeout(
-            ()=>{
-                exploration.classList.add(
-                    "active"
-                );
+        intro.classList.remove("active");
 
-                meteor();
+        setTimeout(()=>{
 
-            },
-            900
-        );
+            observatory.classList.add(
+                "active"
+            );
 
-    }
-);
+            createMeteor();
 
-
-/* =========================================================
-   MEMORY OPEN
-========================================================= */
-
-memoryOrbs.forEach(
-    orb=>{
-
-        orb.addEventListener(
-            "click",
-            ()=>{
-
-                cosmicClick();
-
-                const index =
-                    Number(
-                        orb.dataset.memory
-                    );
-
-                currentMemory =
-                    index;
-
-                const memory =
-                    memories[index];
-
-                memoryIcon.textContent =
-                    memory.icon;
-
-                memoryTitle.textContent =
-                    memory.title;
-
-                memoryText.textContent =
-                    memory.text;
-
-                memoryNumber.textContent =
-                    "MEMORY " +
-                    String(index+1)
-                        .padStart(2,"0");
-
-                memoryModal.classList.add(
-                    "show"
-                );
-
-            }
-        );
+        },700);
 
     }
 );
 
 
 /* =========================================================
-   CLOSE MEMORY
+   MEMORY CONTENT
 ========================================================= */
 
-function closeModal(){
+const memories = [
 
-    memoryModal.classList.remove(
-        "show"
+    {
+        title:"Our Beginning",
+        icon:"💫",
+        text:
+        `It all started with something so simple.
+
+        I sent you a follow request...
+        and one day, you accepted it.
+
+        Then came one tiny word that started
+        something much bigger than either of us knew...
+
+        "Hi." ❤️`
+    },
+
+    {
+        title:"12.03.26",
+        icon:"📅",
+        text:
+        `12.03.26.
+
+        Just a date on a calendar...
+
+        until it became the beginning of
+        countless conversations, little moments,
+        laughter and memories.`
+    },
+
+    {
+        title:"That First Day",
+        icon:"🥹",
+        text:
+        `One of my favourite little memories...
+
+        You falling asleep on my lap
+        when we were together for the first day.
+
+        Maybe it was a tiny moment.
+
+        But it made me feel incredibly lucky.`
+    },
+
+    {
+        title:"A Little Confession",
+        icon:"😂",
+        text:
+        `The first time I heard your voice,
+        I told you that you sounded very young.
+
+        Looking back...
+
+        I have absolutely no idea why
+        I thought saying that was a good idea. 😂`
+    },
+
+    {
+        title:"Something I Love",
+        icon:"✨",
+        text:
+        `I love how charismatic you are.
+
+        How interactive you are.
+        How full of life you are.
+
+        You have this energy that makes
+        being around you feel different...
+
+        and I absolutely love that about you.`
+    },
+
+    {
+        title:"A Secret",
+        icon:"❤️",
+        text:
+        `Here's something I hope you never forget.
+
+        I'm genuinely blessed to have you
+        as someone so close to me.
+
+        Around you, I feel comfortable.
+        I feel loved.
+
+        And you have a very special
+        place in my life. ❤️`
+    }
+
+];
+
+
+/* =========================================================
+   MEMORY MODAL
+========================================================= */
+
+let currentMemory=null;
+
+memoryStars.forEach(star=>{
+
+    star.addEventListener(
+        "click",
+        ()=>{
+
+            initAudio();
+            cosmicClick();
+
+            const index =
+                Number(
+                    star.dataset.memory
+                );
+
+            currentMemory=index;
+
+            const memory =
+                memories[index];
+
+            document
+            .getElementById("memoryIcon")
+            .textContent =
+                memory.icon;
+
+            document
+            .getElementById("memoryNumber")
+            .textContent =
+                "MEMORY "+
+                String(index+1)
+                .padStart(2,"0");
+
+            document
+            .getElementById("memoryTitle")
+            .textContent =
+                memory.title;
+
+            document
+            .getElementById("memoryText")
+            .textContent =
+                memory.text;
+
+            memoryModal.classList.add(
+                "show"
+            );
+
+        }
     );
 
-    currentMemory =
-        null;
-}
-
-closeMemory.addEventListener(
-    "click",
-    closeModal
-);
+});
 
 
-/* =========================================================
-   MEMORY DISCOVERY
-========================================================= */
-
-memoryDone.addEventListener(
+document
+.getElementById("memoryDone")
+.addEventListener(
     "click",
     ()=>{
 
-        if(
-            currentMemory === null
-        ){
+        if(currentMemory===null)
             return;
-        }
 
-        cosmicClick();
-
-        const orb =
-            memoryOrbs[
-                currentMemory
-            ];
+        const star =
+            memoryStars[currentMemory];
 
         if(
-            !orb.classList.contains(
-                "discovered"
+            !discovered.has(
+                currentMemory
             )
         ){
 
-            orb.classList.add(
-                "discovered"
-            );
-
-            discovered.push(
+            discovered.add(
                 currentMemory
             );
 
-            discoverySound();
-
-            updateProgress();
-
-            drawConstellation();
-
-        }
-
-        closeModal();
-
-        if(
-            discovered.length ===
-            memories.length
-        ){
-
-            setTimeout(
-                ()=>{
-                    showZodiac();
-                },
-                1800
+            star.classList.add(
+                "discovered"
             );
 
+            addDiscovery(12);
+
+            drawMemoryConstellation();
+
+            constellationSound();
+
         }
+
+        closeAllModals();
 
     }
 );
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-function updateProgress(){
-
-    counter.textContent =
-        discovered.length +
-        " / 6 DISCOVERED";
-
-    progress.style.width =
-        (
-            discovered.length / 6 * 100
-        )+"%";
-}
 
 
 /* =========================================================
    CONSTELLATION
 ========================================================= */
 
-function drawConstellation(){
+function drawMemoryConstellation(){
 
-    constellation.innerHTML="";
+    const svg =
+        document.getElementById(
+            "constellationCanvas"
+        );
 
-    if(
-        discovered.length < 2
-    ){
+    svg.innerHTML="";
+
+    const list =
+        Array.from(discovered);
+
+    if(list.length<2)
         return;
+
+    for(
+        let i=0;
+        i<list.length-1;
+        i++
+    ){
+
+        const a =
+            memoryStars[list[i]]
+            .getBoundingClientRect();
+
+        const b =
+            memoryStars[list[i+1]]
+            .getBoundingClientRect();
+
+        const x1 =
+            a.left+a.width/2;
+
+        const y1 =
+            a.top+a.height/2;
+
+        const x2 =
+            b.left+b.width/2;
+
+        const y2 =
+            b.top+b.height/2;
+
+        const line =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "line"
+            );
+
+        line.setAttribute(
+            "x1",
+            x1
+        );
+
+        line.setAttribute(
+            "y1",
+            y1
+        );
+
+        line.setAttribute(
+            "x2",
+            x2
+        );
+
+        line.setAttribute(
+            "y2",
+            y2
+        );
+
+        line.setAttribute(
+            "stroke",
+            "rgba(210,215,255,.65)"
+        );
+
+        line.setAttribute(
+            "stroke-width",
+            "1"
+        );
+
+        line.style.filter =
+            "drop-shadow(0 0 6px rgba(180,190,255,.9))";
+
+        svg.appendChild(line);
     }
 
-    const points =
-        [];
+}
 
-    discovered.forEach(
-        index=>{
 
-            const orb =
-                memoryOrbs[index];
+/* =========================================================
+   ZODIAC
+========================================================= */
 
-            const rect =
-                orb.getBoundingClientRect();
+document
+.getElementById("zodiacButton")
+.addEventListener(
+    "click",
+    ()=>{
 
-            const x =
-                (
-                    rect.left +
-                    rect.width/2
-                ) /
-                window.innerWidth *
-                100;
+        initAudio();
+        magicalReveal();
 
-            const y =
-                (
-                    rect.top +
-                    rect.height/2
-                ) /
-                window.innerHeight *
-                100;
+        zodiacModal.classList.add(
+            "show"
+        );
 
-            points.push({
-                x,
-                y
+        if(
+            !discovered.has("zodiac")
+        ){
+
+            discovered.add("zodiac");
+
+            addDiscovery(10);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOON SYSTEM
+========================================================= */
+
+let moonIndex=0;
+
+const moonPhases = [
+
+    {
+        name:"NEW MOON",
+        background:
+        "radial-gradient(circle at 30% 30%,#15151c,#050509)",
+        text:
+        "Every story begins in darkness... before the first light appears."
+    },
+
+    {
+        name:"CRESCENT",
+        background:
+        "radial-gradient(circle at 25% 50%,transparent 0 35%,#dcd9ca 36% 100%)",
+        text:
+        "Tiny beginnings don't look important... until you realise where they eventually lead."
+    },
+
+    {
+        name:"FIRST QUARTER",
+        background:
+        "linear-gradient(90deg,#08080d 0 50%,#dedbca 50% 100%)",
+        text:
+        "Somewhere between two ordinary days, something extraordinary begins."
+    },
+
+    {
+        name:"GIBBOUS",
+        background:
+        "radial-gradient(circle at 35% 30%,#fffef2,#c9c6b9 70%)",
+        text:
+        "The little things slowly become the big things you never want to forget."
+    },
+
+    {
+        name:"FULL MOON",
+        background:
+        "radial-gradient(circle,#fffef2,#d4d0c0 70%,#8b897f)",
+        text:
+        "Some people simply feel familiar... as if your heart already knows them."
+    }
+
+];
+
+
+function updateMoon(){
+
+    const phase =
+        moonPhases[moonIndex];
+
+    document
+    .getElementById("moonVisual")
+    .style.background =
+        phase.background;
+
+    document
+    .getElementById("moonPhase")
+    .textContent =
+        phase.name;
+
+    document
+    .getElementById("moonMessage")
+    .textContent =
+        phase.text;
+
+}
+
+
+document
+.getElementById("moonButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+        cosmicClick();
+
+        moonModal.classList.add(
+            "show"
+        );
+
+        if(
+            !discovered.has("moon")
+        ){
+
+            discovered.add("moon");
+            addDiscovery(10);
+
+        }
+
+        updateMoon();
+
+    }
+);
+
+
+document
+.getElementById("nextMoon")
+.addEventListener(
+    "click",
+    ()=>{
+
+        moonIndex =
+            (moonIndex+1) %
+            moonPhases.length;
+
+        updateMoon();
+
+        magicalReveal();
+
+    }
+);
+
+
+/* =========================================================
+   ORACLE
+========================================================= */
+
+const oracleReadings = {
+
+    love:[
+        "The stars suggest that your heart notices things before your mind does. And when you truly care... you care deeply. ❤️",
+
+        "Your cosmic reading says you are much softer than you pretend to be. Someone has probably noticed. 👀",
+
+        "The universe has detected an unusual amount of affection hiding underneath sarcasm, laughter and random chaos."
+    ],
+
+    us:[
+        "Two different energies. One shared orbit. Earth and Water don't have to be identical to grow something beautiful. 🌍🌊",
+
+        "The stars whisper that the strongest part of this connection isn't perfection... it's how naturally the little things become memories.",
+
+        "Cosmic observation complete: there appears to be one person who has somehow become unusually important to the other. ❤️"
+    ],
+
+    future:[
+        "Prediction: more photographs, more places, more ridiculous conversations and at least several moments beginning with 'Riteshhh...' 😂",
+
+        "The universe cannot provide an exact future... but this little reading predicts one thing: there are still many memories that haven't happened yet.",
+
+        "Forecast: unexpected adventures, sleepy conversations, tiny surprises and a suspiciously large collection of memories."
+    ]
+
+};
+
+
+document
+.querySelectorAll(".oracle-option")
+.forEach(button=>{
+
+    button.addEventListener(
+        "click",
+        ()=>{
+
+            initAudio();
+            magicalReveal();
+
+            const type =
+                button.dataset.oracle;
+
+            const list =
+                oracleReadings[type];
+
+            const result =
+                list[
+                    Math.floor(
+                        Math.random()*list.length
+                    )
+                ];
+
+            const text =
+                document.getElementById(
+                    "oracleText"
+                );
+
+            text.textContent =
+                "CONSULTING THE STARS...";
+
+            setTimeout(()=>{
+
+                text.textContent =
+                    result;
+
+            },900);
+
+        }
+    );
+
+});
+
+
+document
+.getElementById("oracleButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+
+        oracleModal.classList.add(
+            "show"
+        );
+
+        if(
+            !discovered.has("oracle")
+        ){
+
+            discovered.add("oracle");
+            addDiscovery(12);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   COMPATIBILITY
+========================================================= */
+
+document
+.getElementById("compatibilityButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+        magicalReveal();
+
+        compatModal.classList.add(
+            "show"
+        );
+
+        if(
+            !discovered.has("compat")
+        ){
+
+            discovered.add("compat");
+            addDiscovery(15);
+
+        }
+
+        setTimeout(()=>{
+
+            document
+            .querySelectorAll(".compat-fill")
+            .forEach(bar=>{
+
+                bar.style.width =
+                    bar.dataset.width;
+
             });
+
+        },300);
+
+    }
+);
+
+
+/* =========================================================
+   PLANET
+========================================================= */
+
+document
+.getElementById("tishaPlanet")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+        magicalReveal();
+
+        planetModal.classList.add(
+            "show"
+        );
+
+        if(
+            !discovered.has("planet")
+        ){
+
+            discovered.add("planet");
+            addDiscovery(8);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MODALS
+========================================================= */
+
+function closeAllModals(){
+
+    document
+    .querySelectorAll(".modal")
+    .forEach(modal=>{
+        modal.classList.remove("show");
+    });
+
+    document
+    .getElementById("secretMessage")
+    .classList.remove("show");
+
+}
+
+
+document
+.querySelectorAll("[data-close]")
+.forEach(button=>{
+
+    button.addEventListener(
+        "click",
+        closeAllModals
+    );
+
+});
+
+
+document
+.querySelectorAll(".modal-backdrop")
+.forEach(backdrop=>{
+
+    backdrop.addEventListener(
+        "click",
+        closeAllModals
+    );
+
+});
+
+
+document
+.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key==="Escape"){
+            closeAllModals();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SHOOTING STAR SYSTEM
+========================================================= */
+
+const secretMessages = [
+
+    "You make ordinary days feel less ordinary. ✦",
+
+    "The universe has officially confirmed that you are ridiculously cute. ❤️",
+
+    "Somewhere between all these stars... you became my favourite one.",
+
+    "Transmission from Ritesh: I still choose you. Every single time. ❤️",
+
+    "Cosmic secret #07: You have absolutely no idea how special you are.",
+
+    "The telescope searched the entire universe. Results inconclusive. Still haven't found anyone quite like you.",
+
+    "Warning: excessive levels of charm detected in this sector. 😂",
+
+    "One tiny prediction: there are still many beautiful memories waiting for us."
+];
+
+
+function createMeteor(){
+
+    const meteor =
+        document.createElement("div");
+
+    meteor.className =
+        "shooting-star";
+
+    meteor.style.left =
+        (65+Math.random()*35)+"%";
+
+    meteor.style.top =
+        (5+Math.random()*35)+"%";
+
+    document
+    .getElementById("space")
+    .appendChild(meteor);
+
+    meteor.addEventListener(
+        "click",
+        ()=>{
+
+            initAudio();
+            magicalReveal();
+
+            const message =
+                secretMessages[
+                    Math.floor(
+                        Math.random()*
+                        secretMessages.length
+                    )
+                ];
+
+            document
+            .getElementById("secretText")
+            .textContent =
+                message;
+
+            document
+            .getElementById("secretMessage")
+            .classList.add("show");
+
+            addDiscovery(3);
+
+            meteor.remove();
+
+        }
+    );
+
+    setTimeout(
+        ()=>{
+            meteor.remove();
+        },
+        1900
+    );
+
+}
+
+
+setInterval(
+    ()=>{
+
+        if(
+            observatory.classList
+            .contains("active")
+        ){
+
+            createMeteor();
+
+        }
+
+    },
+    5500
+);
+
+
+/* =========================================================
+   DEEP SPACE MESSAGE
+========================================================= */
+
+document
+.getElementById("messageButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+        magicalReveal();
+
+        const message =
+            secretMessages[
+                Math.floor(
+                    Math.random()*
+                    secretMessages.length
+                )
+            ];
+
+        document
+        .getElementById("secretText")
+        .textContent =
+            message;
+
+        document
+        .getElementById("secretMessage")
+        .classList.add("show");
+
+        if(
+            !discovered.has("message")
+        ){
+
+            discovered.add("message");
+            addDiscovery(8);
+
+        }
+
+    }
+);
+
+
+document
+.querySelector("[data-secret-close]")
+.addEventListener(
+    "click",
+    ()=>{
+        document
+        .getElementById("secretMessage")
+        .classList.remove("show");
+    }
+);
+
+
+/* =========================================================
+   FINAL CONSTELLATION
+========================================================= */
+
+function createFinalConstellation(){
+
+    const container =
+        document.getElementById(
+            "finalConstellation"
+        );
+
+    container.innerHTML="";
+
+    const points = [
+
+        [48,10],
+        [28,25],
+        [67,30],
+        [38,50],
+        [73,55],
+        [25,72],
+        [52,78],
+        [80,82]
+
+    ];
+
+    points.forEach(
+        ([x,y],index)=>{
+
+            const dot =
+                document.createElement("span");
+
+            dot.className=
+                "final-dot";
+
+            dot.style.left=
+                x+"%";
+
+            dot.style.top=
+                y+"%";
+
+            dot.style.animationDelay=
+                index*.15+"s";
+
+            container.appendChild(dot);
 
         }
     );
@@ -3539,302 +4188,155 @@ function drawConstellation(){
         i++
     ){
 
-        const p1 =
-            points[i];
+        const [x1,y1]=points[i];
+        const [x2,y2]=points[i+1];
 
-        const p2 =
-            points[i+1];
+        const dx=x2-x1;
+        const dy=y2-y1;
+
+        const length =
+            Math.sqrt(
+                dx*dx+dy*dy
+            );
+
+        const angle =
+            Math.atan2(dy,dx)
+            *180/Math.PI;
 
         const line =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "line"
-            );
+            document.createElement("span");
 
-        line.setAttribute(
-            "x1",
-            p1.x
-        );
+        line.className=
+            "final-line";
 
-        line.setAttribute(
-            "y1",
-            p1.y
-        );
+        line.style.left=
+            x1+"%";
 
-        line.setAttribute(
-            "x2",
-            p2.x
-        );
+        line.style.top=
+            y1+"%";
 
-        line.setAttribute(
-            "y2",
-            p2.y
-        );
+        line.style.width=
+            length+"%";
 
-        line.classList.add(
-            "constellation-line"
-        );
+        line.style.transform=
+            `rotate(${angle}deg)`;
 
-        constellation.appendChild(
-            line
-        );
+        line.style.animationDelay=
+            (.3+i*.2)+"s";
+
+        container.appendChild(line);
 
     }
+
+}
+
+
+/* =========================================================
+   FINAL REVEAL
+========================================================= */
+
+function showFinalUniverse(){
+
+    createFinalConstellation();
+
+    finalUniverse.classList.add(
+        "show"
+    );
+
+    constellationSound();
+
+}
+
+
+function checkFinal(){
 
     if(
-        discovered.length >= 2
+        discovered.size >= 10
     ){
-        constellationSound();
+
+        showFinalUniverse();
+
+    }else{
+
+        /* intentionally don't force completion */
+
+        const remaining =
+            10-discovered.size;
+
+        energyText.textContent =
+            "THE UNIVERSE STILL HAS "+
+            remaining+
+            " SECRET"+
+            (remaining===1?"":"S")+
+            " FOR YOU ✦";
+
+        setTimeout(()=>{
+
+            energyText.textContent =
+                "COSMIC DISCOVERY "+
+                discovery+
+                "%";
+
+        },2500);
+
     }
+
 }
 
 
 /* =========================================================
-   ZODIAC
+   SPECIAL COMPLETION TRIGGER
 ========================================================= */
 
-function showZodiac(){
-
-    exploration.classList.remove(
-        "active"
-    );
-
-    flash.classList.add(
-        "active"
-    );
-
-    setTimeout(
-        ()=>{
-            flash.classList.remove(
-                "active"
-            );
-
-            zodiacScreen.classList.add(
-                "show"
-            );
-
-            setTimeout(
-                ()=>{
-                    zodiacScreen.classList.add(
-                        "revealed"
-                    );
-
-                    zodiacSound();
-
-                },
-                700
-            );
-
-        },
-        500
-    );
-}
-
-
-/* =========================================================
-   ZODIAC CONTINUE
-========================================================= */
-
-zodiacContinue.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
-        zodiacScreen.classList.remove(
-            "show"
-        );
-
-        setTimeout(
-            ()=>{
-                analysisScreen.classList.add(
-                    "show"
-                );
-            },
-            700
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ANALYSIS CONTINUE
-========================================================= */
-
-analysisContinue.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
-        analysisScreen.classList.remove(
-            "show"
-        );
-
-        setTimeout(
-            ()=>{
-                orbitScreen.classList.add(
-                    "show"
-                );
-            },
-            700
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ORBIT CONTINUE
-========================================================= */
-
-orbitContinue.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
-        orbitScreen.classList.remove(
-            "show"
-        );
-
-        setTimeout(
-            ()=>{
-                secretStar.classList.add(
-                    "available"
-                );
-            },
-            900
-        );
-
-    }
-);
-
-
-/* =========================================================
-   SECRET STAR
-========================================================= */
-
-secretStar.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
-        secretStar.classList.remove(
-            "available"
-        );
-
-        flash.classList.add(
-            "active"
-        );
-
-        setTimeout(
-            ()=>{
-                flash.classList.remove(
-                    "active"
-                );
-
-                finalScreen.classList.add(
-                    "show"
-                );
-
-                zodiacSound();
-
-            },
-            600
-        );
-
-    }
-);
-
-
-/* =========================================================
-   FINAL PORTAL
-========================================================= */
-
-finalPortal.addEventListener(
-    "click",
-    ()=>{
-
-        cosmicClick();
-
-        flash.classList.add(
-            "active"
-        );
-
-        setTimeout(
-            ()=>{
-                window.location.href =
-                    "page4.html";
-            },
-            700
-        );
-
-    }
-);
-
-
-/* =========================================================
-   CLOSE MODAL BY BACKDROP
-========================================================= */
-
-memoryModal.addEventListener(
-    "click",
-    event=>{
-
-        if(
-            event.target.classList.contains(
-                "modal-bg"
-            )
-        ){
-            closeModal();
-        }
-
-    }
-);
-
-
-/* =========================================================
-   ESCAPE
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event=>{
-
-        if(
-            event.key === "Escape"
-        ){
-
-            if(
-                memoryModal.classList.contains(
-                    "show"
-                )
-            ){
-                closeModal();
-            }
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   RESIZE CONSTELLATION
-========================================================= */
-
-window.addEventListener(
-    "resize",
+setInterval(
     ()=>{
 
         if(
-            discovered.length >= 2
+            discovery>=100 &&
+            !finalUniverse.classList
+                .contains("show")
         ){
-            drawConstellation();
+
+            showFinalUniverse();
+
         }
+
+    },
+    1000
+);
+
+
+/* =========================================================
+   FINAL BUTTON
+========================================================= */
+
+document
+.getElementById("finalButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        initAudio();
+
+        magicalReveal();
+
+        document
+        .getElementById(
+            "pageTransition"
+        )
+        .classList.add("show");
+
+        setTimeout(()=>{
+
+            /*
+             * CHANGE THIS TO YOUR
+             * ACTUAL FINAL PAGE FILE.
+             */
+
+            window.location.href =
+                "page12.html";
+
+        },1200);
 
     }
 );
@@ -3850,41 +4352,27 @@ document.addEventListener(
 
         const x =
             (event.clientX /
-            window.innerWidth -
-            .5);
+             window.innerWidth -
+             .5);
 
         const y =
             (event.clientY /
-            window.innerHeight -
-            .5);
+             window.innerHeight -
+             .5);
 
-        document.querySelectorAll(
-            ".nebula"
-        ).forEach(
-            (element,index)=>{
+        document
+        .querySelectorAll(".planet")
+        .forEach(
+            (planet,index)=>{
 
-                const strength =
-                    (index+1)*10;
+                const amount =
+                    10+index*5;
 
-                element.style.transform =
-                    `translate(
-                        ${x*strength}px,
-                        ${y*strength}px
-                    )`;
+                planet.style.marginLeft =
+                    x*amount+"px";
 
-            }
-        );
-
-        document.querySelectorAll(
-            ".dwarf"
-        ).forEach(
-            element=>{
-
-                element.style.marginLeft =
-                    x*8+"px";
-
-                element.style.marginTop =
-                    y*8+"px";
+                planet.style.marginTop =
+                    y*amount+"px";
 
             }
         );
@@ -3894,18 +4382,55 @@ document.addEventListener(
 
 
 /* =========================================================
-   PAGE LOAD
+   TOUCH FRIENDLY METEOR CREATION
 ========================================================= */
 
-setTimeout(
+document.addEventListener(
+    "touchstart",
     ()=>{
-        document.getElementById(
-            "transition"
-        ).classList.add(
-            "hide"
-        );
+        if(!audioContext){
+            initAudio();
+        }
     },
-    400
+    {once:true}
+);
+
+
+/* =========================================================
+   RESIZE CONSTELLATION
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    ()=>{
+        if(
+            discovered.size>1
+        ){
+            drawMemoryConstellation();
+        }
+    }
+);
+
+
+/* =========================================================
+   INITIAL CONSOLE
+========================================================= */
+
+console.log(
+    "%c OUR LITTLE UNIVERSE ",
+    "color:#d8cfff;font-size:20px;font-weight:bold"
+);
+
+console.log(
+    "Tisha:",
+    tishaSign,
+    "♍"
+);
+
+console.log(
+    "Ritesh:",
+    riteshSign,
+    "♋"
 );
 
 </script>
