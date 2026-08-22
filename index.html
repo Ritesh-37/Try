@@ -532,17 +532,20 @@ button{
     font-size:16px;
 }
 
+/* CHANGED: equal spacing + equal chit sizing */
+
 .chit-grid{
     width:min(1050px,100%);
     margin:25px auto;
     display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(170px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:28px;
+    align-items:stretch;
 }
 
 .chit{
     min-height:155px;
+    height:155px;
     border:none;
     padding:25px 18px;
     position:relative;
@@ -564,6 +567,11 @@ button{
     transition:
         transform .35s ease,
         box-shadow .35s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 }
 
 .chit:nth-child(2n){
@@ -595,7 +603,7 @@ button{
 
 .chit-word{
     font-family:Georgia,serif;
-    font-size:25px;
+    font-size:23px;
     color:#843f5b;
     margin-bottom:10px;
 }
@@ -603,10 +611,7 @@ button{
 .chit-hint{
     font-size:13px;
     color:#b47a8e;
-}
-
-.chit.opened{
-    opacity:.45;
+    line-height:1.5;
 }
 
 /* =========================================================
@@ -725,6 +730,7 @@ button{
     font-size:clamp(17px,2.8vw,21px);
     line-height:1.85;
     color:#6d4655;
+    white-space:pre-line;
 }
 
 .note-close{
@@ -858,7 +864,7 @@ button{
 .match-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px;
+    gap:18px;
 }
 
 .match-side{
@@ -908,6 +914,8 @@ button{
     backdrop-filter:blur(10px);
 }
 
+/* CHANGED: contrasting text */
+
 .final-card{
     width:min(700px,95%);
     text-align:center;
@@ -917,23 +925,26 @@ button{
     font-size:12px;
     letter-spacing:5px;
     text-transform:uppercase;
-    color:#f9dce6;
+    color:#713348;
+    font-weight:bold;
 }
 
 .final-card h2{
-    color:white;
+    color:#5c263d;
     font-family:Georgia,serif;
     font-size:clamp(35px,7vw,60px);
     margin:12px 0;
+    text-shadow:0 2px 10px rgba(255,255,255,.45);
 }
 
 .final-card .question{
-    color:#ffe9f0;
+    color:#642d43;
     font-family:Georgia,serif;
     font-size:clamp(19px,3vw,25px);
     line-height:1.6;
     margin:25px auto;
     max-width:600px;
+    font-weight:600;
 }
 
 .final-options{
@@ -945,35 +956,39 @@ button{
 }
 
 .final-option{
-    border:1px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.12);
-    color:white;
+    border:1px solid rgba(103,49,69,.28);
+    background:rgba(255,255,255,.72);
+    color:#602b40;
     border-radius:15px;
     padding:15px;
     cursor:pointer;
     transition:.25s;
     backdrop-filter:blur(8px);
+    font-weight:500;
 }
 
 .final-option:hover{
-    background:rgba(255,255,255,.22);
+    background:rgba(255,255,255,.9);
     transform:translateY(-3px);
 }
 
 .final-option.correct{
-    background:rgba(180,240,195,.25);
-    border-color:#b8efc6;
+    background:rgba(180,240,195,.5);
+    border-color:#79ad86;
+    color:#315c3b;
 }
 
 .final-option.wrong{
     animation:shake .35s;
-    background:rgba(255,120,145,.22);
+    background:rgba(255,120,145,.35);
+    color:#702238;
 }
 
 .final-feedback{
-    color:#ffe8ef;
+    color:#632d43;
     min-height:30px;
     margin:20px;
+    font-weight:600;
 }
 
 .final-progress{
@@ -984,19 +999,19 @@ button{
 }
 
 .final-heart{
-    color:rgba(255,255,255,.25);
+    color:rgba(110,55,75,.25);
     transition:.6s;
     font-size:18px;
 }
 
 .final-heart.active{
-    color:#ffb6cb;
-    text-shadow:0 0 14px #ff9eba;
+    color:#9c3d61;
+    text-shadow:0 0 14px #d77799;
     transform:scale(1.3);
 }
 
 /* =========================================================
-   FINAL LETTER
+   FINAL LETTER / BURGUNDY ENVELOPE
 ========================================================= */
 
 #letterStage{
@@ -1016,23 +1031,54 @@ button{
     opacity:0;
 }
 
+/* premium burgundy envelope */
+
 .final-envelope{
     width:min(650px,90%);
     text-align:center;
     cursor:pointer;
+    animation:envelopeFloat 4s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 .final-envelope-body{
-    width:min(360px,75%);
+    width:min(390px,78%);
     aspect-ratio:1.4;
     margin:auto;
-    background:#fff;
-    border-radius:8px;
+    background:
+        linear-gradient(
+            145deg,
+            #8c1837,
+            #67132b 48%,
+            #4b0d20 100%
+        );
+    border-radius:10px;
     position:relative;
-    box-shadow:0 25px 60px rgba(91,42,59,.22);
+    box-shadow:
+        0 30px 70px rgba(57,15,30,.42),
+        0 0 35px rgba(112,25,55,.18);
     display:flex;
     align-items:center;
     justify-content:center;
+    border:1px solid rgba(244,210,180,.45);
+    overflow:hidden;
+}
+
+.final-envelope-body:after{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(244,210,180,.35);
+    border-radius:7px;
+    pointer-events:none;
 }
 
 .final-envelope-body:before{
@@ -1043,13 +1089,13 @@ button{
         linear-gradient(
             35deg,
             transparent 49%,
-            #efcbd7 50%,
+            rgba(232,190,174,.55) 50%,
             transparent 51%
         ),
         linear-gradient(
             -35deg,
             transparent 49%,
-            #efcbd7 50%,
+            rgba(232,190,174,.55) 50%,
             transparent 51%
         );
 }
@@ -1058,17 +1104,61 @@ button{
     position:relative;
     z-index:2;
     font-family:Georgia,serif;
-    color:#814157;
+    color:#f8dfcf;
     font-size:24px;
+    letter-spacing:2px;
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.3);
+}
+
+.envelope-seal{
+    position:absolute;
+    z-index:4;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #a93354,
+            #73142f 65%,
+            #4c0c20
+        );
+    border:2px solid rgba(244,210,180,.8);
+    color:#f7d7c5;
+    font-size:25px;
+    box-shadow:
+        0 7px 20px rgba(39,5,17,.4),
+        inset 0 2px 5px rgba(255,255,255,.18);
+    transition:.4s ease;
+}
+
+.final-envelope:hover .envelope-seal{
+    transform:
+        translate(-50%,-50%)
+        scale(1.08)
+        rotate(-5deg);
+    box-shadow:
+        0 8px 30px rgba(70,10,30,.5),
+        0 0 22px rgba(255,210,190,.22);
 }
 
 .envelope-instruction{
     color:#fff;
     margin-top:25px;
     font-size:15px;
+    letter-spacing:.5px;
 }
 
-/* LETTER */
+/* =========================================================
+   LETTER
+========================================================= */
 
 #letter{
     display:none;
@@ -1077,26 +1167,31 @@ button{
     z-index:650;
     align-items:center;
     justify-content:center;
-    padding:20px;
+    padding:14px;
     background:
         rgba(255,232,240,.96);
 }
 
+/* CHANGED: no scrolling, one screen */
+
 .letter-paper{
-    width:min(760px,94%);
-    max-height:88vh;
-    overflow:auto;
-    padding:clamp(30px,6vw,65px);
+    width:min(820px,94%);
+    height:min(94vh,760px);
+    overflow:hidden;
+    padding:clamp(22px,4vh,42px) clamp(25px,5vw,60px);
     background:#fffdfa;
     border-radius:5px;
     box-shadow:0 30px 80px rgba(75,36,48,.22);
     position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .letter-paper:before{
     content:"";
     position:absolute;
-    inset:18px;
+    inset:14px;
     border:1px dashed rgba(200,130,153,.25);
     pointer-events:none;
 }
@@ -1104,41 +1199,46 @@ button{
 .letter-title{
     text-align:center;
     font-family:Georgia,serif;
-    font-size:clamp(30px,6vw,48px);
+    font-size:clamp(28px,5vw,43px);
     color:#7a3e55;
-    margin-bottom:30px;
+    margin-bottom:18px;
+    flex-shrink:0;
 }
 
 .letter-body{
     font-family:Georgia,serif;
     color:#65424f;
-    font-size:18px;
-    line-height:2;
+    font-size:clamp(13px,1.7vw,16px);
+    line-height:1.55;
     white-space:pre-line;
+    overflow:hidden;
+    text-align:left;
 }
 
 .letter-end{
-    margin-top:30px;
+    margin-top:15px;
     text-align:center;
     color:#bd6684;
     font-family:Georgia,serif;
-    font-size:22px;
+    font-size:clamp(16px,2.2vw,20px);
+    flex-shrink:0;
 }
 
 .universe-transition{
-    margin-top:28px;
+    margin-top:15px;
     text-align:center;
+    flex-shrink:0;
 }
 
 .universe-transition button{
     border:none;
-    padding:14px 30px;
+    padding:12px 28px;
     border-radius:999px;
     color:white;
     background:#c97998;
     box-shadow:0 12px 30px rgba(157,74,103,.25);
     cursor:pointer;
-    font-size:16px;
+    font-size:15px;
 }
 
 /* =========================================================
@@ -1255,6 +1355,15 @@ button{
    RESPONSIVE
 ========================================================= */
 
+@media(max-width:900px){
+
+    .chit-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:20px;
+    }
+
+}
+
 @media(max-width:600px){
 
     .opening-sub{
@@ -1268,11 +1377,16 @@ button{
 
     .chit{
         min-height:135px;
+        height:135px;
         padding:18px 12px;
     }
 
     .chit-word{
-        font-size:21px;
+        font-size:19px;
+    }
+
+    .chit-hint{
+        font-size:12px;
     }
 
     .option-grid,
@@ -1284,15 +1398,48 @@ button{
         padding:25px 18px;
     }
 
+    .letter-paper{
+        height:94vh;
+        padding:22px 22px;
+    }
+
     .letter-body{
-        font-size:16px;
-        line-height:1.85;
+        font-size:12.5px;
+        line-height:1.45;
+    }
+
+    .letter-end{
+        font-size:15px;
+        margin-top:10px;
+    }
+
+    .universe-transition{
+        margin-top:10px;
     }
 
     #progress{
         top:10px;
         right:10px;
     }
+
+}
+
+@media(max-width:380px){
+
+    .letter-body{
+        font-size:11.5px;
+        line-height:1.4;
+    }
+
+    .letter-title{
+        font-size:26px;
+        margin-bottom:12px;
+    }
+
+    .letter-end{
+        font-size:14px;
+    }
+
 }
 </style>
 </head>
@@ -1494,10 +1641,14 @@ button{
                 FOR MY TISHUUU ♡
             </div>
 
+            <div class="envelope-seal">
+                ♡
+            </div>
+
         </div>
 
         <div class="envelope-instruction">
-            Open this one slowly...
+            A letter I couldn't say out loud... ♡
         </div>
 
     </div>
@@ -1521,7 +1672,7 @@ button{
 
         <div class="letter-end">
             Thank you for your existence, sweetheart. ♡
-            <br><br>
+            <br>
             I love you.
         </div>
 
@@ -1550,7 +1701,7 @@ button{
 
         <div class="universe-text" id="universeText"></div>
 
-        <div class="universe-sub" id="universeSub">
+        <div class="universe-sub">
             And now... let me show you where all our memories live.
         </div>
 
@@ -1564,6 +1715,7 @@ button{
 
 
 <script>
+
 /* =========================================================
    DATA
 ========================================================= */
@@ -1578,121 +1730,63 @@ const chapters = [
 
     chits:[
         {
-            word:"Smile",
-            hint:"The dangerous one ♡",
-            title:"That Smile",
+            word:"Smile ♡",
+            hint:"The dangerous one ✦",
+            title:"That Smile ♡",
             text:
-`Your smile is honestly unfair.
+`Your smile should honestly be illegal. ♡
 
-Those big smiles, those white teeth, and the way your entire face changes when you're genuinely happy...
-
-I don't know how you expect me to behave normally around that.
-
-And your laugh?
-
-That's even worse.
-
-You start laughing, I start laughing, and five minutes later neither of us even remembers what was funny.
-
-But honestly?
-
-I hope we keep doing exactly that for a very, very long time. ✨`
+It makes your whole face glow... and your laugh makes everything better. ✦🥹`
         },
 
         {
-            word:"Cheeks",
-            hint:"Yes... those fluffy ones",
+            word:"Cheeks ♡",
+            hint:"Those fluffy ones 🫶🏻",
             title:"Those Cheeks ♡",
             text:
-`Your fluffy cheeks are one of those little things I could never properly explain.
+`Those fluffy cheeks are ridiculously cute. 🥹♡
 
-They're just... you.
-
-The kind of thing that makes me want to tease you just so I can watch the little pout appear.
-
-And then you start blushing.
-
-Then laughing.
-
-Then giggling.
-
-And suddenly my teasing has completely failed because you're somehow even cuter than before.`
+Especially when teasing you makes that little pout appear. ✦`
         },
 
         {
-            word:"Pout",
-            hint:"Whenever madam is teased",
-            title:"The Pout",
+            word:"Pout ♡",
+            hint:"Madam is angry 😌",
+            title:"The Pout ♡",
             text:
-`My favourite thing about teasing you?
+`That little pout when I tease you...
 
-That little pout you make when you're pretending to be angry.
-
-And then somehow you start blushing, laughing and giggling.
-
-Madam...
-
-That's not an argument.
-
-That's cheating. 🙈♡`
+Madam, that's not an argument. That's cheating. 😂♡`
         },
 
         {
-            word:"Lips",
-            hint:"Ahem... moving on",
-            title:"Your Lips",
+            word:"Lips ♡",
+            hint:"Ahem... moving on 😌",
+            title:"Your Lips ♡",
             text:
-`I'm going to behave myself here...
+`I'm going to behave myself here... mostly. 😂
 
-Mostly.
-
-But yes, your lips are definitely one of those things that make it extremely difficult for me to concentrate.
-
-Especially when you know exactly what effect you're having on me.
-
-And that little confident smile afterwards?
-
-Ahaaa haaa...
-
-You know what you're doing. ♡`
+But yes, you know exactly what effect that smile has on me. ♡`
         },
 
         {
-            word:"Nails",
-            hint:"You noticed these too",
-            title:"Those Nails",
+            word:"Nails ♡",
+            hint:"A tiny detail ✦",
+            title:"Those Nails ♡",
             text:
-`One of the first things that unexpectedly caught my attention about you was your nails.
+`Funny how such a tiny detail stayed in my memory. ✨
 
-It sounds like such a tiny thing.
-
-But somehow those little details became part of the picture of you that stayed in my head.
-
-That's the funny thing about liking someone...
-
-You start remembering details you never expected to notice. ✨`
+That's what happens when someone starts becoming special. ♡`
         },
 
         {
-            word:"Glow",
-            hint:"You don't always need to dress up",
-            title:"Your Natural Glow",
+            word:"Glow ♡",
+            hint:"Effortless beauty ✨",
+            title:"Your Natural Glow ♡",
             text:
-`You know what I genuinely love?
+`Messy hair, casual clothes or dressed up...
 
-The messy version of you.
-
-The casual version.
-
-The version with messy hair, no effort, completely comfortable.
-
-And then you dress up and suddenly become absolutely killer.
-
-So basically...
-
-I have no safe version of you.
-
-You win either way. 😂♡`
+You somehow manage to win every version of the competition. 😂♡`
         }
     ]
 },
@@ -1705,115 +1799,65 @@ You win either way. 😂♡`
 
     chits:[
         {
-            word:"HMMMM",
-            hint:"You know exactly what you do",
-            title:"That Hmmmm",
+            word:"HMMMM ♡",
+            hint:"Sab samajh rahe hain hum 😌",
+            title:"That Hmmmm ♡",
             text:
-`That little...
+`"HMMMM... sab samajh rahe hain hum..." 😂
 
-"hmmmm hmmmm... sab samajh rahe hain hum..."
-
-You know exactly what you're doing when you say that.
-
-And the funniest part?
-
-You somehow manage to sound innocent while being absolutely not innocent.
-
-I know your tricks, madam.
-
-I just don't have the willpower to resist them. 😂♡`
+You sound innocent while being absolutely not innocent. ♡`
         },
 
         {
-            word:"BABUUU",
-            hint:"My favourite word",
+            word:"BABUUU ♡",
+            hint:"My favourite word 🥹",
             title:"Babuuu ♡",
             text:
-`There are words that are just words.
+`There are words... and then there's "babuuu" from you. ♡
 
-And then there's "babuuu" coming from you.
-
-Somehow the same word sounds completely different when you say it.
-
-It's ridiculous how something so simple can instantly make me smile.
-
-Keep saying it.
-
-I'm not complaining. ♡`
+Somehow it instantly makes me smile. ✦`
         },
 
         {
-            word:"CLUMSY",
-            hint:"A beautiful little software bug",
-            title:"Your Clumsy Moments",
+            word:"CLUMSY ♡",
+            hint:"A cute software bug 😂",
+            title:"Your Clumsy Moments ♡",
             text:
-`I love those moments when you forget something or do something completely clumsy.
+`Ladki sundar ho aur clumsy na ho...
 
-And obviously I have the perfect explanation:
-
-"Ladki sundar ho aur clumsy na ho... aisa ho hi nahi sakta." 😂
-
-So don't worry.
-
-Your clumsiness has officially been approved.
-
-It's part of the package. ♡`
+Aisa ho hi nahi sakta. 😂♡`
         },
 
         {
-            word:"FLIRTY",
-            hint:"Especially in public...",
-            title:"That Random Flirting",
+            word:"FLIRTY ♡",
+            hint:"Dangerous madam 😭",
+            title:"That Random Flirting ♡",
             text:
-`You have this absolutely ridiculous habit of becoming flirty at the most unexpected moments.
+`Everything is normal...
 
-Everything is normal...
+Then suddenly: "Aur sexxxyyyyy lag rhe ho tum." 😂
 
-And then suddenly:
-
-"Aur sexxxyyyyy lag rhe ho tum." 😂
-
-And I'm supposed to continue behaving like a normal human being?
-
-How exactly, madam?`
+How exactly am I supposed to behave normally? ♡`
         },
 
         {
-            word:"TIRED",
-            hint:"Come here then",
-            title:"When You're Tired",
+            word:"TIRED ♡",
+            hint:"Come here 🫶🏻",
+            title:"When You're Tired ♡",
             text:
-`One of my favourite little things is when you get tired and simply put your bodyweight on me, hold me and complain that you're tired.
+`When you're tired and simply lean on me...
 
-There's something very soft about that.
-
-It's not dramatic.
-
-It's just you being completely comfortable with me.
-
-And honestly?
-
-I love being that person you can lean on. ♡`
+I secretly love being the person you can relax around. ♡`
         },
 
         {
-            word:"ANGRY",
-            hint:"The gun is pointed at me again",
-            title:"Fiery Tisha",
+            word:"ANGRY ♡",
+            hint:"The gun is pointed at me 😂",
+            title:"Fiery Tisha ♡",
             text:
-`You are fiery.
+`Argumentative. Fiery. Dangerous. 😂
 
-Argumentative.
-
-And somehow during an argument the imaginary gun is always pointed directly at me.
-
-Apparently I'm guilty until proven innocent. 😂
-
-But what I secretly love is that even after being angry, you eventually become normal again.
-
-That little return to your usual self?
-
-That's one of my favourite things about you.`
+And somehow the imaginary gun is always pointed at me. ♡`
         }
     ]
 },
@@ -1826,127 +1870,63 @@ That's one of my favourite things about you.`
 
     chits:[
         {
-            word:"TRUST",
-            hint:"Something I value deeply",
-            title:"Trust",
+            word:"TRUST ♡",
+            hint:"Something precious ✦",
+            title:"Trust ♡",
             text:
-`One of the things that made me fall for you wasn't just how beautiful you are.
+`I didn't just fall for your beauty.
 
-It was learning how you think.
-
-Your opinions.
-
-Your morals.
-
-The way you judge things.
-
-The way you stand by what you believe.
-
-That's when I started seeing something much bigger than attraction.
-
-I started seeing someone I could genuinely trust.
-
-And that means more to me than I can properly put into words. ♡`
+I fell for your thoughts, your opinions and the way you see the world. ♡`
         },
 
         {
-            word:"KINDNESS",
-            hint:"The way you make people comfortable",
-            title:"Your Kindness",
+            word:"KINDNESS ♡",
+            hint:"Your soft side 🫶🏻",
+            title:"Your Kindness ♡",
             text:
-`You have this ability to talk to people and make them feel comfortable.
+`You have this beautiful way of making people feel comfortable.
 
-You don't have to force it.
-
-It just happens.
-
-And I really admire that.
-
-There's something beautiful about a person whose presence makes other people feel at ease.
-
-That's one of those qualities that makes your beauty mean so much more.`
+That's something I genuinely admire. ✨`
         },
 
         {
-            word:"PARTNER",
-            hint:"More than just romance",
-            title:"The Way You Think About Us",
+            word:"PARTNER ♡",
+            hint:"More than romance ✦",
+            title:"The Way You Think About Us ♡",
             text:
-`One of the things I admire most is the way you think about compatibility.
+`You think about compatibility, understanding and growing together.
 
-You don't just want something that looks good.
-
-You actually think about how two people fit together.
-
-How they understand each other.
-
-How they grow together.
-
-How they can become better partners.
-
-That makes me feel incredibly lucky to have you beside me. ♡`
+That makes me feel incredibly lucky. ♡`
         },
 
         {
-            word:"TRUTH",
-            hint:"A quality I respect",
-            title:"Your Strong Opinions",
+            word:"TRUTH ♡",
+            hint:"I respect this ✦",
+            title:"Your Strong Opinions ♡",
             text:
-`I love that you have your own judgement.
+`You think. You decide. You have your own opinions.
 
-You don't simply agree with everything.
-
-You think.
-
-You decide.
-
-You have opinions.
-
-And when I know that someone is truthful with me and stands by what she believes...
-
-I know I can trust her.
-
-That's something I will always respect about you.`
+And honestly, I respect that about you. ♡`
         },
 
         {
-            word:"SAFE",
-            hint:"Something that matters to me",
-            title:"The Feeling I Want You To Have",
+            word:"SAFE ♡",
+            hint:"Lean on me 🫶🏻",
+            title:"The Feeling I Want You To Have ♡",
             text:
-`One of the happiest things for me is knowing that I could make you feel safe and protected.
+`When you're with me, you don't always have to be strong.
 
-Because that's something I genuinely want for you.
-
-Not because you can't take care of yourself.
-
-But because when you're with me, I want you to know:
-
-You don't always have to be strong.
-
-You can relax.
-
-You can lean on me.
-
-I've got you. ♡`
+You can relax. I've got you. ♡`
         },
 
         {
-            word:"LUCKY",
-            hint:"A feeling I can't ignore",
-            title:"How Lucky I Feel",
+            word:"LUCKY ♡",
+            hint:"A feeling I can't ignore ✨",
+            title:"How Lucky I Feel ♡",
             text:
-`Sometimes I genuinely wonder what good thing I must have done without even knowing it.
+`Sometimes I genuinely wonder what good thing I did...
 
-Because somehow...
-
-I found you.
-
-And somehow you became someone whose existence adds so much warmth, laughter and positivity to my life.
-
-I don't take that for granted.
-
-Not even a little. ♡`
+Because somehow, I found you. ♡`
         }
     ]
 },
@@ -1959,123 +1939,55 @@ Not even a little. ♡`
 
     chits:[
         {
-            word:"SLEEPY",
-            hint:"Messy hair supremacy",
-            title:"Sleepy Tisha",
+            word:"SLEEPY ♡",
+            hint:"Messy hair supremacy ☁️",
+            title:"Sleepy Tisha ♡",
             text:
-`Messy hair.
+`Messy hair. Tired face. Zero effort.
 
-Tired face.
-
-Absolutely zero effort.
-
-And somehow...
-
-still beautiful.
-
-I genuinely love the natural version of you.
-
-The version that doesn't need to impress anyone.
-
-The version that is simply comfortable enough to be herself.
-
-That's a very special version of you to me. ♡`
+And somehow... still beautiful. 🥹♡`
         },
 
         {
-            word:"DRESSED",
-            hint:"The dangerous version",
-            title:"Dressed-Up Tisha",
+            word:"DRESSED ♡",
+            hint:"The dangerous version 😭",
+            title:"Dressed-Up Tisha ♡",
             text:
-`And then there's the other problem.
+`Brown top. Blue jeans. White heels.
 
-You dress up once...
+And those lilies...
 
-and suddenly I'm questioning how I'm supposed to behave like a normal boyfriend.
-
-That first-meet outfit?
-
-Brown top.
-
-Blue jeans.
-
-White heels.
-
-And you walking around with those lilies...
-
-Yeah.
-
-I'm still not over that.`
+Yeah. I'm still not over that. ♡`
         },
 
         {
-            word:"VOICE",
-            hint:"My favourite sound",
-            title:"Your Voice",
+            word:"VOICE ♡",
+            hint:"My favourite sound 🎶",
+            title:"Your Voice ♡",
             text:
-`I still remember hearing your voice for the first time.
+`Your voice became one of the most comforting sounds in my life.
 
-And yes...
-
-I made the terrible decision of telling you that you sounded very young. 😂
-
-But jokes apart...
-
-Your voice became one of the most comforting sounds in my life.
-
-And your laugh?
-
-That is probably one of my biggest sources of positivity.
-
-Never lose that laugh.`
+And your laugh? Pure positivity. ♡`
         },
 
         {
-            word:"COMFORT",
-            hint:"The version I never want to lose",
-            title:"Comfortable Tisha",
+            word:"COMFORT ♡",
+            hint:"Just be yourself 🫶🏻",
+            title:"Comfortable Tisha ♡",
             text:
-`There is something incredibly beautiful about seeing someone become completely comfortable around you.
+`No pretending. No trying too hard.
 
-No pretending.
-
-No trying too hard.
-
-Just being yourself.
-
-That comfort means a lot to me.
-
-Because somewhere along the way, you stopped being someone I wanted to impress...
-
-and became someone I simply wanted to be myself around. ♡`
+Just you being completely yourself. That's beautiful. ♡`
         },
 
         {
-            word:"BEAUTY",
-            hint:"Not just the obvious kind",
-            title:"The Whole Picture",
+            word:"BEAUTY ♡",
+            hint:"The whole picture ✨",
+            title:"The Whole Picture ♡",
             text:
-`You're obviously beautiful.
+`Your beauty isn't just your face.
 
-I don't think there's any point pretending otherwise.
-
-But what makes you special to me is that your beauty isn't limited to your face.
-
-It's your laugh.
-
-Your thoughts.
-
-Your opinions.
-
-Your femininity.
-
-Your energy.
-
-The way you care.
-
-The way you make me want to become a better man.
-
-That's the whole picture I fell for. ♡`
+It's your laugh, thoughts, energy, care and the person you are. ♡`
         }
     ]
 },
@@ -2088,134 +2000,58 @@ That's the whole picture I fell for. ♡`
 
     chits:[
         {
-            word:"WHEN YOU DOUBT",
-            hint:"Open when you need reminding",
-            title:"Borrow My Eyes",
+            word:"WHEN YOU DOUBT ♡",
+            hint:"Borrow my eyes 🥹",
+            title:"Borrow My Eyes ♡",
             text:
-`If you ever look at yourself and think you're not beautiful enough...
+`If you ever doubt your beauty...
 
-I wish you could borrow my eyes for just five minutes.
+Borrow my eyes for five minutes.
 
-You would see the prettiest girl I know.
-
-You would see those cheeks.
-
-That smile.
-
-That face.
-
-That body.
-
-That glow.
-
-But more importantly...
-
-you would see someone whose presence genuinely makes my life better.
-
-Please never let one bad day convince you otherwise. ♡`
+You'd see exactly what I see. ♡`
         },
 
         {
-            word:"WHEN YOU'RE TIRED",
-            hint:"You don't always have to be strong",
-            title:"Lean On Me",
+            word:"WHEN YOU'RE TIRED ♡",
+            hint:"Lean on me 🫶🏻",
+            title:"Lean On Me ♡",
             text:
 `You don't have to carry everything alone.
 
-If you're tired, lean on me.
-
-If you're upset, tell me.
-
-If you're scared, hold my hand.
-
-If you don't know what to do, we'll figure it out.
-
-I don't want to be someone who is only there for the beautiful moments.
-
-I want to be there for the difficult ones too.`
+If you're tired, lean on me. We'll figure things out together. ♡`
         },
 
         {
-            word:"WHEN LIFE IS HARD",
-            hint:"Read this slowly",
-            title:"Keep Walking",
+            word:"WHEN LIFE IS HARD ♡",
+            hint:"Keep walking ✦",
+            title:"Keep Walking ♡",
             text:
-`Whatever happens in the future, I want you to remember one thing.
+`You don't need everything figured out today.
 
-You don't have to have everything figured out today.
-
-Keep growing.
-
-Keep laughing.
-
-Keep being stubborn.
-
-Keep being fiery.
-
-Keep being you.
-
-And whenever the road gets difficult...
-
-I hope you remember that there is someone who wants to keep walking beside you. ♡`
+Keep growing. Keep laughing. Keep being you. ♡`
         },
 
         {
-            word:"WHEN YOU FORGET",
-            hint:"A little reminder",
-            title:"You Are Special",
+            word:"WHEN YOU FORGET ♡",
+            hint:"A little reminder ✨",
+            title:"You Are Special ♡",
             text:
-`I don't think you realise how much your existence means to me.
+`Your voice, your laugh, your presence...
 
-Your voice.
-
-Your laugh.
-
-Your presence.
-
-Your femininity.
-
-Your way of thinking.
-
-Even the ridiculous little things you do.
-
-They have all become pieces of my life that I genuinely don't want to lose.
-
-You are not just someone I love.
-
-You became someone I can't imagine my story without.`
+All those little pieces became part of my life. ♡`
         },
 
         {
-            word:"MY PROMISE",
-            hint:"The one I mean",
-            title:"What I Want",
+            word:"MY PROMISE ♡",
+            hint:"The one I mean 🫶🏻",
+            title:"What I Want ♡",
             text:
-`We have a long way to go.
+`I want to keep making you laugh.
 
-And I don't know exactly what every chapter of that road will look like.
-
-But I know what I want.
-
-I want to keep you happy.
-
-I want to keep you safe.
-
-I want to shower you with love, affection and passion.
-
-I want to keep laughing with you.
-
-Keep teasing you.
-
-Keep annoying you.
-
-Keep choosing you.
-
-And keep walking with you. ♡`
+Keep teasing you. Keep choosing you. Keep walking with you. ♡`
         }
     ]
-}
-
-];
+};
 
 
 /* =========================================================
@@ -2305,43 +2141,44 @@ const finalQuestions = [
 
 
 /* =========================================================
-   GAME QUESTIONS
+   MINI GAMES
 ========================================================= */
 
 const miniGames = [
 
 {
     type:"Match the Following",
-    title:"Tiny Brain Test ♡",
-    question:"Okay madam... very serious examination. Match these extremely difficult things.",
+    title:"Okay Madam... Match Us ♡",
+    question:"Let's see if you actually know everyone properly. 😌",
     mode:"match"
 },
 
 {
+    type:"Guess Who?",
+    title:"How Well Do You Know Us? ♡",
+    question:"Three little clues. Three little chances to prove yourself. 😂",
+    mode:"guess"
+},
+
+{
     type:"Fill in the Blank",
-    title:"Child-Level Intelligence Test",
-    question:"The moon is usually seen in the...",
-    mode:"fill",
-    options:["Night","Lunch","School bag","Refrigerator"],
-    correct:0
+    title:"Complete The Thought ♡",
+    question:"Three quick ones. No cheating, madam. 😌",
+    mode:"fill"
 },
 
 {
     type:"True or False",
-    title:"Very Advanced Science",
-    question:"Teddies are generally cuddly.",
-    mode:"tf",
-    options:["TRUE","FALSE"],
-    correct:0
+    title:"Very Serious Investigation ♡",
+    question:"Three statements. Decide what is actually true. 😂",
+    mode:"tf"
 },
 
 {
     type:"Odd One Out",
-    title:"Spot The Imposter",
-    question:"Which one clearly doesn't belong?",
-    mode:"odd",
-    options:["Flower","Rose","Tulip","Potato"],
-    correct:3
+    title:"Spot The Imposter ♡",
+    question:"Three rounds. Find the one that clearly doesn't belong.",
+    mode:"odd"
 }
 
 ];
@@ -2838,6 +2675,44 @@ function createDecorations(){
 
 
 /* =========================================================
+   TEDDY SECRET
+========================================================= */
+
+function teddySecret(){
+
+    unlockAudio();
+    sparkleSound();
+
+    const t = document.createElement("div");
+
+    t.style.position="fixed";
+    t.style.left="50%";
+    t.style.top="18%";
+    t.style.transform="translateX(-50%)";
+    t.style.zIndex="9998";
+    t.style.color="#8a4660";
+    t.style.fontFamily="Georgia,serif";
+    t.style.fontSize="20px";
+    t.style.padding="14px 22px";
+    t.style.borderRadius="999px";
+    t.style.background="rgba(255,255,255,.92)";
+    t.style.boxShadow="0 15px 40px rgba(120,70,90,.18)";
+    t.textContent="Teddy says you're cute. 🧸♡";
+
+    document.body.appendChild(t);
+
+    setTimeout(()=>{
+
+        t.style.opacity="0";
+        t.style.transition="opacity .5s ease";
+
+        setTimeout(()=>t.remove(),550);
+
+    },1400);
+}
+
+
+/* =========================================================
    CLICK PARTICLES
 ========================================================= */
 
@@ -3129,15 +3004,17 @@ function launchMiniGame(){
     if(g.mode==="match")
         buildMatchGame();
 
+    if(g.mode==="guess")
+        buildGuessGame();
+
     if(g.mode==="fill")
-        buildChoiceGame(g);
+        buildMultiQuestionGame("fill");
 
     if(g.mode==="tf")
-        buildChoiceGame(g);
+        buildMultiQuestionGame("tf");
 
     if(g.mode==="odd")
-        buildChoiceGame(g);
-
+        buildMultiQuestionGame("odd");
 }
 
 
@@ -3148,10 +3025,11 @@ function launchMiniGame(){
 function buildMatchGame(){
 
     const pairs=[
-        ["CAT","MEOW"],
-        ["DOG","BARK"],
-        ["SUN","DAY"],
-        ["TISHA","BOTH"]
+        ["Tisha","Musalmani 🧕🏻"],
+        ["Ritesh","Hindu 🙏"],
+        ["Anisha","Katvi 🕌"],
+        ["Rachit","Tisha Ka Devar ⭐"],
+        ["Arya","Ritesh Ki Sautan 😂"]
     ];
 
     const left =
@@ -3177,7 +3055,7 @@ function buildMatchGame(){
         .sort(()=>Math.random()-.5);
 
     pairs.forEach(
-        (pair,index)=>{
+        pair=>{
 
             const item =
                 document.createElement("button");
@@ -3192,10 +3070,8 @@ function buildMatchGame(){
 
                     selectedLeft=item;
 
-                    document
-                        .querySelectorAll(
-                            ".match-side:first-child .match-item"
-                        )
+                    left
+                        .querySelectorAll(".match-item")
                         .forEach(
                             x=>x.classList.remove("selected")
                         );
@@ -3241,8 +3117,8 @@ function buildMatchGame(){
 
                         gameMessage.textContent =
                             matched===pairs.length
-                            ? "Okayyy... you actually passed. 😂♡"
-                            : "Correct. Obviously. 😌";
+                            ? "Okayyy... you actually know everyone. 😂♡"
+                            : "Correct. Obviously. 😌♡";
 
                         if(
                             matched===pairs.length
@@ -3257,7 +3133,7 @@ function buildMatchGame(){
                         wrongSound();
 
                         gameMessage.textContent =
-                            "Ahem... try again madam. 😂";
+                            "Ahem... wrong person, madam. 😂 Try again.";
 
                     }
 
@@ -3278,73 +3154,302 @@ function buildMatchGame(){
 
 
 /* =========================================================
-   CHOICE GAME
+   GUESS WHO GAME
 ========================================================= */
 
-function buildChoiceGame(g){
+const guessQuestions = [
 
-    const grid =
-        document.createElement("div");
+{
+    q:"Who says: \"HMMMM... sab samajh rahe hain hum...\" 😌",
+    options:["Tisha","Ritesh","Rachit","Arya"],
+    correct:0
+},
 
-    grid.className="option-grid";
+{
+    q:"Who is most likely to point the imaginary gun during an argument? 😂",
+    options:["Ritesh","Tisha","Anisha","Rachit"],
+    correct:1
+},
 
-    g.options.forEach(
-        (option,index)=>{
+{
+    q:"Who is Ritesh's favourite little troublemaker? 😭♡",
+    options:["Rachit","Arya","Tisha","Nobody"],
+    correct:2
+}
 
-            const button =
-                document.createElement("button");
+];
 
-            button.className="game-option";
-            button.textContent=option;
+function buildGuessGame(){
 
-            button.addEventListener(
-                "click",
-                ()=>{
+    let index=0;
 
-                    if(index===g.correct){
+    function show(){
 
-                        button.classList.add("correct");
+        gameArea.innerHTML="";
+        gameMessage.textContent="";
+        gameNext.style.display="none";
 
-                        correctSound();
+        const q=guessQuestions[index];
 
-                        gameMessage.textContent =
-                            "Correct! See? Very advanced intelligence. 😂♡";
+        gameQuestion.textContent=
+            `${index+1}/3 — ${q.q}`;
 
-                        gameNext.style.display="block";
+        const grid=
+            document.createElement("div");
 
-                        grid
-                            .querySelectorAll("button")
-                            .forEach(
-                                b=>b.disabled=true
+        grid.className="option-grid";
+
+        q.options.forEach(
+            (option,i)=>{
+
+                const button=
+                    document.createElement("button");
+
+                button.className="game-option";
+                button.textContent=option;
+
+                button.addEventListener(
+                    "click",
+                    ()=>{
+
+                        if(i===q.correct){
+
+                            button.classList.add("correct");
+                            correctSound();
+
+                            gameMessage.textContent=
+                                index===2
+                                ? "Okayyy... you know us. 😂♡"
+                                : "Correcttt. 😌♡";
+
+                            grid
+                                .querySelectorAll("button")
+                                .forEach(
+                                    b=>b.disabled=true
+                                );
+
+                            if(index===2){
+
+                                gameNext.style.display="block";
+
+                            }else{
+
+                                setTimeout(
+                                    ()=>{
+                                        index++;
+                                        show();
+                                    },
+                                    800
+                                );
+
+                            }
+
+                        }else{
+
+                            button.classList.add("wrong");
+                            wrongSound();
+
+                            gameMessage.textContent=
+                                "Nopeee 😂 Think again.";
+
+                            setTimeout(
+                                ()=>button.classList.remove("wrong"),
+                                400
                             );
 
-                    }else{
-
-                        button.classList.add("wrong");
-
-                        wrongSound();
-
-                        gameMessage.textContent =
-                            "Nopeee. That was suspiciously wrong. 😂";
-
-                        setTimeout(
-                            ()=>button.classList.remove("wrong"),
-                            400
-                        );
+                        }
 
                     }
+                );
 
-                }
-            );
+                grid.appendChild(button);
 
-            grid.appendChild(button);
+            }
+        );
 
-        }
-    );
+        gameArea.appendChild(grid);
 
-    gameArea.appendChild(grid);
+    }
+
+    show();
 
 }
+
+
+/* =========================================================
+   MULTI QUESTION GAMES
+========================================================= */
+
+const fillQuestions=[
+
+{
+    q:"When I say \"Babuuu\", you probably become...",
+    options:["Happy 🥹","A potato 🥔","Invisible 👻","Angry at mathematics"],
+    correct:0
+},
+
+{
+    q:"Your natural version can still look...",
+    options:["Beautiful ✨","Like a traffic signal","Invisible","Very boring"],
+    correct:0
+},
+
+{
+    q:"When life gets difficult, I want us to...",
+    options:["Keep walking together ♡","Run away","Stop talking","Become astronauts"],
+    correct:0
+}
+
+];
+
+const tfQuestions=[
+
+{
+    q:"Ritesh secretly likes teasing Tisha because of her little pout.",
+    options:["TRUE ♡","FALSE"],
+    correct:0
+},
+
+{
+    q:"Tisha's laugh is one of Ritesh's favourite sources of positivity.",
+    options:["TRUE ♡","FALSE"],
+    correct:0
+},
+
+{
+    q:"Ritesh wants Tisha to carry every difficult thing completely alone.",
+    options:["TRUE","FALSE ♡"],
+    correct:1
+}
+
+];
+
+const oddQuestions=[
+
+{
+    q:"Which one doesn't belong?",
+    options:["Rose 🌹","Tulip 🌷","Lily 🌸","Potato 🥔"],
+    correct:3
+},
+
+{
+    q:"Which one is the odd one out?",
+    options:["Smile 😊","Laugh 😂","Pout 😗","Calculator 🧮"],
+    correct:3
+},
+
+{
+    q:"Which one clearly doesn't belong?",
+    options:["Love ♡","Trust ✦","Care 🫶🏻","Homework 📚"],
+    correct:3
+}
+
+];
+
+function buildMultiQuestionGame(mode){
+
+    const questions =
+        mode==="fill"
+        ? fillQuestions
+        : mode==="tf"
+        ? tfQuestions
+        : oddQuestions;
+
+    let index=0;
+
+    function show(){
+
+        gameArea.innerHTML="";
+        gameMessage.textContent="";
+        gameNext.style.display="none";
+
+        const q=questions[index];
+
+        gameQuestion.textContent=
+            `${index+1}/3 — ${q.q}`;
+
+        const grid=
+            document.createElement("div");
+
+        grid.className="option-grid";
+
+        q.options.forEach(
+            (option,i)=>{
+
+                const button=
+                    document.createElement("button");
+
+                button.className="game-option";
+                button.textContent=option;
+
+                button.addEventListener(
+                    "click",
+                    ()=>{
+
+                        if(i===q.correct){
+
+                            button.classList.add("correct");
+                            correctSound();
+
+                            grid
+                                .querySelectorAll("button")
+                                .forEach(
+                                    b=>b.disabled=true
+                                );
+
+                            if(index===questions.length-1){
+
+                                gameMessage.textContent=
+                                    "Perfecttt... all three survived. 😂♡";
+
+                                gameNext.style.display="block";
+
+                            }else{
+
+                                gameMessage.textContent=
+                                    "Correct! 😌♡";
+
+                                setTimeout(
+                                    ()=>{
+                                        index++;
+                                        show();
+                                    },
+                                    800
+                                );
+
+                            }
+
+                        }else{
+
+                            button.classList.add("wrong");
+                            wrongSound();
+
+                            gameMessage.textContent=
+                                "Nopeee 😂 Try again.";
+
+                            setTimeout(
+                                ()=>button.classList.remove("wrong"),
+                                400
+                            );
+
+                        }
+
+                    }
+                );
+
+                grid.appendChild(button);
+
+            }
+        );
+
+        gameArea.appendChild(grid);
+
+    }
+
+    show();
+
+}
+
 
 gameNext.addEventListener(
     "click",
@@ -3614,69 +3719,21 @@ I don't think you realise how special you have become to me.
 
 Sometimes I genuinely feel like Lord Shiv rewarded me for some good deeds that I must have done without even knowing it.
 
-Because somehow...
+Because somehow... I found you.
 
-I found you.
+A girl whose voice can brighten my day. A girl whose laugh can make me laugh even when there is absolutely nothing funny happening. A girl whose presence makes me want to become a better man.
 
-I found a girl whose voice can brighten my day.
+I love your smile. I love your laugh. I love your little pout when I tease you. I love your random flirting. I love your fiery arguments. I love your messy hair. I love the dressed-up version of you that makes me forget how to behave.
 
-A girl whose laugh can make me laugh even when there is absolutely nothing funny happening.
-
-A girl whose presence makes me want to become a better man.
-
-And a girl whose hand I want to keep holding through everything that is still ahead.
-
-I love your smile.
-
-I love your laugh.
-
-I love your little pout when I tease you.
-
-I love your random flirting.
-
-I love your fiery arguments.
-
-I love your messy hair.
-
-I love the dressed-up version of you that makes me forget how to behave.
-
-I love the clumsy little things you do.
-
-I love the way you understand things.
-
-I love the way you think.
-
-I love the way you care about compatibility.
-
-And I love that somewhere along the way...
-
-you became someone I don't just want to spend beautiful moments with.
+I love the way you understand things. I love the way you think. I love the way you care about compatibility. And I love that somewhere along the way... you became someone I don't just want to spend beautiful moments with.
 
 I want to build beautiful moments with you.
 
 We have a long way to go.
 
-And I don't know exactly what every chapter of that road will look like.
-
 But I know what I want.
 
-I want to keep you happy.
-
-I want to keep you safe.
-
-I want to shower you with love, affection and passion.
-
-I want to keep annoying you.
-
-Keep teasing you.
-
-Keep making you laugh.
-
-Keep listening to your voice.
-
-Keep holding your hand.
-
-Keep choosing you.
+I want to keep you happy. I want to keep you safe. I want to shower you with love, affection and passion. I want to keep annoying you. Keep teasing you. Keep making you laugh. Keep listening to your voice. Keep holding your hand. Keep choosing you.
 
 And I want us to keep walking this path together.
 
