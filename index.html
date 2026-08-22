@@ -1,4439 +1,4070 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-               maximum-scale=1.0,user-scalable=no">
-
-<title>Our Little Universe ✦</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-}
-
-body{
-    overflow:hidden;
-    background:#02020b;
-    color:white;
-    font-family:"Montserrat",sans-serif;
-}
-
-
-/* =========================================================
-   MASTER SPACE
-========================================================= */
-
-#space{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 50%,
-            #171444 0%,
-            #0b0929 35%,
-            #040413 70%,
-            #010107 100%
-        );
-}
-
-
-/* =========================================================
-   NEBULAS
-========================================================= */
-
-.nebula{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(90px);
-    pointer-events:none;
-    opacity:.18;
-    animation:nebulaFloat 18s ease-in-out infinite alternate;
-}
-
-.nebula.one{
-    width:650px;
-    height:650px;
-    left:-230px;
-    top:-250px;
-    background:#673d9b;
-}
-
-.nebula.two{
-    width:600px;
-    height:600px;
-    right:-250px;
-    bottom:-250px;
-    background:#9c376c;
-    animation-delay:4s;
-}
-
-.nebula.three{
-    width:500px;
-    height:500px;
-    left:35%;
-    top:30%;
-    background:#31569c;
-    opacity:.12;
-    animation-delay:8s;
-}
-
-.nebula.four{
-    width:350px;
-    height:350px;
-    right:15%;
-    top:5%;
-    background:#663b99;
-    opacity:.1;
-    animation-delay:12s;
-}
-
-@keyframes nebulaFloat{
-
-    0%{
-        transform:translate(0,0) scale(.9);
-    }
-
-    50%{
-        transform:translate(50px,-30px) scale(1.1);
-    }
-
-    100%{
-        transform:translate(-30px,40px) scale(.95);
-    }
-}
-
-
-/* =========================================================
-   STAR FIELD
-========================================================= */
-
-#stars{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:2;
-}
-
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:white;
-    opacity:.5;
-
-    animation:
-        twinkle var(--duration)
-        ease-in-out infinite;
-}
-
-.star.big{
-    width:4px;
-    height:4px;
-
-    box-shadow:
-        0 0 8px white,
-        0 0 16px rgba(200,210,255,.8);
-}
-
-@keyframes twinkle{
-
-    0%,100%{
-        opacity:.15;
-        transform:scale(.7);
-    }
-
-    50%{
-        opacity:.95;
-        transform:scale(1.5);
-    }
-}
-
-
-/* =========================================================
-   SHOOTING STARS
-========================================================= */
-
-.shooting-star{
-    position:absolute;
-    width:3px;
-    height:3px;
-
-    background:white;
-    border-radius:50%;
-
-    box-shadow:
-        0 0 8px white,
-        0 0 20px #b9caff;
-
-    z-index:8;
-    cursor:pointer;
-
-    animation:meteor 1.8s linear forwards;
-}
-
-.shooting-star::after{
-    content:"";
-    position:absolute;
-
-    width:130px;
-    height:2px;
-
-    right:2px;
-    top:1px;
-
-    transform-origin:right;
-
-    background:
-        linear-gradient(
-            to left,
-            rgba(255,255,255,.9),
-            transparent
-        );
-
-    filter:blur(.5px);
-}
-
-@keyframes meteor{
-
-    0%{
-        opacity:0;
-        transform:
-            translate(0,0)
-            rotate(-35deg);
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-        transform:
-            translate(-430px,430px)
-            rotate(-35deg);
-    }
-}
-
-
-/* =========================================================
-   PLANETS
-========================================================= */
-
-.planet{
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:3;
-
-    animation:
-        planetFloat
-        10s ease-in-out infinite alternate;
-}
-
-.planet.small{
-    width:42px;
-    height:42px;
-}
-
-.planet.medium{
-    width:85px;
-    height:85px;
-}
-
-.planet.p1{
-    left:7%;
-    top:25%;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #d9c7ff,
-            #7051b7 45%,
-            #22164f
-        );
-
-    box-shadow:
-        0 0 30px rgba(120,100,255,.4);
-}
-
-.planet.p2{
-    right:8%;
-    top:18%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffd4df,
-            #a34d79 45%,
-            #35152e
-        );
-
-    box-shadow:
-        0 0 35px rgba(255,110,180,.3);
-
-    animation-delay:2s;
-}
-
-.planet.p3{
-    left:8%;
-    bottom:13%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #a8e5ff,
-            #4167a3 50%,
-            #16243d
-        );
-
-    box-shadow:
-        0 0 35px rgba(100,180,255,.3);
-
-    animation-delay:5s;
-}
-
-.planet.p4{
-    right:11%;
-    bottom:11%;
-
-    width:55px;
-    height:55px;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffe9b0,
-            #a56b40 45%,
-            #321c18
-        );
-
-    box-shadow:
-        0 0 25px rgba(255,190,110,.25);
-
-    animation-delay:7s;
-}
-
-@keyframes planetFloat{
-
-    from{
-        transform:translateY(-10px) rotate(0deg);
-    }
-
-    to{
-        transform:translateY(15px) rotate(20deg);
-    }
-}
-
-
-/* =========================================================
-   ROCKET
-========================================================= */
-
-.rocket{
-    position:absolute;
-
-    font-size:25px;
-
-    right:-60px;
-    bottom:20%;
-
-    z-index:7;
-    opacity:.7;
-
-    animation:
-        rocketFlight
-        14s linear infinite;
-}
-
-@keyframes rocketFlight{
-
-    0%{
-        transform:
-            translate(0,0)
-            rotate(-30deg);
-        opacity:0;
-    }
-
-    10%{
-        opacity:.8;
-    }
-
-    90%{
-        opacity:.8;
-    }
-
-    100%{
-        transform:
-            translate(-120vw,-90vh)
-            rotate(-30deg);
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   CONSTELLATION SVG
-========================================================= */
-
-#constellationCanvas{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    pointer-events:none;
-    z-index:4;
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
+    <title>A Little Surprise For Tisha ❤️</title>
 
-.screen{
-    position:absolute;
-    inset:0;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    text-align:center;
+    <style>
 
-    padding:25px;
+/* ========================================= 
+   RESET 
+========================================= */ 
 
-    opacity:0;
-    visibility:hidden;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
 
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
+html, 
+body { 
+    width: 100%; 
+    min-height: 100%; 
+} 
 
-    z-index:20;
-}
+body { 
+    overflow: hidden; 
 
-.screen.active{
-    opacity:1;
-    visibility:visible;
-}
+    font-family: "Poppins", sans-serif; 
 
-.intro-content{
-    width:min(900px,92%);
-}
+    color: #8e4055; 
 
-.eyebrow{
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.55;
-    margin-bottom:20px;
-}
+    background: 
+        radial-gradient( 
+            circle at 50% 45%, 
+            #fffdfd 0%, 
+            #fff5f7 32%, 
+            #ffe9ee 67%, 
+            #fbd5df 100% 
+        ); 
+} 
 
-.intro-star{
-    font-size:55px;
-    margin-bottom:10px;
 
-    animation:
-        cosmicPulse
-        3s ease-in-out infinite;
+/* ========================================= 
+   GLOBAL LIGHT 
+========================================= */ 
 
-    text-shadow:
-        0 0 20px white,
-        0 0 50px #a7b5ff;
-}
+.background-glow { 
+    position: fixed; 
 
-@keyframes cosmicPulse{
+    width: 650px; 
+    height: 650px; 
 
-    0%,100%{
-        transform:scale(.8);
-        opacity:.5;
-    }
+    left: 50%; 
+    top: 50%; 
 
-    50%{
-        transform:scale(1.25);
-        opacity:1;
-    }
-}
+    transform: translate(-50%, -50%); 
 
-.intro-content h1{
-    font-family:"Cormorant Garamond",serif;
-    font-weight:400;
+    background: rgba(255, 255, 255, 0.65); 
 
-    font-size:
-        clamp(60px,11vw,115px);
+    border-radius: 50%; 
 
-    line-height:.85;
+    filter: blur(90px); 
 
-    margin-bottom:25px;
+    pointer-events: none; 
 
-    text-shadow:
-        0 0 40px rgba(150,150,255,.25);
-}
+    z-index: 0; 
+} 
 
-.script{
-    font-family:"Great Vibes",cursive;
-}
 
-.intro-description{
-    font-family:"Cormorant Garamond",serif;
+/* ========================================= 
+   PAGE TEXTURE 
+========================================= */ 
 
-    font-size:
-        clamp(20px,4vw,29px);
+body::before { 
+    content: ""; 
 
-    opacity:.78;
+    position: fixed; 
 
-    line-height:1.3;
-}
+    inset: 0; 
 
-.cosmic-button{
-    margin-top:32px;
+    background-image: 
+        radial-gradient( 
+            rgba(190, 93, 118, 0.08) 1px, 
+            transparent 1px 
+        ); 
 
-    padding:15px 28px;
+    background-size: 28px 28px; 
 
-    border-radius:999px;
+    opacity: 0.35; 
 
-    border:1px solid rgba(255,255,255,.35);
+    pointer-events: none; 
 
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,255,255,.96),
-            rgba(232,235,255,.96)
-        );
+    z-index: 0; 
+} 
 
-    color:#17143b;
 
-    font-size:10px;
-    font-weight:600;
-    letter-spacing:2px;
+/* ========================================= 
+   LOADING SCREEN 
+========================================= */ 
 
-    cursor:pointer;
+#loading-screen { 
+    position: fixed; 
 
-    box-shadow:
-        0 0 20px rgba(255,255,255,.18),
-        0 15px 40px rgba(0,0,0,.4);
+    inset: 0; 
 
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
+    display: flex; 
 
-.cosmic-button:hover{
-    transform:
-        translateY(-4px)
-        scale(1.03);
+    align-items: center; 
 
-    box-shadow:
-        0 0 35px rgba(255,255,255,.3),
-        0 20px 55px rgba(0,0,0,.5);
-}
+    justify-content: center; 
 
-.cosmic-button:active{
-    transform:scale(.96);
-}
+    background: 
+        radial-gradient( 
+            circle, 
+            #fffafa, 
+            #ffe7ed 
+        ); 
 
+    z-index: 1000; 
 
-/* =========================================================
-   MAIN OBSERVATORY
-========================================================= */
+    transition: 
+        opacity 0.9s ease, 
+        visibility 0.9s ease; 
+} 
 
-#observatory{
-    position:absolute;
-    inset:0;
+#loading-screen.hide { 
+    opacity: 0; 
 
-    opacity:0;
-    visibility:hidden;
+    visibility: hidden; 
+} 
 
-    transition:
-        opacity 1.2s ease;
+.loading-card { 
+    text-align: center; 
 
-    z-index:15;
-}
+    animation: loadingAppear 1s ease; 
+} 
 
-#observatory.active{
-    opacity:1;
-    visibility:visible;
-}
+.loading-bow { 
+    font-size: 48px; 
 
+    margin-bottom: 12px; 
 
-/* =========================================================
-   TOP HUD
-========================================================= */
+    animation: bowBounce 2s ease-in-out infinite; 
+} 
 
-.hud{
-    position:absolute;
+.loading-card p { 
+    font-family: "Great Vibes", cursive; 
 
-    top:20px;
-    left:50%;
+    font-size: 28px; 
 
-    transform:translateX(-50%);
+    color: #9b5066; 
+} 
 
-    width:min(500px,90%);
+.loading-dots { 
+    margin-top: 14px; 
+} 
 
-    text-align:center;
+.loading-dots span { 
+    display: inline-block; 
 
-    z-index:30;
-}
+    width: 6px; 
+    height: 6px; 
 
-.hud-title{
-    font-family:"Great Vibes",cursive;
-    font-size:42px;
-    font-weight:400;
+    margin: 0 4px; 
 
-    text-shadow:
-        0 0 20px rgba(200,200,255,.4);
-}
+    border-radius: 50%; 
 
-.hud-subtitle{
-    font-size:8px;
-    letter-spacing:3px;
-    opacity:.45;
-}
+    background: #bd6680; 
 
-.energy{
-    margin:13px auto 0;
+    animation: loadingDot 1.2s infinite ease-in-out; 
+} 
 
-    width:min(220px,60%);
+.loading-dots span:nth-child(2) { 
+    animation-delay: 0.2s; 
+} 
 
-    height:3px;
+.loading-dots span:nth-child(3) { 
+    animation-delay: 0.4s; 
+} 
 
-    background:rgba(255,255,255,.08);
+@keyframes loadingAppear { 
 
-    border-radius:10px;
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    } 
 
-    overflow:hidden;
-}
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
 
-.energy-fill{
-    width:0%;
-    height:100%;
+} 
 
-    background:
-        linear-gradient(
-            90deg,
-            #9c8cff,
-            #ffffff,
-            #ffafd3
-        );
+@keyframes loadingDot { 
 
-    box-shadow:
-        0 0 15px rgba(200,190,255,.9);
+    0%, 
+    100% { 
+        opacity: 0.25; 
+        transform: translateY(0); 
+    } 
 
-    transition:
-        width 1s cubic-bezier(.22,1,.36,1);
-}
+    50% { 
+        opacity: 1; 
+        transform: translateY(-5px); 
+    } 
 
-.energy-text{
-    margin-top:6px;
+} 
 
-    font-size:7px;
-    letter-spacing:2px;
-    opacity:.4;
-}
 
+/* ========================================= 
+   SCREEN SYSTEM 
+========================================= */ 
 
-/* =========================================================
-   ORBITAL OBJECTS
-========================================================= */
+.screen { 
+    position: fixed; 
 
-.orbital{
-    position:absolute;
+    inset: 0; 
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex; 
 
-    cursor:pointer;
+    align-items: center; 
 
-    z-index:18;
+    justify-content: center; 
 
-    transition:
-        transform .4s ease;
-}
+    padding: 25px; 
 
-.orbital:hover{
-    transform:scale(1.12);
-}
+    opacity: 0; 
 
-.orbital-core{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    visibility: hidden; 
 
-    width:60px;
-    height:60px;
+    transform: scale(1.025); 
 
-    border-radius:50%;
+    transition: 
+        opacity 0.8s ease, 
+        visibility 0.8s ease, 
+        transform 0.8s ease; 
 
-    border:1px solid rgba(255,255,255,.3);
+    z-index: 10; 
+} 
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.16),
-            rgba(255,255,255,.02)
-        );
+.screen.active { 
+    opacity: 1; 
 
-    box-shadow:
-        0 0 30px rgba(170,180,255,.18);
+    visibility: visible; 
 
-    backdrop-filter:blur(5px);
+    transform: scale(1); 
+} 
 
-    font-size:23px;
-}
 
-.orbital-label{
-    position:absolute;
+/* ========================================= 
+   BIRTHDAY DECORATIONS 
+========================================= */ 
 
-    top:68px;
+.balloon { 
+    position: fixed; 
 
-    width:130px;
+    font-size: 48px; 
 
-    text-align:center;
+    z-index: 2; 
 
-    font-size:7px;
+    pointer-events: none; 
 
-    letter-spacing:1.5px;
+    filter: 
+        drop-shadow( 
+            0 12px 12px rgba(120, 50, 70, 0.12) 
+        ); 
 
-    opacity:.55;
-}
+    animation: 
+        balloonFloat 6s ease-in-out infinite; 
+} 
 
-.orbit-planet{
-    left:50%;
-    top:50%;
+.balloon-one { 
+    left: 8%; 
+    top: 16%; 
+} 
 
-    transform:
-        translate(-50%,-50%);
+.balloon-two { 
+    right: 8%; 
+    top: 13%; 
 
-    width:180px;
-    height:180px;
-}
+    animation-delay: 1.2s; 
+} 
 
-.orbit-planet .orbital-core{
-    width:125px;
-    height:125px;
+.balloon-three { 
+    left: 13%; 
+    bottom: 17%; 
 
-    font-size:55px;
+    font-size: 40px; 
 
-    border:none;
+    animation-delay: 2.2s; 
+} 
 
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #f5d7ff,
-            #8d63c8 35%,
-            #382164 68%,
-            #110b27
-        );
+.balloon-four { 
+    right: 14%; 
+    bottom: 15%; 
 
-    box-shadow:
-        0 0 35px rgba(180,130,255,.45),
-        inset -20px -25px 40px rgba(0,0,0,.45);
-}
+    font-size: 42px; 
 
-.orbit-ring{
-    position:absolute;
+    animation-delay: 0.8s; 
+} 
 
-    width:190px;
-    height:55px;
+@keyframes balloonFloat { 
 
-    border:1px solid rgba(255,255,255,.2);
+    0%, 
+    100% { 
+        transform: translateY(0) rotate(-3deg); 
+    } 
 
-    border-radius:50%;
+    50% { 
+        transform: translateY(-18px) rotate(4deg); 
+    } 
 
-    transform:rotate(-18deg);
+} 
 
-    box-shadow:
-        0 0 15px rgba(200,200,255,.1);
-}
 
+/* ========================================= 
+   CAMERAS 
+========================================= */ 
 
-/* =========================================================
-   ACTION ORBS
-========================================================= */
+.camera { 
+    position: fixed; 
 
-.action-zodiac{
-    left:13%;
-    top:39%;
-}
+    border: none; 
 
-.action-moon{
-    right:13%;
-    top:39%;
-}
+    background: transparent; 
 
-.action-oracle{
-    left:23%;
-    bottom:18%;
-}
+    font-size: 38px; 
 
-.action-love{
-    right:23%;
-    bottom:18%;
-}
+    cursor: pointer; 
 
-.action-message{
-    left:50%;
-    bottom:8%;
+    z-index: 8; 
 
-    transform:translateX(-50%);
-}
+    filter: 
+        drop-shadow( 
+            0 8px 10px rgba(120, 50, 70, 0.12) 
+        ); 
 
-.action-message:hover{
-    transform:
-        translateX(-50%)
-        scale(1.12);
-}
+    animation: cameraFloat 5s ease-in-out infinite; 
 
+    transition: 
+        transform 0.3s ease; 
+} 
 
-/* =========================================================
-   MEMORY STARS
-========================================================= */
+.camera:hover { 
+    transform: 
+        scale(1.18) 
+        rotate(-7deg); 
+} 
 
-.memory-star{
-    position:absolute;
+.camera-one { 
+    left: 7%; 
 
-    width:55px;
-    height:55px;
+    top: 48%; 
+} 
 
-    border:none;
-    background:transparent;
+.camera-two { 
+    right: 7%; 
 
-    color:white;
+    top: 55%; 
 
-    cursor:pointer;
+    animation-delay: 1.5s; 
+} 
 
-    z-index:22;
+@keyframes cameraFloat { 
 
-    transition:
-        transform .4s ease;
-}
+    0%, 
+    100% { 
+        transform: translateY(0); 
+    } 
 
-.memory-star:hover{
-    transform:scale(1.25);
-}
+    50% { 
+        transform: translateY(-9px); 
+    } 
 
-.memory-star span{
-    position:absolute;
+} 
 
-    left:50%;
-    top:50%;
 
-    transform:
-        translate(-50%,-50%);
-}
+/* ========================================= 
+   FLOWERS 
+========================================= */ 
 
-.memory-star .glow{
-    width:30px;
-    height:30px;
+.floating-flower { 
+    position: fixed; 
 
-    border-radius:50%;
+    color: #ffffff; 
 
-    background:rgba(255,255,255,.08);
+    font-size: 42px; 
 
-    filter:blur(8px);
+    text-shadow: 
+        0 4px 15px rgba(170, 70, 95, 0.15); 
 
-    animation:
-        memoryGlow
-        2.5s ease-in-out infinite;
-}
+    z-index: 3; 
 
-.memory-star .symbol{
-    font-size:22px;
+    pointer-events: none; 
 
-    text-shadow:
-        0 0 10px white,
-        0 0 30px #a9b8ff;
-}
+    animation: flowerFloat 7s ease-in-out infinite; 
+} 
 
-.memory-star .label{
-    position:absolute;
+.flower-one { 
+    left: 18%; 
+    top: 10%; 
+} 
 
-    top:47px;
-    left:50%;
+.flower-two { 
+    right: 19%; 
+    top: 20%; 
 
-    transform:translateX(-50%);
+    animation-delay: 1.5s; 
+} 
 
-    width:120px;
+.flower-three { 
+    left: 20%; 
+    bottom: 11%; 
 
-    font-size:7px;
-    letter-spacing:1px;
+    font-size: 34px; 
 
-    opacity:.5;
+    animation-delay: 2s; 
+} 
 
-    white-space:nowrap;
-}
+.flower-four { 
+    right: 20%; 
+    bottom: 10%; 
 
-.memory-star.discovered .symbol{
-    color:#ffcde4;
+    font-size: 36px; 
 
-    text-shadow:
-        0 0 10px #ffd3e8,
-        0 0 30px #ff7eb7;
-}
+    animation-delay: 0.8s; 
+} 
 
-.memory-star.discovered{
-    opacity:.75;
-}
+@keyframes flowerFloat { 
 
-.memory-star.discovered::after{
-    content:"✓";
+    0%, 
+    100% { 
+        transform: translateY(0) rotate(-4deg); 
+    } 
 
-    position:absolute;
+    50% { 
+        transform: translateY(-10px) rotate(5deg); 
+    } 
 
-    top:0;
-    right:0;
+} 
 
-    font-size:9px;
-}
 
-@keyframes memoryGlow{
+/* ========================================= 
+   RIBBONS 
+========================================= */ 
 
-    0%,100%{
-        transform:
-            translate(-50%,-50%)
-            scale(.7);
-        opacity:.3;
-    }
+.ribbon { 
+    position: fixed; 
 
-    50%{
-        transform:
-            translate(-50%,-50%)
-            scale(1.5);
-        opacity:.9;
-    }
-}
+    font-size: 42px; 
 
+    z-index: 3; 
 
-/* =========================================================
-   MEMORY POSITIONS
-========================================================= */
+    pointer-events: none; 
 
-.m1{
-    left:17%;
-    top:32%;
-}
+    opacity: 0.9; 
 
-.m2{
-    left:35%;
-    top:27%;
-}
+    animation: ribbonFloat 5s ease-in-out infinite; 
+} 
 
-.m3{
-    right:28%;
-    top:31%;
-}
+.ribbon-left { 
+    left: 3%; 
+    top: 30%; 
+} 
 
-.m4{
-    right:14%;
-    top:47%;
-}
+.ribbon-right { 
+    right: 3%; 
+    top: 35%; 
 
-.m5{
-    right:30%;
-    bottom:25%;
-}
+    animation-delay: 1.4s; 
+} 
 
-.m6{
-    left:30%;
-    bottom:20%;
-}
+@keyframes ribbonFloat { 
 
+    0%, 
+    100% { 
+        transform: rotate(-5deg); 
+    } 
 
-/* =========================================================
-   MODAL
-========================================================= */
+    50% { 
+        transform: rotate(7deg) translateY(-8px); 
+    } 
 
-.modal{
-    position:absolute;
+} 
 
-    inset:0;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+/* ========================================= 
+   SPARKLES 
+========================================= */ 
 
-    padding:20px;
+.sparkles { 
+    position: fixed; 
 
-    opacity:0;
-    visibility:hidden;
+    inset: 0; 
 
-    z-index:100;
+    pointer-events: none; 
 
-    transition:
-        opacity .4s ease;
-}
+    z-index: 4; 
+} 
 
-.modal.show{
-    opacity:1;
-    visibility:visible;
-}
+.sparkles span { 
+    position: absolute; 
 
-.modal-backdrop{
-    position:absolute;
-    inset:0;
+    color: rgba(170, 79, 105, 0.4); 
 
-    background:
-        rgba(2,2,12,.8);
+    font-size: 14px; 
 
-    backdrop-filter:blur(15px);
-}
+    animation: 
+        sparkleFloat 5s infinite ease-in-out; 
+} 
 
-.modal-card{
-    position:relative;
+.sparkles span:nth-child(1) { 
+    left: 22%; 
+    top: 25%; 
+} 
 
-    width:min(510px,94%);
+.sparkles span:nth-child(2) { 
+    right: 25%; 
+    top: 30%; 
 
-    max-height:88vh;
+    animation-delay: 1s; 
+} 
 
-    overflow:auto;
+.sparkles span:nth-child(3) { 
+    left: 9%; 
+    top: 70%; 
 
-    padding:34px 28px;
+    animation-delay: 2s; 
+} 
 
-    border-radius:26px;
+.sparkles span:nth-child(4) { 
+    right: 12%; 
+    bottom: 23%; 
 
-    text-align:center;
+    animation-delay: 1.5s; 
+} 
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(29,25,70,.98),
-            rgba(8,7,27,.99)
-        );
+.sparkles span:nth-child(5) { 
+    left: 30%; 
+    top: 13%; 
 
-    border:
-        1px solid rgba(255,255,255,.15);
+    animation-delay: 2.5s; 
+} 
 
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.7),
-        0 0 50px rgba(100,100,255,.08);
+.sparkles span:nth-child(6) { 
+    right: 32%; 
+    bottom: 15%; 
 
-    transform:
-        translateY(30px)
-        scale(.92);
+    animation-delay: 0.8s; 
+} 
 
-    transition:
-        transform .6s cubic-bezier(.22,1,.36,1);
-}
+.sparkles span:nth-child(7) { 
+    left: 11%; 
+    top: 38%; 
 
-.modal.show .modal-card{
-    transform:
-        translateY(0)
-        scale(1);
-}
+    animation-delay: 3s; 
+} 
 
-.close{
-    position:absolute;
+.sparkles span:nth-child(8) { 
+    right: 10%; 
+    top: 65%; 
 
-    right:16px;
-    top:10px;
+    animation-delay: 2s; 
+} 
 
-    border:none;
-    background:none;
+.sparkles span:nth-child(9) { 
+    left: 43%; 
+    top: 9%; 
 
-    color:white;
+    animation-delay: 1.3s; 
+} 
 
-    font-size:28px;
+.sparkles span:nth-child(10) { 
+    right: 42%; 
+    bottom: 8%; 
 
-    opacity:.45;
+    animation-delay: 2.5s; 
+} 
 
-    cursor:pointer;
-}
+@keyframes sparkleFloat { 
 
-.modal-icon{
-    font-size:40px;
+    0%, 
+    100% { 
+        opacity: 0.2; 
 
-    margin-bottom:10px;
+        transform: 
+            translateY(0) 
+            scale(0.8); 
+    } 
 
-    text-shadow:
-        0 0 20px rgba(255,255,255,.5);
-}
+    50% { 
+        opacity: 1; 
 
-.modal-number{
-    font-size:8px;
-    letter-spacing:3px;
-    opacity:.45;
+        transform: 
+            translateY(-13px) 
+            scale(1.2); 
+    } 
 
-    margin-bottom:8px;
-}
+} 
 
-.modal-card h2{
-    font-family:"Great Vibes",cursive;
 
-    font-size:52px;
-    font-weight:400;
-}
+/* ========================================= 
+   CORNER DECORATIONS 
+========================================= */ 
 
-.modal-line{
-    width:60px;
-    height:1px;
+.corner { 
+    position: fixed; 
 
-    margin:14px auto;
+    width: 160px; 
+    height: 145px; 
 
-    background:
-        rgba(255,255,255,.4);
-}
+    z-index: 5; 
 
-.modal-text{
-    font-family:"Cormorant Garamond",serif;
+    pointer-events: none; 
 
-    font-size:23px;
+    opacity: 0.95; 
+} 
 
-    line-height:1.4;
+.corner-top-left { 
+    left: 0; 
+    top: 0; 
+} 
 
-    opacity:.88;
-}
+.corner-top-right { 
+    right: 0; 
+    top: 0; 
 
+    transform: scaleX(-1); 
+} 
 
-/* =========================================================
-   ZODIAC SCREEN
-========================================================= */
+.corner-bottom-left { 
+    left: 0; 
+    bottom: 0; 
 
-.zodiac-visual{
-    width:250px;
-    height:250px;
+    transform: scaleY(-1); 
+} 
 
-    margin:15px auto 20px;
+.corner-bottom-right { 
+    right: 0; 
+    bottom: 0; 
 
-    position:relative;
-}
+    transform: scale(-1); 
+} 
 
-.zodiac-circle{
-    position:absolute;
-    inset:0;
+.corner-flower { 
+    position: absolute; 
 
-    border-radius:50%;
+    font-size: 57px; 
 
-    border:
-        1px solid rgba(255,255,255,.12);
+    color: #ffffff; 
 
-    box-shadow:
-        0 0 50px rgba(130,150,255,.1);
+    text-shadow: 
+        0 5px 18px rgba(120, 50, 70, 0.15); 
 
-    animation:
-        zodiacRotate
-        25s linear infinite;
-}
+    animation: flowerSway 4s ease-in-out infinite; 
+} 
 
-.zodiac-circle::before,
-.zodiac-circle::after{
-    content:"";
+.corner-leaf { 
+    position: absolute; 
 
-    position:absolute;
-    inset:15px;
+    left: 55px; 
+    top: 52px; 
 
-    border-radius:50%;
+    font-size: 60px; 
 
-    border:
-        1px dashed rgba(255,255,255,.1);
-}
+    color: #65966c; 
 
-.zodiac-circle::after{
-    inset:45px;
-}
+    transform: rotate(-25deg); 
+} 
 
-@keyframes zodiacRotate{
-    to{
-        transform:rotate(360deg);
-    }
-}
+.corner-leaf.second { 
+    left: 18px; 
+    top: 78px; 
 
-.zodiac-sign{
-    position:absolute;
+    font-size: 45px; 
 
-    left:50%;
-    top:50%;
+    transform: rotate(25deg); 
+} 
 
-    transform:
-        translate(-50%,-50%);
+@keyframes flowerSway { 
 
-    font-size:75px;
+    0%, 
+    100% { 
+        transform: rotate(-4deg); 
+    } 
 
-    text-shadow:
-        0 0 20px white,
-        0 0 50px #a7b4ff;
-}
+    50% { 
+        transform: rotate(5deg); 
+    } 
 
-.zodiac-stars{
-    position:absolute;
-    inset:0;
-}
+} 
 
-.z-dot{
-    position:absolute;
 
-    width:5px;
-    height:5px;
+/* ========================================= 
+   MAIN GIFT CONTENT 
+========================================= */ 
 
-    background:white;
+.gift-container { 
+    width: min(92%, 650px); 
 
-    border-radius:50%;
+    text-align: center; 
 
-    box-shadow:
-        0 0 8px white,
-        0 0 18px #a9b9ff;
-}
+    position: relative; 
 
+    z-index: 20; 
 
-/* =========================================================
-   COMPATIBILITY
-========================================================= */
+    animation: 
+        giftAppear 1s ease forwards; 
+} 
 
-.compatibility{
-    display:flex;
+@keyframes giftAppear { 
 
-    justify-content:center;
-    align-items:center;
+    from { 
+        opacity: 0; 
 
-    gap:30px;
+        transform: 
+            translateY(25px) 
+            scale(0.96); 
+    } 
 
-    margin:20px 0;
-}
+    to { 
+        opacity: 1; 
 
-.sign-box{
-    width:100px;
-}
+        transform: 
+            translateY(0) 
+            scale(1); 
+    } 
 
-.sign-symbol{
-    width:85px;
-    height:85px;
+} 
 
-    margin:auto;
+.welcome-badge { 
+    display: inline-flex; 
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    align-items: center; 
 
-    border-radius:50%;
+    gap: 10px; 
 
-    border:1px solid rgba(255,255,255,.15);
+    padding: 8px 16px; 
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.12),
-            transparent
-        );
+    border-radius: 999px; 
 
-    font-size:38px;
+    background: rgba(255, 255, 255, 0.68); 
 
-    box-shadow:
-        0 0 30px rgba(150,160,255,.15);
-}
+    border: 1px solid rgba(176, 83, 107, 0.12); 
 
-.sign-name{
-    margin-top:10px;
+    box-shadow: 
+        0 10px 25px rgba(120, 50, 70, 0.08); 
 
-    font-size:8px;
-    letter-spacing:2px;
+    font-size: 9px; 
 
-    opacity:.6;
-}
+    letter-spacing: 2px; 
 
-.compat-heart{
-    font-size:30px;
+    font-weight: 700; 
 
-    animation:
-        heartPulse
-        2s ease-in-out infinite;
-}
+    color: #a85a70; 
 
-@keyframes heartPulse{
+    margin-bottom: 15px; 
+} 
 
-    0%,100%{
-        transform:scale(.9);
-    }
+.tiny-bow { 
+    font-size: 42px; 
 
-    50%{
-        transform:scale(1.25);
-    }
-}
+    margin-bottom: 2px; 
 
-.compat-score{
-    margin:20px auto;
+    animation: 
+        bowBounce 3s ease-in-out infinite; 
+} 
 
-    width:130px;
-    height:130px;
+@keyframes bowBounce { 
 
-    border-radius:50%;
+    0%, 
+    100% { 
+        transform: 
+            translateY(0) 
+            rotate(-2deg); 
+    } 
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    50% { 
+        transform: 
+            translateY(-7px) 
+            rotate(2deg); 
+    } 
 
-    border:
-        1px solid rgba(255,255,255,.18);
+} 
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(170,160,255,.15),
-            rgba(255,255,255,.02)
-        );
+.invitation-line { 
+    font-family: "Great Vibes", cursive; 
 
-    box-shadow:
-        0 0 40px rgba(140,140,255,.12);
-}
+    font-size: 25px; 
 
-.score-number{
-    font-family:"Cormorant Garamond",serif;
+    color: #a45a70; 
 
-    font-size:50px;
-}
+    margin-bottom: -4px; 
+} 
 
-.score-label{
-    font-size:7px;
-    letter-spacing:2px;
-    opacity:.5;
-}
+.name-title { 
+    font-family: "Great Vibes", cursive; 
 
-.compat-bars{
-    margin-top:20px;
-}
+    font-size: clamp(58px, 9vw, 86px); 
 
-.compat-row{
-    display:grid;
+    line-height: 1; 
 
-    grid-template-columns:90px 1fr 40px;
+    color: #9c4d64; 
 
-    align-items:center;
+    text-shadow: 
+        0 5px 20px rgba(130, 50, 75, 0.12); 
 
-    gap:10px;
+    margin-bottom: 8px; 
+} 
 
-    margin:10px 0;
 
-    font-size:7px;
-    letter-spacing:1px;
-}
+/* ========================================= 
+   ENVELOPE 
+========================================= */ 
 
-.compat-bar{
-    height:4px;
+.envelope { 
+    position: relative; 
 
-    border-radius:10px;
+    width: 350px; 
+    max-width: 90vw; 
 
-    background:rgba(255,255,255,.08);
+    height: 245px; 
 
-    overflow:hidden;
-}
+    margin: 4px auto 8px; 
 
-.compat-fill{
-    height:100%;
+    cursor: pointer; 
 
-    width:0%;
+    filter: 
+        drop-shadow( 
+            0 22px 25px rgba(110, 40, 65, 0.18) 
+        ); 
 
-    background:
-        linear-gradient(
-            90deg,
-            #8995ff,
-            #ffffff,
-            #ff9fc9
-        );
+    transition: 
+        transform 0.35s ease; 
+} 
 
-    box-shadow:
-        0 0 10px rgba(200,200,255,.6);
+.envelope:hover { 
+    transform: 
+        translateY(-8px) 
+        rotate(-1deg); 
+} 
 
-    transition:
-        width 1.2s ease;
-}
+.envelope-back { 
+    position: absolute; 
 
+    inset: 0; 
 
-/* =========================================================
-   MOON
-========================================================= */
+    background: 
+        linear-gradient( 
+            145deg, 
+            #fffaf6, 
+            #ffece9 
+        ); 
 
-.moon{
-    width:150px;
-    height:150px;
+    border-radius: 18px; 
 
-    border-radius:50%;
+    box-shadow: 
+        inset 0 0 25px rgba(170, 80, 100, 0.06); 
 
-    margin:15px auto 20px;
+    z-index: 1; 
+} 
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fffef4,
-            #d9d6c8 45%,
-            #77746d 100%
-        );
+.envelope-paper { 
+    position: absolute; 
 
-    box-shadow:
-        0 0 35px rgba(255,255,220,.3),
-        0 0 90px rgba(200,210,255,.12);
+    left: 25px; 
+    right: 25px; 
 
-    transition:
-        background 1s ease,
-        box-shadow 1s ease;
-}
+    top: 22px; 
 
-.moon-phase{
-    font-size:9px;
-    letter-spacing:3px;
-    opacity:.5;
-}
+    height: 185px; 
 
-.moon-message{
-    margin-top:15px;
+    background: #fffdfb; 
 
-    font-family:"Cormorant Garamond",serif;
+    color: #9c4d64; 
 
-    font-size:23px;
-    line-height:1.4;
-}
+    border-radius: 12px; 
 
+    display: flex; 
 
-/* =========================================================
-   ORACLE
-========================================================= */
+    flex-direction: column; 
 
-.oracle-orb{
-    width:150px;
-    height:150px;
+    align-items: center; 
 
-    margin:20px auto;
+    justify-content: center; 
 
-    border-radius:50%;
+    padding: 20px; 
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    z-index: 2; 
 
-    font-size:55px;
+    box-shadow: 
+        0 4px 15px rgba(100, 40, 60, 0.05); 
+} 
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #d8d4ff,
-            #6255a5 40%,
-            #1b153e 70%,
-            #090715
-        );
+.envelope-small { 
+    font-size: 9px; 
 
-    box-shadow:
-        0 0 30px rgba(160,150,255,.35),
-        0 0 80px rgba(100,100,255,.15);
+    letter-spacing: 3px; 
 
-    animation:
-        oraclePulse
-        3s ease-in-out infinite;
-}
+    font-weight: 700; 
 
-@keyframes oraclePulse{
+    opacity: 0.65; 
 
-    0%,100%{
-        transform:scale(.95);
-        box-shadow:
-            0 0 30px rgba(160,150,255,.25);
-    }
+    margin-bottom: 5px; 
+} 
 
-    50%{
-        transform:scale(1.06);
-        box-shadow:
-            0 0 50px rgba(180,170,255,.5),
-            0 0 100px rgba(120,120,255,.2);
-    }
-}
+.envelope-paper h2 { 
+    font-family: "Cormorant Garamond", serif; 
 
-.oracle-options{
-    display:flex;
+    font-size: 38px; 
 
-    flex-wrap:wrap;
+    letter-spacing: 5px; 
 
-    justify-content:center;
+    margin-bottom: 6px; 
+} 
 
-    gap:8px;
+.envelope-message { 
+    font-family: "Great Vibes", cursive; 
 
-    margin-top:20px;
-}
+    font-size: 23px; 
 
-.oracle-option{
-    padding:10px 15px;
+    opacity: 0.82; 
+} 
 
-    border-radius:999px;
+.envelope-flap { 
+    position: absolute; 
 
-    border:1px solid rgba(255,255,255,.18);
+    top: 0; 
+    left: 0; 
 
-    background:rgba(255,255,255,.05);
+    width: 100%; 
+    height: 125px; 
 
-    color:white;
+    background: 
+        linear-gradient( 
+            145deg, 
+            #fff0eb, 
+            #ffe0e5 
+        ); 
 
-    font-size:8px;
-    letter-spacing:1px;
+    clip-path: 
+        polygon( 
+            0 0, 
+            100% 0, 
+            50% 100% 
+        ); 
 
-    cursor:pointer;
+    border-radius: 18px 18px 0 0; 
 
-    transition:
-        transform .2s ease,
-        background .2s ease;
-}
+    z-index: 4; 
 
-.oracle-option:hover{
-    transform:translateY(-2px);
+    transition: 
+        transform 0.8s ease, 
+        opacity 0.5s ease; 
+} 
 
-    background:
-        rgba(255,255,255,.12);
-}
+.wax-seal { 
+    position: absolute; 
 
+    left: 50%; 
+    top: 88px; 
 
-/* =========================================================
-   FINAL CONSTELLATION
-========================================================= */
+    transform: translateX(-50%); 
 
-.final-universe{
-    position:absolute;
-    inset:0;
+    width: 54px; 
+    height: 54px; 
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(35,30,90,.5),
-            #02020b 70%
-        );
+    display: flex; 
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    align-items: center; 
+    justify-content: center; 
 
-    text-align:center;
+    border-radius: 50%; 
 
-    opacity:0;
-    visibility:hidden;
+    background: 
+        radial-gradient( 
+            circle at 35% 30%, 
+            #e9859b, 
+            #bb526e 
+        ); 
 
-    transition:
-        opacity 2s ease;
+    color: white; 
 
-    z-index:200;
-}
+    font-size: 19px; 
 
-.final-universe.show{
-    opacity:1;
-    visibility:visible;
-}
+    box-shadow: 
+        0 6px 14px rgba(110, 40, 60, 0.2); 
 
-.final-content{
-    width:min(700px,90%);
-}
+    z-index: 5; 
 
-.final-constellation{
-    position:relative;
+    transition: 
+        transform 0.6s ease, 
+        opacity 0.4s ease; 
+} 
 
-    width:300px;
-    height:220px;
+.envelope-ribbon { 
+    position: absolute; 
 
-    margin:0 auto 35px;
-}
+    bottom: 0; 
 
-.final-dot{
-    position:absolute;
+    width: 28px; 
+    height: 88px; 
 
-    width:7px;
-    height:7px;
+    background: rgba(193, 92, 116, 0.45); 
 
-    background:white;
+    z-index: 5; 
+} 
 
-    border-radius:50%;
+.ribbon-envelope-left { 
+    left: 35px; 
 
-    box-shadow:
-        0 0 10px white,
-        0 0 25px #aab9ff;
+    transform: rotate(12deg); 
+} 
 
-    animation:
-        finalTwinkle
-        2s ease-in-out infinite;
-}
+.ribbon-envelope-right { 
+    right: 35px; 
 
-.final-line{
-    position:absolute;
+    transform: rotate(-12deg); 
+} 
 
-    height:1px;
+.envelope.opening { 
+    animation: 
+        envelopeOpen 0.9s ease forwards; 
+} 
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.75),
-            transparent
-        );
+.envelope.opening .envelope-flap { 
+    transform: 
+        rotateX(180deg); 
 
-    transform-origin:left center;
+    transform-origin: top; 
 
-    box-shadow:
-        0 0 8px rgba(180,190,255,.7);
+    opacity: 0; 
+} 
 
-    animation:
-        lineAppear
-        2s ease forwards;
-}
+.envelope.opening .wax-seal { 
+    transform: 
+        translateX(-50%) 
+        scale(0.2) 
+        rotate(30deg); 
 
-@keyframes finalTwinkle{
+    opacity: 0; 
+} 
 
-    0%,100%{
-        transform:scale(.7);
-        opacity:.5;
-    }
+@keyframes envelopeOpen { 
 
-    50%{
-        transform:scale(1.5);
-        opacity:1;
-    }
-}
+    0% { 
+        transform: 
+            translateY(0) 
+            scale(1); 
+    } 
 
-@keyframes lineAppear{
-    from{
-        opacity:0;
-    }
+    45% { 
+        transform: 
+            translateY(-10px) 
+            scale(1.05) 
+            rotate(-2deg); 
+    } 
 
-    to{
-        opacity:1;
-    }
-}
+    100% { 
+        transform: 
+            translateY(-25px) 
+            scale(0.92); 
 
-.final-content h2{
-    font-family:"Great Vibes",cursive;
+        opacity: 0; 
+    } 
 
-    font-size:
-        clamp(48px,8vw,80px);
+} 
 
-    font-weight:400;
 
-    margin-bottom:15px;
-}
+/* ========================================= 
+   HIDDEN CODE 
+========================================= */ 
 
-.final-content p{
-    font-family:"Cormorant Garamond",serif;
+.hidden-code { 
+    font-family: "Cormorant Garamond", serif; 
 
-    font-size:
-        clamp(22px,4vw,28px);
+    font-size: 11px; 
 
-    line-height:1.4;
+    letter-spacing: 4px; 
 
-    opacity:.85;
-}
+    color: #a45a70; 
 
+    opacity: 0.45; 
 
-/* =========================================================
-   FINAL TRANSITION
-========================================================= */
+    margin-bottom: 17px; 
+} 
 
-#pageTransition{
-    position:fixed;
-    inset:0;
+.tiny-footer { 
+    margin-top: 18px; 
 
-    background:#010107;
+    font-family: "Great Vibes", cursive; 
 
-    opacity:0;
+    font-size: 18px; 
 
-    visibility:hidden;
+    color: #ad687b; 
 
-    z-index:999;
+    opacity: 0.7; 
+} 
 
-    transition:
-        opacity 1.3s ease;
-}
 
-#pageTransition.show{
-    opacity:1;
-    visibility:visible;
-}
+/* ========================================= 
+   BUTTON 
+========================================= */ 
 
+.luxury-button { 
+    position: relative; 
 
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
+    border: none; 
 
-.music{
-    position:fixed;
+    padding: 15px 30px; 
 
-    right:18px;
-    bottom:18px;
+    border-radius: 999px; 
 
-    width:42px;
-    height:42px;
+    background: 
+        linear-gradient( 
+            135deg, 
+            #ffffff, 
+            #fff8f8 
+        ); 
 
-    border-radius:50%;
+    color: #a14861; 
 
-    border:1px solid rgba(255,255,255,.2);
+    font-family: "Poppins", sans-serif; 
 
-    background:
-        rgba(255,255,255,.07);
+    font-size: 13px; 
 
-    color:white;
+    font-weight: 700; 
 
-    z-index:500;
+    cursor: pointer; 
 
-    cursor:pointer;
+    box-shadow: 
+        0 12px 28px rgba(100, 40, 60, 0.15); 
 
-    font-size:16px;
+    overflow: hidden; 
 
-    backdrop-filter:blur(8px);
-}
+    transition: 
+        transform 0.25s ease, 
+        box-shadow 0.25s ease; 
+} 
 
+.luxury-button::before { 
+    content: ""; 
 
-/* =========================================================
-   SECRET MESSAGE
-========================================================= */
+    position: absolute; 
 
-.secret-message{
-    position:absolute;
+    top: 0; 
+    left: -100%; 
 
-    left:50%;
-    top:50%;
+    width: 60%; 
+    height: 100%; 
 
-    transform:
-        translate(-50%,-50%)
-        scale(.8);
+    background: 
+        linear-gradient( 
+            90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.9), 
+            transparent 
+        ); 
 
-    width:min(430px,88%);
+    transform: skewX(-20deg); 
 
-    padding:30px;
+    transition: 
+        left 0.7s ease; 
+} 
 
-    border-radius:22px;
+.luxury-button:hover { 
+    transform: 
+        translateY(-4px) 
+        scale(1.03); 
 
-    background:
-        rgba(12,10,35,.96);
+    box-shadow: 
+        0 17px 35px rgba(100, 40, 60, 0.2); 
+} 
 
-    border:
-        1px solid rgba(255,255,255,.15);
+.luxury-button:hover::before { 
+    left: 140%; 
+} 
 
-    text-align:center;
+.luxury-button:active { 
+    transform: scale(0.96); 
+} 
 
-    opacity:0;
-    visibility:hidden;
 
-    transition:
-        .5s ease;
+/* ========================================= 
+   ENTRANCE PAGE 
+========================================= */ 
 
-    z-index:400;
+.main-content { 
+    width: min(90%, 800px); 
 
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.7);
-}
+    text-align: center; 
 
-.secret-message.show{
-    opacity:1;
-    visibility:visible;
+    position: relative; 
 
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
+    z-index: 20; 
+} 
 
-.secret-message h3{
-    font-family:"Great Vibes",cursive;
+.bow { 
+    font-size: 52px; 
 
-    font-size:43px;
+    margin-bottom: 10px; 
 
-    margin-bottom:12px;
-}
+    animation: 
+        bowBounce 3s ease-in-out infinite; 
+} 
 
-.secret-message p{
-    font-family:"Cormorant Garamond",serif;
+.eyebrow { 
+    font-size: 10px; 
 
-    font-size:22px;
+    letter-spacing: 4px; 
 
-    line-height:1.4;
+    font-weight: 700; 
 
-    opacity:.85;
-}
+    color: #a45a70; 
 
+    margin-bottom: 12px; 
+} 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+.main-content h2 { 
+    font-family: "Cormorant Garamond", serif; 
 
-@media(max-width:700px){
+    font-size: clamp(43px, 6vw, 76px); 
 
-    .hud-title{
-        font-size:35px;
-    }
+    line-height: 0.98; 
 
-    .orbit-planet{
-        top:47%;
-    }
+    color: #93475f; 
 
-    .orbit-planet .orbital-core{
-        width:100px;
-        height:100px;
-        font-size:43px;
-    }
+    margin-bottom: 20px; 
 
-    .orbit-ring{
-        width:155px;
-    }
+    text-shadow: 
+        0 6px 25px rgba(120, 50, 70, 0.12); 
+} 
 
-    .action-zodiac{
-        left:7%;
-        top:36%;
-    }
+.subtitle { 
+    font-family: "Great Vibes", cursive; 
 
-    .action-moon{
-        right:7%;
-        top:36%;
-    }
+    font-size: clamp(25px, 3vw, 34px); 
 
-    .action-oracle{
-        left:10%;
-        bottom:15%;
-    }
+    color: #a45a70; 
 
-    .action-love{
-        right:10%;
-        bottom:15%;
-    }
+    margin-bottom: 35px; 
+} 
 
-    .orbital-core{
-        width:52px;
-        height:52px;
-        font-size:19px;
-    }
 
-    .orbital-label{
-        font-size:6px;
-        top:60px;
-    }
+/* ========================================= 
+   PASSWORD CARD 
+========================================= */ 
 
-    .m1{
-        left:7%;
-        top:31%;
-    }
+.password-card { 
+    position: relative; 
 
-    .m2{
-        left:32%;
-        top:25%;
-    }
+    width: min(92%, 470px); 
 
-    .m3{
-        right:22%;
-        top:29%;
-    }
+    padding: 45px 35px 40px; 
 
-    .m4{
-        right:5%;
-        top:44%;
-    }
+    text-align: center; 
 
-    .m5{
-        right:24%;
-        bottom:24%;
-    }
+    background: 
+        rgba(255, 253, 251, 0.96); 
 
-    .m6{
-        left:20%;
-        bottom:20%;
-    }
+    color: #93475f; 
 
-    .memory-star .label{
-        font-size:6px;
-    }
+    border-radius: 28px; 
 
-    .modal-card{
-        padding:28px 20px;
-    }
+    border: 
+        1px solid rgba(170, 80, 105, 0.12); 
 
-    .modal-card h2{
-        font-size:45px;
-    }
+    box-shadow: 
+        0 30px 70px rgba(100, 40, 60, 0.18); 
+} 
 
-    .modal-text{
-        font-size:21px;
-    }
+.card-bow { 
+    font-size: 35px; 
 
-    .compatibility{
-        gap:15px;
-    }
+    margin-bottom: 5px; 
+} 
 
-    .sign-box{
-        width:80px;
-    }
+.lock-icon { 
+    font-size: 38px; 
 
-    .sign-symbol{
-        width:70px;
-        height:70px;
-    }
+    margin-bottom: 8px; 
+} 
 
-}
+.card-label { 
+    font-size: 10px; 
 
-</style>
+    letter-spacing: 4px; 
+
+    font-weight: 700; 
+
+    opacity: 0.65; 
+
+    margin-bottom: 10px; 
+} 
+
+.password-card h2 { 
+    font-family: "Cormorant Garamond", serif; 
+
+    font-size: 31px; 
+
+    line-height: 1.1; 
+
+    margin-bottom: 10px; 
+} 
+
+.card-text { 
+    font-size: 13px; 
+
+    line-height: 1.6; 
+
+    color: #ad6278; 
+
+    margin-bottom: 24px; 
+} 
+
+.password-card label { 
+    display: block; 
+
+    font-size: 11px; 
+
+    font-weight: 600; 
+
+    margin-bottom: 9px; 
+
+    opacity: 0.7; 
+} 
+
+#password-input { 
+    width: 180px; 
+
+    display: block; 
+
+    margin: 0 auto 20px; 
+
+    padding: 13px 18px; 
+
+    border: 
+        2px solid rgba(169, 73, 96, 0.16); 
+
+    border-radius: 14px; 
+
+    outline: none; 
+
+    background: #fff; 
+
+    color: #93475f; 
+
+    text-align: center; 
+
+    font-size: 22px; 
+
+    letter-spacing: 9px; 
+
+    font-weight: 700; 
+
+    transition: 
+        border 0.25s ease, 
+        box-shadow 0.25s ease; 
+} 
+
+#password-input:focus { 
+    border-color: #d77b91; 
+
+    box-shadow: 
+        0 0 0 4px rgba(215, 123, 145, 0.1); 
+} 
+
+.password-hint { 
+    min-height: 20px; 
+
+    margin-top: 12px; 
+
+    font-size: 12px; 
+
+    color: #bd5b73; 
+} 
+
+
+/* ========================================= 
+   POPUPS 
+========================================= */ 
+
+.popup-overlay { 
+    position: fixed; 
+
+    inset: 0; 
+
+    display: flex; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+    padding: 20px; 
+
+    background: 
+        rgba(100, 40, 60, 0.25); 
+
+    backdrop-filter: blur(10px); 
+
+    opacity: 0; 
+
+    visibility: hidden; 
+
+    transition: 
+        opacity 0.4s ease, 
+        visibility 0.4s ease; 
+
+    z-index: 100; 
+} 
+
+.popup-overlay.show { 
+    opacity: 1; 
+
+    visibility: visible; 
+} 
+
+.popup-card { 
+    width: min(90%, 390px); 
+
+    padding: 38px 30px; 
+
+    background: #fffdfb; 
+
+    color: #93475f; 
+
+    border-radius: 25px; 
+
+    text-align: center; 
+
+    box-shadow: 
+        0 30px 70px rgba(80, 30, 50, 0.25); 
+
+    transform: 
+        translateY(20px) 
+        scale(0.94); 
+
+    transition: 
+        transform 0.4s ease; 
+} 
+
+.popup-overlay.show .popup-card { 
+    transform: 
+        translateY(0) 
+        scale(1); 
+} 
+
+.popup-icon { 
+    font-size: 45px; 
+
+    margin-bottom: 10px; 
+} 
+
+.popup-card h2 { 
+    font-family: "Cormorant Garamond", serif; 
+
+    font-size: 30px; 
+
+    margin-bottom: 10px; 
+} 
+
+.popup-card p { 
+    font-size: 14px; 
+
+    line-height: 1.6; 
+
+    color: #ad6278; 
+
+    margin-bottom: 7px; 
+} 
+
+.popup-small { 
+    margin-bottom: 22px !important; 
+} 
+
+.success-label { 
+    font-size: 10px !important; 
+
+    letter-spacing: 3px; 
+
+    font-weight: 700; 
+
+    margin-bottom: 12px !important; 
+} 
+
+
+/* ========================================= 
+   MUSIC BUTTON 
+========================================= */ 
+
+.music-control { 
+    position: fixed; 
+
+    right: 22px; 
+    bottom: 22px; 
+
+    width: 43px; 
+    height: 43px; 
+
+    border: 
+        1px solid rgba(150, 70, 95, 0.2); 
+
+    border-radius: 50%; 
+
+    background: 
+        rgba(255, 255, 255, 0.7); 
+
+    backdrop-filter: blur(10px); 
+
+    color: #9e5067; 
+
+    font-size: 18px; 
+
+    cursor: pointer; 
+
+    z-index: 200; 
+
+    opacity: 0; 
+
+    visibility: hidden; 
+
+    transform: scale(0.8); 
+
+    transition: 
+        opacity 0.4s ease, 
+        visibility 0.4s ease, 
+        transform 0.3s ease; 
+} 
+
+.music-control.visible { 
+    opacity: 1; 
+
+    visibility: visible; 
+
+    transform: scale(1); 
+} 
+
+.music-control:hover { 
+    transform: scale(1.08); 
+
+    background: #ffffff; 
+} 
+
+.music-control.muted { 
+    opacity: 0.5; 
+} 
+
+
+/* ========================================= 
+   CONFETTI 
+========================================= */ 
+
+.confetti-piece { 
+    position: fixed; 
+
+    width: 7px; 
+    height: 11px; 
+
+    border-radius: 2px; 
+
+    z-index: 150; 
+
+    pointer-events: none; 
+
+    animation: 
+        confettiFall 1.7s ease-out forwards; 
+} 
+
+@keyframes confettiFall { 
+
+    0% { 
+        opacity: 1; 
+
+        transform: 
+            translateY(0) 
+            rotate(0) 
+            scale(1); 
+    } 
+
+    100% { 
+        opacity: 0; 
+
+        transform: 
+            translateY(75vh) 
+            rotate(620deg) 
+            scale(0.7); 
+    } 
+
+} 
+
+
+/* ========================================= 
+   CAMERA MESSAGE 
+========================================= */ 
+
+.camera-message { 
+    position: fixed; 
+
+    padding: 9px 15px; 
+
+    background: rgba(255, 255, 255, 0.95); 
+
+    border-radius: 999px; 
+
+    color: #984a62; 
+
+    font-size: 11px; 
+
+    font-weight: 600; 
+
+    box-shadow: 
+        0 10px 25px rgba(100, 40, 60, 0.12); 
+
+    z-index: 300; 
+
+    pointer-events: none; 
+
+    animation: 
+        messagePop 1.7s ease forwards; 
+} 
+
+@keyframes messagePop { 
+
+    0% { 
+        opacity: 0; 
+
+        transform: 
+            translateY(10px) 
+            scale(0.8); 
+    } 
+
+    20% { 
+        opacity: 1; 
+
+        transform: 
+            translateY(0) 
+            scale(1); 
+    } 
+
+    80% { 
+        opacity: 1; 
+    } 
+
+    100% { 
+        opacity: 0; 
+
+        transform: 
+            translateY(-20px) 
+            scale(0.95); 
+    } 
+
+} 
+
+
+/* ========================================= 
+   UNLOCK 
+========================================= */ 
+
+.unlock-success { 
+    animation: 
+        unlockPulse 0.6s ease; 
+} 
+
+@keyframes unlockPulse { 
+
+    0% { 
+        transform: scale(1); 
+    } 
+
+    35% { 
+        transform: scale(1.05); 
+
+        box-shadow: 
+            0 0 35px rgba(220, 120, 145, 0.45); 
+    } 
+
+    100% { 
+        transform: scale(1); 
+    } 
+
+} 
+
+
+/* ========================================= 
+   MOBILE 
+========================================= */ 
+
+@media (max-width: 600px) { 
+
+    .background-glow { 
+        width: 380px; 
+        height: 380px; 
+    } 
+
+    .corner { 
+        width: 100px; 
+        height: 95px; 
+    } 
+
+    .corner-flower { 
+        font-size: 38px; 
+    } 
+
+    .corner-leaf { 
+        font-size: 42px; 
+
+        left: 35px; 
+        top: 40px; 
+    } 
+
+    .corner-leaf.second { 
+        left: 10px; 
+        top: 55px; 
+
+        font-size: 34px; 
+    } 
+
+    .balloon { 
+        font-size: 35px; 
+    } 
+
+    .camera { 
+        font-size: 28px; 
+    } 
+
+    .ribbon { 
+        font-size: 30px; 
+    } 
+
+    .floating-flower { 
+        font-size: 30px; 
+    } 
+
+    .welcome-badge { 
+        font-size: 7px; 
+
+        letter-spacing: 1.5px; 
+    } 
+
+    .name-title { 
+        font-size: 66px; 
+    } 
+
+    .envelope { 
+        width: 320px; 
+        height: 220px; 
+    } 
+
+    .envelope-paper { 
+        left: 20px; 
+        right: 20px; 
+
+        height: 165px; 
+    } 
+
+    .envelope-paper h2 { 
+        font-size: 31px; 
+    } 
+
+    .envelope-message { 
+        font-size: 20px; 
+    } 
+
+    .main-content h2 { 
+        font-size: clamp(38px, 11vw, 55px); 
+    } 
+
+    .eyebrow { 
+        font-size: 8px; 
+
+        letter-spacing: 2px; 
+    } 
+
+    .subtitle { 
+        font-size: 25px; 
+
+        margin-bottom: 28px; 
+    } 
+
+    .password-card { 
+        padding: 35px 22px; 
+    } 
+
+    .password-card h2 { 
+        font-size: 27px; 
+    } 
+
+    .luxury-button { 
+        padding: 15px 25px; 
+
+        font-size: 13px; 
+    } 
+
+    .music-control { 
+        right: 15px; 
+        bottom: 15px; 
+    } 
+
+} 
+
+
+/* ========================================= 
+   SMALL HEIGHT DEVICES 
+========================================= */ 
+
+@media (max-height: 650px) { 
+
+    .envelope { 
+        transform: scale(0.82); 
+
+        margin-top: -20px; 
+    } 
+
+    .envelope:hover { 
+        transform: 
+            scale(0.84) 
+            translateY(-5px); 
+    } 
+
+    .tiny-bow { 
+        margin-bottom: -8px; 
+    } 
+
+    .name-title { 
+        font-size: 60px; 
+    } 
+
+} 
+
+    </style>
 </head>
-
 
 <body>
 
+    <!-- ========================================= 
+         LOADING SCREEN 
+    ========================================== --> 
 
-<!-- =====================================================
-     SPACE
-===================================================== -->
+    <div id="loading-screen"> 
 
-<div id="space">
+        <div class="loading-card"> 
 
-    <div class="nebula one"></div>
-    <div class="nebula two"></div>
-    <div class="nebula three"></div>
-    <div class="nebula four"></div>
+            <div class="loading-bow">🎀</div> 
 
-    <div id="stars"></div>
+            <p>Preparing a little something...</p> 
 
-    <div class="planet medium p1"></div>
-    <div class="planet medium p2"></div>
-    <div class="planet small p3"></div>
-    <div class="planet small p4"></div>
+            <div class="loading-dots"> 
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </div> 
 
-    <div class="rocket">🚀</div>
+        </div> 
 
-    <svg id="constellationCanvas"></svg>
+    </div> 
 
 
-    <!-- =================================================
-         INTRO
-    ================================================== -->
+    <!-- ========================================= 
+         DECORATIVE BACKGROUND 
+    ========================================== --> 
 
-    <section id="intro" class="screen active">
+    <div class="background-glow"></div> 
 
-        <div class="intro-content">
+    <div class="confetti-layer" id="confetti-layer"></div> 
 
-            <div class="intro-star">✦</div>
 
-            <p class="eyebrow">
-                CHAPTER ELEVEN
-            </p>
+    <!-- BALLOONS --> 
 
-            <h1>
-                Our Little
-                <br>
-                <span class="script">Universe</span>
-            </h1>
+    <div class="balloon balloon-one">🎈</div> 
+    <div class="balloon balloon-two">🎈</div> 
+    <div class="balloon balloon-three">🎈</div> 
+    <div class="balloon balloon-four">🎈</div> 
 
-            <p class="intro-description">
-                Somewhere between all these stars...
-                <br>
-                I hid a few pieces of us.
-            </p>
 
-            <button
-                id="enterUniverse"
-                class="cosmic-button">
+    <!-- CAMERAS --> 
 
-                ENTER THE UNIVERSE ✦
+    <button class="camera camera-one" type="button" aria-label="Camera"> 
+        📷 
+    </button> 
 
-            </button>
+    <button class="camera camera-two" type="button" aria-label="Camera"> 
+        📸 
+    </button> 
 
-        </div>
 
-    </section>
+    <!-- FLOATING FLOWERS --> 
 
+    <div class="floating-flower flower-one">✿</div> 
+    <div class="floating-flower flower-two">❀</div> 
+    <div class="floating-flower flower-three">✿</div> 
+    <div class="floating-flower flower-four">❀</div> 
 
-    <!-- =================================================
-         OBSERVATORY
-    ================================================== -->
 
-    <main id="observatory">
+    <!-- RIBBONS --> 
 
+    <div class="ribbon ribbon-left">🎀</div> 
+    <div class="ribbon ribbon-right">🎀</div> 
 
-        <!-- HUD -->
 
-        <div class="hud">
+    <!-- SPARKLES --> 
 
-            <div class="hud-title">
-                Our Little Universe
-            </div>
+    <div class="sparkles" aria-hidden="true"> 
 
-            <div class="hud-subtitle">
-                TISHA ♍ × RITESH ♋
-            </div>
+        <span>✦</span> 
+        <span>✧</span> 
+        <span>✦</span> 
+        <span>·</span> 
+        <span>✧</span> 
+        <span>✦</span> 
+        <span>·</span> 
+        <span>✧</span> 
+        <span>✦</span> 
+        <span>✧</span> 
 
-            <div class="energy">
+    </div> 
 
-                <div
-                    id="energyFill"
-                    class="energy-fill">
-                </div>
 
-            </div>
+    <!-- ========================================= 
+         DECORATIVE CORNERS 
+    ========================================== --> 
 
-            <div
-                id="energyText"
-                class="energy-text">
+    <div class="corner corner-top-left"> 
+        <span class="corner-flower">✿</span> 
+        <span class="corner-leaf">❧</span> 
+        <span class="corner-leaf second">❧</span> 
+    </div> 
 
-                COSMIC DISCOVERY 0%
+    <div class="corner corner-top-right"> 
+        <span class="corner-flower">✿</span> 
+        <span class="corner-leaf">❧</span> 
+        <span class="corner-leaf second">❧</span> 
+    </div> 
 
-            </div>
+    <div class="corner corner-bottom-left"> 
+        <span class="corner-flower">✿</span> 
+        <span class="corner-leaf">❧</span> 
+        <span class="corner-leaf second">❧</span> 
+    </div> 
 
-        </div>
+    <div class="corner corner-bottom-right"> 
+        <span class="corner-flower">✿</span> 
+        <span class="corner-leaf">❧</span> 
+        <span class="corner-leaf second">❧</span> 
+    </div> 
 
 
-        <!-- =================================================
-             CENTRAL PLANET
-        ================================================== -->
+    <!-- ========================================= 
+         PAGE 1 
+    ========================================== --> 
 
-        <div
-            id="tishaPlanet"
-            class="orbital orbit-planet">
+    <main id="gift-screen" class="screen active"> 
 
-            <div class="orbit-ring"></div>
+        <section class="gift-container"> 
 
-            <div class="orbital-core">
-                🪐
-            </div>
+            <div class="welcome-badge"> 
+                <span>✦</span> 
+                A LITTLE BIRTHDAY SURPRISE 
+                <span>✦</span> 
+            </div> 
 
-            <div class="orbital-label">
-                TISHA'S WORLD
-            </div>
 
-        </div>
+            <div class="tiny-bow"> 
+                🎀 
+            </div> 
 
 
-        <!-- =================================================
-             ZODIAC
-        ================================================== -->
+            <p class="invitation-line"> 
+                Especially prepared for 
+            </p> 
 
-        <div
-            class="orbital action-zodiac"
-            id="zodiacButton">
+            <h1 class="name-title"> 
+                Tisha 
+            </h1> 
 
-            <div class="orbital-core">
-                ♍
-            </div>
 
-            <div class="orbital-label">
-                HER CONSTELLATION
-            </div>
+            <!-- ENVELOPE --> 
 
-        </div>
+            <div id="envelope" class="envelope"> 
 
+                <div class="envelope-back"></div> 
 
-        <!-- =================================================
-             MOON
-        ================================================== -->
+                <div class="envelope-paper"> 
 
-        <div
-            class="orbital action-moon"
-            id="moonButton">
+                    <p class="envelope-small"> 
+                        A SECRET LITTLE SURPRISE 
+                    </p> 
 
-            <div class="orbital-core">
-                🌙
-            </div>
+                    <h2> 
+                        FOR TISHA 
+                    </h2> 
 
-            <div class="orbital-label">
-                MOON PHASES
-            </div>
+                    <p class="envelope-message"> 
+                        Open me... if you dare. 👀 
+                    </p> 
 
-        </div>
+                </div> 
 
+                <div class="envelope-flap"></div> 
 
-        <!-- =================================================
-             ORACLE
-        ================================================== -->
+                <div class="wax-seal"> 
+                    ♥ 
+                </div> 
 
-        <div
-            class="orbital action-oracle"
-            id="oracleButton">
+                <div class="envelope-ribbon ribbon-envelope-left"></div> 
+                <div class="envelope-ribbon ribbon-envelope-right"></div> 
 
-            <div class="orbital-core">
-                🔮
-            </div>
+            </div> 
 
-            <div class="orbital-label">
-                ASK THE UNIVERSE
-            </div>
 
-        </div>
+            <p class="hidden-code"> 
+                ♡ 03 • 09 ♡ 
+            </p> 
 
 
-        <!-- =================================================
-             COMPATIBILITY
-        ================================================== -->
+            <button 
+                id="open-gift-btn" 
+                class="luxury-button" 
+                type="button" 
+            > 
+                OPEN IT 💌 
+            </button> 
 
-        <div
-            class="orbital action-love"
-            id="compatibilityButton">
 
-            <div class="orbital-core">
-                ♡
-            </div>
+            <p class="tiny-footer"> 
+                Made with an unreasonable amount of love ♡ 
+            </p> 
 
-            <div class="orbital-label">
-                OUR COSMIC MATCH
-            </div>
+        </section> 
 
-        </div>
+    </main> 
 
 
-        <!-- =================================================
-             SECRET MESSAGE
-        ================================================== -->
+    <!-- ========================================= 
+         PAGE 1B - ENTRANCE 
+    ========================================== --> 
 
-        <div
-            class="orbital action-message"
-            id="messageButton">
+    <main id="entrance-screen" class="screen"> 
 
-            <div class="orbital-core">
-                🛰️
-            </div>
+        <section class="main-content"> 
 
-            <div class="orbital-label">
-                DEEP SPACE
-            </div>
+            <div class="bow"> 
+                🎀 
+            </div> 
 
-        </div>
+            <p class="eyebrow"> 
+                A VERY IMPORTANT MESSAGE... 
+            </p> 
 
+            <h2> 
+                WAIT… YOU ACTUALLY<br> 
+                FOUND THIS? 👀 
+            </h2> 
 
-        <!-- =================================================
-             MEMORY STARS
-        ================================================== -->
+            <p class="subtitle"> 
+                Well… I suppose there's no turning back now. 😏 
+            </p> 
 
-        <button
-            class="memory-star m1"
-            data-memory="0">
+            <button 
+                id="curious-btn" 
+                class="luxury-button" 
+                type="button" 
+            > 
+                Okay, I'm curious 👀 
+            </button> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+        </section> 
 
-            <span class="label">
-                OUR BEGINNING
-            </span>
+    </main> 
 
-        </button>
 
+    <!-- ========================================= 
+         PASSWORD PAGE 
+    ========================================== --> 
 
-        <button
-            class="memory-star m2"
-            data-memory="1">
+    <main id="password-screen" class="screen"> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+        <section class="password-card"> 
 
-            <span class="label">
-                12.03.26
-            </span>
+            <div class="card-bow"> 
+                🎀 
+            </div> 
 
-        </button>
+            <div class="lock-icon"> 
+                🔐 
+            </div> 
 
+            <p class="card-label"> 
+                SECRET ACCESS 
+            </p> 
 
-        <button
-            class="memory-star m3"
-            data-memory="2">
+            <h2> 
+                Hmm… before I let you in… 🤨 
+            </h2> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+            <p class="card-text"> 
+                I need to make sure you're actually 
+                the birthday girl. 🎀 
+            </p> 
 
-            <span class="label">
-                THAT FIRST DAY
-            </span>
+            <label for="password-input"> 
+                Enter the magic code 
+            </label> 
 
-        </button>
+            <input 
+                id="password-input" 
+                type="password" 
+                maxlength="4" 
+                inputmode="numeric" 
+                placeholder="••••" 
+                autocomplete="off" 
+            > 
 
+            <button 
+                id="unlock-btn" 
+                class="luxury-button" 
+                type="button" 
+            > 
+                UNLOCK MY SURPRISE ❤️ 
+            </button> 
 
-        <button
-            class="memory-star m4"
-            data-memory="3">
+            <p id="password-hint" class="password-hint"></p> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+        </section> 
 
-            <span class="label">
-                LITTLE CONFESSION
-            </span>
+    </main> 
 
-        </button>
 
+    <!-- ========================================= 
+         WRONG PASSWORD 
+    ========================================== --> 
 
-        <button
-            class="memory-star m5"
-            data-memory="4">
+    <div id="wrong-popup" class="popup-overlay"> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+        <div class="popup-card"> 
 
-            <span class="label">
-                SOMETHING I LOVE
-            </span>
+            <div class="popup-icon"> 
+                🥺 
+            </div> 
 
-        </button>
+            <h2> 
+                BABYYYY!!!! 😭😂 
+            </h2> 
 
+            <p> 
+                You really thought that was 
+                the password? 
+            </p> 
 
-        <button
-            class="memory-star m6"
-            data-memory="5">
+            <p class="popup-small"> 
+                Try again, silly. ❤️ 
+            </p> 
 
-            <span class="glow"></span>
-            <span class="symbol">✦</span>
+            <button 
+                id="try-again-btn" 
+                class="luxury-button" 
+                type="button" 
+            > 
+                Okay okay 😭 
+            </button> 
 
-            <span class="label">
-                A SECRET
-            </span>
+        </div> 
 
-        </button>
+    </div> 
 
 
-    </main>
+    <!-- ========================================= 
+         SUCCESS POPUP 
+    ========================================== --> 
 
+    <div id="success-popup" class="popup-overlay"> 
 
-    <!-- =====================================================
-         MEMORY MODAL
-    ===================================================== -->
+        <div class="popup-card success-card"> 
 
-    <div
-        id="memoryModal"
-        class="modal">
+            <div class="popup-icon"> 
+                💌 
+            </div> 
 
-        <div class="modal-backdrop"></div>
+            <p class="success-label"> 
+                ACCESS GRANTED 
+            </p> 
 
-        <div class="modal-card">
+            <h2> 
+                Okay… you really are her. 😂❤️ 
+            </h2> 
 
-            <button
-                class="close"
-                data-close>
-                ×
-            </button>
+            <p> 
+                Welcome to your little surprise, 
+                Tisha. 🌸 
+            </p> 
 
-            <div
-                id="memoryIcon"
-                class="modal-icon">
-                ✦
-            </div>
+            <button 
+                id="continue-btn" 
+                class="luxury-button" 
+                type="button" 
+            > 
+                LET'S GO → 
+            </button> 
 
-            <div
-                id="memoryNumber"
-                class="modal-number">
-                MEMORY 01
-            </div>
+        </div> 
 
-            <h2 id="memoryTitle">
-                Our Beginning
-            </h2>
+    </div> 
 
-            <div class="modal-line"></div>
 
-            <p
-                id="memoryText"
-                class="modal-text">
-            </p>
+    <!-- ========================================= 
+         MUSIC 
+    ========================================== --> 
 
-            <button
-                id="memoryDone"
-                class="cosmic-button">
+    <button 
+        id="music-control" 
+        class="music-control" 
+        type="button" 
+        aria-label="Toggle music" 
+    > 
+        ♫ 
+    </button> 
 
-                ADD THIS STAR TO OUR CONSTELLATION ✦
+    <!-- External music.mp3 removed.
+         The JavaScript below contains the synthesized BGM engine. -->
 
-            </button>
 
-        </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function () { 
 
-    </div>
+    /* ========================================================= 
+       ELEMENTS 
+    ========================================================= */ 
 
+    const loadingScreen = 
+        document.getElementById("loading-screen"); 
 
-    <!-- =====================================================
-         ZODIAC MODAL
-    ===================================================== -->
+    const giftScreen = 
+        document.getElementById("gift-screen"); 
 
-    <div
-        id="zodiacModal"
-        class="modal">
+    const entranceScreen = 
+        document.getElementById("entrance-screen"); 
 
-        <div class="modal-backdrop"></div>
+    const passwordScreen = 
+        document.getElementById("password-screen"); 
 
-        <div class="modal-card">
+    const envelope = 
+        document.getElementById("envelope"); 
 
-            <button class="close" data-close>
-                ×
-            </button>
+    const openGiftButton = 
+        document.getElementById("open-gift-btn"); 
 
-            <div class="modal-icon">
-                ♍
-            </div>
+    const curiousButton = 
+        document.getElementById("curious-btn"); 
 
-            <div class="modal-number">
-                03 • 09 • 2005
-            </div>
+    const passwordInput = 
+        document.getElementById("password-input"); 
 
-            <h2>
-                Tisha's Stars
-            </h2>
+    const unlockButton = 
+        document.getElementById("unlock-btn"); 
 
-            <div class="zodiac-visual">
+    const wrongPopup = 
+        document.getElementById("wrong-popup"); 
 
-                <div class="zodiac-circle"></div>
+    const tryAgainButton = 
+        document.getElementById("try-again-btn"); 
 
-                <div class="zodiac-stars">
+    const successPopup = 
+        document.getElementById("success-popup"); 
 
-                    <span class="z-dot"
-                          style="left:20%;top:30%"></span>
+    const continueButton = 
+        document.getElementById("continue-btn"); 
 
-                    <span class="z-dot"
-                          style="left:35%;top:18%"></span>
+    const musicControl = 
+        document.getElementById("music-control"); 
 
-                    <span class="z-dot"
-                          style="left:48%;top:37%"></span>
+    const confettiLayer = 
+        document.getElementById("confetti-layer"); 
 
-                    <span class="z-dot"
-                          style="left:68%;top:24%"></span>
 
-                    <span class="z-dot"
-                          style="left:77%;top:48%"></span>
+    /* ========================================================= 
+       PASSWORD 
+    ========================================================= */ 
 
-                    <span class="z-dot"
-                          style="left:59%;top:67%"></span>
+    const correctPassword = "0309"; 
 
-                    <span class="z-dot"
-                          style="left:35%;top:75%"></span>
 
-                    <span class="z-dot"
-                          style="left:20%;top:58%"></span>
+    /* ========================================================= 
+       AUDIO ENGINE 
+    ========================================================= */ 
 
-                </div>
+    let audioContext = null; 
 
-                <div class="zodiac-sign">
-                    ♍
-                </div>
+    let masterGain = null; 
 
-            </div>
+    let musicGain = null; 
 
-            <p class="modal-text">
+    let sfxGain = null; 
 
-                <strong>Virgo — Earth Sign 🌍</strong>
+    let audioStarted = false; 
 
-                <br><br>
+    let musicEnabled = true; 
 
-                You notice the little things.
-                You care more deeply than you sometimes
-                show. You have a sharp mind,
-                a thoughtful heart and a habit of
-                overthinking absolutely everything. 😂
+    let musicTimer = null; 
 
-                <br><br>
+    let musicStep = 0; 
 
-                Your greatest strength isn't perfection.
+    let lastTypingSound = 0; 
 
-                <br>
+    let lastClickSound = 0; 
 
-                It's the way you care.
 
-            </p>
+    /* 
+     * Create AudioContext only when needed. 
+     * This avoids autoplay problems on Chrome/Android. 
+     */ 
 
-        </div>
+    function createAudioEngine() { 
 
-    </div>
+        if (audioContext) { 
+            return true; 
+        } 
 
+        try { 
 
-    <!-- =====================================================
-         MOON MODAL
-    ===================================================== -->
+            const AudioContext = 
+                window.AudioContext || 
+                window.webkitAudioContext; 
 
-    <div
-        id="moonModal"
-        class="modal">
+            if (!AudioContext) { 
+                return false; 
+            } 
 
-        <div class="modal-backdrop"></div>
+            audioContext = new AudioContext(); 
 
-        <div class="modal-card">
+            masterGain = 
+                audioContext.createGain(); 
 
-            <button class="close" data-close>
-                ×
-            </button>
+            musicGain = 
+                audioContext.createGain(); 
 
-            <div class="modal-icon">
-                🌙
-            </div>
+            sfxGain = 
+                audioContext.createGain(); 
 
-            <div class="modal-number">
-                THE MOON REMEMBERS
-            </div>
 
-            <h2>
-                Our Moon
-            </h2>
+            /* 
+             * Overall volume. 
+             */ 
 
-            <div
-                id="moonVisual"
-                class="moon">
-            </div>
+            masterGain.gain.value = 0.75; 
 
-            <div
-                id="moonPhase"
-                class="moon-phase">
-                NEW MOON
-            </div>
+            /* 
+             * BGM is intentionally quiet. 
+             */ 
 
-            <p
-                id="moonMessage"
-                class="moon-message">
+            musicGain.gain.value = 0.16; 
 
-                Every story begins in darkness...
-                before the first light appears.
+            /* 
+             * Effects slightly louder than music. 
+             */ 
 
-            </p>
+            sfxGain.gain.value = 0.55; 
 
-            <button
-                id="nextMoon"
-                class="cosmic-button">
 
-                CHANGE THE MOON ✦
+            musicGain.connect(masterGain); 
 
-            </button>
+            sfxGain.connect(masterGain); 
 
-        </div>
+            masterGain.connect( 
+                audioContext.destination 
+            ); 
 
-    </div>
 
+            return true; 
 
-    <!-- =====================================================
-         ORACLE MODAL
-    ===================================================== -->
+        } catch (error) { 
 
-    <div
-        id="oracleModal"
-        class="modal">
+            console.warn( 
+                "Audio engine could not start:", 
+                error 
+            ); 
 
-        <div class="modal-backdrop"></div>
+            return false; 
+        } 
+    } 
 
-        <div class="modal-card">
 
-            <button class="close" data-close>
-                ×
-            </button>
+    /* 
+     * Resume audio after a real user interaction. 
+     */ 
 
-            <div class="modal-icon">
-                🔮
-            </div>
+    async function unlockAudio() { 
 
-            <div class="modal-number">
-                COSMIC ORACLE
-            </div>
+        if (!createAudioEngine()) { 
+            return false; 
+        } 
 
-            <h2>
-                Ask The Universe
-            </h2>
+        try { 
 
-            <div class="oracle-orb">
-                ✦
-            </div>
+            if ( 
+                audioContext.state === "suspended" 
+            ) { 
 
-            <p
-                id="oracleText"
-                class="modal-text">
+                await audioContext.resume(); 
 
-                The universe is listening...
-                Choose something you want to know.
+            } 
 
-            </p>
+            audioStarted = true; 
 
-            <div class="oracle-options">
+            return true; 
 
-                <button
-                    class="oracle-option"
-                    data-oracle="love">
-                    ❤️ LOVE
-                </button>
+        } catch (error) { 
 
-                <button
-                    class="oracle-option"
-                    data-oracle="us">
-                    ♡ US
-                </button>
+            console.warn( 
+                "Audio resume failed:", 
+                error 
+            ); 
 
-                <button
-                    class="oracle-option"
-                    data-oracle="future">
-                    🔮 FUTURE
-                </button>
+            return false; 
+        } 
+    } 
 
-            </div>
 
-        </div>
+    /* ========================================================= 
+       GENERIC OSCILLATOR 
+    ========================================================= */ 
 
-    </div>
+    function playTone( 
+        frequency, 
+        duration, 
+        type, 
+        volume, 
+        destination, 
+        delay = 0 
+    ) { 
 
+        if (!audioContext) { 
+            return; 
+        } 
 
-    <!-- =====================================================
-         COMPATIBILITY MODAL
-    ===================================================== -->
+        const now = 
+            audioContext.currentTime + delay; 
 
-    <div
-        id="compatModal"
-        class="modal">
+        const oscillator = 
+            audioContext.createOscillator(); 
 
-        <div class="modal-backdrop"></div>
+        const gain = 
+            audioContext.createGain(); 
 
-        <div class="modal-card">
 
-            <button class="close" data-close>
-                ×
-            </button>
+        oscillator.type = type; 
 
-            <div class="modal-icon">
-                ♡
-            </div>
+        oscillator.frequency.setValueAtTime( 
+            frequency, 
+            now 
+        ); 
 
-            <div class="modal-number">
-                COSMIC COMPATIBILITY
-            </div>
 
-            <h2>
-                Two Little Worlds
-            </h2>
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-            <div class="compatibility">
+        gain.gain.exponentialRampToValueAtTime( 
+            Math.max(volume, 0.0001), 
+            now + 0.015 
+        ); 
 
-                <div class="sign-box">
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + duration 
+        ); 
 
-                    <div class="sign-symbol">
-                        ♍
-                    </div>
 
-                    <div class="sign-name">
-                        TISHA
-                        <br>
-                        VIRGO
-                    </div>
+        oscillator.connect(gain); 
 
-                </div>
+        gain.connect(destination); 
 
-                <div class="compat-heart">
-                    ♡
-                </div>
 
-                <div class="sign-box">
+        oscillator.start(now); 
 
-                    <div class="sign-symbol">
-                        ♋
-                    </div>
+        oscillator.stop( 
+            now + duration + 0.03 
+        ); 
+    } 
 
-                    <div class="sign-name">
-                        RITESH
-                        <br>
-                        CANCER
-                    </div>
 
-                </div>
+    /* ========================================================= 
+       SOFT UI CLICK 
+    ========================================================= */ 
 
-            </div>
+    function playClick() { 
 
-            <div class="compat-score">
+        const now = 
+            performance.now(); 
 
-                <div class="score-number">
-                    96%
-                </div>
+        /* 
+         * Prevent accidental double clicks 
+         * from producing a harsh repeated sound. 
+         */ 
 
-                <div class="score-label">
-                    COSMIC MATCH
-                </div>
+        if ( 
+            now - lastClickSound < 90 
+        ) { 
+            return; 
+        } 
 
-            </div>
+        lastClickSound = now; 
 
-            <p class="modal-text">
+        if (!audioStarted) { 
+            return; 
+        } 
 
-                <strong>
-                    Earth 🌍 + Water 🌊
-                </strong>
+        playTone( 
+            880, 
+            0.055, 
+            "sine", 
+            0.075, 
+            sfxGain 
+        ); 
 
-                <br><br>
+        playTone( 
+            1320, 
+            0.035, 
+            "sine", 
+            0.025, 
+            sfxGain, 
+            0.015 
+        ); 
+    } 
 
-                One gives the other somewhere to grow.
 
-                <br><br>
+    /* ========================================================= 
+       ENVELOPE OPENING SOUND 
+    ========================================================= */ 
 
-                Virgo notices the details.
-                Cancer remembers the feelings.
+    function playEnvelopeOpen() { 
 
-                <br><br>
+        if (!audioStarted) { 
+            return; 
+        } 
 
-                One brings stability.
-                The other brings depth.
+        if (!audioContext) { 
+            return; 
+        } 
 
-                <br><br>
+        const now = 
+            audioContext.currentTime; 
 
-                And together...
+        const oscillator = 
+            audioContext.createOscillator(); 
 
-                <br>
+        const gain = 
+            audioContext.createGain(); 
 
-                <strong>
-                    they make a surprisingly beautiful orbit.
-                </strong>
+        oscillator.type = "sine"; 
 
-            </p>
+        oscillator.frequency.setValueAtTime( 
+            320, 
+            now 
+        ); 
 
+        oscillator.frequency.exponentialRampToValueAtTime( 
+            760, 
+            now + 0.55 
+        ); 
 
-            <div class="compat-bars">
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-                <div class="compat-row">
+        gain.gain.exponentialRampToValueAtTime( 
+            0.10, 
+            now + 0.08 
+        ); 
 
-                    <span>
-                        TRUST
-                    </span>
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + 0.65 
+        ); 
 
-                    <div class="compat-bar">
-                        <div
-                            class="compat-fill"
-                            data-width="94%">
-                        </div>
-                    </div>
+        oscillator.connect(gain); 
 
-                    <span>
-                        94
-                    </span>
+        gain.connect(sfxGain); 
 
-                </div>
+        oscillator.start(now); 
 
+        oscillator.stop( 
+            now + 0.7 
+        ); 
 
-                <div class="compat-row">
 
-                    <span>
-                        UNDERSTANDING
-                    </span>
+        /* 
+         * Tiny sparkle at the end. 
+         */ 
 
-                    <div class="compat-bar">
-                        <div
-                            class="compat-fill"
-                            data-width="91%">
-                        </div>
-                    </div>
+        playTone( 
+            1174, 
+            0.22, 
+            "sine", 
+            0.035, 
+            sfxGain, 
+            0.42 
+        ); 
 
-                    <span>
-                        91
-                    </span>
+        playTone( 
+            1568, 
+            0.26, 
+            "sine", 
+            0.025, 
+            sfxGain, 
+            0.50 
+        ); 
+    } 
 
-                </div>
 
+    /* ========================================================= 
+       PASSWORD TYPING SOUND 
+    ========================================================= */ 
 
-                <div class="compat-row">
+    function playTypingSound() { 
 
-                    <span>
-                        FUN
-                    </span>
+        if (!audioStarted) { 
+            return; 
+        } 
 
-                    <div class="compat-bar">
-                        <div
-                            class="compat-fill"
-                            data-width="96%">
-                        </div>
-                    </div>
+        const now = 
+            performance.now(); 
 
-                    <span>
-                        96
-                    </span>
+        /* 
+         * IMPORTANT: 
+         * 
+         * Do NOT make a sound for every single 
+         * keypress. This throttle makes typing 
+         * feel tactile without becoming annoying. 
+         */ 
 
-                </div>
+        if ( 
+            now - lastTypingSound < 95 
+        ) { 
+            return; 
+        } 
 
+        lastTypingSound = now; 
 
-                <div class="compat-row">
+        const notes = [ 
+            740, 
+            830, 
+            780, 
+            900 
+        ]; 
 
-                    <span>
-                        EMOTION
-                    </span>
+        const frequency = 
+            notes[ 
+                Math.floor( 
+                    Math.random() * 
+                    notes.length 
+                ) 
+            ]; 
 
-                    <div class="compat-bar">
-                        <div
-                            class="compat-fill"
-                            data-width="97%">
-                        </div>
-                    </div>
+        playTone( 
+            frequency, 
+            0.045, 
+            "sine", 
+            0.035, 
+            sfxGain 
+        ); 
+    } 
 
-                    <span>
-                        97
-                    </span>
 
-                </div>
+    /* ========================================================= 
+       WRONG PASSWORD 
+    ========================================================= */ 
 
-            </div>
+    function playWrongSound() { 
 
-            <p class="modal-text"
-               style="margin-top:20px">
+        if (!audioStarted) { 
+            return; 
+        } 
 
-                <strong>
-                    Cosmic weakness detected:
-                </strong>
+        if (!audioContext) { 
+            return; 
+        } 
 
-                <br>
+        const now = 
+            audioContext.currentTime; 
 
-                Both of you are capable of
-                overthinking absolutely everything. 😂
+        const oscillator = 
+            audioContext.createOscillator(); 
 
-            </p>
+        const gain = 
+            audioContext.createGain(); 
 
-        </div>
 
-    </div>
+        oscillator.type = "sine"; 
 
+        oscillator.frequency.setValueAtTime( 
+            330, 
+            now 
+        ); 
 
-    <!-- =====================================================
-         TISHA PLANET MODAL
-    ===================================================== -->
+        oscillator.frequency.exponentialRampToValueAtTime( 
+            180, 
+            now + 0.22 
+        ); 
 
-    <div
-        id="planetModal"
-        class="modal">
 
-        <div class="modal-backdrop"></div>
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-        <div class="modal-card">
+        gain.gain.exponentialRampToValueAtTime( 
+            0.12, 
+            now + 0.025 
+        ); 
 
-            <button class="close" data-close>
-                ×
-            </button>
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + 0.30 
+        ); 
 
-            <div class="modal-icon">
-                🪐
-            </div>
 
-            <div class="modal-number">
-                PLANET TISHA
-            </div>
+        oscillator.connect(gain); 
 
-            <h2>
-                Tisha's World
-            </h2>
+        gain.connect(sfxGain); 
 
-            <p class="modal-text">
+        oscillator.start(now); 
 
-                Somewhere in this enormous universe...
+        oscillator.stop( 
+            now + 0.34 
+        ); 
+    } 
 
-                <br><br>
 
-                there is a tiny world filled with
-                laughter, stubbornness, kindness,
-                beautiful chaos and a little too much
-                overthinking. 😂
+    /* ========================================================= 
+       SUCCESS SOUND 
+    ========================================================= */ 
 
-                <br><br>
+    function playSuccessSound() { 
 
-                Its atmosphere is approximately:
+        if (!audioStarted) { 
+            return; 
+        } 
 
-                <br><br>
+        /* 
+         * Soft magical three-note progression. 
+         */ 
 
-                <strong>
-                    40% laughter<br>
-                    25% kindness<br>
-                    20% chaos<br>
-                    15% “Riteshhh...” ❤️
-                </strong>
+        playTone( 
+            523.25, 
+            0.30, 
+            "sine", 
+            0.075, 
+            sfxGain 
+        ); 
 
-                <br><br>
+        playTone( 
+            659.25, 
+            0.32, 
+            "sine", 
+            0.065, 
+            sfxGain, 
+            0.10 
+        ); 
 
-                Population:
+        playTone( 
+            783.99, 
+            0.50, 
+            "sine", 
+            0.075, 
+            sfxGain, 
+            0.20 
+        ); 
 
-                <br>
 
-                <strong>
-                    1 very special girl.
-                </strong>
+        /* 
+         * Tiny sparkle. 
+         */ 
 
-            </p>
+        playTone( 
+            1046.50, 
+            0.30, 
+            "sine", 
+            0.035, 
+            sfxGain, 
+            0.38 
+        ); 
 
-        </div>
+        playTone( 
+            1318.51, 
+            0.34, 
+            "sine", 
+            0.025, 
+            sfxGain, 
+            0.48 
+        ); 
+    } 
 
-    </div>
 
+    /* ========================================================= 
+       PAGE TRANSITION SOUND 
+    ========================================================= */ 
 
-    <!-- =====================================================
-         SECRET MESSAGE
-    ===================================================== -->
+    function playTransitionSound() { 
 
-    <div
-        id="secretMessage"
-        class="secret-message">
+        if (!audioStarted) { 
+            return; 
+        } 
 
-        <h3>
-            Transmission Received
-        </h3>
+        if (!audioContext) { 
+            return; 
+        } 
 
-        <p id="secretText">
-            ...
-        </p>
+        const now = 
+            audioContext.currentTime; 
 
-        <button
-            class="cosmic-button"
-            data-secret-close>
+        const oscillator = 
+            audioContext.createOscillator(); 
 
-            CLOSE TRANSMISSION
+        const gain = 
+            audioContext.createGain(); 
 
-        </button>
 
-    </div>
+        oscillator.type = "sine"; 
 
+        oscillator.frequency.setValueAtTime( 
+            220, 
+            now 
+        ); 
 
-    <!-- =====================================================
-         FINAL UNIVERSE
-    ===================================================== -->
+        oscillator.frequency.exponentialRampToValueAtTime( 
+            880, 
+            now + 0.85 
+        ); 
 
-    <section
-        id="finalUniverse"
-        class="final-universe">
 
-        <div class="final-content">
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-            <div
-                id="finalConstellation"
-                class="final-constellation">
-            </div>
+        gain.gain.exponentialRampToValueAtTime( 
+            0.10, 
+            now + 0.15 
+        ); 
 
-            <h2>
-                You Found The Stars.
-            </h2>
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + 1.05 
+        ); 
 
-            <p>
 
-                You thought you were exploring
-                the universe...
+        oscillator.connect(gain); 
 
-                <br><br>
+        gain.connect(sfxGain); 
 
-                but every star was actually
-                a little piece of us.
+        oscillator.start(now); 
 
-                <br><br>
+        oscillator.stop( 
+            now + 1.1 
+        ); 
 
-                And somehow...
 
-                <br>
+        /* 
+         * Sparkle at transition peak. 
+         */ 
 
-                <span class="script">
-                    you became my favourite part of it.
-                </span>
+        playTone( 
+            1174, 
+            0.28, 
+            "sine", 
+            0.035, 
+            sfxGain, 
+            0.65 
+        ); 
 
-            </p>
+        playTone( 
+            1568, 
+            0.32, 
+            "sine", 
+            0.025, 
+            sfxGain, 
+            0.76 
+        ); 
+    } 
 
-            <button
-                id="finalButton"
-                class="cosmic-button">
 
-                ENTER THE FINAL CHAPTER → 
+    /* ========================================================= 
+       BGM — SYNTHESIZED ROMANTIC MUSIC BOX 
+    ========================================================= */ 
 
-            </button>
+    const melody = [ 
 
-        </div>
+        523.25, 
+        659.25, 
+        783.99, 
+        659.25, 
 
-    </section>
+        587.33, 
+        698.46, 
+        880.00, 
+        698.46, 
 
+        523.25, 
+        659.25, 
+        783.99, 
+        987.77, 
 
-</div>
+        880.00, 
+        783.99, 
+        659.25, 
+        587.33 
 
+    ]; 
 
-<!-- MUSIC -->
 
-<button
-    id="musicButton"
-    class="music"
-    aria-label="Music">
+    const bassNotes = [ 
 
-    ♫
+        261.63, 
+        293.66, 
+        220.00, 
+        246.94 
 
-</button>
+    ]; 
 
 
-<div id="pageTransition"></div>
+    function playMusicNote( 
+        frequency, 
+        duration, 
+        volume 
+    ) { 
 
+        if (!audioContext) { 
+            return; 
+        } 
 
-<script>
+        const now = 
+            audioContext.currentTime; 
 
-/* =========================================================
-   UNIVERSE CONFIGURATION
-========================================================= */
+        const oscillator = 
+            audioContext.createOscillator(); 
 
-const TISHA_DOB =
-    "03/09/2005";
+        const gain = 
+            audioContext.createGain(); 
 
-const RITESH_DOB =
-    "30/06/2001";
 
+        oscillator.type = "triangle"; 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+        oscillator.frequency.setValueAtTime( 
+            frequency, 
+            now 
+        ); 
 
-const stars =
-    document.getElementById("stars");
 
-const intro =
-    document.getElementById("intro");
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-const observatory =
-    document.getElementById("observatory");
+        gain.gain.exponentialRampToValueAtTime( 
+            volume, 
+            now + 0.035 
+        ); 
 
-const enterUniverse =
-    document.getElementById("enterUniverse");
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + duration 
+        ); 
 
-const memoryStars =
-    document.querySelectorAll(".memory-star");
 
-const memoryModal =
-    document.getElementById("memoryModal");
+        oscillator.connect(gain); 
 
-const zodiacModal =
-    document.getElementById("zodiacModal");
+        gain.connect(musicGain); 
 
-const moonModal =
-    document.getElementById("moonModal");
+        oscillator.start(now); 
 
-const oracleModal =
-    document.getElementById("oracleModal");
+        oscillator.stop( 
+            now + duration + 0.05 
+        ); 
+    } 
 
-const compatModal =
-    document.getElementById("compatModal");
 
-const planetModal =
-    document.getElementById("planetModal");
+    function playBassNote( 
+        frequency, 
+        duration 
+    ) { 
 
-const finalUniverse =
-    document.getElementById("finalUniverse");
+        if (!audioContext) { 
+            return; 
+        } 
 
-const energyFill =
-    document.getElementById("energyFill");
+        const now = 
+            audioContext.currentTime; 
 
-const energyText =
-    document.getElementById("energyText");
+        const oscillator = 
+            audioContext.createOscillator(); 
 
+        const gain = 
+            audioContext.createGain(); 
 
-/* =========================================================
-   AUDIO ENGINE
-========================================================= */
 
-let audioContext = null;
-let masterGain = null;
-let musicGain = null;
-let musicTimer = null;
-let musicPlaying = false;
+        oscillator.type = "sine"; 
 
-function initAudio(){
+        oscillator.frequency.setValueAtTime( 
+            frequency, 
+            now 
+        ); 
 
-    if(audioContext) return;
 
-    audioContext =
-        new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
+        gain.gain.setValueAtTime( 
+            0.0001, 
+            now 
+        ); 
 
-    masterGain =
-        audioContext.createGain();
+        gain.gain.exponentialRampToValueAtTime( 
+            0.035, 
+            now + 0.08 
+        ); 
 
-    musicGain =
-        audioContext.createGain();
+        gain.gain.exponentialRampToValueAtTime( 
+            0.0001, 
+            now + duration 
+        ); 
 
-    masterGain.gain.value = .22;
-    musicGain.gain.value = .035;
 
-    musicGain.connect(masterGain);
-    masterGain.connect(
-        audioContext.destination
-    );
-}
+        oscillator.connect(gain); 
 
+        gain.connect(musicGain); 
 
-function tone(
-    frequency,
-    duration=.4,
-    type="sine",
-    volume=.04
-){
+        oscillator.start(now); 
 
-    if(!audioContext) return;
+        oscillator.stop( 
+            now + duration + 0.05 
+        ); 
+    } 
 
-    const osc =
-        audioContext.createOscillator();
 
-    const gain =
-        audioContext.createGain();
+    function musicLoop() { 
 
-    osc.type = type;
-    osc.frequency.value = frequency;
+        if (!audioStarted) { 
+            return; 
+        } 
 
-    gain.gain.setValueAtTime(
-        0,
-        audioContext.currentTime
-    );
+        if (!musicEnabled) { 
+            return; 
+        } 
 
-    gain.gain.linearRampToValueAtTime(
-        volume,
-        audioContext.currentTime + .03
-    );
+        const note = 
+            melody[musicStep % melody.length]; 
 
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        audioContext.currentTime + duration
-    );
+        const bass = 
+            bassNotes[ 
+                Math.floor( 
+                    musicStep / 4 
+                ) % 
+                bassNotes.length 
+            ]; 
 
-    osc.connect(gain);
-    gain.connect(masterGain);
 
-    osc.start();
-    osc.stop(
-        audioContext.currentTime +
-        duration
-    );
-}
+        playMusicNote( 
+            note, 
+            0.62, 
+            0.045 
+        ); 
 
 
-function cosmicClick(){
+        /* 
+         * Bass only every fourth note. 
+         */ 
 
-    tone(523,.15,"sine",.045);
+        if ( 
+            musicStep % 4 === 0 
+        ) { 
 
-    setTimeout(()=>{
-        tone(784,.25,"sine",.025);
-    },70);
-}
+            playBassNote( 
+                bass, 
+                1.8 
+            ); 
 
+        } 
 
-function magicalReveal(){
 
-    tone(392,.4,"sine",.04);
+        /* 
+         * Very occasional high sparkle. 
+         */ 
 
-    setTimeout(()=>{
-        tone(523,.5,"sine",.035);
-    },120);
+        if ( 
+            musicStep % 8 === 6 
+        ) { 
 
-    setTimeout(()=>{
-        tone(659,.7,"sine",.03);
-    },240);
-}
+            playMusicNote( 
+                note * 2, 
+                0.22, 
+                0.018 
+            ); 
 
+        } 
 
-function constellationSound(){
 
-    tone(330,.3,"sine",.035);
+        musicStep++; 
 
-    setTimeout(()=>{
-        tone(440,.4,"sine",.035);
-    },150);
 
-    setTimeout(()=>{
-        tone(660,.7,"sine",.04);
-    },300);
-}
+        musicTimer = 
+            setTimeout( 
+                musicLoop, 
+                650 
+            ); 
+    } 
 
 
-function startMusic(){
+    function startMusic() { 
 
-    if(!audioContext) return;
+        if (!audioStarted) { 
+            return; 
+        } 
 
-    if(audioContext.state === "suspended"){
-        audioContext.resume();
-    }
+        if (!musicEnabled) { 
+            return; 
+        } 
 
-    if(musicPlaying) return;
+        if (musicTimer) { 
+            return; 
+        } 
 
-    musicPlaying = true;
+        musicStep = 0; 
 
-    const notes =
-        [
-            261.63,
-            329.63,
-            392,
-            493.88,
-            392,
-            329.63
-        ];
+        musicLoop(); 
 
-    let index = 0;
+        if (musicControl) { 
 
-    musicTimer =
-        setInterval(()=>{
+            musicControl.classList.add( 
+                "visible" 
+            ); 
 
-            if(!musicPlaying) return;
+            musicControl.classList.remove( 
+                "muted" 
+            ); 
+        } 
+    } 
 
-            const osc =
-                audioContext.createOscillator();
 
-            const gain =
-                audioContext.createGain();
+    function stopMusic() { 
 
-            osc.type="sine";
+        if (musicTimer) { 
 
-            osc.frequency.value =
-                notes[index];
+            clearTimeout( 
+                musicTimer 
+            ); 
 
-            gain.gain.value=.018;
+            musicTimer = null; 
+        } 
 
-            osc.connect(gain);
-            gain.connect(musicGain);
+        if (musicControl) { 
 
-            osc.start();
+            musicControl.classList.add( 
+                "muted" 
+            ); 
+        } 
+    } 
 
-            gain.gain.exponentialRampToValueAtTime(
-                .001,
-                audioContext.currentTime + 2.5
-            );
 
-            osc.stop(
-                audioContext.currentTime + 2.5
-            );
+    function toggleMusic() { 
 
-            index =
-                (index + 1) %
-                notes.length;
+        if (!audioStarted) { 
+            return; 
+        } 
 
-        },2200);
-}
+        musicEnabled = 
+            !musicEnabled; 
 
+        if (musicEnabled) { 
 
-function stopMusic(){
+            startMusic(); 
 
-    musicPlaying=false;
+        } else { 
 
-    if(musicTimer){
-        clearInterval(musicTimer);
-        musicTimer=null;
-    }
-}
+            stopMusic(); 
 
+        } 
+    } 
 
-document
-.getElementById("musicButton")
-.addEventListener("click",()=>{
 
-    initAudio();
+    /* ========================================================= 
+       START AUDIO AFTER USER INTERACTION 
+    ========================================================= */ 
 
-    if(musicPlaying){
+    async function startAudioFromInteraction() { 
 
-        stopMusic();
+        const started = 
+            await unlockAudio(); 
 
-        document
-        .getElementById("musicButton")
-        .textContent="♫";
+        if (!started) { 
+            return; 
+        } 
 
-    }else{
+        /* 
+         * Start the gentle BGM only once. 
+         */ 
 
-        startMusic();
+        startMusic(); 
+    } 
 
-        document
-        .getElementById("musicButton")
-        .textContent="◼";
 
-    }
+    /* ========================================================= 
+       LOADING SCREEN 
+    ========================================================= */ 
+
+    setTimeout(function () { 
+
+        if (loadingScreen) { 
+
+            loadingScreen.classList.add( 
+                "hide" 
+            ); 
+
+        } 
+
+    }, 1500); 
+
+
+    /* ========================================================= 
+       SCREEN TRANSITION 
+    ========================================================= */ 
+
+    function showScreen( 
+        screenToShow 
+    ) { 
+
+        const screens = [ 
+
+            giftScreen, 
+            entranceScreen, 
+            passwordScreen 
+
+        ]; 
+
+
+        screens.forEach( 
+            function (screen) { 
+
+                if (screen) { 
+
+                    screen.classList.remove( 
+                        "active" 
+                    ); 
+
+                } 
+
+            } 
+        ); 
+
+
+        setTimeout( 
+            function () { 
+
+                if (screenToShow) { 
+
+                    screenToShow.classList.add( 
+                        "active" 
+                    ); 
+
+                } 
+
+            }, 
+            120 
+        ); 
+    } 
+
+
+    /* ========================================================= 
+       CONFETTI 
+    ========================================================= */ 
+
+    function createConfetti(amount) { 
+
+        if (!confettiLayer) { 
+            return; 
+        } 
+
+
+        for ( 
+            let i = 0; 
+            i < amount; 
+            i++ 
+        ) { 
+
+            const piece = 
+                document.createElement( 
+                    "span" 
+                ); 
+
+            piece.className = 
+                "confetti-piece"; 
+
+
+            const left = 
+                Math.random() * 100; 
+
+            const rotation = 
+                Math.random() * 360; 
+
+            const delay = 
+                Math.random() * 0.3; 
+
+            const sizes = 
+                5 + Math.random() * 5; 
+
+
+            piece.style.left = 
+                left + "%"; 
+
+            piece.style.top = 
+                (Math.random() * 12) + "%"; 
+
+            piece.style.width = 
+                sizes + "px"; 
+
+            piece.style.height = 
+                (sizes * 1.5) + "px"; 
+
+            piece.style.transform = 
+                "rotate(" + 
+                rotation + 
+                "deg)"; 
+
+            piece.style.animationDelay = 
+                delay + "s"; 
+
+
+            confettiLayer.appendChild( 
+                piece 
+            ); 
+
+
+            setTimeout( 
+                function () { 
+
+                    piece.remove(); 
+
+                }, 
+                2300 
+            ); 
+        } 
+    } 
+
+
+    /* ========================================================= 
+       OPEN ENVELOPE 
+    ========================================================= */ 
+
+    async function openGift() { 
+
+        if (!envelope) { 
+            return; 
+        } 
+
+
+        if ( 
+            envelope.classList.contains( 
+                "opening" 
+            ) 
+        ) { 
+
+            return; 
+
+        } 
+
+
+        /* 
+         * This click is a genuine user gesture. 
+         * Unlock audio here. 
+         */ 
+
+        await startAudioFromInteraction(); 
+
+
+        envelope.classList.add( 
+            "opening" 
+        ); 
+
+
+        if (openGiftButton) { 
+
+            openGiftButton.disabled = 
+                true; 
+
+        } 
+
+
+        /* 
+         * Only TWO audio events here: 
+         * 
+         * 1. subtle click 
+         * 2. envelope opening 
+         * 
+         * No unnecessary confetti sound. 
+         */ 
+
+        playClick(); 
+
+        setTimeout( 
+            function () { 
+
+                playEnvelopeOpen(); 
+
+            }, 
+            90 
+        ); 
+
+
+        createConfetti(28); 
+
+
+        setTimeout( 
+            function () { 
+
+                showScreen( 
+                    entranceScreen 
+                ); 
+
+            }, 
+            850 
+        ); 
+    } 
+
+
+    if (openGiftButton) { 
+
+        openGiftButton.addEventListener( 
+            "click", 
+            openGift 
+        ); 
+
+    } 
+
+    if (envelope) { 
+
+        envelope.addEventListener( 
+            "click", 
+            openGift 
+        ); 
+
+    } 
+
+
+    /* ========================================================= 
+       ENTRANCE BUTTON 
+    ========================================================= */ 
+
+    if (curiousButton) { 
+
+        curiousButton.addEventListener( 
+            "click", 
+            async function () { 
+
+                await startAudioFromInteraction(); 
+
+                playClick(); 
+
+                showScreen( 
+                    passwordScreen 
+                ); 
+
+
+                setTimeout( 
+                    function () { 
+
+                        if (passwordInput) { 
+
+                            passwordInput.focus(); 
+
+                        } 
+
+                    }, 
+                    700 
+                ); 
+
+            } 
+        ); 
+    } 
+
+
+    /* ========================================================= 
+       PASSWORD CHECK 
+    ========================================================= */ 
+
+    async function checkPassword() { 
+
+        if (!passwordInput) { 
+            return; 
+        } 
+
+
+        await startAudioFromInteraction(); 
+
+
+        const enteredPassword = 
+            passwordInput.value.trim(); 
+
+
+        if ( 
+            enteredPassword === 
+            correctPassword 
+        ) { 
+
+
+            /* 
+             * Button click is intentionally 
+             * not played again here. 
+             * 
+             * The success sound takes over. 
+             */ 
+
+            if (unlockButton) { 
+
+                unlockButton.disabled = 
+                    true; 
+
+                unlockButton.textContent = 
+                    "CHECKING... 👀"; 
+
+            } 
+
+
+            passwordInput.classList.add( 
+                "unlock-success" 
+            ); 
+
+
+            playSuccessSound(); 
+
+            createConfetti(35); 
+
+
+            setTimeout( 
+                function () { 
+
+                    if (unlockButton) { 
+
+                        unlockButton.textContent = 
+                            "✓ IT'S HER! ❤️"; 
+
+                    } 
+
+                }, 
+                600 
+            ); 
+
+
+            setTimeout( 
+                function () { 
+
+                    if (successPopup) { 
+
+                        successPopup.classList.add( 
+                            "show" 
+                        ); 
+
+                    } 
+
+                }, 
+                1100 
+            ); 
+
+
+        } else { 
+
+
+            /* 
+             * Wrong password gets ONE sound only. 
+             */ 
+
+            playWrongSound(); 
+
+
+            passwordInput.value = ""; 
+
+            if (wrongPopup) { 
+
+                wrongPopup.classList.add( 
+                    "show" 
+                ); 
+
+            } 
+        } 
+    } 
+
+
+    if (unlockButton) { 
+
+        unlockButton.addEventListener( 
+            "click", 
+            async function () { 
+
+                await startAudioFromInteraction(); 
+
+                /* 
+                 * Don't add normal click sound here. 
+                 * Password result sound replaces it. 
+                 */ 
+
+                checkPassword(); 
+
+            } 
+        ); 
+
+    } 
+
+
+    /* ========================================================= 
+       PASSWORD ENTER KEY 
+    ========================================================= */ 
+
+    if (passwordInput) { 
+
+
+        passwordInput.addEventListener( 
+            "keydown", 
+            async function (event) { 
+
+                await startAudioFromInteraction(); 
+
+
+                if ( 
+                    event.key === "Enter" 
+                ) { 
+
+                    checkPassword(); 
+
+                } 
+
+            } 
+        ); 
+
+
+        /* 
+         * Password typing. 
+         */ 
+
+        passwordInput.addEventListener( 
+            "input", 
+            function () { 
+
+                const oldValue = 
+                    passwordInput.value; 
+
+
+                passwordInput.value = 
+                    passwordInput.value.replace( 
+                        /\D/g, 
+                        "" 
+                    ); 
+
+
+                if ( 
+                    passwordInput.value !== 
+                    oldValue 
+                ) { 
+                    return; 
+                } 
+
+
+                playTypingSound(); 
+
+            } 
+        ); 
+    } 
+
+
+    /* ========================================================= 
+       TRY AGAIN 
+    ========================================================= */ 
+
+    if (tryAgainButton) { 
+
+        tryAgainButton.addEventListener( 
+            "click", 
+            async function () { 
+
+                await startAudioFromInteraction(); 
+
+                playClick(); 
+
+
+                if (wrongPopup) { 
+
+                    wrongPopup.classList.remove( 
+                        "show" 
+                    ); 
+
+                } 
+
+
+                setTimeout( 
+                    function () { 
+
+                        if (passwordInput) { 
+
+                            passwordInput.focus(); 
+
+                        } 
+
+                    }, 
+                    300 
+                ); 
+
+            } 
+        ); 
+    } 
+
+
+    /* ========================================================= 
+       CONTINUE TO PAGE 2 
+    ========================================================= */ 
+
+    if (continueButton) { 
+
+        continueButton.addEventListener( 
+            "click", 
+            async function () { 
+
+                await startAudioFromInteraction(); 
+
+
+                if (successPopup) { 
+
+                    successPopup.classList.remove( 
+                        "show" 
+                    ); 
+
+                } 
+
+
+                /* 
+                 * Page transition gets its own 
+                 * sound sequence. 
+                 */ 
+
+                playTransitionSound(); 
+
+                createConfetti(45); 
+
+
+                /* 
+                 * Give the transition sound 
+                 * a moment before leaving. 
+                 */ 
+
+                setTimeout( 
+                    function () { 
+
+                        /* 
+                         * Stop our synthesized BGM. 
+                         */ 
+
+                        stopMusic(); 
+
+
+                        /* 
+                         * Page 2 filename. 
+                         */ 
+
+                        window.location.href = 
+                            "page2.html"; 
+
+                    }, 
+                    850 
+                ); 
+
+            } 
+        ); 
+    } 
+
+
+    /* ========================================================= 
+       MUSIC CONTROL 
+    ========================================================= */ 
+
+    if (musicControl) { 
+
+        musicControl.addEventListener( 
+            "click", 
+            async function () { 
+
+                await startAudioFromInteraction(); 
+
+                toggleMusic(); 
+
+            } 
+        ); 
+
+    } 
+
+
+    /* ========================================================= 
+       CLOSE WRONG POPUP 
+    ========================================================= */ 
+
+    if (wrongPopup) { 
+
+        wrongPopup.addEventListener( 
+            "click", 
+            function (event) { 
+
+                if ( 
+                    event.target === 
+                    wrongPopup 
+                ) { 
+
+                    wrongPopup.classList.remove( 
+                        "show" 
+                    ); 
+
+                } 
+
+            } 
+
+        ); 
+
+    } 
+
+
+    /* ========================================================= 
+       CLOSE SUCCESS POPUP 
+    ========================================================= */ 
+
+    if (successPopup) { 
+
+        successPopup.addEventListener( 
+            "click", 
+            function (event) { 
+
+                if ( 
+                    event.target === 
+                    successPopup 
+                ) { 
+
+                    successPopup.classList.remove( 
+                        "show" 
+                    ); 
+
+                } 
+
+            } 
+
+        ); 
+
+    } 
+
+
+    /* ========================================================= 
+       CAMERA EASTER EGGS 
+       INTENTIONALLY SILENT 
+    ========================================================= */ 
+
+    const cameras = 
+        document.querySelectorAll( 
+            ".camera" 
+        ); 
+
+
+    cameras.forEach( 
+        function (camera) { 
+
+            camera.addEventListener( 
+                "click", 
+                async function () { 
+
+                    /* 
+                     * Unlock audio if needed, 
+                     * but DO NOT play a sound. 
+                     */ 
+
+                    await startAudioFromInteraction(); 
+
+
+                    const message = 
+                        document.createElement( 
+                            "div" 
+                        ); 
+
+
+                    message.className = 
+                        "camera-message"; 
+
+
+                    const messages = [ 
+
+                        "Caught you snooping 👀", 
+
+                        "Smile, birthday girl! 📸", 
+
+                        "Okayyy, that's cute 😂", 
+
+                        "This camera has seen things... 🤫", 
+
+                        "You found me! 🌸" 
+
+                    ]; 
+
+
+                    const randomMessage = 
+                        messages[ 
+                            Math.floor( 
+                                Math.random() * 
+                                messages.length 
+                            ) 
+                        ]; 
+
+
+                    message.textContent = 
+                        randomMessage; 
+
+
+                    const rect = 
+                        camera.getBoundingClientRect(); 
+
+
+                    message.style.left = 
+                        rect.left + "px"; 
+
+
+                    message.style.top = 
+                        (rect.top - 45) + 
+                        "px"; 
+
+
+                    document.body.appendChild( 
+                        message 
+                    ); 
+
+
+                    /* 
+                     * Visual confetti only. 
+                     */ 
+
+                    createConfetti(8); 
+
+
+                    setTimeout( 
+                        function () { 
+
+                            message.remove(); 
+
+                        }, 
+                        1800 
+                    ); 
+
+                } 
+            ); 
+        } 
+    ); 
+
+
+    /* ========================================================= 
+       GLOBAL BUTTON CLICK SOUND 
+       ONLY FOR BUTTONS NOT ALREADY 
+       HANDLED BY SPECIAL AUDIO 
+    ========================================================= */ 
+
+    const ordinaryButtons = 
+        document.querySelectorAll( 
+            "button" 
+        ); 
+
+
+    ordinaryButtons.forEach( 
+        function (button) { 
+
+            button.addEventListener( 
+                "click", 
+                function () { 
+
+                    /* 
+                     * Special buttons already 
+                     * have their own sound. 
+                     */ 
+
+                    const specialButtons = [ 
+
+                        openGiftButton, 
+
+                        curiousButton, 
+
+                        unlockButton, 
+
+                        tryAgainButton, 
+
+                        continueButton, 
+
+                        musicControl 
+
+                    ]; 
+
+
+                    if ( 
+                        specialButtons.includes( 
+                            button 
+                        ) 
+                    ) { 
+
+                        return; 
+
+                    } 
+
+
+                    playClick(); 
+
+                } 
+            ); 
+
+        } 
+    ); 
+
+
+    /* ========================================================= 
+       CLEANUP WHEN PAGE IS HIDDEN 
+    ========================================================= */ 
+
+    document.addEventListener( 
+        "visibilitychange", 
+        function () { 
+
+            if (!audioContext) { 
+                return; 
+            } 
+
+
+            if ( 
+                document.hidden 
+            ) { 
+
+                if ( 
+                    audioContext.state === 
+                    "running" 
+                ) { 
+
+                    audioContext.suspend(); 
+
+                } 
+
+            } else { 
+
+                if ( 
+                    audioStarted && 
+                    musicEnabled 
+                ) { 
+
+                    audioContext 
+                        .resume() 
+                        .catch( 
+                            function () {} 
+                        ); 
+
+                } 
+
+            } 
+
+        } 
+    ); 
+
 
 });
-
-
-/* =========================================================
-   CREATE BACKGROUND STARS
-========================================================= */
-
-for(let i=0;i<180;i++){
-
-    const star =
-        document.createElement("span");
-
-    star.className="star";
-
-    if(Math.random()>.88){
-        star.classList.add("big");
-    }
-
-    star.style.left =
-        Math.random()*100+"%";
-
-    star.style.top =
-        Math.random()*100+"%";
-
-    star.style.setProperty(
-        "--duration",
-        (2+Math.random()*5)+"s"
-    );
-
-    star.style.animationDelay =
-        Math.random()*5+"s";
-
-    stars.appendChild(star);
-}
-
-
-/* =========================================================
-   DOB → ZODIAC
-========================================================= */
-
-function zodiacFromDOB(dateString){
-
-    const parts =
-        dateString.split("/");
-
-    const day =
-        Number(parts[0]);
-
-    const month =
-        Number(parts[1]);
-
-    if(
-        (month===3 && day>=21) ||
-        (month===4 && day<=19)
-    ) return "Aries";
-
-    if(
-        (month===4 && day>=20) ||
-        (month===5 && day<=20)
-    ) return "Taurus";
-
-    if(
-        (month===5 && day>=21) ||
-        (month===6 && day<=20)
-    ) return "Gemini";
-
-    if(
-        (month===6 && day>=21) ||
-        (month===7 && day<=22)
-    ) return "Cancer";
-
-    if(
-        (month===7 && day>=23) ||
-        (month===8 && day<=22)
-    ) return "Leo";
-
-    if(
-        (month===8 && day>=23) ||
-        (month===9 && day<=22)
-    ) return "Virgo";
-
-    if(
-        (month===9 && day>=23) ||
-        (month===10 && day<=22)
-    ) return "Libra";
-
-    if(
-        (month===10 && day>=23) ||
-        (month===11 && day<=21)
-    ) return "Scorpio";
-
-    if(
-        (month===11 && day>=22) ||
-        (month===12 && day<=21)
-    ) return "Sagittarius";
-
-    if(
-        (month===12 && day>=22) ||
-        (month===1 && day<=19)
-    ) return "Capricorn";
-
-    if(
-        (month===1 && day>=20) ||
-        (month===2 && day<=18)
-    ) return "Aquarius";
-
-    return "Pisces";
-}
-
-const tishaSign =
-    zodiacFromDOB(TISHA_DOB);
-
-const riteshSign =
-    zodiacFromDOB(RITESH_DOB);
-
-console.log(
-    "Tisha:",
-    tishaSign,
-    "Ritesh:",
-    riteshSign
-);
-
-
-/* =========================================================
-   DISCOVERY SYSTEM
-========================================================= */
-
-let discovery = 0;
-
-const discovered =
-    new Set();
-
-function addDiscovery(amount=10){
-
-    discovery =
-        Math.min(
-            100,
-            discovery + amount
-        );
-
-    energyFill.style.width =
-        discovery+"%";
-
-    energyText.textContent =
-        "COSMIC DISCOVERY "+
-        discovery+
-        "%";
-
-    if(discovery>=100){
-        setTimeout(
-            showFinalUniverse,
-            1000
-        );
-    }
-}
-
-
-/* =========================================================
-   ENTER UNIVERSE
-========================================================= */
-
-enterUniverse.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        startMusic();
-
-        cosmicClick();
-
-        intro.classList.remove("active");
-
-        setTimeout(()=>{
-
-            observatory.classList.add(
-                "active"
-            );
-
-            createMeteor();
-
-        },700);
-
-    }
-);
-
-
-/* =========================================================
-   MEMORY CONTENT
-========================================================= */
-
-const memories = [
-
-    {
-        title:"Our Beginning",
-        icon:"💫",
-        text:
-        `It all started with something so simple.
-
-        I sent you a follow request...
-        and one day, you accepted it.
-
-        Then came one tiny word that started
-        something much bigger than either of us knew...
-
-        "Hi." ❤️`
-    },
-
-    {
-        title:"12.03.26",
-        icon:"📅",
-        text:
-        `12.03.26.
-
-        Just a date on a calendar...
-
-        until it became the beginning of
-        countless conversations, little moments,
-        laughter and memories.`
-    },
-
-    {
-        title:"That First Day",
-        icon:"🥹",
-        text:
-        `One of my favourite little memories...
-
-        You falling asleep on my lap
-        when we were together for the first day.
-
-        Maybe it was a tiny moment.
-
-        But it made me feel incredibly lucky.`
-    },
-
-    {
-        title:"A Little Confession",
-        icon:"😂",
-        text:
-        `The first time I heard your voice,
-        I told you that you sounded very young.
-
-        Looking back...
-
-        I have absolutely no idea why
-        I thought saying that was a good idea. 😂`
-    },
-
-    {
-        title:"Something I Love",
-        icon:"✨",
-        text:
-        `I love how charismatic you are.
-
-        How interactive you are.
-        How full of life you are.
-
-        You have this energy that makes
-        being around you feel different...
-
-        and I absolutely love that about you.`
-    },
-
-    {
-        title:"A Secret",
-        icon:"❤️",
-        text:
-        `Here's something I hope you never forget.
-
-        I'm genuinely blessed to have you
-        as someone so close to me.
-
-        Around you, I feel comfortable.
-        I feel loved.
-
-        And you have a very special
-        place in my life. ❤️`
-    }
-
-];
-
-
-/* =========================================================
-   MEMORY MODAL
-========================================================= */
-
-let currentMemory=null;
-
-memoryStars.forEach(star=>{
-
-    star.addEventListener(
-        "click",
-        ()=>{
-
-            initAudio();
-            cosmicClick();
-
-            const index =
-                Number(
-                    star.dataset.memory
-                );
-
-            currentMemory=index;
-
-            const memory =
-                memories[index];
-
-            document
-            .getElementById("memoryIcon")
-            .textContent =
-                memory.icon;
-
-            document
-            .getElementById("memoryNumber")
-            .textContent =
-                "MEMORY "+
-                String(index+1)
-                .padStart(2,"0");
-
-            document
-            .getElementById("memoryTitle")
-            .textContent =
-                memory.title;
-
-            document
-            .getElementById("memoryText")
-            .textContent =
-                memory.text;
-
-            memoryModal.classList.add(
-                "show"
-            );
-
-        }
-    );
-
-});
-
-
-document
-.getElementById("memoryDone")
-.addEventListener(
-    "click",
-    ()=>{
-
-        if(currentMemory===null)
-            return;
-
-        const star =
-            memoryStars[currentMemory];
-
-        if(
-            !discovered.has(
-                currentMemory
-            )
-        ){
-
-            discovered.add(
-                currentMemory
-            );
-
-            star.classList.add(
-                "discovered"
-            );
-
-            addDiscovery(12);
-
-            drawMemoryConstellation();
-
-            constellationSound();
-
-        }
-
-        closeAllModals();
-
-    }
-);
-
-
-/* =========================================================
-   CONSTELLATION
-========================================================= */
-
-function drawMemoryConstellation(){
-
-    const svg =
-        document.getElementById(
-            "constellationCanvas"
-        );
-
-    svg.innerHTML="";
-
-    const list =
-        Array.from(discovered);
-
-    if(list.length<2)
-        return;
-
-    for(
-        let i=0;
-        i<list.length-1;
-        i++
-    ){
-
-        const a =
-            memoryStars[list[i]]
-            .getBoundingClientRect();
-
-        const b =
-            memoryStars[list[i+1]]
-            .getBoundingClientRect();
-
-        const x1 =
-            a.left+a.width/2;
-
-        const y1 =
-            a.top+a.height/2;
-
-        const x2 =
-            b.left+b.width/2;
-
-        const y2 =
-            b.top+b.height/2;
-
-        const line =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "line"
-            );
-
-        line.setAttribute(
-            "x1",
-            x1
-        );
-
-        line.setAttribute(
-            "y1",
-            y1
-        );
-
-        line.setAttribute(
-            "x2",
-            x2
-        );
-
-        line.setAttribute(
-            "y2",
-            y2
-        );
-
-        line.setAttribute(
-            "stroke",
-            "rgba(210,215,255,.65)"
-        );
-
-        line.setAttribute(
-            "stroke-width",
-            "1"
-        );
-
-        line.style.filter =
-            "drop-shadow(0 0 6px rgba(180,190,255,.9))";
-
-        svg.appendChild(line);
-    }
-
-}
-
-
-/* =========================================================
-   ZODIAC
-========================================================= */
-
-document
-.getElementById("zodiacButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        magicalReveal();
-
-        zodiacModal.classList.add(
-            "show"
-        );
-
-        if(
-            !discovered.has("zodiac")
-        ){
-
-            discovered.add("zodiac");
-
-            addDiscovery(10);
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MOON SYSTEM
-========================================================= */
-
-let moonIndex=0;
-
-const moonPhases = [
-
-    {
-        name:"NEW MOON",
-        background:
-        "radial-gradient(circle at 30% 30%,#15151c,#050509)",
-        text:
-        "Every story begins in darkness... before the first light appears."
-    },
-
-    {
-        name:"CRESCENT",
-        background:
-        "radial-gradient(circle at 25% 50%,transparent 0 35%,#dcd9ca 36% 100%)",
-        text:
-        "Tiny beginnings don't look important... until you realise where they eventually lead."
-    },
-
-    {
-        name:"FIRST QUARTER",
-        background:
-        "linear-gradient(90deg,#08080d 0 50%,#dedbca 50% 100%)",
-        text:
-        "Somewhere between two ordinary days, something extraordinary begins."
-    },
-
-    {
-        name:"GIBBOUS",
-        background:
-        "radial-gradient(circle at 35% 30%,#fffef2,#c9c6b9 70%)",
-        text:
-        "The little things slowly become the big things you never want to forget."
-    },
-
-    {
-        name:"FULL MOON",
-        background:
-        "radial-gradient(circle,#fffef2,#d4d0c0 70%,#8b897f)",
-        text:
-        "Some people simply feel familiar... as if your heart already knows them."
-    }
-
-];
-
-
-function updateMoon(){
-
-    const phase =
-        moonPhases[moonIndex];
-
-    document
-    .getElementById("moonVisual")
-    .style.background =
-        phase.background;
-
-    document
-    .getElementById("moonPhase")
-    .textContent =
-        phase.name;
-
-    document
-    .getElementById("moonMessage")
-    .textContent =
-        phase.text;
-
-}
-
-
-document
-.getElementById("moonButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        cosmicClick();
-
-        moonModal.classList.add(
-            "show"
-        );
-
-        if(
-            !discovered.has("moon")
-        ){
-
-            discovered.add("moon");
-            addDiscovery(10);
-
-        }
-
-        updateMoon();
-
-    }
-);
-
-
-document
-.getElementById("nextMoon")
-.addEventListener(
-    "click",
-    ()=>{
-
-        moonIndex =
-            (moonIndex+1) %
-            moonPhases.length;
-
-        updateMoon();
-
-        magicalReveal();
-
-    }
-);
-
-
-/* =========================================================
-   ORACLE
-========================================================= */
-
-const oracleReadings = {
-
-    love:[
-        "The stars suggest that your heart notices things before your mind does. And when you truly care... you care deeply. ❤️",
-
-        "Your cosmic reading says you are much softer than you pretend to be. Someone has probably noticed. 👀",
-
-        "The universe has detected an unusual amount of affection hiding underneath sarcasm, laughter and random chaos."
-    ],
-
-    us:[
-        "Two different energies. One shared orbit. Earth and Water don't have to be identical to grow something beautiful. 🌍🌊",
-
-        "The stars whisper that the strongest part of this connection isn't perfection... it's how naturally the little things become memories.",
-
-        "Cosmic observation complete: there appears to be one person who has somehow become unusually important to the other. ❤️"
-    ],
-
-    future:[
-        "Prediction: more photographs, more places, more ridiculous conversations and at least several moments beginning with 'Riteshhh...' 😂",
-
-        "The universe cannot provide an exact future... but this little reading predicts one thing: there are still many memories that haven't happened yet.",
-
-        "Forecast: unexpected adventures, sleepy conversations, tiny surprises and a suspiciously large collection of memories."
-    ]
-
-};
-
-
-document
-.querySelectorAll(".oracle-option")
-.forEach(button=>{
-
-    button.addEventListener(
-        "click",
-        ()=>{
-
-            initAudio();
-            magicalReveal();
-
-            const type =
-                button.dataset.oracle;
-
-            const list =
-                oracleReadings[type];
-
-            const result =
-                list[
-                    Math.floor(
-                        Math.random()*list.length
-                    )
-                ];
-
-            const text =
-                document.getElementById(
-                    "oracleText"
-                );
-
-            text.textContent =
-                "CONSULTING THE STARS...";
-
-            setTimeout(()=>{
-
-                text.textContent =
-                    result;
-
-            },900);
-
-        }
-    );
-
-});
-
-
-document
-.getElementById("oracleButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-
-        oracleModal.classList.add(
-            "show"
-        );
-
-        if(
-            !discovered.has("oracle")
-        ){
-
-            discovered.add("oracle");
-            addDiscovery(12);
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   COMPATIBILITY
-========================================================= */
-
-document
-.getElementById("compatibilityButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        magicalReveal();
-
-        compatModal.classList.add(
-            "show"
-        );
-
-        if(
-            !discovered.has("compat")
-        ){
-
-            discovered.add("compat");
-            addDiscovery(15);
-
-        }
-
-        setTimeout(()=>{
-
-            document
-            .querySelectorAll(".compat-fill")
-            .forEach(bar=>{
-
-                bar.style.width =
-                    bar.dataset.width;
-
-            });
-
-        },300);
-
-    }
-);
-
-
-/* =========================================================
-   PLANET
-========================================================= */
-
-document
-.getElementById("tishaPlanet")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        magicalReveal();
-
-        planetModal.classList.add(
-            "show"
-        );
-
-        if(
-            !discovered.has("planet")
-        ){
-
-            discovered.add("planet");
-            addDiscovery(8);
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   CLOSE MODALS
-========================================================= */
-
-function closeAllModals(){
-
-    document
-    .querySelectorAll(".modal")
-    .forEach(modal=>{
-        modal.classList.remove("show");
-    });
-
-    document
-    .getElementById("secretMessage")
-    .classList.remove("show");
-
-}
-
-
-document
-.querySelectorAll("[data-close]")
-.forEach(button=>{
-
-    button.addEventListener(
-        "click",
-        closeAllModals
-    );
-
-});
-
-
-document
-.querySelectorAll(".modal-backdrop")
-.forEach(backdrop=>{
-
-    backdrop.addEventListener(
-        "click",
-        closeAllModals
-    );
-
-});
-
-
-document
-.addEventListener(
-    "keydown",
-    event=>{
-
-        if(event.key==="Escape"){
-            closeAllModals();
-        }
-
-    }
-);
-
-
-/* =========================================================
-   SHOOTING STAR SYSTEM
-========================================================= */
-
-const secretMessages = [
-
-    "You make ordinary days feel less ordinary. ✦",
-
-    "The universe has officially confirmed that you are ridiculously cute. ❤️",
-
-    "Somewhere between all these stars... you became my favourite one.",
-
-    "Transmission from Ritesh: I still choose you. Every single time. ❤️",
-
-    "Cosmic secret #07: You have absolutely no idea how special you are.",
-
-    "The telescope searched the entire universe. Results inconclusive. Still haven't found anyone quite like you.",
-
-    "Warning: excessive levels of charm detected in this sector. 😂",
-
-    "One tiny prediction: there are still many beautiful memories waiting for us."
-];
-
-
-function createMeteor(){
-
-    const meteor =
-        document.createElement("div");
-
-    meteor.className =
-        "shooting-star";
-
-    meteor.style.left =
-        (65+Math.random()*35)+"%";
-
-    meteor.style.top =
-        (5+Math.random()*35)+"%";
-
-    document
-    .getElementById("space")
-    .appendChild(meteor);
-
-    meteor.addEventListener(
-        "click",
-        ()=>{
-
-            initAudio();
-            magicalReveal();
-
-            const message =
-                secretMessages[
-                    Math.floor(
-                        Math.random()*
-                        secretMessages.length
-                    )
-                ];
-
-            document
-            .getElementById("secretText")
-            .textContent =
-                message;
-
-            document
-            .getElementById("secretMessage")
-            .classList.add("show");
-
-            addDiscovery(3);
-
-            meteor.remove();
-
-        }
-    );
-
-    setTimeout(
-        ()=>{
-            meteor.remove();
-        },
-        1900
-    );
-
-}
-
-
-setInterval(
-    ()=>{
-
-        if(
-            observatory.classList
-            .contains("active")
-        ){
-
-            createMeteor();
-
-        }
-
-    },
-    5500
-);
-
-
-/* =========================================================
-   DEEP SPACE MESSAGE
-========================================================= */
-
-document
-.getElementById("messageButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-        magicalReveal();
-
-        const message =
-            secretMessages[
-                Math.floor(
-                    Math.random()*
-                    secretMessages.length
-                )
-            ];
-
-        document
-        .getElementById("secretText")
-        .textContent =
-            message;
-
-        document
-        .getElementById("secretMessage")
-        .classList.add("show");
-
-        if(
-            !discovered.has("message")
-        ){
-
-            discovered.add("message");
-            addDiscovery(8);
-
-        }
-
-    }
-);
-
-
-document
-.querySelector("[data-secret-close]")
-.addEventListener(
-    "click",
-    ()=>{
-        document
-        .getElementById("secretMessage")
-        .classList.remove("show");
-    }
-);
-
-
-/* =========================================================
-   FINAL CONSTELLATION
-========================================================= */
-
-function createFinalConstellation(){
-
-    const container =
-        document.getElementById(
-            "finalConstellation"
-        );
-
-    container.innerHTML="";
-
-    const points = [
-
-        [48,10],
-        [28,25],
-        [67,30],
-        [38,50],
-        [73,55],
-        [25,72],
-        [52,78],
-        [80,82]
-
-    ];
-
-    points.forEach(
-        ([x,y],index)=>{
-
-            const dot =
-                document.createElement("span");
-
-            dot.className=
-                "final-dot";
-
-            dot.style.left=
-                x+"%";
-
-            dot.style.top=
-                y+"%";
-
-            dot.style.animationDelay=
-                index*.15+"s";
-
-            container.appendChild(dot);
-
-        }
-    );
-
-
-    for(
-        let i=0;
-        i<points.length-1;
-        i++
-    ){
-
-        const [x1,y1]=points[i];
-        const [x2,y2]=points[i+1];
-
-        const dx=x2-x1;
-        const dy=y2-y1;
-
-        const length =
-            Math.sqrt(
-                dx*dx+dy*dy
-            );
-
-        const angle =
-            Math.atan2(dy,dx)
-            *180/Math.PI;
-
-        const line =
-            document.createElement("span");
-
-        line.className=
-            "final-line";
-
-        line.style.left=
-            x1+"%";
-
-        line.style.top=
-            y1+"%";
-
-        line.style.width=
-            length+"%";
-
-        line.style.transform=
-            `rotate(${angle}deg)`;
-
-        line.style.animationDelay=
-            (.3+i*.2)+"s";
-
-        container.appendChild(line);
-
-    }
-
-}
-
-
-/* =========================================================
-   FINAL REVEAL
-========================================================= */
-
-function showFinalUniverse(){
-
-    createFinalConstellation();
-
-    finalUniverse.classList.add(
-        "show"
-    );
-
-    constellationSound();
-
-}
-
-
-function checkFinal(){
-
-    if(
-        discovered.size >= 10
-    ){
-
-        showFinalUniverse();
-
-    }else{
-
-        /* intentionally don't force completion */
-
-        const remaining =
-            10-discovered.size;
-
-        energyText.textContent =
-            "THE UNIVERSE STILL HAS "+
-            remaining+
-            " SECRET"+
-            (remaining===1?"":"S")+
-            " FOR YOU ✦";
-
-        setTimeout(()=>{
-
-            energyText.textContent =
-                "COSMIC DISCOVERY "+
-                discovery+
-                "%";
-
-        },2500);
-
-    }
-
-}
-
-
-/* =========================================================
-   SPECIAL COMPLETION TRIGGER
-========================================================= */
-
-setInterval(
-    ()=>{
-
-        if(
-            discovery>=100 &&
-            !finalUniverse.classList
-                .contains("show")
-        ){
-
-            showFinalUniverse();
-
-        }
-
-    },
-    1000
-);
-
-
-/* =========================================================
-   FINAL BUTTON
-========================================================= */
-
-document
-.getElementById("finalButton")
-.addEventListener(
-    "click",
-    ()=>{
-
-        initAudio();
-
-        magicalReveal();
-
-        document
-        .getElementById(
-            "pageTransition"
-        )
-        .classList.add("show");
-
-        setTimeout(()=>{
-
-            /*
-             * CHANGE THIS TO YOUR
-             * ACTUAL FINAL PAGE FILE.
-             */
-
-            window.location.href =
-                "page12.html";
-
-        },1200);
-
-    }
-);
-
-
-/* =========================================================
-   MOUSE PARALLAX
-========================================================= */
-
-document.addEventListener(
-    "mousemove",
-    event=>{
-
-        const x =
-            (event.clientX /
-             window.innerWidth -
-             .5);
-
-        const y =
-            (event.clientY /
-             window.innerHeight -
-             .5);
-
-        document
-        .querySelectorAll(".planet")
-        .forEach(
-            (planet,index)=>{
-
-                const amount =
-                    10+index*5;
-
-                planet.style.marginLeft =
-                    x*amount+"px";
-
-                planet.style.marginTop =
-                    y*amount+"px";
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   TOUCH FRIENDLY METEOR CREATION
-========================================================= */
-
-document.addEventListener(
-    "touchstart",
-    ()=>{
-        if(!audioContext){
-            initAudio();
-        }
-    },
-    {once:true}
-);
-
-
-/* =========================================================
-   RESIZE CONSTELLATION
-========================================================= */
-
-window.addEventListener(
-    "resize",
-    ()=>{
-        if(
-            discovered.size>1
-        ){
-            drawMemoryConstellation();
-        }
-    }
-);
-
-
-/* =========================================================
-   INITIAL CONSOLE
-========================================================= */
-
-console.log(
-    "%c OUR LITTLE UNIVERSE ",
-    "color:#d8cfff;font-size:20px;font-weight:bold"
-);
-
-console.log(
-    "Tisha:",
-    tishaSign,
-    "♍"
-);
-
-console.log(
-    "Ritesh:",
-    riteshSign,
-    "♋"
-);
-
-</script>
+    </script>
 
 </body>
 </html>
